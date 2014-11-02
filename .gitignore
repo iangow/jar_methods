@@ -6,3 +6,4 @@
 *.out
 *.pdf
 .Rproj.user
+.Rhistory
