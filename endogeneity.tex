@@ -2,14 +2,24 @@
 
 \subsection{Importance of causal inference}
 
-\subsection{Endogeneity}
+Provide examples of important questions that accounting researchers seek to answer. Show that most (perhaps all) involve causal inference.
 
+\subsection{Endogeneity}
 
 \section{Methods for causal inference}
 
 \subsection{Natural experiments}
-Natural experiments occur when observations are assigned by nature (or some other force outside the control of the researcher) to treatment and control groups in a way that is random or ``as if'' random \citep{Dunning:2012tt}.
+Natural experiments occur when observations are assigned by nature (or some other force outside the control of the researcher) to treatment and control groups in a way that is random or ``as if'' random \citep{Dunning:2012tt}. 
+Truly (as if) random assignment to treatment and control provides a sound basis for causal inference, enhancing the appeal of natural experiments.
+However, \citet{Dunning:2012tt} argues that this appeal ``may provoke conceptual stretching, in which an attractive label is applied to research designs that only implausibly meet the definitional features of the method'' \citep[p.3]{Dunning:2012tt}.
 
+Such ``conceptual stretching'' is evident in accounting research. Consider \citet{Kirk:2014gx}, who ``exploit the natural experiment setting created by the exogenous shock of Reg FD to examine the effect of Reg FD on firms with an established IR [investor relations] program.'' 
+Given that the treatment of interest in \citet{Kirk:2014gx} is the establishment of an IR program, only a event that randomly assigned firms to having or not having such a program would qualify as a natural experiment in that setting.
+
+Another example is 
+
+A plausible explanation for the ease with which conceptual stretching has occurred derives from the ambiguity of the word ``exogenous,'' which denotes both ``of, relating to, or developing from external factors'' (Oxford Dictionary) and also the opposite of ``endogenous.''
+However, that Reg FD was perhaps not driven by factors related to firms' IR programs and firm-level capital market outcomes, it does not randomly assign firms into treatment and control groups and thus does not help resolve the endogeneity of IR programs with such capital market outcomes.
 
 \subsection{Instrumental variables}
 While much has been written on the issues with using instrumental variables (IV) as the basis for causal inference, as casual review of recent accounting research suggests that this has had little impact of accounting researchers' understanding of IV.
@@ -25,3 +35,13 @@ For age to be a valid instrument, there should be no unblocked causal path betwe
  That possible positive effects may be offset by negative effects and thus detecting an association between age and performance is not a valid basis for claiming age to be a valid instrument.
 
 \subsection{Regression discontinuity designs}
+
+Likely effective in settings, but of limited applicability and care is needed to do it well and to interpret the results. Discuss examples from shareholder voting and the \$75 million threshold for SOX.
+
+\subsection{Propensity score matching}
+
+Does \emph{not} solve endogeneity, but many believe that it does.
+
+\subsection{Overall assessment}
+
+We agree that the revolution in econometric methods for causal inference has certainly been an exciting development.\footnote{Not sure about ``revolution''; need to look at \emph{Mostly Harmless Econometrics} to get the right term here.} However, we have two grave concerns with regard to this methods in accounting research. First, it is evident that accounting researchers understand these methods only poorly and frequently seek to apply them inappropriately. Second,  it is far from clear that these methods, properly applied, can support more than a tiny fraction of accounting research. Of more than a 100 papers published in the top three accounting journals in 2014, we identified just a small fraction that applied these approaches and the vast majority of these did so in ways that seem difficult to classify as appropriate.
