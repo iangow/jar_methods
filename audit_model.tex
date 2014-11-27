@@ -1,0 +1,36 @@
+\documentclass[11pt]{amsart}
+\usepackage[marginratio=1:1]{geometry}  % See geometry.pdf to learn the layout options. There are lots.
+%\geometry{letterpaper} % ... or a4paper or a5paper or ... 
+%\geometry{landscape}  % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+%\usepackage{amsfonts}
+\usepackage{palatino}
+\usepackage{natbib}
+\usepackage{hyperref} 
+% \usepackage{paralist}
+
+\title[Audit model]{A simple model of auditing}
+
+\author{Ian D. Gow}
+%\date{}   % Activate to display a given date or no date
+
+\begin{document}
+\bibliographystyle{chicago}
+\section{Introduction}
+
+\section{The model}
+
+Managers get benefit of $B$ from successful manipulation of earnings at cost $C_M$. But to be successful, manipulation has to be missed by both external auditor and governance process. Auditor detects manipulation with $p_H$ if high effort is exerted and $p_L$ if low effort is exerted. Cost of low effort is normalized to zero. Cost of high effort is $C_A$. Governance process (e.g., internal audit, board, audit committee, press, regulatory bodies) detects misstatement missed by auditor with probability $p_G$. If auditor does not detect misstatement, then it incurs reputation cost $C_R$.
+
+
+In a mixed-strategy Nash equilibrium, auditor exerts high effort with probability $\alpha$ and manager misstates with probability $\beta$. So if manager misstates, auditor detects with probability $p = \alpha p_H + (1-\alpha) p_L$ and governance process detects with probability $(1-p) p_G$. Manager is indifferent between misstating and not misstating:
+
+\[ (1 - p - (1-p) p_G) B - C_M = 0 \]
+
+and auditor is similarly indifferent
+
+\[ \beta (1-p_H) p_G C_A - C_H = \beta (1-p_L) p_G C_A \]
+
+\bibliography{papers}
+
+\end{document}
