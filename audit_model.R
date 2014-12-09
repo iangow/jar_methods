@@ -16,4 +16,5 @@ p - (alpha * p_H + (1-alpha) * p_L)
 beta * (1-p_H) * p_G * C_R + C_A - beta * (1-p_L) * p_G * C_R
 
 beta * (1-p) * p_G
+(1-p)*(1-p_G)*B - C_M
 # beta * (p_L-p_H) * p_G * C_R  + C_A

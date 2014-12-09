@@ -1,0 +1,94 @@
+---
+title: "Untitled"
+author: "Ian Gow"
+date: "December 8, 2014"
+output: pdf_document
+---
+
+
+R code to implement the Imbens-Kalyanaraman bandwidth selection in RDD
+========================================================
+
+Regression discontinuity designs (RDD) have emerged as an approach for warranted causal inference in several settings in accounting research. In this note, we show that if the discontinuity is endogenous, the local nature of RDD estimates may severely compromise their usefulness for understanding the treatment effect more generally.
+
+Suppose that a regular observes that the (gross) benefit of a treatment $t$ for firm $i$ equals $B x_i + \epsilon_i$, where $B$ is a constant, $x_i$ is some firm-level characteristic (such as sales or market capitalization) and $\epsilon_i$ is a noise term uncorrelated with $x_i$. The cost of adopting treatment is $C$. Note that the net benefits of the treatment are positive if $B x_i + \epsilon_i - C > 0$ and the expected benefits are positive if $B x_i  > C$. Thus, if the regulation requires treatment only for firms with $x_i > C/B$, the expected net benefit for these firms will be positive and, for the firms with $x_i < C/B$, the net benefit of treatment would be negative.
+
+```{r parameters}
+B <- 2
+C <- 70
+N <- 1000
+x <- runif(n = N, 0, 100)
+
+epsilon <- rnorm(n = N)
+eta <-  rnorm(n = N, mean = 0, sd = 100)
+cutoff <- C/B
+treatment <- x > cutoff
+reaction <- ifelse(treatment, B*x + epsilon - C, 0) + eta
+```
+
+Now the calculation of optimal bandwidth requires only $y$, $X$, and $c$ (assuming we're using a triangular kernel), so we can put this calculation into [a separate function](http://rpubs.com/iangow/rd_opt_bw).
+```{r source_function, include=FALSE}
+source("http://iangow.me/code/rd_opt_bw.R")
+````
+
+Estimation and inference
+------------
+
+Now we can simply do local linear regression using the following weighting function for each observation $i$, 
+
+$$ \lambda_i = K \left( \frac{X_i - c}{h} \right) = \left( 1 - \frac{|X_i - c|}{h} \right) 1_{|X_i-c| \leq h}.$$
+<!-- and let $\overline{Z}_{\lambda}$ be the weighted average of the covariates.
+$$ \overline{Z}_{\lambda} = \frac{\sum_{i=i}^N \lambda_i \cdot Z_i}{\sum_{i=1}^N \lambda_i}. $$ -->
+```{r estimation}
+    ### (4) Calculate the treatment effect and standard errors.
+    y <- reaction
+    c <- cutoff
+
+    # First, get bandwidth
+    h <- rd_opt_bw(y, x, c)
+    
+    ## Weights based on triangular kernel
+    wgts <- (1 - abs(x-c) / h) * (abs(x-c) <= h)
+    local.lm <- lm(y ~ (x >=c) * I(x-c) , weights = wgts)    
+
+    rd.est <- coef(local.lm)[[2]]
+    sd.est <- sqrt(vcov(local.lm)[2, 2])
+     
+    ## Output
+    out <- c(h, rd.est, sd.est, rd.est/sd.est)
+    names(out) <- c("Optimal Bandwidth", "RD Estimate", 
+                    "Standard Error", "t-statistic")
+    print(out)
+```
+
+A plot of the data with fitted values
+------------
+
+Below I provide a plot of the data with fitted values based on locally linear kernel estimates for each value of $X$ using the bandwidth calculated above. While the bandwidth is optimized at the cutoff, there seems to be merit in visually inspecting the resulting kernel estimates for all values of $X$.
+```{r plot, warning=FALSE, fig.width=10}
+    # A function to estimate local linear regression around a point (x_i) using
+    # bandwidth h, the triangular kernel and limiting observations to those on
+    # the same side of the cutoff c. In some sense, this is purely visual, as
+    # the IK bandwidth is optimized for x \in [c-h, c+h] and other data are not
+    # involved.
+    ll <- function(x_i, y, x, h, c) {
+        wgts <- (1 - abs(x-x_i) / h) * (abs(x-x_i) <= h) * 
+            (sign(x_i-c)==sign(x-c) | x_i==c)
+        lm.fitted <- lm(y ~  x , weights = wgts)
+        if(sum(wgts>0)>10) { # Require 10 observations around x_i
+            return(predict(lm.fitted, newdata=data.frame(x=x_i)))
+        } else {
+            return(NA)
+        }
+    }
+
+    df <- data.frame(y, x, c)
+    # Add the fitted value to the dataset
+    df$y_fitted <- unlist(lapply(x, ll, y, x, h, c))
+    
+    # Make a plot
+    library(ggplot2)
+    ggplot(df, aes(x)) + 
+        geom_point(aes(y=y, color=x>c)) + 
+        geom_line(aes(y=y_fitted, color=x>c))
+```
