@@ -1,45 +1,58 @@
 ---
-title: "Untitled"
+title: "RDD with an endogenous discontinuity"
 author: "Ian Gow"
 date: "December 8, 2014"
-output: pdf_document
+bibliography: papers.bib
+output:
+  pdf_document:
+    highlight: pygments
+header-includes:
+- \usepackage{bbm}
+- \usepackage{palatino}
 ---
 
+Regression discontinuity designs (RDD) have emerged as an approach for warranted causal inference in several settings in accounting research. In this note, we show that if the discontinuity is endogenous (i.e., determined with reference to the outcome variable of interest), the local nature of RDD estimates may severely compromise their usefulness for understanding the treatment effect for a broader class of firms.
 
-R code to implement the Imbens-Kalyanaraman bandwidth selection in RDD
-========================================================
+To understand this issue,we examine an idealized version of the setting studied by @Iliev:2010, who uses the market capitalization cutoff of \$75 million in studying the effect of SOX Section 404.\footnote{Note that Iliev (2010) is careful not to include firms with market capitalization far from \$75 million and emphasizes that his estimates apply only to ``small firms.''} 
+Consistent with this limitation, our analysis suggests that RDD can provide little insight into the broader question of whether SOX is value-creating for all firms subject to it.
 
-Regression discontinuity designs (RDD) have emerged as an approach for warranted causal inference in several settings in accounting research. In this note, we show that if the discontinuity is endogenous, the local nature of RDD estimates may severely compromise their usefulness for understanding the treatment effect more generally.
+Suppose that a regular observes that the (gross) benefit of a treatment $t$ for firm $i$ equals $B x_i + \epsilon_i$, where $B$ is a constant, $x_i$ is some firm-level characteristic (such as sales or market capitalization) and $\epsilon_i$ is a noise term uncorrelated with $x_i$.
+The cost of adopting this treatment is $C$.
 
-Suppose that a regular observes that the (gross) benefit of a treatment $t$ for firm $i$ equals $B x_i + \epsilon_i$, where $B$ is a constant, $x_i$ is some firm-level characteristic (such as sales or market capitalization) and $\epsilon_i$ is a noise term uncorrelated with $x_i$. The cost of adopting treatment is $C$. Note that the net benefits of the treatment are positive if $B x_i + \epsilon_i - C > 0$ and the expected benefits are positive if $B x_i  > C$. Thus, if the regulation requires treatment only for firms with $x_i > C/B$, the expected net benefit for these firms will be positive and, for the firms with $x_i < C/B$, the net benefit of treatment would be negative.
 
-```{r parameters}
-B <- 2
-C <- 70
+Note that the net benefits of the treatment are positive if $B x_i + \epsilon_i - C > 0$ and the expected benefits are positive if $B x_i  > C$.
+Thus, if the regulation requires treatment only for firms with $x_i > C/B$, the expected net benefit for these firms will be positive and, for the firms with $x_i < C/B$, the net benefit of treatment would be negative.\footnote{We put aside for now the explanation for why firms do not choose to implement this measure independent of the regulation requiring it.}
+Suppose we wanted to run an event study on the date that the regulation was announced.
+Suppose that the return on the date of implementation \emph{outside of the effect of the regulation} has expected value of zero and standard deviation of $\sigma_{\eta}$.
+So announcement-date return for firm $i$ equals 
+$\mathbb{I}_{x_i>C/B} \left( B x_i + \epsilon_i - C \right) + \eta_i$,
+where $\mathbb{I}_{x_i>C/B}$ indicates that the regulation applies to firm $i$.
+
+## Simulation 
+
+```{r parameters, include=FALSE}
+B <- 0.002
+C <- 0.1
 N <- 1000
-x <- runif(n = N, 0, 100)
-
-epsilon <- rnorm(n = N)
-eta <-  rnorm(n = N, mean = 0, sd = 100)
-cutoff <- C/B
-treatment <- x > cutoff
-reaction <- ifelse(treatment, B*x + epsilon - C, 0) + eta
+x_max <- 100
+sigma_eta <- 0.025
+sigma_epsilon <- 0.01 
 ```
 
-Now the calculation of optimal bandwidth requires only $y$, $X$, and $c$ (assuming we're using a triangular kernel), so we can put this calculation into [a separate function](http://rpubs.com/iangow/rd_opt_bw).
-```{r source_function, include=FALSE}
-source("http://iangow.me/code/rd_opt_bw.R")
-````
+To examine the efficacy of RDD, we simulate `r N` observations using values $B = `r B`$, $C = `r C`$, $\sigma_{\eta} = `r sigma_eta`$, $\sigma_{\epsilon} = `r sigma_epsilon`$, and $x \sim U[0, `r x_max`]$.
 
-Estimation and inference
-------------
 
-Now we can simply do local linear regression using the following weighting function for each observation $i$, 
+```{r simulation}
+x <- runif(n = N, 0, x_max)
+epsilon <- rnorm(n = N, sd=sigma_epsilon)
+eta <-  rnorm(n = N, mean = 0, sd = sigma_eta)
+cutoff <- C/B
+reaction <- (x > cutoff) * (B*x + epsilon - C) + eta
+```
 
-$$ \lambda_i = K \left( \frac{X_i - c}{h} \right) = \left( 1 - \frac{|X_i - c|}{h} \right) 1_{|X_i-c| \leq h}.$$
-<!-- and let $\overline{Z}_{\lambda}$ be the weighted average of the covariates.
-$$ \overline{Z}_{\lambda} = \frac{\sum_{i=i}^N \lambda_i \cdot Z_i}{\sum_{i=1}^N \lambda_i}. $$ -->
-```{r estimation}
+```{r estimation, include=FALSE}
+    source("http://iangow.me/code/rd_opt_bw.R")
+
     ### (4) Calculate the treatment effect and standard errors.
     y <- reaction
     c <- cutoff
@@ -60,12 +73,17 @@ $$ \overline{Z}_{\lambda} = \frac{\sum_{i=i}^N \lambda_i \cdot Z_i}{\sum_{i=1}^N
                     "Standard Error", "t-statistic")
     print(out)
 ```
+We estimate the treatement effect using local linear regression, the triangular kernel 
+and the [Imbens-Kalyanaraman bandwidth](http://iangow.me/code/rd_opt_bw.R).
+The estimated treatment effect is $`r formatC(out[2], digits=3, format='f')`$
+($t$-statistic of $`r formatC(out[4], digits=3, format='f')`$).
+See below a plot of the data with fitted values.\footnote{Estimates are based on locally linear kernel estimates for each value of $X$ using the bandwidth calculated above. While the bandwidth is optimized at the cutoff, there seems to be merit in visually inspecting the resulting kernel estimates for all values of $X$.}
+But note that the average treatment effect for the treated equals the average value of 
+$B x_i + \epsilon_i - C$ for the treated firms, which equals 
+$`r formatC(sum((x > cutoff) * (B*x + epsilon - C))/sum(x>cutoff), format='f', digits=3)`$
+(close to the theoretical expected value of $`r (x_max+C/B)/2*B - C`$).
 
-A plot of the data with fitted values
-------------
-
-Below I provide a plot of the data with fitted values based on locally linear kernel estimates for each value of $X$ using the bandwidth calculated above. While the bandwidth is optimized at the cutoff, there seems to be merit in visually inspecting the resulting kernel estimates for all values of $X$.
-```{r plot, warning=FALSE, fig.width=10}
+```{r plot, warning=FALSE, echo=FALSE, fig.width=8, fig.pos='h'}
     # A function to estimate local linear regression around a point (x_i) using
     # bandwidth h, the triangular kernel and limiting observations to those on
     # the same side of the cutoff c. In some sense, this is purely visual, as
@@ -92,3 +110,5 @@ Below I provide a plot of the data with fitted values based on locally linear ke
         geom_point(aes(y=y, color=x>c)) + 
         geom_line(aes(y=y_fitted, color=x>c))
 ```
+
+# References
