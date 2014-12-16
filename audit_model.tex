@@ -9,7 +9,7 @@
 \usepackage{hyperref} 
 % \usepackage{paralist}
 
-\title[Audit model]{A simple model of auditing}
+\title[Audit model]{A simple model of detection of misstatements}
 
 \author{Ian D. Gow \and David F. Larcker \and Peter C. Reiss}
 %\date{}   % Activate to display a given date or no date
@@ -27,16 +27,26 @@ We study a simple model of managerial misstatement of accounting numbers in the 
 
 \bibliographystyle{chicago}
 \section{Introduction}
-We consider a simple model in which a manager trades off benefits and costs of misstating earnings in a setting involving an external auditor. The external auditor trades off audit effort and the reputational cost incurred if managerial misstatement is not detected in the audit process, but is detected by an secondary audit mechanism. We take the secondary mechanism to be some kind governance or regulatory process that is able to detect misstatements, with some non-zero probability, misstatements that are not detected by the external auditor.
+Audited financial statements  are an important element of functioning capital markets throughout the developed world.
+
+An extensive body of research has examined the factors that lead to misstatement of financial reporting information. This research has generally assumed that \emph{observed} misstatements are a viable measure of the true level of misstatement by managers. However, there are three requirements for there to be an observed restatement. misstatement to be detected: (i) the manager must have misstated, (ii) the auditor must not have detected and corrected the misstatement before audited financial statements were issued, and (iii) some process (e.g., the media, the external auditor, or a regulator) must have detected the misstatement at a later date and instigated a process that led to a restatement.
+
+We first consider a simple model in which a manager trades off benefits and costs of misstating earnings in a setting in which misstatements can be detected either by an external auditor or,  if undetected by the auditor, by a secondary audit mechanism. We take the secondary mechanism to be some kind governance or regulatory process.
 
 We assume that attempted misstatements that are detected by the external auditor are not observed by outsiders (including researchers). Only if the misstatement is detected by the secondary audit process are they observed by outsiders.
 
-The possibility that functions other than the external auditor could detect misstatements is consistent with the evidence in \citet{Dyck:2010kh}. \citet{Dyck:2010kh} show that many corporate frauds, some of which are egregious forms of misstatement of financial statements, are detect by employees, directors, regulators, and the media.
+The possibility that functions other than the external auditor could detect misstatements is consistent with the evidence in \citet{Dyck:2010kh}. \citet{Dyck:2010kh} show that many corporate frauds, some of which are egregious forms of misstatement of financial statements, are many are detected by employees, directors, regulators, and the media.
 
 \section{Prior research}
-An extensive body of research has examined the factors that lead to misstatement of financial reporting information. This research has generally assumed that \emph{observed} misstatements are a viable measure of the true level of misstatement by managers.
 
-\section{The model}
+\section{The basic model}
+The manager's choice is either to misstate or not misstate. The manager enjoys a benefit of $B$ from \emph{successful} manipulation of earnings, i.e., from misstatements that are not detected by the external auditor or through other governance (e.g., internal audit, board, audit committee, press) or regulatory mechanisms (for brevity, we hereafter refer to the these other governance or regulatory mechanisms as the ``governance process''). In misstating earnings, the manager incurs a personal cost of $C_M$.
+
+The auditor detects manipulation with probability $p$. An additional governance (e.g., internal audit, board, audit committee, press) or regulatory mechanism detects misstatements that are missed by the auditor with probability $p_G$. 
+
+The manager will misstate if $(1 - p)(1 - p_G) B - C_M > 0 \Rightarrow  B > \frac{C_M}{(1 - p)(1 - p_G)}$.
+
+\section{The model with a rational auditor}
 
 The manager's choice is either to misstate or not misstate. The manager enjoys a benefit of $B$ from \emph{successful} manipulation of earnings, i.e., from misstatements that are not detected by the external auditor or through other governance (e.g., internal audit, board, audit committee, press) or regulatory mechanisms (for brevity, we hereafter refer to the these other governance or regulatory mechanisms as the ``governance process''). In misstating earnings, the manager incurs a personal cost of $C_M$.
 
@@ -47,11 +57,9 @@ In a mixed-strategy Nash equilibrium, the auditor exerts high effort with probab
 \[ (1 - p)(1 - p_G) B - C_M = 0 \]
 
 and auditor is similarly indifferent between her available actions:
-
 \[ \beta (1-p_H) p_G C_R + C_A = \beta (1-p_L) p_G C_R \]
 
 Solving for the equilibrium, we get 
-
 \begin{align*}
     %(1 - p - (1-p) p_G) B &= C_M \\
     %(1 - p) (1 - p_G) B &= C_M \\
@@ -72,7 +80,7 @@ For $\alpha, \beta \in (0, 1)$, we need to restrict $C_R$ and $B$ as follows
 \[  C_R > \frac{C_A}{(p_H-p_L)p_G} \]
 and 
 \[  B > \frac{C_M}{1 - p_G}  \]
-
+%
 \begin{lemma}\label{prob_total}
 The probability of there being a misstatement that is detected by either the auditor or the governance process is 
 \[ \beta \left( p + (1-p)  p_G \right) = \frac{C_A}{(p_H-p_L) p_G C_R } \frac{B- C_M}{B}. \]
