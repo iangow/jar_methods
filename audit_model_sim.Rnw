@@ -40,6 +40,7 @@ We assume that attempted misstatements that are detected by the external auditor
 The possibility that functions other than the external auditor could detect misstatements is consistent with the evidence in \citet{Dyck:2010kh}. \citet{Dyck:2010kh} show that many corporate frauds, some of which are egregious forms of misstatement of financial statements, are many are detected by employees, directors, regulators, and the media.
 
 \section{Prior research}
+The use of incentives is prevalent in executive compensation, presumably because incentives ``alleviate certain agency problems between executives and shrewholders'' \citep[p.226]{Armstrong:2010jd} However, a number of papers have examined whether ``incentives might also motivate executives to manipulate accounting information for personal gain'' \citep[p.226]{Armstrong:2010jd}. \citet[p.226]{Armstrong:2010jd} identify ten prior studies that examine the question of whether incentives are positively associated with 
 
 \section{The basic model}
 
@@ -51,6 +52,7 @@ The auditor detects manipulation with probability $p$. An additional governance 
 The manager will misstate if $(1 - p)(1 - p_G) B - C_M > 0 \Rightarrow  B > \frac{C_M}{(1 - p)(1 - p_G)}$.
 
 <<r parameters_basic, include =FALSE>>=
+set.seed(2014)
 N <- 10000
 p <- 0.5
 p_G <- 0.12
@@ -61,32 +63,53 @@ C_M_max <- 12
 @
 
 <<r basic_sim, include=FALSE>>=
-B <- runif(n=N, min=B_min, max=B_max)
-C_M <- runif(n = N, min=C_M_min, max=C_M_max)
-misstate <- B > C_M/((1-p)*(1-p_G))
-auditor_detects <- misstate & rbinom(n=N, size = 1, prob = p)
-restate <- misstate & !auditor_detects & rbinom(n=N, size = 1, prob = p_G)
+df.basic <- data.frame(B = runif(n=N, min=B_min, max=B_max)) 
+df.basic <- within(df.basic, {
+    p <- p
+    C_M <- runif(n = N, min=C_M_min, max=C_M_max)
+    misstate <- B > C_M/((1-p)*(1-p_G))
+    auditor_detects <- misstate & rbinom(n=N, size = 1, prob = p)
+    restate <- misstate & !auditor_detects & rbinom(n=N, size = 1, prob = p_G)
+})
 @
 
 To simulate data matching this model, we assume that $p = \Sexpr{p}$, $p_G = \Sexpr{p_G}$, $B \sim U[\Sexpr{B_min}, \Sexpr{B_max}]$, and 
 $C_M \sim U[\Sexpr{C_M_min}, \Sexpr{C_M_max}]$. 
-We then generate $\Sexpr{N}$ observations, with managers misstating in $\Sexpr{sum(misstate)}$ cases, the auditor detecting (and eliminating) misstatement in $\Sexpr{sum(auditor_detects)}$ cases, and missing it in the remaining $\Sexpr{sum(misstate & !auditor_detects)}$ cases.
-In this last group of cases, the misstatement is detected later and leads to a restatement in $\Sexpr{sum(restate)}$  cases.
+We then generate $\Sexpr{N}$ observations, with managers misstating in $\Sexpr{sum(df.basic$misstate)}$ cases, the auditor detecting (and eliminating) misstatement in 
+$\Sexpr{sum(df.basic$auditor_detects)}$ cases, and missing it in the remaining $\Sexpr{sum(df.basic$misstate & !df.basic$auditor_detects)}$ cases.
+In this last group of cases, the misstatement is detected later and leads to a restatement in $\Sexpr{sum(df.basic$restate)}$  cases.
 
 
 <<r basic_results, include=FALSE>>=
-basic.fm <- glm(restate ~ B, family = "binomial")
+basic.fm <- glm(restate ~ B, family = "binomial", data=df.basic)
+coeff <- formatC(summary(basic.fm)$coefficients[2,1], format = "f", digits=3)
+tstat <- formatC(summary(basic.fm)$coefficients[2,3], format = "f", digits=3)
 @
 
 If we assume that the researcher observes $B$ and restatements, but not $C_M$, then the researcher can run a logit regression of \textit{restate} on $B$. 
 This regression yields a coefficient of 
-$\Sexpr{formatC(summary(basic.fm)$coefficients[2,1], format = "f", digits=3)}$ on $B$ with a $t$-statistic of $\Sexpr{formatC(summary(basic.fm)$coefficients[2,3], format = "f", digits=3)}$.
+$\Sexpr{coeff}$ on $B$ with a $t$-statistic of $\Sexpr{tstat}$.
 
+\subsection{Discussion of results}
+From a study of prior research, it is clear that the finding of a statistically significant coefficient on $B$ would be interpreted as evidence of a causal relation between incentives and misstatement. 
+If the basic model is a valid model of reality (as it is by construction in our simulation), 
+then there is indeed a causal relation between incentives and misstatement and, with $B$ being exogenous, there is some basis for causal inference. But note that there are limitations. 
+First, what does the coefficient of $\Sexpr{coeff}$ mean? There is no clear mapping from the coefficient to any model parameter.
+Interpreting it as some kind of effect size requires assumptions about which values of $B$ are being modified.\footnote{I figure we could do some kind of structural estimation here, but I haven't done that year. I guess, if we assume we can observe $C_M$ (or some proxy for it) we could recover $(1 - p)(1 - p_G)$, but not $p$ and $p_G$ separately. 
+If we don't have $C_M$, then it's less clear to me what we could recover.}
+Finally, we are assuming that the basic model is a valid description of reality. In the following section, we relax this assumption.
+
+Note that we assume that $C_M$ is unobservable and thus not ``controlled for`` in the regression.
+But in this case, $C_M$ is independent of $B$ and it turns out that including $C_M$ in the regression has no material impact on the estimated coefficient on $B$.
+
+Also note that the choice of (logit) regression over propensity score matching \citep[see][]{Armstrong:2010jd} is defensible in that $B$ is randomly assigned, so we have selection on neither observables nor unobservables and thus matching treatement and control using something like propensity score matching is unnecessary. 
 
 \section{The model with a rational auditor}
 
 \subsection{Model setup}
-A weakness of the basic model analyzed above is that it ignores the incentives of the external auditor. According to PCAOB guidance in Auditing Standard No. 12, assessment of the risk of material misstatement should take into account ``incentive compensation arrangements." Then Auditing Standard No. 8 suggests that audit effort should increase if risk is higher. We build on the model above by allowing the external auditor to choose effort $e \in \{L, H\}$.
+A weakness of the basic model analyzed above is that it ignores the incentives of the external auditor. According to PCAOB guidance in Auditing Standard No. 12, assessment of the risk of material misstatement should take into account ``incentive compensation arrangements."
+Then Auditing Standard No. 8 suggests that audit effort should increase if risk is higher.
+We build on the model above by allowing the external auditor to choose a level of effort $e \in \{L, H\}$ that affects the probability of detection of misstatements.
 
 The auditor detects manipulation with $p_H$ if high effort is exerted and $p_L$ if low effort is exerted. Cost of low effort is normalized to zero. Cost of high effort is $C_A$. As above, the governance (e.g., internal audit, board, audit committee, press) or regulatory mechanism detects misstatements that are missed by the auditor with probability $p_G$.
 But now, if the auditor does not detect misstatement that is detected by the governance process then it incurs a reputation cost of $C_R$.
@@ -94,7 +117,6 @@ But now, if the auditor does not detect misstatement that is detected by the gov
 \subsection{Equilibrium analysis}
 
 In a mixed-strategy Nash equilibrium, the auditor exerts high effort with probability $\alpha$ and manager misstates with probability $\beta$. So if manager misstates, auditor detects with probability $p := \alpha p_H + (1-\alpha) p_L$ and governance process detects with probability $(1-p) p_G$. The manager is indifferent between misstating and not misstating:
-
 \[ (1 - p)(1 - p_G) B - C_M = 0 \]
 
 and auditor is similarly indifferent between her available actions:
@@ -133,7 +155,7 @@ Simple algebra using expressions above.
 \begin{proposition}
 The probability of there being a misstatement that is detected by the either the auditor or the governance process is 
 \begin{itemize}
-\item Increasing in the benefit that the manager enjoys from restatement, $B$.
+\item Increasing in the benefit that the manager enjoys from misstatement, $B$.
 \item Decreasing in the reputational cost, $C_R$, incurred by the auditor if she misses a misstatement that is detected otherwise.
 \item Decreasing in the personal cost of manipulation incurred by the manager, $C_M$.
 \item Increasing in the cost of high effort incurred by the auditor, $C_A$.
@@ -145,10 +167,10 @@ See Lemma \ref{prob_total}.
 Note that $\frac{\mathrm{d}}{\mathrm{d}B} \frac{B- C_M}{B} = \frac{C_M}{B^2} >0.$
 \end{proof}
 
-This result confirms the intuition that increasing the benefit that managers enjoy from misstatement, or decreasing the cost that they incur in misstating, leads to more restatements being detected in aggregate.
+This result confirms the intuition that increasing the benefit that managers enjoy from misstatement, or decreasing the cost that they incur in misstating, leads to more misstatements occurring and more misstatements being detected in aggregate (i.e., by either the auditor or external governance process). Next, we study the impact of increasing the benefit that managers enjoy from misstatement on restatements (i.e., misstatements that are detected by the external governance process).
 
 \begin{lemma}\label{prob_observed}
-The probability of there being a misstatement that is detected by the governance process is 
+The probability of there being a restatement is
 \[ \beta  (1-p)  p_G = \frac{C_A C_M}{(p_H-p_L) (1 - p_G) C_R  B}. \]
 \end{lemma}
 \begin{proof}
@@ -156,7 +178,7 @@ Simple algebra using expressions above.
 \end{proof}
 
 \begin{proposition}\label{cool_result}
-The probability of there being a misstatement that is detected by the governance process is 
+The probability of there being a restatement is 
 \begin{itemize}
 \item Decreasing in the benefit that the manager enjoys from restatement, $B$.
 \item Decreasing in the reputational cost, $C_R$, incurred by the auditor if she misses a misstatement that is detected otherwise.
@@ -183,9 +205,7 @@ C_R <- 40
 We build on the simulation above by setting $p_H = \Sexpr{p_H}$, $p_L = \Sexpr{p_L}$, $C_A = \Sexpr{C_A}$, and $C_R = \Sexpr{C_R}$.
 
 <<model_solution, include=FALSE>>=
-beta <- C_A /((p_H-p_L)*p_G*C_R)
-p <- ((1 - p_G) * B - C_M)/( (1 - p_G) * B)
-alpha <- ( p - p_L)/(p_H - p_L)
+
 
 # Checks:
 # p - (alpha * p_H + (1-alpha) * p_L)
@@ -197,23 +217,46 @@ alpha <- ( p - p_L)/(p_H - p_L)
 @
 
 <<full_simulation, include=FALSE>>=
-misstate <- rbinom(n=N, size = 1, prob = beta)
-auditor_effort <- rbinom(n=N, size = 1, prob = alpha)
-p <- ifelse(auditor_effort, p_H, p_L)
-auditor_detects <- misstate & rbinom(n=N, size = 1, prob = p)
-restate <- misstate & !auditor_detects & rbinom(n=N, size = 1, prob = p_G)
+df.full <- subset(df.basic, select=c(C_M, B))
+df.full <- within(df.full, {
+    beta <- C_A /((p_H-p_L)*p_G*C_R)
+    p <- ((1 - p_G) * B - C_M)/( (1 - p_G) * B)
+    alpha <- ( p - p_L)/(p_H - p_L)
+    misstate <- as.logical(rbinom(n=N, size = 1, prob = beta))
+    auditor_effort <- as.logical(rbinom(n=N, size = 1, prob = alpha))
+    # p_true <- ifelse(auditor_effort, p_H, p_L)
+    auditor_detects <- misstate & rbinom(n=N, size = 1, prob = ifelse(auditor_effort, p_H, p_L))
+    restate <- misstate & !auditor_detects & rbinom(n=N, size = 1, prob = p_G)
+})
 @
 
-We then generate $\Sexpr{N}$ observations, with managers misstating in $\Sexpr{sum(misstate)}$ cases, the auditor detecting (and eliminating) misstatement in $\Sexpr{sum(auditor_detects)}$ cases, and missing it in the remaining $\Sexpr{sum(misstate & !auditor_detects)}$ cases.
-In this last group of cases, the misstatement is detected later and leads to a restatement in $\Sexpr{sum(restate)}$ cases.
+We then generate $\Sexpr{N}$ observations, with managers misstating in 
+$\Sexpr{sum(df.full$misstate)}$ cases, the auditor detecting (and eliminating) misstatement in 
+$\Sexpr{sum(df.full$auditor_detects)}$ cases, and missing it in the remaining 
+$\Sexpr{sum(df.full$misstate & !df.full$auditor_detects)}$ cases.
+In this last group of cases, the misstatement is detected later and leads to a restatement in 
+$\Sexpr{sum(df.full$restate)}$ cases.
 
 <<r full_results, include=FALSE>>=
-full.fm <- glm(restate ~ B, family = "binomial")
+full.fm <- glm(restate ~ B, family = "binomial", data=df.full)
 @
 
 If we assume that the researcher observes $B$ and restatements, but not $C_M$, then the researcher can run a logit regression of \textit{restate} on $B$. 
 This regression yields a coefficient of 
 $\Sexpr{formatC(summary(full.fm)$coefficients[2,1], format = "f", digits=3)}$ on $B$ with a $t$-statistic of $\Sexpr{formatC(summary(full.fm)$coefficients[2,3], format = "f", digits=3)}$.
+
+\subsection{Discussion of results}
+Relatively to the model above, we included a simple feature of the world that is clearly grounded
+in observed features of real-world institutions, namely, external auditors. 
+And we gave these auditors incentives that are realistic (and in fact consistent with auditing standards.)
+But the net effect of this minor tweak is to completely confound inferences. 
+While we find a negative, albeit statistically insignificant, coefficient on $B$, given our knowledge of the data-generating process, we know that an inference that there is no (positive) causal effect of incentives on misreporting.
+
+One view of the basic issue here is that we have measurement issues: restatements are a noisy proxy for misstatements. But, this should not be viewed as a case where the canard that ``measurement error biases against finding results'' applies, as the measurement error is systematically related to the treatment of interest.
+
+As with the basic model above, the issue is not failure to ``control'' for $C_M$ (including $C_M$ in the regression has no material impact) or the use of (logistic) regression rather than some kind of matching.
+
+\section{Measurement of incentives}
 
 \bibliography{/Users/igow/Dropbox/papers}
 
