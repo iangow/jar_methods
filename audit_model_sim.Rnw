@@ -19,8 +19,6 @@
 
 \begin{document}
 
-
-
 \begin{abstract}
 We study a simple model of managerial misstatement of accounting numbers in the presence of an external audit function and a separate governance or regulatory process. We show that the observed rate of misstatement will be a \emph{decreasing} function of the benefit accruing to the manager from misstatement. This contrasts with the standard empirical approaches in accounting research, which interpret a positive association between measures of benefit of misstatement and observed restatement levels as evidence that the measures have a causal effect on accounting misstatement. Our paper suggests that researchers need to exercise caution when interpreting the results of empirical models of the kind typically used in accounting research. 
 \end{abstract}
@@ -363,7 +361,40 @@ If we assume that the researcher observes $B$ and restatements, but nothing else
 This regression yields a coefficient of 
 $\Sexpr{formatC(summary(bonus.fm.alt)$coefficients[2,1], format = "f", digits=3)}$ on $B$ with a $t$-statistic of $\Sexpr{formatC(summary(bonus.fm.alt)$coefficients[2,3], format = "f", digits=3)}$.
 
-\bibliography{/Users/igow/Dropbox/papers}
+\section{Comments for Peter}
 
+\begin{itemize}
+\item I think the models above do the job of illustrating the point that some model
+is needed to make any sense of what regression coefficients are telling us.
+I think it is important to study a setting that has been a focus of prior research; 
+we have done that.
+\item I think that whether endogeneity (completely absent here) is a higher order
+issue than the issues highlighted here is far from clear. 
+But, for some reason, talking about endogeneity and fanciful identification strategies
+is deemed to be ``sexy,'' so that't what researchers do (if they do anything).
+\item Note that I didn't do any structural \emph{estimation} of the models above. 
+We could add this.
+I felt the last model might be a good one to illustrate the challenges, 
+which I view as more about understanding the setting and getting the right data
+than about anything mathematical.
+I'm not sure which of these models would be best to use to generate data to do this.
+\item Dave wants to take a model to \emph{real} data. 
+I think this is out of scope because I don't think we want to be distracted by having 
+to defend a (likely weak) model.
+\item But I think it might be more palatable to illustrate the challenges by taking a couple of models 
+(perhaps the first two above) to the data and discuss the challenges in \emph{distinguishing} them.
+\item I think a really bad outcome would for every paper to develop a structural model \emph{de novo}, 
+take it to data, and say something like  
+``my `model' predicts $\beta_2>0$, I find $\beta_2>0$, confirming my model is correct.'' 
+Much better would be for researchers to conduct some kind of horse race between an
+established model and a proposed new one.
+\item A challenge I see is that the paradigm of accepting or rejecting models based on the sign and statistical significance of regression coefficients is so well-entrenched, yet potentially very wrong.
+It's not clear to me whether it's possible nest the first two models above to evaluate them in a standard hypothesis testing framework.
+And if it isn't feasible, then how does one determine which of these two models best fits the data?
+\item One aspect of the models above is that they have parameters, but the parameters aren't coefficients.
+This relates to the ``nested model'' question above. Surely this is common in structural models: two models need not be derived from a common model, but with different coefficients. There is a sense in which the first model above is the second model, but with as $p_H \rightarrow p_L$, but even if the parameters are continuous, the equilibrium will not be.
+\end{itemize}
+
+\bibliography{jar_methods}
 
 \end{document}
