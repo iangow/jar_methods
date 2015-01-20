@@ -40,7 +40,8 @@ We assume that attempted misstatements that are detected by the external auditor
 The possibility that functions other than the external auditor could detect misstatements is consistent with the evidence in \citet{Dyck:2010kh}. \citet{Dyck:2010kh} show that many corporate frauds, some of which are egregious forms of misstatement of financial statements, are many are detected by employees, directors, regulators, and the media.
 
 \section{Prior research}
-The use of incentives is prevalent in executive compensation, presumably because incentives ``alleviate certain agency problems between executives and shrewholders'' \citep[p.226]{Armstrong:2010jd} However, a number of papers have examined whether ``incentives might also motivate executives to manipulate accounting information for personal gain'' \citep[p.226]{Armstrong:2010jd}. \citet[p.226]{Armstrong:2010jd} identify ten prior studies that examine the question of whether incentives are positively associated with 
+The use of incentives is prevalent in executive compensation, presumably because incentives ``alleviate certain agency problems between executives and shrewholders'' \citep[p.226]{Armstrong:2010jd} However, a number of papers have examined whether ``incentives might also motivate executives to manipulate accounting information for personal gain'' \citep[p.226]{Armstrong:2010jd}. \citet[p.226]{Armstrong:2010jd} identify ten prior studies that examine the question of whether increased performance incentives for managers lead to greater levels of misreporting of financial statements.
+
 
 \section{The basic model}
 
