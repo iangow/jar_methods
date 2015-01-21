@@ -40,14 +40,9 @@ The possibility that functions other than the external auditor could detect miss
 \citet{Dyck:2010kh} show that many corporate frauds, some of which are egregious forms of misstatement of financial statements, are many are detected by employees, directors, regulators, and the media.
 
 \section{Prior research}
-<<<<<<< HEAD
-The use of incentives is prevalent in executive compensation, presumably because incentives ``alleviate certain agency problems between executives and shrewholders'' \citep[p.226]{Armstrong:2010jd} However, a number of papers have examined whether ``incentives might also motivate executives to manipulate accounting information for personal gain'' \citep[p.226]{Armstrong:2010jd}. \citet[p.226]{Armstrong:2010jd} identify ten prior studies that examine the question of whether increased performance incentives for managers lead to greater levels of misreporting of financial statements.
-
-=======
 The use of incentives is prevalent in executive compensation, presumably because incentives ``alleviate certain agency problems between executives and shareholders'' \citep[p.226]{Armstrong:2010jd}.
 However, a number of papers have examined whether ``incentives might also motivate executives to manipulate accounting information for personal gain'' \citep[p.226]{Armstrong:2010jd}. 
 \citet[p.226]{Armstrong:2010jd} identify ten prior studies that examine the question of whether incentives are positively associated with misstatement of financial reporting numbers. With the exceptions of \citep{Bergstresser:2006jl,Cheng:2011fh}, each paper measures misstatement of financial reporting numbers using measures of detected misstatements, either restatements or AAERs. Each paper hypothesizes that stronger incentives will lead to a greater frequency of misstatement and, in turn, restatements.
->>>>>>> b34c43909fab9db4f38ee393235e9d44dd961969
 
 \section{The basic model}
 
@@ -62,6 +57,7 @@ The manager will misstate if $(1 - p)(1 - p_G) B - C_M > 0 \Rightarrow  B > \fra
 <<r parameters_basic, include =FALSE>>=
 set.seed(2014)
 N <- 100000
+
 p <- 0.5
 p_G <- 0.12
 B_min <- 20
@@ -294,6 +290,9 @@ where $\beta' = \gamma'/\gamma$.
 
 \subsection{Simulation}
 <<bonus_parameters, include=FALSE>>=
+
+
+
 U <- 7000
 L <- 2000
 gamma_min <- 0.08
@@ -350,7 +349,7 @@ $C_M \sim U[\Sexpr{C_M_min}, \Sexpr{C_M_max}]$.\footnote{The values assumed abov
 # beta * (1-p) * p_G
 @
 
-<<bonus_simulation, include=FALSE>>=
+<<r bonus_simulation, include=FALSE>>=
 @
 
 <<r bonus_results, include=FALSE>>=
@@ -399,7 +398,43 @@ And if it isn't feasible, then how does one determine which of these two models 
 \item One aspect of the models above is that they have parameters, but the parameters aren't coefficients.
 This relates to the ``nested model'' question above. Surely this is common in structural models: two models need not be derived from a common model, but with different coefficients. There is a sense in which the first model above is the second model, but with as $p_H \rightarrow p_L$, but even if the parameters are continuous, the equilibrium will not be.
 \end{itemize}
+<<
+\section{Peter's model}
 
+<<peter_model_parameters>>=
+nobs <- 5000
+pay <- 1 + 0.5 * rnorm(nobs)
+segments <- floor(runif(100, min = 1, max=10))
+bonus <- runif(nobs) > 0.3 * rnorm(nobs)
+direct <- 0.3 * rnorm(nobs)
+big4 <- rnorm(nobs) > -1.2
+internat <- rnorm(nobs) < -0.05
+direct <- .7* pnorm(nobs)
+p_G <- .05+direct
+
+C_R <- 80
+p_H <- 0.2 + .35 * big4
+p_L <- 0.1
+
+B <- 17 + 40 * bonus;
+C_M <- 5 + 7 * pay
+C_A <- .5 * internat + .25 * segments
+
+p <- 0.5 # As above
+@
+
+<<peter_model_1>>=
+df.peter.m1 <- data.frame(B = B)
+df.peter.m1 <- within(df.peter.m1, {
+    p <- p
+    C_M <- runif(n = N, min=C_M_min, max=C_M_max)
+    # misstate <- B > C_M/((1-p)*(1-p_G))
+    misstate <- ((1-p) *(1-p_G) * B - Cm ) > 0
+    auditor_detects <- misstate & rbinom(n=N, size = 1, prob = p)
+    restate <- misstate & !auditor_detects & 
+        rbinom(n=N, size = 1, prob = p_G)
+})
+@
 \bibliography{jar_methods}
 
 \end{document}
