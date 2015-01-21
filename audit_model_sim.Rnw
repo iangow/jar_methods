@@ -8,8 +8,8 @@
 \usepackage{natbib}
 \usepackage{hyperref} 
 % \usepackage{paralist}
-
-\title[Audit model]{A simple model of detection of misstatements}
+\usepackage{breqn}
+\title[Detecting misstatements]{A simple model of detection of misstatements}
 
 \author{Ian D. Gow \and David F. Larcker \and Peter C. Reiss}
 %\date{}   % Activate to display a given date or no date
@@ -18,8 +18,6 @@
 \newtheorem{proposition}[theorem]{Proposition}
 
 \begin{document}
-
-
 
 \begin{abstract}
 We study a simple model of managerial misstatement of accounting numbers in the presence of an external audit function and a separate governance or regulatory process. We show that the observed rate of misstatement will be a \emph{decreasing} function of the benefit accruing to the manager from misstatement. This contrasts with the standard empirical approaches in accounting research, which interpret a positive association between measures of benefit of misstatement and observed restatement levels as evidence that the measures have a causal effect on accounting misstatement. Our paper suggests that researchers need to exercise caution when interpreting the results of empirical models of the kind typically used in accounting research. 
@@ -31,22 +29,31 @@ We study a simple model of managerial misstatement of accounting numbers in the 
 \section{Introduction}
 Audited financial statements  are an important element of functioning capital markets throughout the developed world.
 
-An extensive body of research has examined the factors that lead to misstatement of financial reporting information. This research has generally assumed that \emph{observed} misstatements are a viable measure of the true level of misstatement by managers. However, there are three requirements for there to be an observed restatement. misstatement to be detected: (i) the manager must have misstated, (ii) the auditor must not have detected and corrected the misstatement before audited financial statements were issued, and (iii) some process (e.g., the media, the external auditor, or a regulator) must have detected the misstatement at a later date and instigated a process that led to a restatement.
+An extensive body of research has examined the factors that lead to misstatement of financial reporting information. This research has generally assumed that \emph{observed} misstatements (e.g., restatements) are a viable measure of the true level of misstatement by managers. However, there are three requirements for there to be an observed misstatement: (i) the manager must have misstated, (ii) the auditor must not have detected and corrected the misstatement before audited financial statements were issued, and (iii) some process (e.g., the media, the external auditor, or a regulator) must have detected the misstatement at a later date and instigated a process that led to a restatement.
 
 We first consider a simple model in which a manager trades off benefits and costs of misstating earnings in a setting in which misstatements can be detected either by an external auditor or,  if undetected by the auditor, by a secondary audit mechanism. We take the secondary mechanism to be some kind governance or regulatory process.
 
-We assume that attempted misstatements that are detected by the external auditor are not observed by outsiders (including researchers). Only if the misstatement is detected by the secondary audit process are they observed by outsiders.
+We assume that attempted misstatements that are detected by the external auditor are not observed by outsiders (including researchers).
+Only if the misstatement is detected by the secondary audit process are they observed by outsiders.
 
-The possibility that functions other than the external auditor could detect misstatements is consistent with the evidence in \citet{Dyck:2010kh}. \citet{Dyck:2010kh} show that many corporate frauds, some of which are egregious forms of misstatement of financial statements, are many are detected by employees, directors, regulators, and the media.
+The possibility that functions other than the external auditor could detect misstatements is consistent with the evidence in \citet{Dyck:2010kh}.
+\citet{Dyck:2010kh} show that many corporate frauds, some of which are egregious forms of misstatement of financial statements, are many are detected by employees, directors, regulators, and the media.
 
 \section{Prior research}
+<<<<<<< HEAD
 The use of incentives is prevalent in executive compensation, presumably because incentives ``alleviate certain agency problems between executives and shrewholders'' \citep[p.226]{Armstrong:2010jd} However, a number of papers have examined whether ``incentives might also motivate executives to manipulate accounting information for personal gain'' \citep[p.226]{Armstrong:2010jd}. \citet[p.226]{Armstrong:2010jd} identify ten prior studies that examine the question of whether increased performance incentives for managers lead to greater levels of misreporting of financial statements.
 
+=======
+The use of incentives is prevalent in executive compensation, presumably because incentives ``alleviate certain agency problems between executives and shareholders'' \citep[p.226]{Armstrong:2010jd}.
+However, a number of papers have examined whether ``incentives might also motivate executives to manipulate accounting information for personal gain'' \citep[p.226]{Armstrong:2010jd}. 
+\citet[p.226]{Armstrong:2010jd} identify ten prior studies that examine the question of whether incentives are positively associated with misstatement of financial reporting numbers. With the exceptions of \citep{Bergstresser:2006jl,Cheng:2011fh}, each paper measures misstatement of financial reporting numbers using measures of detected misstatements, either restatements or AAERs. Each paper hypothesizes that stronger incentives will lead to a greater frequency of misstatement and, in turn, restatements.
+>>>>>>> b34c43909fab9db4f38ee393235e9d44dd961969
 
 \section{The basic model}
 
 \subsection{Model setup}
-The manager's choice is either to misstate or not misstate. The manager enjoys a benefit of $B$ from \emph{successful} manipulation of earnings, i.e., from misstatements that are not detected by the external auditor or through other governance (e.g., internal audit, board, audit committee, press) or regulatory mechanisms (for brevity, we hereafter refer to the these other governance or regulatory mechanisms as the ``governance process''). In misstating earnings, the manager incurs a personal cost of $C_M$.
+The manager's choice is either to misstate or not misstate. The manager enjoys a benefit of $B$ from \emph{successful} manipulation of earnings, i.e., from misstatements that are not detected by the external auditor or through other governance (e.g., internal audit, board, audit committee, press) or regulatory mechanisms (for brevity, we hereafter refer to the these other governance or regulatory mechanisms as the ``governance process'').
+In misstating earnings, the manager incurs a personal cost of $C_M$.
 
 The auditor detects manipulation with probability $p$. An additional governance (e.g., internal audit, board, audit committee, press) or regulatory mechanism detects misstatements that are missed by the auditor with probability $p_G$. 
 
@@ -54,13 +61,13 @@ The manager will misstate if $(1 - p)(1 - p_G) B - C_M > 0 \Rightarrow  B > \fra
 
 <<r parameters_basic, include =FALSE>>=
 set.seed(2014)
-N <- 10000
+N <- 100000
 p <- 0.5
 p_G <- 0.12
 B_min <- 20
 B_max <- 28
-C_M_min <- 8
-C_M_max <- 12
+C_M_min <- 10
+C_M_max <- 14
 @
 
 <<r basic_sim, include=FALSE>>=
@@ -96,7 +103,7 @@ From a study of prior research, it is clear that the finding of a statistically 
 If the basic model is a valid model of reality (as it is by construction in our simulation), 
 then there is indeed a causal relation between incentives and misstatement and, with $B$ being exogenous, there is some basis for causal inference. But note that there are limitations. 
 First, what does the coefficient of $\Sexpr{coeff}$ mean? There is no clear mapping from the coefficient to any model parameter.
-Interpreting it as some kind of effect size requires assumptions about which values of $B$ are being modified.\footnote{I figure we could do some kind of structural estimation here, but I haven't done that year. I guess, if we assume we can observe $C_M$ (or some proxy for it) we could recover $(1 - p)(1 - p_G)$, but not $p$ and $p_G$ separately. 
+Interpreting it as some kind of effect size requires assumptions about which values of $B$ are being modified.\footnote{I figure we could do some kind of structural estimation here, but I haven't done that here. I guess, if we assume we can observe $C_M$ (or some proxy for it) we could recover $(1 - p)(1 - p_G)$, but not $p$ and $p_G$ separately. 
 If we don't have $C_M$, then it's less clear to me what we could recover.}
 Finally, we are assuming that the basic model is a valid description of reality. In the following section, we relax this assumption.
 
@@ -192,15 +199,15 @@ The probability of there being a restatement is
 See Lemma \ref{prob_observed}. 
 \end{proof}
 
-Note that Proposition \ref{cool_result} yields the counter-intuitive result that increasing the benefit that managers enjoy from misstatement, or decreasing the cost that they incur in misstating, leads to fewer restatements being detected by the governance process and thus fewer restatements being observed by researchers.
+Note that Proposition \ref{cool_result} yields the counter-intuitive result that increasing the benefit that managers enjoy from misstatement, or decreasing the cost that they incur in misstating, leads to fewer misstatements being detected by the governance process and thus fewer being observed by researchers.
 
 \subsection{Simulation}
 
 <<added_parameters, include=FALSE>>=
-p_H <- 0.7
-p_L <- 0.3
-C_A <- 1
-C_R <- 40
+p_H <- 0.6
+p_L <- 0.1
+C_A <- 1.5
+C_R <- 80
 @
 
 We build on the simulation above by setting $p_H = \Sexpr{p_H}$, $p_L = \Sexpr{p_L}$, $C_A = \Sexpr{C_A}$, and $C_R = \Sexpr{C_R}$.
@@ -247,20 +254,152 @@ This regression yields a coefficient of
 $\Sexpr{formatC(summary(full.fm)$coefficients[2,1], format = "f", digits=3)}$ on $B$ with a $t$-statistic of $\Sexpr{formatC(summary(full.fm)$coefficients[2,3], format = "f", digits=3)}$.
 
 \subsection{Discussion of results}
-Relatively to the model above, we included a simple feature of the world that is clearly grounded
+Relative to the model above, we included a simple feature that is clearly grounded
 in observed features of real-world institutions, namely, external auditors. 
-And we gave these auditors incentives that are realistic (and in fact consistent with auditing standards.)
+And we gave these auditors incentives that are realistic (and in fact consistent with auditing standards).
 But the net effect of this minor tweak is to completely confound inferences. 
-While we find a negative, albeit statistically insignificant, coefficient on $B$, given our knowledge of the data-generating process, we know that an inference that there is no (positive) causal effect of incentives on misreporting.
+While we find a negative coefficient on $B$, given our knowledge of the data-generating process, 
+we \emph{know} that an inference that there is no (positive) causal effect of incentives on misreporting is incorrect.
 
-One view of the basic issue here is that we have measurement issues: restatements are a noisy proxy for misstatements. But, this should not be viewed as a case where the canard that ``measurement error biases against finding results'' applies, as the measurement error is systematically related to the treatment of interest.
+One view of the basic issue here is that we have measurement issues: restatements are a noisy proxy for misstatements. 
+But, this should not be viewed as a case where the canard that ``measurement error biases against finding results'' applies, 
+as measurement error is systematically related to the treatment of interest.
 
 As with the basic model above, the issue is not failure to ``control'' for $C_M$ (including $C_M$ in the regression has no material impact) or the use of (logistic) regression rather than some kind of matching.
 
+An important point is that we have an impeccable ``identification strategy'' in that $B$ is randomly assigned; there is no endogeneous assignment to treatment or need to consider instrumental variables, etc. This illustrates that having random assignment to different treatments does not suffice to provide valid causal inference. Our analysis here suggests that the focus on ``identification strategy'' seems misplaced for two reasons. First, situations where treatment assignment is as-if random are likely to be very rare in accounting research. Second, even if such as-if random treatment assignment is found, it does not ensure that empirical analyses lead to valid inferences.
+
 \section{Measurement of incentives}
+One aspect of our analysis in the previous section is that we assumed that we could observe $B$, the benefit that a manager receives from misstating financial statements. In practice, researchers do not observe $B$ and must use proxies for it. 
+As documented in \citet{Armstrong:2010jd}, there is a variety of measures used, consistent with there being significant uncertainty about the measurement of this variable in practice.\footnote{I'd argue that the measures used are just terrible, with compensation mix being only outdone by ``incentive ratio'' \citep{Bergstresser:2006jl}.}
+Many of the papers cited in \citet{Armstrong:2010jd} use some measure of the sensitivity of a manager's portfolio of stock and options to changes in price as a proxy for $B$.
+But this approach involves many implicit assumptions. First, there is are assumptions regarding the pricing of (potentially missreported) earnings. Second, there are strong implicit assumptions about the time horizon of managers (e.g., if a manager misstates by bring revenue forward from the following quarter, this will have little value if the manager does not anticipate liquidating some of his portfolio before the earnings misstatement reverses in the subsequent quarter). Third, there are the endless issues of endogeneity (i.e., $B$ is not assigned randomly, but is determined in a way that is not clearly independent of factors associated with misstatements and their detection).
 
-\bibliography{/Users/igow/Dropbox/papers}
+To get a handle on the impact of these measurement issues, we study what is arguably a simpler setting involving a manager with accounting-based bonuses using a very simplified model.
 
-%
+\citet{Healy:1985jg} examines many bonus contracts and finds that many of them take the form 
+\[ b = \gamma \min(U+L, \max(E-L, 0)), \]
+where $b$ is the manager's bonus, $\gamma$ is the manager's share of earnings, $E$ represents an accounting-based performance measure,
+and $U$ and $L$ are upper and lower bounds on the levels of earnings that affect bonuses. 
+We adapt the model of \citet{Healy:1985jg} by assuming that managers can manipulate earnings either upward or downward by an amount $M$ and that earnings manipulation reverses in the next period (and that the cost of manipulation $C_M$ is independent of the sign of manipulation). We also assume that a manager assumes that the impact of this manipulation on future payoffs is $\gamma'$ where $\gamma' < \gamma$ due to discounting, uncertainty about subsequent bonus and earnings levels, and the possibility of a manager turning over during the interim. Thus a manager will choose to manipulate upward if
+\[ \gamma \min(U+L, \max(E+M-L, 0)) - C_M -\gamma' M > \gamma \min(U+L, \max(E, 0)) \]
+and manipulate downwward if
+\[ \gamma \min(U+L, \max(E-M-L, 0)) - C_M + \gamma' M > \gamma \min(U+L, \max(E, 0)) \]
+Thus $B$ can be written as 
+\begin{dmath*}
+ B =  \gamma \left\{ \max  \left(  \min(U+L, \max(E+M-L, 0))-\beta' M, \min(U+L, \max(E-M-L, 0))+ \beta' M) \right) 
+   - \min(U+L, \max(E, 0)) \right\}
+\end{dmath*}
+where $\beta' = \gamma'/\gamma$.
+
+\subsection{Simulation}
+<<bonus_parameters, include=FALSE>>=
+U <- 7000
+L <- 2000
+gamma_min <- 0.08
+gamma_max <- 0.12
+E_min <- 0
+E_max <- 10000
+beta_prime <- 0.5
+M <- 1000
+C_M_min <- 12
+C_M_max <- 16
+
+df.bonus <- subset(df.basic, select=c(C_M, B))
+
+df.bonus <- within(df.bonus, {
+    beta <- C_A /((p_H-p_L)*p_G*C_R)
+    gamma <- runif(n = N, min=gamma_min, max=gamma_max)
+    C_M <- runif(n = N, min=C_M_min, max=C_M_max)
+    E <- runif(n = N, min = E_min, max = E_max)
+
+    # Calculate bonuses
+    bonus_up <- gamma * pmin(U+M+L, pmax(E+M-L, 0))
+    bonus_down <- gamma * pmin(U-M+L, pmax(E-M-L, 0))
+    bonus_asis <- gamma * pmin(U+L, pmax(E-L, 0))
+    
+    gamma_prime <- beta_prime * gamma
+    B <- pmax(bonus_up - gamma_prime*M, bonus_down + gamma_prime*M)-bonus_asis
+
+    p <- ((1 - p_G) * B - C_M)/( (1 - p_G) * B)
+    alpha <- ( p - p_L)/(p_H - p_L)
+    misstate <- as.logical(rbinom(n=N, size = 1, prob = beta))
+    bonus <- bonus_asis + ifelse(misstate, B, 0)
+    auditor_effort <- as.logical(rbinom(n=N, size = 1, prob = alpha))
+    # p_true <- ifelse(auditor_effort, p_H, p_L)
+    auditor_detects <- misstate & rbinom(n=N, size = 1, prob = ifelse(auditor_effort, p_H, p_L))
+    restate <- misstate & !auditor_detects & rbinom(n=N, size = 1, prob = p_G)
+})
+head(df.bonus)
+@
+
+We build on the simulation above by setting $U = \Sexpr{U}$, $L = \Sexpr{L}$, $M = \Sexpr{M}$, 
+$\gamma \sim U[\Sexpr{gamma_min}, \Sexpr{gamma_max}]$, $\beta' = \Sexpr{beta_prime}$, and assuming that 
+$E \sim U[\Sexpr{E_min}, \Sexpr{E_max}]$ and $\gamma \sim U[\Sexpr{gamma_min}, \Sexpr{gamma_max}]$. We also assume and 
+$C_M \sim U[\Sexpr{C_M_min}, \Sexpr{C_M_max}]$.\footnote{The values assumed above sometimes yield values outside the bounds we imposed above on $B$.}
+
+<<bonus_solution, include=FALSE>>=
+
+
+# Checks:
+# p - (alpha * p_H + (1-alpha) * p_L)
+# (1 - p - (1-p) *p_G) * B - C_M
+# beta * (1-p_H) * p_G * C_R + C_A - beta * (1-p_L) * p_G * C_R
+# (1-p)*(1-p_G)*B - C_M
+
+# beta * (1-p) * p_G
+@
+
+<<bonus_simulation, include=FALSE>>=
+@
+
+<<r bonus_results, include=FALSE>>=
+bonus.fm <- glm(restate ~ bonus, family = "binomial", data=df.bonus)
+bonus.fm.alt <- glm(restate ~ B, family = "binomial", data=df.bonus)
+@
+
+If we assume that the researcher observes the bonus paid, $b$, and restatements, but nothing else, then the researcher can run a logit regression of \textit{restate} on $b$. 
+This regression yields a coefficient of 
+$\Sexpr{formatC(summary(bonus.fm)$coefficients[2,1], format = "f", digits=3)}$ on $b$ with a $t$-statistic of $\Sexpr{formatC(summary(bonus.fm)$coefficients[2,3], format = "f", digits=3)}$.
+
+If we assume that the researcher observes $B$ and restatements, but nothing else, then the researcher can run a logit regression of \textit{restate} on $B$. 
+This regression yields a coefficient of 
+$\Sexpr{formatC(summary(bonus.fm.alt)$coefficients[2,1], format = "f", digits=3)}$ on $B$ with a $t$-statistic of $\Sexpr{formatC(summary(bonus.fm.alt)$coefficients[2,3], format = "f", digits=3)}$.
+
+\section{Comments for Peter}
+
+\begin{itemize}
+\item I think the models above do the job of illustrating the point that some model
+is needed to make any sense of what regression coefficients are telling us.
+I think it is important to study a setting that has been a focus of prior research; 
+we have done that.
+\item I think that whether endogeneity (completely absent here) is a higher order
+issue than the issues highlighted here is far from clear. 
+But, for some reason, talking about endogeneity and fanciful identification strategies
+is deemed to be ``sexy,'' so that't what researchers do (if they do anything).
+\item Note that I didn't do any structural \emph{estimation} of the models above. 
+We could add this.
+I felt the last model might be a good one to illustrate the challenges, 
+which I view as more about understanding the setting and getting the right data
+than about anything mathematical.
+I'm not sure which of these models would be best to use to generate data to do this.
+\item Dave wants to take a model to \emph{real} data. 
+I think this is out of scope because I don't think we want to be distracted by having 
+to defend a (likely weak) model.
+\item But I think it might be more palatable to illustrate the challenges by taking a couple of models 
+(perhaps the first two above) to the data and discuss the challenges in \emph{distinguishing} them.
+\item I think a really bad outcome would for every paper to develop a structural model \emph{de novo}, 
+take it to data, and say something like  
+``my `model' predicts $\beta_2>0$, I find $\beta_2>0$, confirming my model is correct.'' 
+Much better would be for researchers to conduct some kind of horse race between an
+established model and a proposed new one.
+\item A challenge I see is that the paradigm of accepting or rejecting models based on the sign and statistical significance of regression coefficients is so well-entrenched, yet potentially very wrong.
+It's not clear to me whether it's possible nest the first two models above to evaluate them in a standard hypothesis testing framework.
+And if it isn't feasible, then how does one determine which of these two models best fits the data?
+\item One aspect of the models above is that they have parameters, but the parameters aren't coefficients.
+This relates to the ``nested model'' question above. Surely this is common in structural models: two models need not be derived from a common model, but with different coefficients. There is a sense in which the first model above is the second model, but with as $p_H \rightarrow p_L$, but even if the parameters are continuous, the equilibrium will not be.
+\end{itemize}
+
+\bibliography{jar_methods}
 
 \end{document}
