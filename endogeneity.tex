@@ -1,25 +1,28 @@
 \section{Causal inference in accounting research}
 
-\subsection{Importance of causal inference}
-
-Provide examples of important questions that accounting researchers seek to answer. Show that most (perhaps all) involve causal inference.
-
 \subsection{Endogeneity}
 
 \section{Methods for causal inference}
+\newpage
 
 \subsection{Natural experiments}
 Natural experiments occur when observations are assigned by nature (or some other force outside the control of the researcher) to treatment and control groups in a way that is random or ``as if'' random \citep{Dunning:2012tt}. 
 Truly (as if) random assignment to treatment and control provides a sound basis for causal inference, enhancing the appeal of natural experiments.
 However, \citet{Dunning:2012tt} argues that this appeal ``may provoke conceptual stretching, in which an attractive label is applied to research designs that only implausibly meet the definitional features of the method'' \citep[p.3]{Dunning:2012tt}.
 
-Such ``conceptual stretching'' is evident in accounting research. Consider \citet{Kirk:2014gx}, who ``exploit the natural experiment setting created by the exogenous shock of Reg FD to examine the effect of Reg FD on firms with an established IR [investor relations] program.'' 
+Such ``conceptual stretching'' is evident in accounting research.
+Our survey of accounting research identified six papers that exploited either a ``natural experiment'' or ``exogenous shock'' to identify causal effects \citep{Lo:2013jk,Aier:2014ii,Kirk:2014gx,Houston:2014hv,Hail:2014fq}.
+But closer examination suggests that most of these papers misapply the fundamental idea of natural experiments.
+
+\cite{Aier:2014ii} exploit a 1991 Delaware court that ``expanded the scope of directors' fiduciary duties to include creditors when a Delaware incorporated firm is in the `vicinity of insolvency.'" as a ``natural experiment'' for the purpose of understanding the causal effect of debtholders' demand for conservatism (the treatment variable) on financial reporting conservatism (the outcome of interest). But it is completely unclear how this ``natural experiment'' sorted firms into differing levels of the treatment variable, let alone why this assignment is as-if random.
+
+ \citet{Kirk:2014gx} ``exploit the natural experiment setting created by the exogenous shock of Reg FD to examine the effect of Reg FD on firms with an established IR [investor relations] program.'' 
 Given that the treatment of interest in \citet{Kirk:2014gx} is the establishment of an IR program, only a event that randomly assigned firms to having or not having such a program would qualify as a natural experiment in that setting.
 
-Another example is 
+\cite{Houston:2014hv} analyzes ``whether the political connections of listed firms in the United States affect the cost and terms of loan contracts'.' They argue that ``the recent financial crisis can be viewed as a major exogenous shock, the effects of which may vary depending on whether the firm is politically connected.'' But this is not what is needed for a valid natural experiment. To see this, an analogy is perhaps helpful. Suppose we wanted to study the effects of smoking on life expectancy. A long-standing concern in studies of such effects is the existence of other differences in the lifestyles of smokers and non-smokers. A ``natural experiment'' analogous to that in \cite{Houston:2014hv} might be one that created gas leaks in the homes of smokers and non-smokers alike. Because gas leaks are likely to have more deleterious consequences on smokers (e.g., instant immolation when lighting a cigarette), the reasoning of \cite{Houston:2014hv} might suggest that gas leaks are a helpful ``exogenous shock,'' contrary to common sense.
 
-A plausible explanation for the ease with which conceptual stretching has occurred derives from the ambiguity of the word ``exogenous,'' which denotes both ``of, relating to, or developing from external factors'' (Oxford Dictionary) and also the opposite of ``endogenous.''
-However, that Reg FD was perhaps not driven by factors related to firms' IR programs and firm-level capital market outcomes, it does not randomly assign firms into treatment and control groups and thus does not help resolve the endogeneity of IR programs with such capital market outcomes.
+A plausible explanation for the ease with which conceptual stretching has occurred derives from the ambiguity of the word ``exogenous,'' which not only denotes  ``of, relating to, or developing from external factors'' (Oxford Dictionary), but is also the antonym of ``endogenous.''
+For example, the fact that Reg FD was perhaps not driven by factors related to firms' IR programs and firm-level capital market outcomes, it does not randomly assign firms into treatment and control groups and thus does not help resolve the endogeneity of IR programs with such capital market outcomes.
 
 \subsection{Instrumental variables}
 While much has been written on the issues with using instrumental variables (IV) as the basis for causal inference, as casual review of recent accounting research suggests that this has had little impact of accounting researchers' understanding of IV.
