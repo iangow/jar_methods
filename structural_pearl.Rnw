@@ -1,0 +1,87 @@
+\documentclass[11pt]{amsart}
+\usepackage[marginratio=1:1]{geometry}  % See geometry.pdf to learn the layout options. There are lots.
+%\geometry{letterpaper} % ... or a4paper or a5paper or ... 
+%\geometry{landscape}  % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+%\usepackage{amsfonts}
+\usepackage{palatino}
+\usepackage{natbib}
+\usepackage{hyperref} 
+% \usepackage{paralist}
+
+\title{Judea Pearl (2009) on structural models}
+\author{Ian D. Gow}
+
+\begin{document}
+\maketitle
+
+\section{Pearl (2009) on structural models}
+There's a nice discussion of structural models in Chapter 5 of Pearl (2009). 
+In some ways, it seems a little out of date, as it seems to miss the recent ``credibility revolution'' (the chapter was in the first edition of Pearl's book, which came out in 2000). 
+I think some of this discussion could be adapted for (the section that Peter is writing for) our paper.
+
+As pointed out by Pearl (2009) the equation 
+\begin{equation}
+y = X\beta + \epsilon \label{struct}
+\end{equation}
+can be interpreted as a structural model. Given $X$ and $\epsilon$, $y$ is determined using the right-hand side of the equation and, in a sense, a better way to write the equation might use the assignment operator from computer science $y := X\beta + \epsilon$. 
+Also, we could imagine that Equation \ref{struct} was derived from some economic model (i.e., one
+with rational, utility-maximizing agents). 
+%
+Pearl (2009) argues that the use of the equality operator $=$ has created confusion in the interpretation of Equation \ref{struct}. 
+
+<<set_parameters, include=FALSE>>=
+corr <- 0.3
+Sigma = matrix(c(1,corr,corr,1), nrow=2)
+n <- 1000
+beta <- -0.3
+@
+
+% $\SExpr{latex(Sigma)}$
+
+To see how Equation \ref{struct} can be viewed as structural model, suppose we assume that $\beta = \Sexpr{beta}$ and that the correlation between $X$ and $\epsilon$ is $\rho_{X\epsilon} = \Sexpr{corr}$.
+In this world, $y = X \Sexpr{beta} + \epsilon$ is the \emph{true}, \emph{structural} model regardless of any econometric issues we may face in estimating it. 
+In other words, the model has truth independent of statistical issues a research may have.
+
+<<gen_data, include=FALSE>>=
+library(MASS)
+rhs <- mvrnorm(n = n, mu=c(0,0), Sigma=Sigma)
+colnames(rhs) <- c("X", "e")
+df <- as.data.frame(rhs)
+df$y <- df$X * beta + df$e
+@
+
+But what happens when we attempt to estimate the model using simulated data for \Sexpr{n} observations?
+The results in Table \ref{table:regress}
+show that having a structural model does not address issues of endogeneity.
+
+<<regress, results='asis', echo=FALSE, message=FALSE, fig.cap="Structural model estimates">>=
+library(texreg)
+texreg(lm(y ~ X, data=df), caption = "Structural model: Estimated coefficients",
+       label="table:regress", float.pos="h")
+@
+
+We have completely confounded inferences here. 
+Unfortunately, in the patois of southern Illinois, we're pretty much f\&*\$ed here.
+But, in many ways, we are far better off here than we'd reasonably expect to be in ``real-world" settings:
+we \emph{know} (or have correctly guessed) the true model and we measure the relevant variables $X$ and $y$ without error.
+In most settings, we have little real understanding what the true model is, and we don't observe the ``true'' variables (of course, this is dependent on the model in any case), and we're not clearly better of in terms of endogeneity (in the $\mathbb{E}[X'\epsilon] \neq 0$ sense), which is the only issue in the model above.
+
+\section{Some comments}
+\begin{itemize}
+\item To what extent would we want to pitch a structural model as somehow solving endogeneity?
+\item Is the stronger point to make that we need structural models to relate observable quantities 
+ (e.g., restatements) in a reasonable way to unobservable quantities (e.g., \emph{mis}statements)?
+ \item Pearl (2009) suggests that there is confusion regarding the term structural equation modeling. 
+ Dave feels that accounting researchers know the difference; I'm not so sure.
+ In a sense most (implicit) structural models in accounting take the form $y = X\beta + \epsilon$ coupled with some recognition that $\mathbb{E}[X'\epsilon] \neq 0$, 
+ which is then combined with nonsensical ``we're not doing causal inference'' claims to yield research that gets published and clearly read in a causal way.
+ \item As far as we may get in most papers beyond this is a measurement-error model: $y = X\beta + \epsilon$, $y^* = y + \nu$, $X^* = X + \eta$ and an assumption that we observe $y^*$ and $X^*$.
+ In some ways, this is probably the ``Libby box" model expressed in ``structural" language.
+ But our example on audit and misstatements suggests that having a box for ``misstatements" and a box for ``restatements" is completely inadequate as a representation of the measurement issues.
+\end{itemize}
+
+
+
+
+\end{document}
