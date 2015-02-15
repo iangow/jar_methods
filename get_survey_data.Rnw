@@ -19,4 +19,11 @@ acct_2014$causal_question <-
     with(acct_2014, 
          ifelse(!causal_question_primary, causal_question_secondary, causal_question_primary))
 with(subset(acct_2014, paper_type=="original" & category=="empirical"), 
-     table(causal_question_primary, causal_question_secondary, useNA="ifany"))
+     table(ifelse(causal_question_primary, TRUE, 
+                  ifelse(causal_question_secondary, TRUE, FALSE)), useNA="ifany"))
+
+acct_2014$causal_question[acct_2014$causal_question_primary] <- TRUE
+acct_2014$causal_question[acct_2014$causal_question_secondary] <- TRUE
+acct_2014$causal_question[is.na(acct_2014$causal_question) 
+                          & acct_2014$paper_type=="original" 
+                          & acct_2014$category=="empirical"] <- FALSE
