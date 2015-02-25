@@ -1,0 +1,98 @@
+\Sexpr{set_parent('survey_parent.Rnw')}
+
+<<get_survey_data, include=FALSE>>=
+getSheetData = function(key, gid=NULL) {
+    library(RCurl)
+    url <- paste0("https://docs.google.com/spreadsheets/d/", key,
+                  "/export?format=csv&id=", key, 
+                  if (is.null(gid)) "" else paste0("&gid=", gid),
+                  "&single=true")
+    csv_file <- getURL(url, verbose=FALSE)
+    the_data <- read.csv(textConnection(csv_file), as.is=TRUE)
+    return( the_data )
+}
+
+key <- "1kegEFabLl5itVNCl-7SQyKxdKXfwLa9ZIs9LDEOjVWY"
+gid <- 434924778
+
+acct_2014 <- getSheetData(key, gid)
+names(acct_2014) <- gsub("\\.", "", names(acct_2014))
+
+acct_2014$causal_question <- NA
+acct_2014 <- within(acct_2014, {
+    causal_question_primary <- 
+        as.logical(causal_question_primary)
+    causal_question_secondary <- 
+        as.logical(causal_question_secondary)
+    causal_question[causal_question_primary] <- TRUE
+    causal_question[causal_question_secondary] <- TRUE
+    causal_question[is.na(causal_question) 
+                          & paper_type=="original" 
+                          & category!="theoretical"] <- FALSE
+})
+@
+
+<<sample_results>>==
+with(subset(acct_2014, paper_type=="original"), 
+     table(causal_question, category, useNA="ifany"))
+
+with(acct_2014, table(paper_type, category, useNA="ifany"))
+with(subset(acct_2014, !causal_question), 
+     table(nature_of_question_if_not_causal, useNA="ifany"))
+@
+
+\subsection{Causal inference in accounting research}
+To get a sense for the importance of causal questions in accounting research,
+we conducted a survey of all papers published in 2014 in the  \textit{Journal of Accounting Research}, \textit{The Accounting Review}, or the \textit{Journal of Accounting and Economics}).
+We counted \Sexpr{dim(acct_2014)[1]} papers, of which, 
+\Sexpr{sum(acct_2014$paper_type=="original")} are original research papers 
+(a further \Sexpr{sum(acct_2014$paper_type=="survey")} and
+[\Sexpr{sum(acct_2014$paper_type=="discussion")}] papers survey [discuss] other
+papers).
+
+We assign a category to each original research paper based on the methods used in the paper: ``theoretical'' 
+(\Sexpr{sum(acct_2014$category=="theoretical" & acct_2014$paper_type=="original")}),
+``experimental'' 
+(\Sexpr{sum(acct_2014$category=="experimental" & acct_2014$paper_type=="original")}),
+``field" 
+(\Sexpr{sum(acct_2014$category=="field" & acct_2014$paper_type=="original")}),
+or ``empirical" 
+(\Sexpr{sum(acct_2014$category=="empirical" & acct_2014$paper_type=="original")}).
+
+We then examine the research questions asked in each non-theoretical paper and
+ask whether the primary or secondary research questions in each paper are
+``causal" in nature.
+
+Of the 
+\Sexpr{sum(acct_2014$category=="empirical" & acct_2014$paper_type=="original")}
+original, empirical papers, 
+we coded 
+\Sexpr{sum(acct_2014$category=="empirical" & 
+           acct_2014$causal_question, na.rm=TRUE)}
+as seeking to draw causal inferences. Of the remaining empirical papers,
+we coded 
+\Sexpr{sum(acct_2014$category=="empirical" & 
+           !acct_2014$causal_question &
+           acct_2014$nature_of_question_if_not_causal=="Description", na.rm=TRUE)}
+papers as having a goal of ``description.'' 
+For example, \citet{Soltes:2013ba} uses data collected from one firm to provide insights into when analysts privately interact with management the nature of these interactions.
+We coded 
+\Sexpr{sum(acct_2014$category=="empirical" & 
+           !acct_2014$causal_question &
+           acct_2014$nature_of_question_if_not_causal=="Prediction", na.rm=TRUE)}
+papers as having a goal of ``prediction.'' 
+For example, \citet{Czerney:2014bv} examine whether the inclusion of ``explanatory language" in unqualified audit reports can be used to predict the detection of financial misstatements in the future.
+We coded 
+\Sexpr{sum(acct_2014$category=="empirical" & 
+           !acct_2014$causal_question &
+           acct_2014$nature_of_question_if_not_causal=="Measurement", na.rm=TRUE)}
+papers as having a goal of ``measurement.'' 
+For example, \citet{Cready:2014ji} examine whether inferences about traders based on trade size are reliable and suggest improvements to the measurement of variables used by accounting researchers. 
+
+In coding 
+\Sexpr{sum(acct_2014$category=="empirical" & 
+           acct_2014$causal_question, na.rm=TRUE)}
+papers as seeking to draw causal inferences, we generally examined the title and
+abstract for evidence of causal inference. Often the title reveals a causal question, with words such as  ``effect of \dots" or ``impact of \dots"  
+\citep[e.g.][]{Cohen:2014jl,Clorproell:2014cv} making it clear that a causal question was being asked. 
+Often language in the abstract reveals a goal of causal inference. For example, \citet{deFranco:2014ct} asks ``how the tone of sell-side debt analysts’ discussions about debt-equity conflict events \emph{affects} the informativeness of debt analysts’ reports in debt markets.''
