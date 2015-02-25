@@ -35,12 +35,35 @@ A plausible explanation for the ease with which conceptual stretching has occurr
 For example, the fact that Reg FD was perhaps not driven by factors related to firms' IR programs and firm-level capital market outcomes, it does not randomly assign firms into treatment and control groups and thus does not help resolve the endogeneity of IR programs with such capital market outcomes.
 
 \subsection{Instrumental variables}
-While much has been written on the issues with using instrumental variables (IV) as the basis for causal inference, as casual review of recent accounting research suggests that this has had little impact of accounting researchers' understanding of IV.
+While much has been written on the issues with using instrumental variables (IV) as the basis for causal inference, as casual review of recent accounting research suggests that this has had little impact on accounting researchers' understanding of IV.
 
 \citet{Larcker:2010fq}, after surveying the use of IV in accounting research, lamented that ``some researchers consider the choice of instrumental variables to be a purely statistical exercise with little real economic foundation'' and called for 
 ``accounting researchers \dots to be much more rigorous in selecting and justifying their instrumental variables.''
 
-A cursory survey of more recent research suggests that little has changed since \citet{Larcker:2010fq} was published. \citet{Kim:2014fm} use director age as an instrument for director tenure in a study examining the effect of the latter on firm performance. 
+Our survey of research published in 2014 suggests that little has changed since \citet{Larcker:2010fq} was published. 
+We identify 10 papers using instrumental variables in 2014 \citep{Cannon:2014im,Cohen:2014jl,Kim:2014fm,Vermeer:2014bs,Fox:2014io,Guedhami:2013cj,Houston:2014hv,deFranco:2014ct,Erkens:2014hj,Correia:2014fp}.
+
+\citet{Cannon:2014im} uses ``industry-level capacity unit cost and selling price changes'' as instruments for firm-level capacity unit cost changes with no more justification than the fact that these ``are outside management’s control.'' But being outside management control does not make a variable endogenous in an econometric sense.
+
+\citet{Cohen:2014jl} is typical. To address endogeneity \citet{Cohen:2014jl} ``we two instrumental variables. The first is the natural log of industry size, measured as the number of companies within each two-digit SIC. The second measures industry competition using the Herfindahl-Hirschman index, which is well-established as a measure of competitive industries. Our untabulated results using this approach are qualitatively similar to our main analysis, thus indicating that endogeneity is not a concern when assessing the reliability of our findings.''
+
+\citet{Vermeer:2014bs} ``use Maddala's (1988) two-stage procedure'' in order to ``control for endogeneity'' without providing any explanation at all and in fact seem to be assuming the each of three endogeneous variables can used as an instrument for the other two.
+
+\citet[p.48]{Fox:2014io} state in a footnote that they ``instrumented for the price index employing a two stage least squares estimator'' without further details, simply noting that their ``conclusions are robust with respect to these concerns.''
+ 
+ \citet{Guedhami:2013cj} use $\textit{CAPITAL}$, an indicator for a firm being located in a capital city, as an instrument for political connectivity in a study looking at the effect of political connections on the use of a Big 4 auditor ($\textit{BIG 4}$).
+ The only justification \citet{Guedhami:2013cj} provide in support of the required exclusion restriction  is that ``importantly, the correlation between $\textit{CAPITAL}$ and $\textit{BIG 4}$ is small in our data set $(\rho = 0.05)$, helping to justify the validity of this exclusion restriction.''
+ \citet{Guedhami:2013cj} cite \citet{Larcker:2010fq} as a reference for this approach, even though \citet{Larcker:2010fq} carefully explain why simple tests like this cannot be used to justify instruments.
+ 
+\citet{Houston:2014hv} use variables variables that are related to the location of the company’s headquarters as instruments for political connection and argue that ``these instruments should not be conceptually related to loan spreads. The key insight here is that the geographic locations of headquarters for companies are predetermined and are unlikely to affect banks’ financing decision on loan costs. In summary, our identification assumption is that the costs of bank loans are not directly related to the companies’ geographic locations, after controlling for a series of firm and loan characteristics'' (p.228). In effect the authors state the necessary condition in three different ways, but do not justify it in any meaningful way. 
+ There is an asymmetry evident here. In justifying the relevance of the instrument, the authors seem eager to justify a connection, suggesting that ``the presumption is that the company's geographic location affects the company’s ability to attract politically connected directors.'' But why would the company's geographic location not also affect the its ability to attract directors with connections to \emph{financial institutions}?\footnote{\citet{Houston:2014hv} also use firm age as an instrument, arguing that ``firm age affects a firm's incentive and capability in building up political connections''; but why doesn't it affect  a firm's ``incentive and capability in building up'' financial connections?} 
+ 
+ \citet{deFranco:2014ct} ``find that the number of covenants is positively related to the interest rate, likely due to endogeneity between the interest rate and covenants.'' To address this using ``the number of covenants by calendar year indicators as the instrument'' for the number of covenants. Apart from the issues with using an average as an instrument discussed in \citet{Reiss:2007ej}, the authors offer the following as justification for their instrument ``the strictness of covenant packages significantly deteriorated during the years of the credit boom that preceded the financial crisis.'' But why would something driven by a credit boom be orthogonal to interest rates on bond issues? 
+ 
+ % Erkens:2014hj \We use the following three instrumental variables that capture the extent to which lenders are more likely to serve on a firm’s board. We use Industry importance to primary lender because industry specialization increases the importance of acquiring information about a firm’s industry, Primary lender within 50 mile radius because physical proximity to lenders’ headquarters reduces the cost of serving on the board, and Number of commercial banks within 50 mile radius because the close proximity of multiple banks increases competition for board seats from other lenders.
+ 
+ % Correia:2014fp
+\citet{Kim:2014fm} use director age as an instrument for director tenure in a study examining the effect of the latter on firm performance. 
 ``Importantly, research finds little or no association between age and performance \dots and a small negative association between age and executive functions \dots. 
 Related to directors, Ferris et al. (2003) suggest that any positive effects from director experience increasing with age may be offset by older directors having less energy, posing a last-period risk, and viewing directorships as lucrative part-time jobs for their retirement years.'' 
 But these arguments seem to invalidate age as an instrument for tenure. 
