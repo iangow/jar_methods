@@ -1,0 +1,14 @@
+
+\documentclass{article}
+\usepackage{natbib}
+\usepackage{palatino}
+
+\begin{document}
+\bibliographystyle{chicago}
+
+<<survey_date, child='get_survey_data.Rnw'>>=
+@
+
+\bibliography{/Users/igow/Dropbox/papers}
+
+\end{document}
