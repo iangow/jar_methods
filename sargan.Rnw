@@ -1,0 +1,47 @@
+\documentclass{article}
+
+\begin{document}
+
+<<generate_data, include=FALSE>>=
+
+n <- 1000
+beta <- 0
+X <- rnorm(n)
+library("MASS")
+corr <- 0.2
+Sigma <- matrix(c(1, corr, corr, 1), nrow=2)
+df <- data.frame(mvrnorm(n, mu=c(0,0), Sigma=Sigma))
+names(df) <- c("X", "e")
+sd_eta <- 0.3
+# cor(df$X, df$e)
+ 
+df$y <- df$X * beta + df$e
+
+df$z_1 <- df$X + rnorm(n, sd=sd_eta)
+df$z_2 <- rnorm(n, sd=sd_eta)
+df$z_3 <- rnorm(n, sd=sd_eta)
+@
+Suppose that we have $y = X \beta + \epsilon$, 
+with $\rho(X, \epsilon) = \Sexpr{corr}$ and $\beta = \Sexpr{beta}$.
+Clearly we have an endogeneity issue as $\rho(X, \epsilon) > 0$. Assume that $X$ and $\epsilon$ are $N(0,1)$.
+
+But, we have a solution. Create three instruments: 
+$z_1 = x + \eta_1$, $z_2 = \eta_2$, and $z_3 = \eta_3$,
+where $\sigma_{\eta_1} = \sigma_{\eta_2} = \sigma_{\eta_3} \sim N(0,\Sexpr{sd_eta})$.
+
+Now what happens if we estimate IV?
+
+<<run_iv, message=FALSE, echo=FALSE, results="asis">>==
+library("AER")
+iv <- ivreg(y ~ X | z_1 + z_2 + z_3, data = df)
+library("stargazer")
+stargazer(iv)
+iv.sum <- summary(iv, diagnostics=TRUE)
+@
+
+With a Sargan test statistic of $\Sexpr{iv.sum$diagnostics["Sargan", "statistic"]}$, we can safely rule out endogeneity. 
+Meanwhile, we don't have weak instruments, with a test statistic of $\Sexpr{iv.sum$diagnostics["Weak instruments", "statistic"]}$.
+
+Hooray!
+
+\end{document}
