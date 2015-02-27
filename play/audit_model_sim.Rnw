@@ -423,13 +423,12 @@ C_A <- .5 * internat + .25 * segments
 p <- 0.5 # As above
 @
 
-<<peter_model_1>>=
+<<peter_model_1, eval=FALSE>>=
 df.peter.m1 <- data.frame(B = B)
 df.peter.m1 <- within(df.peter.m1, {
     p <- p
     C_M <- runif(n = N, min=C_M_min, max=C_M_max)
-    # misstate <- B > C_M/((1-p)*(1-p_G))
-    misstate <- ((1-p) *(1-p_G) * B - Cm ) > 0
+    misstate <- ((1-p) *(1-p_G) * B - C_M ) > 0
     auditor_detects <- misstate & rbinom(n=N, size = 1, prob = p)
     restate <- misstate & !auditor_detects & 
         rbinom(n=N, size = 1, prob = p_G)
