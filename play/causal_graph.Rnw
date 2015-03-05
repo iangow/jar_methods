@@ -1,0 +1,37 @@
+\documentclass{article}
+
+\usepackage{tikz}
+\usepackage{pgf}
+
+\begin{document}
+\usetikzlibrary{automata, shapes, calc, positioning}
+
+\begin{tikzpicture}[every node/.style = 
+    {shape = rectangle,
+    rounded corners,
+    fill = black!30!white,
+    text width = 3cm,
+    minimum height = 1.5cm,
+    align = center,
+    text = black},
+                   black edge/.style =
+    { -,
+    ultra thick, black, shorten >= 2pt}]
+    %create X and Y node
+    \node[rectangle] (BC) {Brokerage closure$_t$}; 
+    \node [right = 1.5 of BC] (AC0) {Analyst coverage$_t$};
+    \node [right = 1.5 of AC0] (IA1) {Information asymmetry$_{t+1}$};
+    \node [below = 1.5 of AC0] (AC1) {Analyst coverage$_{t+1}$};
+    \node [above = 1.5 of IA1] (IA0) {Information asymmetry$_{t}$};				
+    \draw (BC) edge[->] (AC0);
+    \draw (AC0) edge[->] (IA1);
+    \draw (IA0) edge[->] (AC0);
+    \draw (IA1) edge[->] (AC1);
+    \draw (AC0) edge[->] (AC1);
+    \draw (IA0) edge[->] (IA1);
+    \draw (IA0) edge[bend right=60, dashed, <->] (BC);
+\end{tikzpicture}
+
+\end{document}
+
+\end{document}
