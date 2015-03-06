@@ -1,3 +1,14 @@
+% Quick LaTeX Guide for Dave (originally for Suraj).
+
+% - Percent signs (%) mark comments. To get a percent sign, escape it by putting a backslash in front.
+%  & is another special character in LaTeX. Use \& to get &.
+% Note that each part of the document is in a separate file (so we can edit in parallel).
+% Citations are automatic with the correct key. 
+% LaTeX doesn't pay attention to multiple spaces. Also adjacent lines get collapsed into single paragraphs.
+% Insert a blank line between lines that are part of two separate paragraphs.
+% \section, \subsection, and \subsubsection have the obvious meanings.
+% Note that there is a file jar_methods.bib in the list of files to the right that this pulls bibliographic information from.
+
 \section{Introduction}
 
 \begin{quotation}
@@ -7,11 +18,16 @@
 \attrib{\cite{Berk:1999uz}}
 \end{quotation}
 
+% \textbf{This section is awesome, Dave.}
+% Dave: It's actually helpful to put every sentence on a separate line. 
+% You need two line breaks to indicate a paragraph.
+
 The dominant mode of research in accounting is empirical analysis of observational (archival) data with a focus on causal inference. A survey of current accounting research (i.e., papers published in 2014 in the \textit{Journal of Accounting Research}, \textit{Accounting Review}, or \textit{Journal of Accounting and Economics}) reveals that 90\% of empirical papers doing original research seek to draw causal inferences.\footnote{``Original" research excludes papers that are surveys or discussions of other papers and, in this context, ``empirical" papers excluded experiment- and field-based research papers, though most of these seek to make causal inferences also. 
-We recognize that a goal of causal inference might be denied by the authors of some papers to which we have attributed that goal. 
+We recognize that a goal of causal inference might be denied by the authors of some papers to which we have attributed that goal.
+
 For example, a researcher might argue that a paper that claimed that ``theory predicts X is associated Y and, consistent with that theory, we show X is associated with Y'' is merely a descriptive paper that does not make causal inferences. 
 We disagree with this characterization. 
-First, by stating that ``consistent with \dots theory, X is associated with Y,'' the purpose clearly is to argue that the evidence tilts the scale, however slightly, in the director of believing the theory is a valid description of the real world: in other words, \emph{inference}. 
+First, by stating that ``consistent with \dots theory, X is associated with Y," the purpose clearly is to argue that the evidence tilts the scale, however slightly, in the director of believing the theory is a valid description of the real world: in other words, \emph{inference}. 
 Second, because theory is essentially causal, such inference is inherently \emph{causal} inference.} 
 But in general, the causal (or ``treatment'') variables studied by accounting researchers are unlikely to be assigned (as-if) randomly, as is necessary for simple comparisons or regressions to yield valid causal inferences. Treatment variables like ``tone management'' \citep{Huang:2014cs}, ``occurrence of a material restatement'' \citep{Chen:2014ji}, or ``adoption of fair value reporting model'' \citep{Liang:2014ea} are likely to be the result of complex processes that are very imperfectly understood by researchers.
 
@@ -31,3 +47,8 @@ In this second part of the paper, we identify emerging approaches in accounting 
 
 In particular, we advocate the greater use of \emph{structural modeling}. 
 
+%% Some stuff on other fields.
+% Economics (IO), political sci, epidemiology, sociology/criminology.
+% Sections to write (for later in the paper):
+% - Mechanisms - conditional conservatism?
+% - Measurement (machine learning)
