@@ -22,7 +22,7 @@ Truly (as if) random assignment to treatment and control provides a sound basis 
 However, \citet{Dunning:2012tt} argues that this appeal ``may provoke conceptual stretching, in which an attractive label is applied to research designs that only implausibly meet the definitional features of the method'' \citep[p.3]{Dunning:2012tt}.
 
 Such ``conceptual stretching'' is evident in accounting research.
-Our survey of accounting research identified six papers that exploited either a ``natural experiment'' or ``exogenous shock'' to identify causal effects \citep{Lo:2013jk,Aier:2014ii,Kirk:2014gx,Houston:2014hv,Hail:2014fq}.
+Our survey of accounting research identified six papers that exploited either a ``natural experiment'' or ``exogenous shock'' to identify causal effects \citep{Lo:2013jk,Aier:2014ii,Kirk:2014gx,Houston:2014hv}. % Wtat about Hail:2014fq?
 But closer examination suggests that most of these papers misapply the fundamental idea of natural experiments.
 
 \cite{Aier:2014ii} exploit a 1991 Delaware court that ``expanded the scope of directors' fiduciary duties to include creditors when a Delaware incorporated firm is in the `vicinity of insolvency.'" as a ``natural experiment'' for the purpose of understanding the causal effect of debtholders' demand for conservatism (the treatment variable) on financial reporting conservatism (the outcome of interest). But it is completely unclear how this ``natural experiment'' sorted firms into differing levels of the treatment variable, let alone why this assignment is as-if random.
@@ -77,8 +77,6 @@ But these arguments seem to invalidate age as an instrument for tenure.
 For age to be a valid instrument, there should be no unblocked causal path between age and performance except for the path via tenure.
  That possible positive effects may be offset by negative effects and thus detecting an association between age and performance is not a valid basis for claiming age to be a valid instrument. \citet{deFranco:2014ct} ``find that the number of covenants is positively related to the interest rate, likely due to endogeneity between the interest rate and covenants.'' To address this using they use ``the number of covenants by calendar year indicators as the instrument'' for the number of covenants. Apart from the issues with using an average as an instrument discussed in \citet{Reiss:2007ej}, the authors justify their instrument by suggesting that ``the strictness of covenant packages significantly deteriorated during the years of the credit boom that preceded the financial crisis.'' But it seems likely that the credit boom would have a direct effect on interest rates on bond issues. 
  
-
- 
 \citet{Correia:2014fp} uses ``average level of political contributions made by the other firms in the same industry'' as an instrument for political contributions by a firm, as well as two additional instruments: ``the percentage of sales made to the government, and the number of years in the previous five years in which there was a close election involving two candidates in the firm's state.'' With regard to the first instrument, the reasons that cause political contributions to be endogenous may well affect all firms in an industry (or at least be correlated across firms within an industry). 
 As such \citet{Reiss:2007ej} suggest that there is little reason to view such averages as valid instruments.
 
@@ -101,7 +99,13 @@ Note that this coefficient is close to $\rho(X, \epsilon) = 0.2$, which is to be
 In other words, it is easy for completely spurious instruments to deliver bad inferences, yet easily pass tests for weak instruments and endogeneity.
 
 \subsection{Regression discontinuity designs} 
-\textbf{TBD.} Discuss RDD, how it works, but issues in applying it and the fact that it has limited applicability in general (i.e., need a discontinuity).
+%\textbf{TBD.} Discuss RD d, how it works, but issues in applying it and the fact that it has limited applicability in general (i.e., need a discontinuity).
+
+In discussing the recent ``flurry of research" using regression discontinuity (RD) designs, \citet[p.282]{Lee:2010hy} point out that they ``require seemingly mild assumptions compared to those needed for other nonexperimental approaches \dots and that causal inferences from RD designs are potentially more credible than those from typical `natural experiment' strategies." 
+Recently, RD designs have attracted the interest of accounting researchers, as a number of phenomena of interest to accounting researchers involve discontinuities. For example, whether an executive compensation plan is approved is a discontinuous function of shareholder support \citet{Armstrong:2013io}.
+
+While RD designs make relatively mild assumptions about the distribution of the running variable, in practice these assumptions may be violated.
+% Listokin, McCrary, etc.
 
 \subsection{Propensity score matching}
 
