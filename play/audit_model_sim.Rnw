@@ -434,6 +434,6 @@ df.peter.m1 <- within(df.peter.m1, {
         rbinom(n=N, size = 1, prob = p_G)
 })
 @
-\bibliography{jar_methods}
+\bibliography{../jar_methods}
 
 \end{document}

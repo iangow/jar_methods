@@ -11,10 +11,8 @@ Instead, \citet{Huang:2014cs} does what almost all empirical research papers in 
 If most papers do 
 
 \subsection{Endogeneity}
-\newpage
 
 \section{Quasi-experimental methods in accounting research}
-
 
 \subsection{Natural experiments}
 Natural experiments occur when observations are assigned by nature (or some other force outside the control of the researcher) to treatment and control groups in a way that is random or ``as if'' random \citep{Dunning:2012tt}. 
@@ -48,9 +46,42 @@ One study that illustrates this is \cite{Angrist:2008vk}.
 In that setting, the draft lottery is well understood as random and the process of mapping from the lottery to draft eligibility is well understood.
 Furthermore, there are good reasons to believe that the draft lottery does not affect anything else directly except for draft eligibility.
 
+One popular source of instruments in accounting, finance, and economics is prior research in economics and finance.
 \citet{Kelly:2012ih} seek to understand the effect of changes in analyst coverage on information asymmetry. 
-The challenge faced by \citet{Kelly:2012ih} is that changes in analyst coverage are generally not random. 
-To identify as-if random changes, \citet{Kelly:2012ih} use changes in coverage following mergers of brokerage firms that covered
+The challenge faced by \citet{Kelly:2012ih} is that changes in analyst coverage are generally not random and may be correlated with information asymmetry due to omitted correlated variables.
+\citet{Kelly:2012ih} treat mergers of brokerage firms that covered treatment firms as an exogenous (i.e., as-if random) source of variation in analyst coverage. \footnote{There are actually issues that could be raised with this instrument, but these are outside the scope of this paper.} They then examine the effect of such changes in analyst coverage on information asymmetry.
+
+\citet{Balakrishnan:2014js} use the  ``exogenous shocks" to analyst coverage in \citet{Kelly:2012ih} as an instrument for changes in voluntary disclosure practices. As noted in \citet{Balakrishnan:2014js}, the critical identifying assumptions are that ``lagged coverage shocks a) lead to more disclosure, b) not affect liquidity directly, and c) not correlate with some omitted variable that in turn affects liquidity." But, if we assume that analyst coverage is sticky (i.e. that analyst coverage in $t$ affects analyst coverage in $t+1$), then the causal diagram in Figure \ref{fig:bbkl} shows why this assumption is implausible. 
+The endogeneity concern in \citet{Kelly:2012ih}  is that contemporaneous analyst coverage and information asymmetry are plausibly correlated for non-causal reasons (or due to reverse causality). 
+This is represented using a bidirectional dashed line between analyst coverage and information asymmetry.
+But this dashed line is part of a backdoor path running from $\textit{Liquidity}_{t+1}$ to $\textit{Disclosure}$.
+
+\begin{figure} \caption{Causal graph for \citet{Balakrishnan:2014js}} \label{fig:bbkl}
+\begin{tikzpicture}[
+	every node/.style = 
+    	{shape = rectangle, rounded corners, fill = black!30!white,
+   		text width = 3cm, minimum height = 1.5cm, align = center, text = black},
+    black edge/.style = { -,  ultra thick, black, shorten >= 2pt}]
+    %create X and Y node
+    \node[rectangle] (BC) {Brokerage closure$_t$}; 
+    \node [right = 1 of BC] (AC0) {Analyst coverage$_t$};
+    \node [right = 1 of AC0] (AC1) {Analyst coverage$_{t+1}$};
+    \node [below = 1 of AC0] (IA0) {Information asymmetry$_t$};
+    \node [right = 1 of IA0] (IA1) {Information asymmetry$_{t+1}$};
+    \node [below = 1 of IA0] (D) {Disclosure};
+    \node [right = 1 of D] (LQ) {Liquidity$_{t+1}$};
+    \draw (BC) edge[->] (AC0);
+    \draw (AC0) edge[->] (IA0);
+     \draw (AC0) edge[->] (AC1);
+     \draw (AC1) edge[dashed, <->] (IA1);
+    \draw (IA0) edge[->] (D);
+    \draw (IA1) edge[->] (LQ);
+    \draw (D) edge[->] (LQ);
+    \draw (IA0) edge[bend right=60, dashed, <->] (AC0);
+\end{tikzpicture}
+\end{figure}
+
+
 
 
 A review of these papers suggests that researchers have paid little heed to the suggestions and warnings of Roberts and Whited (2012) and \citet{Larcker:2010fq}. 
