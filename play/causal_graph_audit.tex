@@ -6,6 +6,13 @@
 \begin{document}
 \usetikzlibrary{automata, shapes, calc, positioning}
 
+\begin{figure}
+
+\caption{Causal graph for misstatement model}
+
+Figure depicts causal graph for model of misstatement discussed in the text. 
+Exogenous parameters for auditor reputation costs ($C_R$) and cost of audit effort ($C_A$) suppressed for clarity. \newline
+
 \begin{tikzpicture}[every node/.style = 
     {shape = rectangle,
     rounded corners,
@@ -18,19 +25,41 @@
     { -,
     ultra thick, black, shorten >= 2pt}]
     %create X and Y node
-    \node[rectangle] (INC) {Managerial incentives}; 
-    \node [below = 1 of INC] (E) {Audit effort};
-    \node [right = 1 of INC] (M) {Misstatement};
-    \node [right = 1 of M] (EM) {External mechanism};
-    \node [below = 1 of EM] (R) {Restatement};
-    \draw (INC) edge[->] (M);
-    \draw (INC) edge[->] (E);
-    \draw (E) edge[->] (M);
-    \draw (M) edge[->] (EM);
-    \draw (EM) edge[->] (R);
+    
+    % Exogenous stuff
+    \node[rectangle] (B) {Managerial incentives ($B$)}; 
+    % \node [right = 1 of B] (C_R) {Auditor reputational concerns};
+    % \node [below = 1 of C_R] (C_A) {Cost of audit effort};
+    \node [right = 2 of B] (P_G) {External mechanism ($p_G$)};
+    
+    % Equilibrium
+    \node [right = 1 of B, below = 1 of B] (alpha) {Audit effort};
+    \node [right = 1 of alpha] (beta) {Attempted misstatement};
+    
+    % Unobservable outcome
+    \node [below = 1 of beta] (M) {Misstatement};
+    
+    % Observable outcome
+    \node [right = 1 of M] (R) {Restatement};
+    
+    \draw (B) edge[->] (beta);
+    % \draw (C_R) edge[->] (beta);
+    %  \draw (C_A) edge[->] (beta);
+    \draw (P_G) edge[->] (beta);
+    
+    \draw (B) edge[->] (alpha);
+    % \draw (C_R) edge[->] (alpha);
+    % \draw (C_A) edge[->] (alpha);
+    \draw (P_G) edge[->] (alpha);
+    
+    \draw (alpha) edge[->] (M);
+    \draw (beta) edge[->] (M);
+    \draw (M) edge[->] (R);
+    \draw (P_G) edge[->] (R);
+    
     % \draw (IA) edge[bend right=60, dashed, <->] (AC);
 \end{tikzpicture}
-
+\end{figure}
 \end{document}
 
 \end{document}
