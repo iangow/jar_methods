@@ -1,0 +1,36 @@
+\documentclass{article}
+
+\usepackage{tikz}
+\usepackage{pgf}
+
+\begin{document}
+\usetikzlibrary{automata, shapes, calc, positioning}
+
+\begin{tikzpicture}[every node/.style = 
+    {shape = rectangle,
+    rounded corners,
+    fill = black!30!white,
+    text width = 3cm,
+    minimum height = 1.5cm,
+    align = center,
+    text = black},
+                   black edge/.style =
+    { -,
+    ultra thick, black, shorten >= 2pt}]
+    %create X and Y node
+    \node[rectangle] (INC) {Managerial incentives}; 
+    \node [below = 1 of INC] (E) {Audit effort};
+    \node [right = 1 of INC] (M) {Misstatement};
+    \node [right = 1 of M] (EM) {External mechanism};
+    \node [below = 1 of EM] (R) {Restatement};
+    \draw (INC) edge[->] (M);
+    \draw (INC) edge[->] (E);
+    \draw (E) edge[->] (M);
+    \draw (M) edge[->] (EM);
+    \draw (EM) edge[->] (R);
+    % \draw (IA) edge[bend right=60, dashed, <->] (AC);
+\end{tikzpicture}
+
+\end{document}
+
+\end{document}
