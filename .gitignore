@@ -7,7 +7,6 @@
 *.pdf
 .Rproj.user
 .Rhistory
-*.tex
 *.tpbuild
 .RData
 *.blg
