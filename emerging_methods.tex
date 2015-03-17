@@ -1,7 +1,7 @@
 \documentclass[11pt]{amsart}
 \input{preamble}
 
-\title[Emerging methods]{Emerging methods and approaches in accounting research}
+\title[Causal Inference]{Causal Inference in Accounting Research}
 
 \author{Gow, Ian D. and Larcker, David F. and Reiss, Peter}
 %\date{}   % Activate to display a given date or no date
@@ -43,11 +43,11 @@ For example, a researcher might argue that a paper that claimed that ``theory pr
 However, by stating that ``consistent with \dots theory, X is associated with Y," the purpose clearly is to argue that the evidence tilts the scale, however slightly, in the director of believing the theory is a valid description of the real world: in other words, \emph{inference}. 
 Additionally, because theory is essentially causal, such inference is inherently \emph{causal} inference.} 
 But in general, the causal (or ``treatment'') variables studied by accounting researchers are unlikely to be assigned (as-if) randomly, as is necessary for simple comparisons or regressions to yield valid causal inferences.
-Treatment variables like ``tone management'' \citep{Huang:2014cs}, ``occurrence of a material restatement'' \citep{Chen:2014ji}, or ``adoption of fair value reporting model'' \citep{Liang:2014ea} are likely to be the result of complex processes that are very imperfectly understood by researchers.
+Treatment variables like ``tone management'' \citep{Huang:2014cs}, ``occurrence of a material restatement'' \citep{Chen:2014ji}, or ``adoption of fair value reporting model'' \citep{Liang:2014ea} are likely to be the result of complex processes that are imperfectly understood by researchers.
 
-\cite{Angrist:2010jv} argue that ``empirical microeconomics has experienced a credibility revolution, with a consequent increase in policy relevance and scientific impact.''
+\cite{Angrist:2010jv} claim that ``empirical microeconomics has experienced a credibility revolution, with a consequent increase in policy relevance and scientific impact.''
 They attribute much of the credit for this revolution to the emergence of design-based studies using quasi-experimental methods such as instrumental variables and regression discontinuity designs.
-While such methods do appear in accounting research \citep{Larcker:2010fq}, we find that their use is relatively rare, with just 10 studies in our survey using instrumental variables and 4 studies using regression discontinuity designs.
+Holding aside the validity of the Angrist and Pischke claim, such methods also appear in accounting research \citep{Larcker:2010fq}, but we find that their use is relatively rare, with just ten studies in our survey using instrumental variables and four studies using regression discontinuity designs.
 
 It is important to distinguish ``causal inference'' as we use the term from a narrower sense in which causal inference is based on empirical methods---such as those indicated by \cite{Angrist:2010jv}---that are argued to deliver causal parameters unaffected by endogeneity.
 First, the reality is that the majority of inference in accounting research does not employ these methods.
@@ -119,7 +119,17 @@ Developing a formal theory of the relation between firm performance, managerial 
 Building on such a (hypothetical) foundation to solve the complex game involving managers and capital markets would be extremely ambitious.
 Instead, \citet{Huang:2014cs} does what almost all empirical research papers in accounting do and resorts to ``verbal theorizing'.'
 
-\subsection{Endogeneity}
+\section{The Structural Causal Model}
+% I think we could do a brief overview of Pearl's SCM here.
+% We could use this to:
+% - explain that inferring causation is not a purely statistical exercise.
+% - introduce the technology of causal graphs
+% - other things?
+
+% I think we want to emphasize the importance of stepping back from statistics and econometrics and thinking about causation more carefully.
+% I think reading the first 10 pages or so of Pearl's survey paper sent yesterday (2014-03-12) to get some flavor of the ideas here.
+
+% \subsection{Endogeneity}
 
 \section{Quasi-experimental methods in accounting research}
 
@@ -255,8 +265,6 @@ Should we discuss this too? PSM is not really a ``quasi-experimental'' method in
 
 The next part of the paper has a more positive take (structural modeling, etc.).
 
-\newpage
-
 Likely effective in settings, but of limited applicability and care is needed to do it well and to interpret the results. Discuss examples from shareholder voting and the \$75 million threshold for SOX.
 
 \subsection{Overall assessment}
@@ -271,6 +279,11 @@ The methods for estimating causal effects described above (i.e., instrumental va
 
 This raises the question: What should researchers do? Do we stop doing research? Do we need to give up on causal inference? The objective of the second part of this paper is to provide some guidance to research on possible answers to these questions.
 
+\subsection{Structural modeling}
+
+% Peter's stuff here. May be worth bullet-pointing this for now.
+% I think it would be useful to do a little discussion of efforts to date.
+% We could be fairly kind, but highlight the challenges.
 
 \subsection{Deeper institutional understanding}
 
@@ -305,7 +318,7 @@ A typical paper in accounting research will include tables of descriptive statis
 
 \subsection{Increase the use of field evidence}
 
-The use of archival data obtained from public databases dominates empirical research in accounting. relies \cite{Soltes:2014gr} discusses the pitfalls of exclusive reliance of archival data. 
+The use of archival data obtained from public databases dominates empirical research in accounting. relies \cite{Soltes:2014gr} discusses the pitfalls of exclusive reliance on archival data. 
 
 
 \begin{itemize}
