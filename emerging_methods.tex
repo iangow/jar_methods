@@ -39,12 +39,13 @@
 \attrib{\cite{Berk:1999uz}}
 \end{quotation}
 
-% \textbf{This section is awesome, Dave.}
+
+
 % Dave: It's actually helpful to put every sentence on a separate line. 
 % You need two line breaks to indicate a paragraph.
 
 The dominant mode of research in accounting is empirical analysis of observational (generally archival) data with a focus on causal inference.
-A survey of current accounting research (i.e., papers published in 2014 in the \textit{Journal of Accounting Research}, \textit{Accounting Review}, or \textit{Journal of Accounting and Economics}) reveals that 90\% of empirical papers doing original research seek to draw causal inferences.\footnote{``Original" research excludes papers that are surveys or discussions of other papers and, in this context, ``empirical" papers excluded experiment- and field-based research papers, though most of these seek to make causal inferences also. 
+A survey of current accounting research (i.e., papers published in 2014 in the \textit{Journal of Accounting Research}, \textit{The Accounting Review}, or \textit{Journal of Accounting and Economics}) reveals that 90\% of empirical papers doing original research seek to draw causal inferences.\footnote{``Original" research excludes papers that are surveys or discussions of other papers and, in this context, ``empirical" papers excluded experiment- and field-based research papers, though most of these seek to make causal inferences also. 
 We recognize that a goal of causal inference might be denied by the authors of some papers to which we have attributed that goal.
 
 For example, a researcher might argue that a paper that claimed that ``theory predicts X is associated Y and, consistent with that theory, we show X is associated with Y'' is merely a descriptive paper that does not make causal inferences. 
@@ -56,17 +57,28 @@ Treatment variables like ``tone management'' \citep{Huang:2014cs}, ``occurrence 
 
 \cite{Angrist:2010jv} claim that ``empirical microeconomics has experienced a credibility revolution, with a consequent increase in policy relevance and scientific impact.''
 They attribute much of the credit for this revolution to the emergence of design-based studies using quasi-experimental methods such as instrumental variables and regression discontinuity designs.
-Holding aside the validity of the Angrist and Pischke claim, such methods also appear in accounting research \citep{Larcker:2010fq}, but we find that their use is relatively rare, with just ten studies in our survey using instrumental variables and four studies using regression discontinuity designs.
+Holding aside the validity of the Angrist and Pischke claim, such methods also appear in accounting research but we find that their use is relatively rare, with just ten studies in our survey using instrumental variables and four studies using regression discontinuity designs.\footnote{See also the descriptive statistics in \citep{Larcker:2010fq}.}  This raises the important issue of whether the theoretical models and econometric methods used in accounting research can ultimately produce inferences that are even remotely causal.
 
-It is important to distinguish ``causal inference'' as we use the term from a narrower sense in which causal inference is based on empirical methods---such as those indicated by \cite{Angrist:2010jv}---that are argued to deliver causal parameters unaffected by endogeneity.
-First, the reality is that the majority of inference in accounting research does not employ these methods.
-Second, even when such methods are used, we argue that they generally do not support warranted causal inference in the narrower sense.
+In the first part of paper, we provide a theoretical overview of causal inference and an evaluation of the state of causal inference in accounting. We begin with a discussion of the Structural Causal Model \citep{Pearl:2009kh} which we use to provide a structure and terminology for the balance of the paper.  
+The essential idea with the SCM approach -- a graphical representation of some theoretical quesiton of interest that includes exogenous variables (outside the model), endogenous variables (determined within the model), and a set of structural equations linking the endogenous and exogenous variables together.  
+%TODO: IDG: Discuss how we will use this as a framework for evaluating the 2014 accounting research
 
-In the first part of paper, we examine and critically evaluate the use of the methods discussed in \cite{Angrist:2010jv} in accounting research.
-We argue that so-called natural experiments and instrumental variables generally do not yield credible causal inferences in accounting research settings in which they are employed.
+% this all goes back to Blalock, Duncan, Goldberger and other famous sociologists, which we should probably highlight.  Interestingly, this is the essence of path model and latent variable models that I have little success getting into the accounting literature.
+
+% Dave: Do you like this idea? I think that many issues in accounting research would disappear if researchers were more explicit and careful about their reasoning.
+% The SCM of Pearl is (so Pearl claims) a generalization of the Rubin Causal Model, and structural models in economics.
+% Causal graphs can be interpreted as "non-parametric structural models" and structural models therefore are a special case.
+% I think by explicating the approach to causal graphs, we can be more positive and seem to be introducing something helpful, as opposed to seeming very negative and not having answers.
+% This also provides a natural bridge to the structural model stuff at the back.
+% The reason for doing it first is to use it in the first part.
+
+% Yes -- I like this structure -- we will need to have a short section in 
+We then examine and critically evaluate the use of the quasi-experimental methods discussed in \citet{Angrist:2010jv}, \citet{Roberts:2013cz} and others in accounting research.
+We argue that so-called natural experiments and instrumental variables generally do not yield credible causal inferences in accounting research settings.
 While regression discontinuity designs rely on weaker assumptions than these other methods, their applicability is inherently limited and, even when they are applicable, the estimates they provide often will not be of the effects of primary interest to researchers.
 
-Having argued that causal inference is the primary focus of accounting research, but that standard econometric approaches to warranted causal inference have limited applicability in accounting research, the message of the first part of our paper might be perceived as pessimistic and as not offering a realistic path forward for accounting researchers. 
+Having argued that causal inference is the primary focus of accounting research, but that standard econometric approaches to warranted causal inference have limited applicability in accounting research, the message of the first part of our paper might be perceived as pessimistic and as not offering a realistic path forward for accounting researchers.
+Our objective is not to dismiss the knowledge gained from prior empirical research, but rather to provide a critical, but informed, assessment of our approach to making causal remarks.  
 
 The goal of the second part of the paper is to offer such a path (or paths) forward. 
 We identify emerging approaches in accounting research and also draw on other disciplines to offer a vision for how accounting research might successfully address causal questions even when clever instruments or natural experiments do not provide sharp, straightforward answers to the questions of interest to the field.
@@ -80,38 +92,61 @@ We also study approaches from economics and finance, including the  use of struc
 
 % Structural model does not solve endogeneity, but makes it explicit and gives it a theoretical and institutional basis.
 
-\section{Causal inference in accounting research}
+Ultimately we believe that accounting researchers need to move away from the "false promises" of causal inference using IV etc. being applied to somewhat contrived research topics.  A more compelling direction is twofold:  (1) in-depth descriptive research on important institutional phenomenon to help us select useful research questions and (2) structural modeling  based on descriptive evidence that enables us to develop appropriate counterfactuals and get close to understanding causal mechanisms.    %Obviously this paragraph needs work, but we want to highligh where we are going in the paper -- seems like the descriptive discussion maps into your idea that many of our research ideas are stupid and have nothing to do with the real world
 
-\subsection{Causal inference in accounting research}
+\section{Causal inference in accounting research: Current practice}
+
+% I'm not sure about this. I think we want to establish the fact that accounting researchers are trying to do causal inferences ... then evaluate the approaches taken. The "..." is where I think we introduce the tools to evaluate.
+%
+% One "wrinkle" is the fact that causal inference using "OLS" is still the dominant approach. 90 papers do causal inference: 14 use IV or "natural experiments" (all BS), leaving 74 papers doing OLS, etc. I guess some are doing D-in-D, etc., but what does that achieve, really? It's just "OLS". Perhaps we need to make this explicit. In that case, survey basics/descriptives, then Pearl, then "OLS" then quasi-experimental methods. Causal graphs for OLS should be easy. The OLS section could be where we discuss generic endogeneity issues (as in our original paper outline).
+
+% add the classic Pearl references here
+
+%THIS SEEMS TO BELONG HERE   
+% Do you like this idea? I think that many issues in accounting research would disappear if researchers were more explicit and careful about their reasoning.
+% The SCM of Pearl is (so Pearl claims) a generalization of the Rubin Causal Model, and structural models in economics.
+% Causal graphs can be interpreted as "non-parametric structural models" and structural models therefore are a special case.
+% I think by explicating the approach to causal graphs, we can be more positive and seem to be introducing something helpful, as opposed to seeming very negative and not having answers.
+% This also provides a natural bridge to the structural model stuff at the back.
+% The reason for doing it first is to use it in the first part.
+
+\subsection{Data on causal inference in accounting research}
+
+% Add a footnote to the guy doing something similar is AOS -- claims that only 3% of papers are causal
+
 To get a sense for the importance of causal questions in accounting research,
 we conducted a survey of all papers published in 2014 in the  \textit{Journal of Accounting Research}, \textit{The Accounting Review}, or the \textit{Journal of Accounting and Economics}).
-We counted 139 papers, of which, 
-125 are original research papers 
-(a further 4 and
-[10] papers survey [discuss] other
-papers).
+We counted 139 papers, of which, 125 are original research papers (a further 14 papers survey or discuss other papers).
 
-We assign a category to each original research paper based on the methods used in the paper: ``theoretical''  (7), ``experimental'' (12), ``field" (3), or ``empirical"  (103).
+We assign a category to each original research paper based on the methods used in the paper: ``theoretical''  (7), ``experimental'' (12), ``field" (3), or ``archival"  (103).
 % Would "archival" be a better term for "empirical?
 We then examine the research questions asked in each non-theoretical paper and
 ask whether the primary or secondary research questions in each paper are
 ``causal" in nature.
 
-Of the  103 original, empirical papers, we coded 90 as seeking to draw causal inferences. Of the remaining empirical papers, we coded 5 papers as having a goal of ``description.'' 
+Of the  103 original, archival papers, we coded 90 as seeking to draw causal inferences. Of the remaining empirical papers, we coded 5 papers as having a goal of ``description.'' 
 For example, \citet{Soltes:2013ba} uses data collected from one firm to provide insights into when analysts privately interact with management the nature of these interactions.
 We coded 5 papers as having a goal of ``prediction.'' 
 For example, \citet{Czerney:2014bv} examine whether the inclusion of ``explanatory language" in unqualified audit reports can be used to predict the detection of financial misstatements in the future.
 We coded 3 papers as having a goal of ``measurement.'' 
 For example, \citet{Cready:2014ji} examine whether inferences about traders based on trade size are reliable and suggest improvements to the measurement of variables used by accounting researchers. 
 
-In coding 90 papers as seeking to draw causal inferences, we generally examined the title and
-abstract for evidence of causal inference. Often the title reveals a causal question, with words such as  ``effect of \dots" or ``impact of \dots"  
+In coding 90 archival papers as seeking to draw causal inferences, we generally examined the title and abstract for evidence of causal inference. 
+Often the title reveals a causal question, with words such as  ``effect of \dots" or ``impact of \dots"  
 \citep[e.g.][]{Cohen:2014jl,Clorproell:2014cv} making it clear that a causal question was being asked. 
-Often language in the abstract reveals a goal of causal inference. For example, \citet{deFranco:2014ct} asks ``how the tone of sell-side debt analysts’ discussions about debt-equity conflict events \emph{affects} the informativeness of debt analysts’ reports in debt markets.''
+Often language in the abstract reveals a goal of causal inference. 
+For example, \citet{deFranco:2014ct} asks ``how the tone of sell-side debt analysts' discussions about debt-equity conflict events \emph{affects} the informativeness of debt analysts’ reports in debt markets.''
 
-\subsection{Where do research questions come from?}
-One striking aspect of 
+\subsection{Endogeneity and Pearl's Structural Causal Model}
+%TODO: Dave: We want some general "endogeneity" talk here. Then we can introduce the SCM as a tool for evaluating and understanding causal issues. We can discuss Rubin Causal Model, etc., as I believe Pearl relates those to his framework.
+It is widely recognized that in an experimental setting, causal inference is straightforward.
+However, in archival research, we don't have random treatment assignment.
 
+
+One way to assess the reasonableness of causal inferences in accounting research is to use the framework developed by \citet{Pearl:2009kh}. 
+
+% \subsection{Where do research questions come from?}
+% One striking aspect of 
 % Sources of research questions
 %
 % - theory
@@ -120,15 +155,19 @@ One striking aspect of
 % - prior research
 % - practice
 
+
+
+% This discussion may belong near the end. When we talk about structural modeling, we should make clear that some questions are difficult to fit into a structural model, etc.
 \subsection{The role of theory in empirical accounting research}
 The vast majority of empirical research papers in accounting do not rely on a formal theoretical model to motivate their hypotheses.
 This is perhaps inevitable given the wide range of theories that accounting researchers study, and the inherent complexity of many of the treatment and outcome variables.
 For example, \citet{Huang:2014cs} study the effect ``tone management'' on capital market outcomes.
 Developing a formal theory of the relation between firm performance, managerial psychological states, and measures of tone would be a complex undertaking involving economics, psychology, and linguistics.
 Building on such a (hypothetical) foundation to solve the complex game involving managers and capital markets would be extremely ambitious.
-Instead, \citet{Huang:2014cs} does what almost all empirical research papers in accounting do and resorts to ``verbal theorizing'.'
+Instead, \citet{Huang:2014cs} does what almost all empirical research papers in accounting do and resorts to more verbal approaches to hypothesis development. 
+% Can we find some critique of this approach? Pfleiderer?  YES -- let's review Paul's paper and add some of this and include him in the references
 
-\section{The Structural Causal Model}
+\subsection{The Structural Causal Model}
 % I think we could do a brief overview of Pearl's SCM here.
 % We could use this to:
 % - explain that inferring causation is not a purely statistical exercise.
@@ -142,31 +181,37 @@ Instead, \citet{Huang:2014cs} does what almost all empirical research papers in 
 
 \section{Quasi-experimental methods in accounting research}
 
+% somewhere we want to note that there are some real field experiments -- John Roberts with the impact of consulting firms in India and a variety of related studies in Economics.  There was also the SEC decision to randomly assign short selling restrictions.
+
 \subsection{Natural experiments}
 Natural experiments occur when observations are assigned by nature (or some other force outside the control of the researcher) to treatment and control groups in a way that is random or ``as if'' random \citep{Dunning:2012tt}. 
-Truly (as if) random assignment to treatment and control provides a sound basis for causal inference, enhancing the appeal of natural experiments.
-However, \citet{Dunning:2012tt} argues that this appeal ``may provoke conceptual stretching, in which an attractive label is applied to research designs that only implausibly meet the definitional features of the method'' \citep[p.3]{Dunning:2012tt}.
+Truly (as if) random assignment to treatment and control provides a sound basis for causal inference, enhancing the appeal of natural experiments for social science research.
+However, argues that this appeal ``may provoke conceptual stretching, in which an attractive label is applied to research designs that only implausibly meet the definitional features of the method'' \citep[p.3]{Dunning:2012tt}.
 
-Such ``conceptual stretching'' is evident in accounting research.
-Our survey of accounting research identified six papers that exploited either a ``natural experiment'' or ``exogenous shock'' to identify causal effects \citep{Lo:2013jk,Aier:2014ii,Kirk:2014gx,Houston:2014hv}. % Wtat about Hail:2014fq?
-But closer examination suggests that most of these papers misapply the fundamental idea of natural experiments.
+Our survey of accounting research identified six papers that exploited either a ``natural experiment'' or ``exogenous shock'' to identify causal effects \citep{Lo:2013jk,Aier:2014ii,Kirk:2014gx,Houston:2014hv}. %TODO: IDG: What about Hail:2014fq?
+But closer examination suggests that most of these papers misapply the fundamental idea of natural experiments  In fact, these papers seem to be good examples of ``conceptual stretching''.
 
-\cite{Aier:2014ii} exploit a 1991 Delaware court that ``expanded the scope of directors' fiduciary duties to include creditors when a Delaware incorporated firm is in the `vicinity of insolvency.'" as a ``natural experiment'' for the purpose of understanding the causal effect of debtholders' demand for conservatism (the treatment variable) on financial reporting conservatism (the outcome of interest). But it is completely unclear how this ``natural experiment'' sorted firms into differing levels of the treatment variable, let alone why this assignment is as-if random.
+\cite{Aier:2014ii} exploit a 1991 Delaware court that ``expanded the scope of directors' fiduciary duties to include creditors when a Delaware incorporated firm is in the `vicinity of insolvency.'" as a ``natural experiment'' for the purpose of understanding the causal effect of debtholders' demand for conservatism (the treatment variable) on financial reporting conservatism (the outcome of interest). But it is completely unclear how this ``natural experiment'' sorted firms into differing levels of the treatment variable, let alone why this assignment is appropriately considered to as-if random.
 
- \citet{Kirk:2014gx} ``exploit the natural experiment setting created by the exogenous shock of Reg FD to examine the effect of Reg FD on firms with an established IR [investor relations] program.'' 
-Given that the treatment of interest in \citet{Kirk:2014gx} is the establishment of an IR program, only a event that randomly assigned firms to having or not having such a program would qualify as a natural experiment in that setting.
-
-\cite{Houston:2014hv} analyzes ``whether the political connections of listed firms in the United States affect the cost and terms of loan contracts'.' They argue that ``the recent financial crisis can be viewed as a major exogenous shock, the effects of which may vary depending on whether the firm is politically connected.'' But this is not what is needed for a valid natural experiment. To see this, an analogy is perhaps helpful. Suppose we wanted to study the effects of smoking on life expectancy. A long-standing concern in studies of such effects is the existence of other differences in the lifestyles of smokers and non-smokers. A ``natural experiment'' analogous to that in \cite{Houston:2014hv} might be one that created gas leaks in the homes of smokers and non-smokers alike. Because gas leaks are likely to have more deleterious consequences on smokers (e.g., instant immolation when lighting a cigarette), the reasoning of \cite{Houston:2014hv} might suggest that gas leaks are a helpful ``exogenous shock,'' contrary to common sense.
+\citet{Kirk:2014gx} ``exploit the natural experiment setting created by the exogenous shock of Reg FD to examine the effect of Reg FD on firms with an established IR [investor relations] program.'' 
+Given that the treatment of interest in \citet{Kirk:2014gx} is the establishment of an IR program, only a event that randomly assigned firms to having or not having such a program would qualify as a natural experiment for this research setting.
 
 A plausible explanation for the ease with which conceptual stretching has occurred derives from the ambiguity of the word ``exogenous,'' which not only denotes  ``of, relating to, or developing from external factors'' (Oxford Dictionary), but is also the antonym of ``endogenous.''
 For example, the fact that Reg FD was perhaps not driven by factors related to firms' IR programs and firm-level capital market outcomes, it does not randomly assign firms into treatment and control groups and thus does not help resolve the endogeneity of IR programs with such capital market outcomes.
+
+\cite{Houston:2014hv} analyzes ``whether the political connections of listed firms in the United States affect the cost and terms of loan contracts.'' They argue that ``the recent financial crisis can be viewed as a major exogenous shock, the effects of which may vary depending on whether the firm is politically connected.'' But this is not what is needed for a valid natural experiment. To see this, an analogy is perhaps helpful. Suppose we wanted to study the effects of smoking on life expectancy. A long-standing concern in studies of such effects is the existence of other differences in the lifestyles of smokers and non-smokers. A ``natural experiment'' analogous to that in \cite{Houston:2014hv} might be one that created gas leaks in the homes of smokers and non-smokers alike. Because gas leaks are likely to have more deleterious consequences on smokers (e.g., instant immolation when lighting a cigarette), the reasoning of \cite{Houston:2014hv} might suggest that gas leaks are a helpful ``exogenous shock,'' contrary to common sense. %TODO: IDG: Tone this down.
+
+
+GENERAL EVALUATION for the use of NATURAL EXPERIMENTS for causal inferences in accounting 
+
+Are there any good examples of natural experiments in accounting?  Should we put some "good examples" of natural experiments from other areas -- economics and finance?  Are some of the accoutning natural experiments better than others?
 
 % IV starts here!
 \subsection{Instrumental variables}
 \citet[p.114]{Angrist:2008vk} describe instrumental variables (IV) as ``the most powerful weapon in the arsenal of [statistical tools]" in econometrics. 
 Accounting researchers have long used instrument variables to address concerns about endogeneity \citep{Larcker:2010fq} and continue to do so: our survey of research published in 2014 identifies 10 papers using instrumental variables \citep{Cannon:2014im,Cohen:2014jl,Kim:2014fm,Vermeer:2014bs,Fox:2014io,Guedhami:2013cj,Houston:2014hv,deFranco:2014ct,Erkens:2014hj,Correia:2014fp}. 
 
-However, much has been written on the challenges for researchers in using instrumental variables (IV) as the basis for causal inference (e.g., Roberts and Whited (2012)). 
+However, much has been written on the challenges for researchers in using instrumental variables (IV) as the basis for causal inference \citep[e.g.,][]{Roberts:2013cz}. 
 With respect to accounting research, \citet{Larcker:2010fq} lament that ``some researchers consider the choice of instrumental variables to be a purely statistical exercise with little real economic foundation'' and call for 
 ``accounting researchers \dots to be much more rigorous in selecting and justifying their instrumental variables.'' 
 \citet[p.117]{Angrist:2008vk} argue that ``good instruments come from a combination of institutional knowledge and ideas about the process determining the variable of interest."
@@ -174,42 +219,52 @@ One study that illustrates this is \cite{Angrist:2008vk}.
 In that setting, the draft lottery is well understood as random and the process of mapping from the lottery to draft eligibility is well understood.
 Furthermore, there are good reasons to believe that the draft lottery does not affect anything else directly except for draft eligibility.
 
+Of course, this instrument has been subject to considerable criticism -- ADD
+
+\subsubsection{Evaluating IV is \emph{not} a statistical exercise}
+However, it is evident that many researchers in accounting view causal inference as a purely statistical exercise.
+While most papers in accounting that use IV continue to provide little justification for their validity of their chosen instruments and tend not to evaluate the strength of them either, \citet{Correia:2014fp} is relatively thorough. 
+\citet{Correia:2014fp} tests for weak instruments and also uses a test of over-identifying restrictions to examine the validity of her chosen instruments. 
+
+But it should be understood that these tests arguably provide very little assurance.
+To see this, a simple simulation exercise suffices.
+Suppose that we have $y = X \beta + \epsilon$, but with $X$ and $\epsilon$ having correlation $\rho(X, \epsilon) = 0.2$ (i.e., $X$ is endogenous) and $\beta = 0$ (i.e., there is no causal relation between $X$ and $y$). 
+Now, suppose we "construct" the following three instruments 
+$z_1 = x +\eta_1$, $z_2 = \eta_2$, and $z_3 = \eta_3$, with $\sigma_{\eta_1} = \sigma_{\eta_2} = \sigma_{\eta_3} \sim N(0, 0.09)$ and independent. 
+That is, $z_1$ is $X$ plus noise, while $z_2$ and $z_3$ are random noise.
+
+Assuming that $X$ and $\epsilon$ are bivariate-normally distributed with variance of $1$, we can run 1000 simulations and  estimate the IV regression using these instruments on the simulated data in each case. Doing so, we find a mean estimated coefficient on $X$ of $0.201$, which is statistically significant at the 5\% level 100\% of the time.\footnote{Note that this coefficient is close to $\rho(X, \epsilon) = 0.2$, which is to be expected given how our data were generated.} Based on a test statistic of 30, which easily exceeds the thresholds suggested by Stock et al. (2002), the null hypothesis of weak instruments is rejected 100\% of the time. 
+The test of overidentifying restrictions fails to reject a null hypothesis of valid instruments (at the 5\% level) 95.7\% of the time.
+In other words, it is easy for completely spurious instruments to deliver bad inferences, yet easily pass tests for weak instruments and endogeneity.
+
+\subsubsection{Using instruments from other papers should be done with care}
 One popular source of instruments in accounting, finance, and economics is prior research in economics and finance.
+For example, \citet{Balakrishnan:2014js} use the ``exogenous shocks" to analyst coverage in \citet{Kelly:2012ih} as an instrument for changes in voluntary disclosure practices. 
 \citet{Kelly:2012ih} seek to understand the effect of changes in analyst coverage on information asymmetry. 
 The challenge faced by \citet{Kelly:2012ih} is that changes in analyst coverage are generally not random and may be correlated with information asymmetry due to omitted correlated variables.
-\citet{Kelly:2012ih} treat mergers of brokerage firms that covered treatment firms as an exogenous (i.e., as-if random) source of variation in analyst coverage. \footnote{There are actually issues that could be raised with this instrument, but these are outside the scope of this paper.} They then examine the effect of such changes in analyst coverage on information asymmetry.
+\citet{Kelly:2012ih} treat mergers of brokerage firms that covered treatment firms as an exogenous (i.e., as-if random) source of variation in analyst coverage. \footnote {Seems to me that we should highlight some of these issues with this instrument -- not clear why this is outside our scope.} They then examine the effect of such changes in analyst coverage on information asymmetry.
 
-\citet{Balakrishnan:2014js} use the  ``exogenous shocks" to analyst coverage in \citet{Kelly:2012ih} as an instrument for changes in voluntary disclosure practices. As noted in \citet{Balakrishnan:2014js}, the critical identifying assumptions are that ``lagged coverage shocks a) lead to more disclosure, b) not affect liquidity directly, and c) not correlate with some omitted variable that in turn affects liquidity." But, if we assume that analyst coverage is sticky (i.e. that analyst coverage in $t$ affects analyst coverage in $t+1$), then the causal diagram in Figure \ref{fig:bbkl} shows why this assumption is implausible. 
-The endogeneity concern in \citet{Kelly:2012ih}  is that contemporaneous analyst coverage and information asymmetry are plausibly correlated for non-causal reasons (or due to reverse causality). 
-This is represented using a bidirectional dashed line between analyst coverage and information asymmetry.
-But this dashed line is part of a backdoor path running from $\textit{Liquidity}_{t+1}$ to $\textit{Disclosure}$.
+The causal graph for \citet{Kelly:2012ih} is depicted in Figure \ref{fig:bbkl}.
+The identifying assumption is that $\textit{Brokerage closure}_t$ affects $\textit{Analyst coverage}_t$, but otherwise has no effect, direct or otherwise, on $\textit{Information asymmetry}_t$.
+These three boxes, along with the arrows (or lack of arrows) between them are the causal graph underlying \citet{Kelly:2012ih}.
 
-\begin{figure} \caption{Causal graph for \citet{Balakrishnan:2014js}} \label{fig:bbkl}
-\begin{tikzpicture}[
-	every node/.style = 
-    	{shape = rectangle, rounded corners, fill = black!30!white,
-   		text width = 3cm, minimum height = 1.5cm, align = center, text = black},
-    black edge/.style = { -,  ultra thick, black, shorten >= 2pt}]
-    %create X and Y node
-    \node[rectangle] (BC) {Brokerage closure$_t$}; 
-    \node [right = 1 of BC] (AC0) {Analyst coverage$_t$};
-    \node [right = 1 of AC0] (AC1) {Analyst coverage$_{t+1}$};
-    \node [below = 1 of AC0] (IA0) {Information asymmetry$_t$};
-    \node [right = 1 of IA0] (IA1) {Information asymmetry$_{t+1}$};
-    \node [below = 1 of IA0] (D) {Disclosure};
-    \node [right = 1 of D] (LQ) {Liquidity$_{t+1}$};
-    \draw (BC) edge[->] (AC0);
-    \draw (AC0) edge[->] (IA0);
-     \draw (AC0) edge[->] (AC1);
-     \draw (AC1) edge[dashed, <->] (IA1);
-    \draw (IA0) edge[->] (D);
-    \draw (IA1) edge[->] (LQ);
-    \draw (D) edge[->] (LQ);
-    \draw (IA0) edge[bend right=60, dashed, <->] (AC0);
-\end{tikzpicture}
-\end{figure}
+Turning to \citet{Balakrishnan:2014js}, as the authors note, the critical identifying assumptions are that ``lagged coverage shocks a) lead to more disclosure, b) not affect liquidity directly, and c) not correlate with some omitted variable that in turn affects liquidity." 
+The link between coverage shocks and disclosure is the assumption that ``managers respond to exogenous shocks to their information environments" (i.e., the increase in information asymmetry shown by  \citet{Kelly:2012ih}.
+These link can be expressed by adding to the causal graph in Figure \ref{fig:bbkl} a node for \textit{Disclosure}, driven by $\textit{Information assymetry}_t$, which is linked to $\textit{Liquidity}_{t+1}$.
 
-A review of these papers suggests that researchers have paid little heed to the suggestions and warnings of Roberts and Whited (2012) and \citet{Larcker:2010fq}. 
+As \citet{Balakrishnan:2014js} point out, it is necessary for $\textit{Information assymetry}_t$ not to affect $\textit{Liquidity}_{t+1}$ through any channel other than \textit{Disclosure}.
+For example, it is well known that information asymmetry is a major driver of contemporaneous liquidity, so an assumption is that neither $\textit{Information assymetry}_t$ nor $\textit{Liquidity}_t$ affects $\textit{Liquidity}_{t+1}$ except through their effect on $\textit{Disclosure}$. 
+This assumption is represented in Figure \ref{fig:bbkl} by the omission of an arrow between $\textit{Information assymetry}_t$ and $\textit{Information assymetry}_t$.
+
+An assumption in \citet{Kelly:2012ih} is that analyst coverage affects contemporaneous information asymmetry, which again affects contemporaneous liquidity.
+These relations are represented in Figure \ref{fig:bbkl} by the three nodes in the right-most column and the nodes between them.
+However, if analyst coverage is sticky (i.e., $\textit{Analyst coverage}_t$ affects $\textit{Analyst coverage}_{t+1}$ as represented in Figure \ref{fig:bbkl}), then the identification strategy in \citet{Balakrishnan:2014js} breaks down, as there is then a back-door path from $\textit{Liquidity}_{t+1}$ to $\textit{Disclosure}$ via this link.
+That such stickiness in coverage should exist seems to be assumed by \citet{Balakrishnan:2014js}, who argue that ``firms [unable to respond  to the coverage shock through increased disclosure] suffer a \emph{permanent} reduction in liquidity" (p.2239), which presumably requires the shock to analyst coverage to be persistent.
+
+The point of the discussion above is not to impugn the precise findings of \citet{Balakrishnan:2014js}, but rather to illustrate the merit of more careful analysis of a paper's identification strategy and, we argue, the value of causal graphs in doing so.
+
+
+A review of these papers suggests that researchers have paid little heed to the suggestions and warnings of  \citet{Larcker:2010fq} and \citet{Roberts:2013cz}.
 
 Several papers provide little or no justification for the validity of their instruments. For example, to address endogeneity \citet{Cohen:2014jl} use ``two instrumental variables. The first is the natural log of industry size, measured as the number of companies within each two-digit SIC. The second measures industry competition using the Herfindahl-Hirschman index, which is well-established as a measure of competitive industries. Our untabulated results using this approach are qualitatively similar to our main analysis, thus indicating that endogeneity is not a concern when assessing the reliability of our findings.''
 \citet{Vermeer:2014bs} ``use Maddala's (1988) two-stage procedure'' in order to ``control for endogeneity'' without providing any explanation at all and in fact seem to be assuming the each of three endogeneous variables can used as an instrument for the other two.
@@ -223,7 +278,7 @@ Other papers provide limited, but seemingly flawed, justification for their chos
  \citet{Houston:2014hv} use variables variables that are related to the location of the company's headquarters as instruments for political connection and argue that ``these instruments should not be conceptually related to loan spreads. The key insight here is that the geographic locations of headquarters for companies are predetermined and are unlikely to affect banks' financing decision on loan costs. In summary, our identification assumption is that the costs of bank loans are not directly related to the companies' geographic locations, after controlling for a series of firm and loan characteristics'' (p.228). In effect the authors express the necessary condition in various words three times, but do not justify it in any meaningful way.
  There is an asymmetry evident in the reasoning of \citet{Houston:2014hv}. In justifying the relevance of the instrument, the authors seem eager to justify a connection, suggesting that ``the presumption is that the company's geographic location affects the company's ability to attract politically connected directors.'' But it far from clear why a company's geographic location would not also affect the its ability to attract directors with connections to \emph{financial institutions}, which plausibly affects financing terms directly \citep{Guner:2008tp}.\footnote{\citet{Houston:2014hv} also use firm age as an instrument, arguing that ``firm age affects a firm's incentive and capability in building up political connections''; but it is not clear why firm age would not also affect a firm's ``incentive and capability in building up'' financial connections.} 
  
- Many instruments considered by researchers are arguably obscure in that the factors that determine the instrument are unclear (yet very unlikely to be random) and the relation between the instrument and the endogenous variable for which it is an instrument is nebulous, making it difficult to rule out the possibility that the instrument directly affects (or is correlated with) variables other than the endogenous variable of interest.	
+Many instruments considered by researchers are arguably obscure in that the factors that determine the instrument are unclear (yet very unlikely to be random) and the relation between the instrument and the endogenous variable for which it is an instrument is nebulous, making it difficult to rule out the possibility that the instrument directly affects (or is correlated with) variables other than the endogenous variable of interest.	
  \citet{Erkens:2014hj} ``use the following three instrumental variables that capture the extent to which lenders are more likely to serve on a firm's board, which is studied for its potential effect on accounting conservatism. We use \emph{Industry importance to primary lender} because industry specialization increases the importance of acquiring information about a firm's industry, \emph{Primary lender within 50 mile radius} because physical proximity to lenders' headquarters reduces the cost of serving on the board, and \emph{Number of commercial banks within 50 mile radius} because the close proximity of multiple banks increases competition for board seats from other lenders.'' If industry specialization affects information-acquisition incentives, it seems it would do so through channels outside of board membership. With respect to the second instrument, it's quite likely that proximity affects information-gathering independent of service on the board. With respect to the third instrument, it is also implausible that the only direct effect of this variable is one on the service of bankers on the board (for example, this may lead to lower search costs in choosing potential lenders.
  
 In some cases, arguments that seek to justify a set of instruments seem to provide reasons to believe that they \emph{not} valid. \citet{Kim:2014fm} use director age as an instrument for director tenure in a study examining the effect of the latter on firm performance. 
@@ -236,23 +291,10 @@ For age to be a valid instrument, there should be no unblocked causal path betwe
 \citet{Correia:2014fp} uses ``average level of political contributions made by the other firms in the same industry'' as an instrument for political contributions by a firm, as well as two additional instruments: ``the percentage of sales made to the government, and the number of years in the previous five years in which there was a close election involving two candidates in the firm's state.'' With regard to the first instrument, the reasons that cause political contributions to be endogenous may well affect all firms in an industry (or at least be correlated across firms within an industry). 
 As such \citet{Reiss:2007ej} suggest that there is little reason to view such averages as valid instruments.
 
-One feature of \citet{Correia:2014fp} is that the analysis of IV is thorough relative to most of the papers discussed above.  \citet{Correia:2014fp} tests for weak instruments and also uses a test of over-identifying restrictions to examine the validity of her chosen instruments. 
-But these tests arguably very little assurance.
-To see this, suppose that we have $y = X \beta + \epsilon$, but with $X$ and $\epsilon$ having correlation $\rho(X, \epsilon) = 0.2$ and $\beta = 0$ (i.e., there is no causal relation between $X$ and $y$). Clearly we have an endogeneity issue as $\rho(X, \epsilon) > 0$. 
-Now, suppose we construct the following three instruments 
-$z_1 = x + \eta_1$, $z_2 = \eta_2$, and $z_3 = \eta_3$, with $\sigma_{\eta_1} = \sigma_{\eta_2} = \sigma_{\eta_3} \sim N(0, 0.09)$ and independent. 
-That is, $z_1$ is $X$ plus noise, while $z_2$ and $z_3$ are random noise.
+% I agree with this!!! (IDG)
+GENERAL EVALUATION for the use of IV for causal inferences in accounting.  
 
-Assuming that $X$ and $\epsilon$ are bivariate-normally distributed with variance of $1$, we can run 1000 simulations and  run IV regression using these instruments on the simulated data in each case. Doing so, we find:
-\begin{itemize}
-\item A mean estimated coefficient on $X$ is $0.201$, which is statistically significant at the
-5\% level 100\% of the time. 
-Note that this coefficient is close to $\rho(X, \epsilon) = 0.2$, which is to be expected given how our data were generated.
-\item Based on a test statistic of 30, which easily exceeds the thresholds suggested by Stock et al. (2002), the null hypothesis of weak instruments is rejected 100\% of the time. 
-\item The test of overidentifying restrictions fails to reject a null hypothesis of valid instruments (at the 5\% level) 95.7\% of the time.
-\end{itemize}
-
-In other words, it is easy for completely spurious instruments to deliver bad inferences, yet easily pass tests for weak instruments and endogeneity.
+The classic textbook solution to endogeneity and causal inference does not seem like a viable approach for most observational accounting research.  Most of the selected instruments are unlikely to satisfy the necessary exclusion restriction.  Accounting researchers have a variety of bad econometric habits -- there is no test for the validity of your instruments because you need at least one good instrument to conduct these tests.  The prospects for reasonable use of IVs in accounting research seem quite low.
 
 \subsection{Regression discontinuity designs} 
 %\textbf{TBD.} Discuss RD d, how it works, but issues in applying it and the fact that it has limited applicability in general (i.e., need a discontinuity).
@@ -262,12 +304,30 @@ Recently, RD designs have attracted the interest of accounting researchers, as a
 
 While RD designs make relatively mild assumptions, in practice these assumptions may be violated. In particular, manipulation of the running variable may occur.
 
-It is also important to note that various ``quasi-RD" designs bear little resemblance to RD designs.
-% Listokin, McCrary, etc.
+It is also important to note that various ``quasi-RD" designs bear little resemblance to RD designs. We need to explain and expand on this important point.
+% Listokin, McCrary, etc.  
+
+Point out that the estimated treatment effect is very local, which may or may not be the estimate desired.  Most of the accounting research is looking for average effects across the entire sample, not local effects.  However, the local effect is useful if RDD enables us to make statements that are close to being causal.
+
+Seems like we want to include in this section:  plot the data and if you can't see it in the data, it probably is not actually there (Imbens), do not use the high level polynomial approach, and other similar issues.  Probably something on whether the magnitude of the results is actually believable -- Yonca's, the prize winning JF paper, and others results seem implausibly large for governance topics.
+
+
+I believe that you have some type of simulation where the RDD does not work when the threshold is endogenously selected (75 million dollar cap and other similar thresholds).  This would be good to add similar to the simple IV example above.
+
+GENERAL EVALUATION for the use of RDD for causal inferences in accounting 
+
 
 \subsection{Propensity score matching}
 
 Should we discuss this too? PSM is not really a ``quasi-experimental'' method in the sense of the above methods except under assumptions that are about as restrictive as those needed to deliver causal estimates using OLS (basically OLS without linearity). That is, it does \emph{not} solve endogeneity, but many believe that it does.
+
+I like the first stage results of PSM -- this can be informative, but you have to be careful not to "toss in the kitchen sink"  Show we critique the Defond working paper on why PSM is stupid in an auditing context?
+
+It seems like we should highlight that PSM (or for that matter any matching approach) does not give causal interpretations when there are "correlated omitted variables."  PSM corrects for the observed determinants, but not the unobserved determinants.  I believe it would be good to discuss briefly the bounding approach here -- Manski-style, Rosenbaum, Frank methods that are in the AJL JAR paper.  I realize that we do not have precise criteria for deciding whether results are questionable if some omitted variable correlation causes things to change, but I believe such bounding is useful for evaluating possible causal interpretations.
+
+
+GENERAL EVALUATION for the use of PSM for causal inferences in accounting 
+
 
 \subsection{Overall evaluation} 
 \textbf{TBD.} Quasi-experimental methods are very poorly applied by accounting researchers. Even if accounting researchers knew what they were doing, the reality is that instruments, natural experiments, and discontinuities do not grow on trees. So quasi-experimental methods are unlikely to deliver anything like the 100+ papers that accounting researchers crank out every year (in economics---a much broader field---it's the same handful of examples brought out over and over).
@@ -339,5 +399,32 @@ The use of archival data obtained from public databases dominates empirical rese
 
 
 \bibliography{jar_methods}
+
+\clearpage
+\begin{figure} \caption{Causal graph for \citet{Balakrishnan:2014js}} \label{fig:bbkl}
+\begin{tikzpicture}[
+	every node/.style = 
+    	{shape = rectangle, rounded corners, fill = black!30!white,
+   		text width = 3cm, minimum height = 1.5cm, align = center, text = black},
+    black edge/.style = { -,  ultra thick, black, shorten >= 2pt}]
+    %create X and Y node
+    \node[rectangle] (BC) {Brokerage closure$_t$}; 
+    \node [right = 1 of BC] (AC0) {Analyst coverage$_t$};
+    \node [right = 1 of AC0] (AC1) {Analyst coverage$_{t+1}$};
+    \node [below = 1 of AC0] (IA0) {Information asymmetry$_t$};
+    \node [right = 1 of IA0] (IA1) {Information asymmetry$_{t+1}$};
+    \node [below = 1 of IA0] (D) {Disclosure};
+    \node [right = 1 of D] (LQ) {Liquidity$_{t+1}$};
+    \draw (BC) edge[->] (AC0);
+    \draw (AC0) edge[->] (IA0);
+    \draw (AC0) edge[->] (AC1);
+    \draw (AC1) edge[dashed, <->] (IA1);
+    \draw (IA0) edge[->] (D);
+    \draw (IA1) edge[->] (LQ);
+    \draw (D) edge[->] (LQ);
+    \draw (IA0) edge[bend right=60, dashed, <->] (AC0);
+\end{tikzpicture}
+\end{figure}
+
 
 \end{document}
