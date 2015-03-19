@@ -32,7 +32,7 @@ acct_2014 <- within(acct_2014, {
 })
 @
 
-<<sample_results>>==
+<<sample_results, include=FALSE>>==
 with(subset(acct_2014, paper_type=="original"), 
      table(causal_question, category, useNA="ifany"))
 
