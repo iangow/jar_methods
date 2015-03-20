@@ -118,26 +118,42 @@ To get a sense for the importance of causal questions in accounting research,
 we conducted a survey of all papers published in 2014 in the  \textit{Journal of Accounting Research}, \textit{The Accounting Review}, or the \textit{Journal of Accounting and Economics}).
 We counted 139 papers, of which, 125 are original research papers (a further 14 papers survey or discuss other papers).
 
-We assign a category to each original research paper based on the methods used in the paper: ``theoretical''  (7), ``experimental'' (12), ``field" (3), or ``archival"  (103).
-% Would "archival" be a better term for "empirical?
-We then examine the research questions asked in each non-theoretical paper and
-ask whether the primary or secondary research questions in each paper are
+We assign a category to each original research paper based on the methods used in the paper: ``theoretical''  (7), ``experimental'' (12), ``field" (3), or ``archival"  (103). 
+For our discussion below, we collect the field and archival papers into a single category as they all use observational data.
+For each non-theoretical paper, we examined the paper to determine the primary research questions asked and whether the primary or secondary research questions in each paper are
 ``causal" in nature.
+To do this, it generally sufficed to examine the title and abstract for evidence of causal inference. 
+Often the title reveals a causal question, with words such as  ``effect of \dots" or ``impact of \dots"  
+\citep[e.g.][]{Cohen:2014jl,Clorproell:2014cv} making it clear that a causal question was being asked. 
+Often language in the abstract reveals a goal of causal inference. 
+For example, \citet{deFranco:2014ct} asks ``how the tone of sell-side debt analysts' discussions about debt-equity conflict events \emph{affects} the informativeness of debt analysts’ reports in debt markets.''
 
-Of the  103 original, archival papers, we coded 90 as seeking to draw causal inferences. Of the remaining empirical papers, we coded 5 papers as having a goal of ``description.'' 
+
+Of the  106 original papers using observational data, we coded 91 as seeking to draw causal inferences. Of the remaining empirical papers, we coded 7 papers as having a goal of ``description'' (including two of the three field papers). 
 For example, \citet{Soltes:2013ba} uses data collected from one firm to provide insights into when analysts privately interact with management the nature of these interactions.
 We coded 5 papers as having a goal of ``prediction.'' 
 For example, \citet{Czerney:2014bv} examine whether the inclusion of ``explanatory language" in unqualified audit reports can be used to predict the detection of financial misstatements in the future.
 We coded 3 papers as having a goal of ``measurement.'' 
 For example, \citet{Cready:2014ji} examine whether inferences about traders based on trade size are reliable and suggest improvements to the measurement of variables used by accounting researchers. 
 
-In coding 90 archival papers as seeking to draw causal inferences, we generally examined the title and abstract for evidence of causal inference. 
-Often the title reveals a causal question, with words such as  ``effect of \dots" or ``impact of \dots"  
-\citep[e.g.][]{Cohen:2014jl,Clorproell:2014cv} making it clear that a causal question was being asked. 
-Often language in the abstract reveals a goal of causal inference. 
-For example, \citet{deFranco:2014ct} asks ``how the tone of sell-side debt analysts' discussions about debt-equity conflict events \emph{affects} the informativeness of debt analysts’ reports in debt markets.''
+\subsection{Causal inference in accounting research: The typical approach}
+Of the 91 papers in accounting research in 2014 seeking to draw causal inference from archival data, as discussed below, only a small minority uses quasi-experimental methods for inferences.
+The more common approach we observed is the use of estimation approaches such as ordinary least-squares regression or propensity-score matching for estimating coefficients that the authors use to draw causal inferences.
+The typical concern in these papers is with the inclusion of controls.
 
-\subsection{Endogeneity and Pearl's Structural Causal Model}
+Papers in accounting research vary in the detail they provide in explaining which controls are included.
+In this regard, \cite{Hollander:2010jg} is relatively transparent. 
+That paper explores the determinants of managers' decisions to disclose or withhold information response to analyst questions in earnings conference calls.
+\cite{Hollander:2010jg} identify four ``explanatory variables" (namely, disclosure agency problems, proprietary information, firm performance, and litigation risk).\footnote{The role of firm performance as a causal variable of interest is clouded by the fact that the authors stating ``we \emph{control} for performance'' \citep[p.544]{Hollander:2010jg}}
+We focus on the two explanatory variables for which \citet{Hollander:2010jg} find evidence of effects are firm performance, measured as the change in sales, and disclosure agency problems, measured using the level of stock price-based compensation.
+
+\cite{Hollander:2010jg} state that ``prior research indicates the several other company characteristics determine investor demand for disclosure. In fact, some of our main variables are correlated with these characteristics.
+To alleviate concerns about correlated omitted variable bias, we control for these characteristics in our analyses."
+The first remark we make is that, by identifying ``concerns about correlated omitted variable bias," the authors are affirming their interest in estimating structural or causal effects.
+Second, we note that the authors are quite explicit about the concerns they have, which can be understood in terms of Figure \ref{fig:basic}.
+In that figure we provide three alternative sets of relations between the treatment variable, $X$, the outcome variable $Y$, and other variables correlated with $X$ and $Y$, which we label $C$.
+The typical approach in accounting research is to identify any variablesOne control that 
+
 %TODO: Dave: We want some general "endogeneity" talk here. Then we can introduce the SCM as a tool for evaluating and understanding causal issues. We can discuss Rubin Causal Model, etc., as I believe Pearl relates those to his framework.
 It is widely recognized that in an experimental setting, causal inference is straightforward.
 However, in archival research, we don't have random treatment assignment.
@@ -401,6 +417,61 @@ The use of archival data obtained from public databases dominates empirical rese
 \bibliography{jar_methods}
 
 \clearpage
+
+\begin{figure}
+	\caption{Three causal graphs without endogeneity} \label{fig:basic}
+    \centering
+    \begin{subfigure}[b]{\textwidth}
+        \caption{$C$ is a confounder}
+        \label{fig:y equals x}
+        \centering
+		\begin{tikzpicture}[
+		    \node[rectangle] (X) {Treatment variable (X)}; 
+		    \node [right = 1 of X] (Y) {Outcome variable (Y)};
+		    \node [below = 1 of X] (C) {Controls (C)};
+		    \draw (X) edge[->] (Y);
+		    \draw (C) edge[->] (X);
+		    \draw (C) edge[->] (Y);
+		\end{tikzpicture}
+
+    \end{subfigure}
+
+    \begin{subfigure}[b]{\textwidth}
+        \caption{$C$ is a mechanism}
+        \label{fig:three sin x}
+        \centering
+		\begin{tikzpicture}
+		    %create X and Y node
+		    \node[rectangle] (X) {Treatment variable (X)}; 
+		    \node [right = 1 of X] (Y) {Outcome variable (Y)};
+		    \node [below = 1 of X] (C) {Controls (C)};
+		    \draw (X) edge[->] (Y);
+		    \draw (C) edge[<-] (X);
+		    \draw (C) edge[->] (Y);
+		\end{tikzpicture}
+
+    \end{subfigure}
+
+    \begin{subfigure}[b]{\textwidth}
+        	\caption{$C$ is a collider}
+		\label{fig:five over x}
+		\centering
+		\begin{tikzpicture}[
+		    \node[rectangle] (X) {Treatment variable (X)}; 
+		    \node [right = 1 of X] (Y) {Outcome variable (Y)};
+		    \node [below = 1 of X] (C) {Controls (C)};
+		    \draw (X) edge[->] (Y);
+		    \draw (C) edge[<-] (X);
+		    \draw (C) edge[<-] (Y);
+		\end{tikzpicture} 
+
+    \end{subfigure}
+
+\end{figure}
+
+
+
+\clearpage
 \begin{figure} \caption{Causal graph for \citet{Balakrishnan:2014js}} \label{fig:bbkl}
 \begin{tikzpicture}[
 	every node/.style = 
@@ -425,6 +496,8 @@ The use of archival data obtained from public databases dominates empirical rese
     \draw (IA0) edge[bend right=60, dashed, <->] (AC0);
 \end{tikzpicture}
 \end{figure}
+
+
 
 
 \end{document}
