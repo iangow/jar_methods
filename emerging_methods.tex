@@ -94,7 +94,7 @@ We also study approaches from economics and finance, including the  use of struc
 
 Ultimately we believe that accounting researchers need to move away from the "false promises" of causal inference using IV etc. being applied to somewhat contrived research topics.  A more compelling direction is twofold:  (1) in-depth descriptive research on important institutional phenomenon to help us select useful research questions and (2) structural modeling  based on descriptive evidence that enables us to develop appropriate counterfactuals and get close to understanding causal mechanisms.    %Obviously this paragraph needs work, but we want to highligh where we are going in the paper -- seems like the descriptive discussion maps into your idea that many of our research ideas are stupid and have nothing to do with the real world
 
-\section{Causal inference in accounting research: Current practice}
+\section{Causal inference: An overview}
 
 % I'm not sure about this. I think we want to establish the fact that accounting researchers are trying to do causal inferences ... then evaluate the approaches taken. The "..." is where I think we introduce the tools to evaluate.
 %
@@ -128,13 +128,49 @@ Often the title reveals a causal question, with words such as  ``effect of \dots
 Often language in the abstract reveals a goal of causal inference. 
 For example, \citet{deFranco:2014ct} asks ``how the tone of sell-side debt analysts' discussions about debt-equity conflict events \emph{affects} the informativeness of debt analysts’ reports in debt markets.''
 
-
-Of the  106 original papers using observational data, we coded 91 as seeking to draw causal inferences. Of the remaining empirical papers, we coded 7 papers as having a goal of ``description'' (including two of the three field papers). 
+Of the 106 original papers using observational data, we coded 91 as seeking to draw causal inferences.
+Of the remaining empirical papers, we coded 7 papers as having a goal of ``description'' (including two of the three field papers). 
 For example, \citet{Soltes:2013ba} uses data collected from one firm to provide insights into when analysts privately interact with management the nature of these interactions.
 We coded 5 papers as having a goal of ``prediction.'' 
 For example, \citet{Czerney:2014bv} examine whether the inclusion of ``explanatory language" in unqualified audit reports can be used to predict the detection of financial misstatements in the future.
 We coded 3 papers as having a goal of ``measurement.'' 
 For example, \citet{Cready:2014ji} examine whether inferences about traders based on trade size are reliable and suggest improvements to the measurement of variables used by accounting researchers. 
+
+\subsection{Causal inference: Recent developments}
+
+% I think we could do a brief overview of Pearl's SCM here.
+% We could use this to:
+% - explain that inferring causation is not a purely statistical exercise.
+% - introduce the technology of causal graphs
+% - other things?
+
+% I think we want to emphasize the importance of stepping back from statistics and econometrics and thinking about causation more carefully.
+% I think reading the first 10 pages or so of Pearl's survey paper sent yesterday (2014-03-12) to get some flavor of the ideas here.
+
+% \subsection{Endogeneity}
+Recent decades have seen a great deal of research on causal inference fields as diverse as epidemiology, sociology, statistics, and computer science. 
+Work by \cite{Rubin:1974im,Rubin:1977dv} and Holland (1986) formalized ideas from the potential-outcome framework of Neyman (1923) to develop the Rubin causal model.
+Other fields have used path analysis, as initially studied by Wright (1921), as an organizing framework.
+
+In economics and econometrics, while the status of causal notions has occasionally been unclear, early proponents of structural models were quite clear about the causal interpretation of these models.
+As discussed by \citep{Heckman:2015ez}, \citep{Haavelmo:1943cl,Haavelmo:1944jq} studies a structural model ``based on a system of structural equations that define causal relationships among a set of variables."
+
+%standard econometric texts generally avoid explicit discussion of causation.
+%For example, Greene (2003) does not discuss causality except for Granger causality, which is widely recognized as a purely statistical notion quite distinct from notions of one variable causing another.
+% However, some economists have explic
+
+
+% have sought to integrate various approaches to causal inference. 
+
+A central tenet of these approaches is that causal and statistical perspectives are quite different. 
+``By structural equation models, I refer to stochastic models in which each equation represents a causal link, rather than a mere empirical association. Generally speaking the structural parameters do not coincide with coefficients of regressions among observable variables, but the model does impose constraints on those regression coefficients."
+
+
+Recent developments from 
+While the use of causal path diagrams goes back to the 1920s, %% Reference: Epidemiology, p.190
+renewed research interest in the 1980s led to the development of approaches that integrate structural modeling and path diagrams into a single analytical framework based on graph theory and probability.
+
+
 
 \subsection{Causal inference in accounting research: The typical approach}
 Of the 91 papers in accounting research in 2014 seeking to draw causal inference from archival data, as discussed below, only a small minority uses quasi-experimental methods for inferences.
@@ -183,17 +219,6 @@ Building on such a (hypothetical) foundation to solve the complex game involving
 Instead, \citet{Huang:2014cs} does what almost all empirical research papers in accounting do and resorts to more verbal approaches to hypothesis development. 
 % Can we find some critique of this approach? Pfleiderer?  YES -- let's review Paul's paper and add some of this and include him in the references
 
-\subsection{The Structural Causal Model}
-% I think we could do a brief overview of Pearl's SCM here.
-% We could use this to:
-% - explain that inferring causation is not a purely statistical exercise.
-% - introduce the technology of causal graphs
-% - other things?
-
-% I think we want to emphasize the importance of stepping back from statistics and econometrics and thinking about causation more carefully.
-% I think reading the first 10 pages or so of Pearl's survey paper sent yesterday (2014-03-12) to get some flavor of the ideas here.
-
-% \subsection{Endogeneity}
 
 \section{Quasi-experimental methods in accounting research}
 
@@ -501,3 +526,4 @@ The use of archival data obtained from public databases dominates empirical rese
 
 
 \end{document}
+	
