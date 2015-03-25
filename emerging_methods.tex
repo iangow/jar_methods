@@ -149,36 +149,30 @@ For example, \citet{Cready:2014ji} examine whether inferences about traders base
 
 % \subsection{Endogeneity}
 Recent decades have seen a great deal of research on causal inference fields as diverse as epidemiology, sociology, statistics, and computer science. 
-Work by \cite{Rubin:1974im,Rubin:1977dv} and Holland (1986) formalized ideas from the potential-outcome framework of Neyman (1923) to develop the Rubin causal model.
-Other fields have used path analysis, as initially studied by Wright (1921), as an organizing framework.
+Work by \cite{Rubin:1974im,Rubin:1977dv} and Holland (1986) formalized ideas from the potential-outcome framework of Neyman (1923) to develop the Rubin causal model. %TODO: Get reference.
+Other fields have used path analysis, as initially studied by geneticist Sewell Wright (1921), as an organizing framework.
+%TODO: Get reference.
 
 In economics and econometrics, while the status of causal notions has occasionally been unclear, early proponents of structural models were quite clear about the causal interpretation of these models.
 As discussed by \citep{Heckman:2015ez}, \citep{Haavelmo:1943cl,Haavelmo:1944jq} studies a structural model ``based on a system of structural equations that define causal relationships among a set of variables."
-
 %standard econometric texts generally avoid explicit discussion of causation.
 %For example, Greene (2003) does not discuss causality except for Granger causality, which is widely recognized as a purely statistical notion quite distinct from notions of one variable causing another.
 % However, some economists have explic
+\citep[p.979]{Goldberger:1972cq} explores a similar notion: ``By structural equation models, I refer to stochastic models in which each equation represents a causal link, rather than a mere empirical association \dots
+Generally speaking the structural parameters do not coincide with coefficients of regressions among observable variables, but the model does impose constraints on those regression coefficients."
+\citep[p.979]{Goldberger:1972cq} focuses on linking such approaches to the path analysis of Wright.
 
+More recently, \citep{Pearl:2009kh} has sought to integrate these perspectives into a single analytical framework based on graph theory and probability.
+Pearl's framework, which he calls the structural causal model, uses directed acyclic graphs (DAGs) to describe causal relationships.
+\citep{Pearl:2009kh} shows that the structural causal model provides a framework for analyzing observational data and the valid causal inferences that can be derived from a given causal graph.
+\citep[p.698]{Pearl:2011jd} points out that his framework has been ``adapted warmly" by epidemiologists, sociologists and statisticians.
 
-% have sought to integrate various approaches to causal inference. 
-
-A central tenet of these approaches is that causal and statistical perspectives are quite different. 
-``By structural equation models, I refer to stochastic models in which each equation represents a causal link, rather than a mere empirical association. Generally speaking the structural parameters do not coincide with coefficients of regressions among observable variables, but the model does impose constraints on those regression coefficients."
-
-
-Recent developments from 
-While the use of causal path diagrams goes back to the 1920s, %% Reference: Epidemiology, p.190
-renewed research interest in the 1980s led to the development of approaches that integrate structural modeling and path diagrams into a single analytical framework based on graph theory and probability.
-
-
-
-\subsection{Causal inference in accounting research: The typical approach}
+\subsection{Causal graphs: Application to accounting research}
 Of the 91 papers in accounting research in 2014 seeking to draw causal inference from archival data, as discussed below, only a small minority uses quasi-experimental methods for inferences.
 The more common approach we observed is the use of estimation approaches such as ordinary least-squares regression or propensity-score matching for estimating coefficients that the authors use to draw causal inferences.
 The typical concern in these papers is with the inclusion of controls.
 
-Papers in accounting research vary in the detail they provide in explaining which controls are included.
-In this regard, \cite{Hollander:2010jg} is relatively transparent. 
+While papers in accounting research vary in the detail they provide in explaining which controls are included,  \cite{Hollander:2010jg} is relatively transparent. 
 That paper explores the determinants of managers' decisions to disclose or withhold information response to analyst questions in earnings conference calls.
 \cite{Hollander:2010jg} identify four ``explanatory variables" (namely, disclosure agency problems, proprietary information, firm performance, and litigation risk).\footnote{The role of firm performance as a causal variable of interest is clouded by the fact that the authors stating ``we \emph{control} for performance'' \citep[p.544]{Hollander:2010jg}}
 We focus on the two explanatory variables for which \citet{Hollander:2010jg} find evidence of effects are firm performance, measured as the change in sales, and disclosure agency problems, measured using the level of stock price-based compensation.
@@ -408,7 +402,7 @@ We believe that accounting research could benefit greatly from increased emphasi
 
 One alternative approach to empirical research in economics is labeled the structural approach (Wolpin 2013).
 
-The structural approach ``requires that a researcher explicitly specity a model of economic behavior, that is, a theory." (Wolpin, 2013, p.2).
+The structural approach ``requires that a researcher explicitly specify a model of economic behavior, that is, a theory." (Wolpin, 2013, p.2).
 
 
 \subsubsection{Better hypothesis development}
