@@ -4,6 +4,7 @@
 \title[Causal Inference]{Causal Inference in Accounting Research}
 
 \author{Ian D. Gow \and David F. Larcker \and Peter Reiss}
+\thanks{We thank Dan, Eugene, Charlie for helpful discussions.}
 %\date{}   % Activate to display a given date or no date
 
 \begin{document}
@@ -22,8 +23,16 @@
 % Note that there is a file jar_methods.bib in the list of files to the right that this pulls bibliographic information from.
 \maketitle
 
+
+% Why do we need the abstract on a separate page? Will this need to be anonymized for review? (We are identified on the conference website!)
+% It is quite easy to change the format of the document without doing it "manually".
+% \clearpage
+% {Causal Inference in Accounting Research}
+
 \begin{abstract}
-	In this paper, we examine the examine the approaches used by accounting researchers attempt to draw causal inferences from analyses of archival or observational data. We believe that the vast majority of empirical papers clearly place causal interpretations on their statistical results. Unfortunately, the research design e.g., ("natural experiments") and econometric approaches (e.g., instrumental variables and regression discontinuity designs) do not generally provide a reasonable basis for causal inferences. We argue that observational accounting research would benefit from more focus on (i) in-depth descriptive studies that provide detailed insights into the actual institutional mechanisms that generation observational data and (ii) structural modeling that uses these institutional insights as inputs in theoretical models
+	In this paper, we examine the approaches used by accounting researchers to draw causal inferences from analyses of archival or observational data. We believe that the vast majority of empirical papers clearly place causal interpretations on their statistical results.
+	Unfortunately, the research design e.g., ("natural experiments") and econometric approaches (e.g., instrumental variables and regression discontinuity designs) do not generally provide a reasonable basis for causal inferences.
+	We argue that observational accounting research would benefit from more focus on (i) in-depth descriptive studies to provide detailed insights into the actual institutional mechanisms that generation observational data and (ii) structural modeling using these institutional insights to develop causal theoretical models that are estimated using the observed data.  Although the structural approach does not completely resolve the philosophical controversies associated with drawing causal inferences, it provides a much better basis to develop appropriate counterfactuals and get close to understanding causal mechanisms.
 \end{abstract}
 
 
@@ -277,7 +286,8 @@ One popular source of instruments in accounting, finance, and economics is prior
 For example, \citet{Balakrishnan:2014js} use the ``exogenous shocks" to analyst coverage in \citet{Kelly:2012ih} as an instrument for changes in voluntary disclosure practices. 
 \citet{Kelly:2012ih} seek to understand the effect of changes in analyst coverage on information asymmetry. 
 The challenge faced by \citet{Kelly:2012ih} is that changes in analyst coverage are generally not random and may be correlated with information asymmetry due to omitted correlated variables.
-\citet{Kelly:2012ih} treat mergers of brokerage firms that covered treatment firms as an exogenous (i.e., as-if random) source of variation in analyst coverage. \footnote {Seems to me that we should highlight some of these issues with this instrument -- not clear why this is outside our scope.} They then examine the effect of such changes in analyst coverage on information asymmetry.
+\citet{Kelly:2012ih} treat mergers of brokerage firms that covered treatment firms as an exogenous (i.e., as-if random) source of variation in analyst coverage.%\footnote{Seems to me that we should highlight some of these issues with this instrument -- not clear why this is outside our scope.} 
+They then examine the effect of such changes in analyst coverage on information asymmetry.
 
 The causal graph for \citet{Kelly:2012ih} is depicted in Figure \ref{fig:bbkl}.
 The identifying assumption is that $\textit{Brokerage closure}_t$ affects $\textit{Analyst coverage}_t$, but otherwise has no effect, direct or otherwise, on $\textit{Information asymmetry}_t$.
