@@ -13,7 +13,15 @@
 \usepackage{caption}
 \usepackage{subcaption}
 
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
 \tikzset{every node/.style = 
 		    	{shape = rectangle, rounded corners, fill = black!30!white,
 		   		text width = 3cm, minimum height = 1.5cm, align = center, text = black},
 		    black edge/.style = { -,  ultra thick, black, shorten >= 2pt}}
+		    
+		    
