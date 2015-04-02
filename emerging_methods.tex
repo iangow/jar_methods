@@ -136,7 +136,10 @@ For example, \citet{Czerney:2014bv} examine whether the inclusion of ``explanato
 We coded 3 papers as having a goal of ``measurement.'' 
 For example, \citet{Cready:2014ji} examine whether inferences about traders based on trade size are reliable and suggest improvements to the measurement of variables used by accounting researchers. 
 
-\subsection{Causal inference in accounting research: The typical approach}
+\subsection{Causal inference: A framework}
+We will use causal graphs as a framework for discussing issues in causal inference throughout the paper.
+
+
 Of the 91 papers in accounting research in 2014 seeking to draw causal inference from archival data, as discussed below, only a small minority uses quasi-experimental methods for inferences.
 The more common approach we observed is the use of estimation approaches such as ordinary least-squares regression or propensity-score matching for estimating coefficients that the authors use to draw causal inferences.
 The typical concern in these papers is with the inclusion of controls.
@@ -152,7 +155,8 @@ To alleviate concerns about correlated omitted variable bias, we control for the
 The first remark we make is that, by identifying ``concerns about correlated omitted variable bias," the authors are affirming their interest in estimating structural or causal effects.
 Second, we note that the authors are quite explicit about the concerns they have, which can be understood in terms of Figure \ref{fig:basic}.
 In that figure we provide three alternative sets of relations between the treatment variable, $X$, the outcome variable $Y$, and other variables correlated with $X$ and $Y$, which we label $C$.
-The typical approach in accounting research is to identify any variablesOne control that 
+The typical approach in accounting research is to identify any potential correlated variables and include them in the regression.
+One control that 
 
 %TODO: Dave: We want some general "endogeneity" talk here. Then we can introduce the SCM as a tool for evaluating and understanding causal issues. We can discuss Rubin Causal Model, etc., as I believe Pearl relates those to his framework.
 It is widely recognized that in an experimental setting, causal inference is straightforward.
@@ -342,7 +346,7 @@ I like the first stage results of PSM -- this can be informative, but you have t
 It seems like we should highlight that PSM (or for that matter any matching approach) does not give causal interpretations when there are "correlated omitted variables."  PSM corrects for the observed determinants, but not the unobserved determinants.  I believe it would be good to discuss briefly the bounding approach here -- Manski-style, Rosenbaum, Frank methods that are in the AJL JAR paper.  I realize that we do not have precise criteria for deciding whether results are questionable if some omitted variable correlation causes things to change, but I believe such bounding is useful for evaluating possible causal interpretations.
 
 
-GENERAL EVALUATION for the use of PSM for causal inferences in accounting 
+%TODO: general evaluation of the use of PSM for causal inferences in accounting 
 
 
 \subsection{Overall evaluation} 
@@ -358,11 +362,41 @@ We agree that the revolution in econometric methods for causal inference has cer
 
 \section{Alternative approaches}
 
-In the first half of the paper, we have argued that causal inference remains at the heart of accounting research, but that statistical approaches to obtaining plausible causal inference are unlikely to assist researchers in the vast majority of cases.
+In the first half of the paper, we have argued that causal inference is the goal of most accounting research using observational data.
+This perspective may cause a reader to ask: So, what should researchers do? Do we stop doing research? Do we need to give up on causal inference? 
+We believe that this is too pessimistic and that there are viable paths forward that do not rely on researchers identifying ``clever" identification strategies to answer questions of interest.
+The objective of the second part of this paper is to discuss these paths forward.
 
-The methods for estimating causal effects described above (i.e., instrumental variables, RDD, and natural experiments) are unlikely to produce more than a tiny fraction of the research in top accounting journals.
+\subsection{Causal mechanisms: Some examples}
 
-This raises the question: What should researchers do? Do we stop doing research? Do we need to give up on causal inference? The objective of the second part of this paper is to provide some guidance to research on possible answers to these questions.
+Accounting research is not alone in relying primarily on observational data.
+Other fields also seek to draw causal inferences, but need to grapple with the reality of observational data. 
+Yet in many cases, these fields have successfully drawn causal inferences.
+In the follow, we briefly discuss some case studies of plausible causal inference in other fields and highlight features that enhanced the credibility of inference.
+
+\subsubsection{John Snow and cholera}
+A widely cited case of causal inference involves John Snow's work on cholera.
+As there are many excellent accounts of Snow's work, we will focus on the barest details.
+As discussed in Freedman %TODO: Get reference to book.
+``John Snow was a physician in Victorian London.
+ In 1854, he demonstrated that cholera was an infectious disease, which could be prevented by cleaning up the water supply. 
+The demonstration took advantage of a natural experiment.
+ A large area of London was served by two water companies. 
+ The Southwark and Vauxhall company distributed contaminated water, and households served by it had a death rate`between eight and nine times as great as in the houses supplied by the Lambeth company, ' which supplied relatively pure water."
+
+But there was much more to Snow's work than the use of a convenient natural experiment.
+First, Snow's reasoning (much of which was surely done before ``the arduous task of data collection" began) was about the  mechanism through which cholera spread. Existing theory suggested ``odors generated by decaying organic material."
+Snow reasoned qualitatively that such a mechanism was implausible.
+Instead, drawing on his medical knowledge and the facts at hand, Snow conjectured that ``A living organism enters the body, as a contaminant of water or food, multiplies in the body, and creates the symptoms of the disease. Many copies of the organism are expelled with the dejecta, contaminate water or food, then infect other victims."
+With a hypothesis at hand, Snow then needed to collect data to prove it.
+His data collection involved a house-to-house survey in the area surrounding the Broad Street pump operated by  Southwark and Vauxhall.
+As part of his data collection, Snow needed to account for anomalous cases (such as the brewery workers who drank beer, not water).
+It is important to note that this qualitative reasoning and diligent data collection were critical elements establishing (to a modern reader) the ``as-if random" nature of the treatment assignment mechanism provided by the Broad Street pump.
+This contrasts with the speculative guesses often used to justify natural experiments by modern researchers.
+
+But another important feature of the case of John Snow and cholera is that widespread acceptance of Snow's hypothesis did not occur until compelling evidence of the mechanism was provided.
+``However, widespread acceptance was achieved only when Robert Koch isolated the causal agent (\emph{Vibrio cholerae}, a comma-shaped bacillus) during the Indian epidemic of 1883." %TODO: Add cite to Freedman here.
+Only once persuasive evidence of a plausible mechanism was provided (i.e., direct observation of microorganisms now known to cause the disease) did Snow's ideas become widely accepted.
 
 \subsection{Structural modeling}
 
