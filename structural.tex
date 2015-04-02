@@ -195,8 +195,8 @@ way to see this is to take expectations (from the researcher's standpoint)
 \begin{equation} \label{equilpr}
 \begin{array}{lcl}
  E(y) & = & E\, \left[\; I(y^*_M \ge 0) \, \times\, (1 - I(y^*_A \ge 0)) \, \times\, I(y^*_I \ge 0) \; \right]\\[1em]
- & = &  \mbox{Pr(Misstate)} \times \mbox{Pr(Internal Auditor Misses)} \times
-\mbox{Pr(External Finds)}\\[1em]
+ & = &  \mbox{Pr(Misstate)} \times \mbox{Pr(Auditor Misses)} \times
+\mbox{Pr(Investigation Finds)}\\[1em]
 & = & \beta^* \times (1-p_A) \times p_{I} = \mbox{Pr(Restate)}
 \end{array}\end{equation}
 From equation (\ref{bencost}), $\beta^*$ is the (researcher's) forecasted probability that a misstatement occurs, or
@@ -309,7 +309,7 @@ of recent accrual activity, use of off balance sheet transactions and firm
 performance variables.) 
 Their thinking was, had we included these, the signs on the pay coefficients might be different. 
 Mentioned less often was that the idea that an important difference between restatements and misstatements is the role of subsequent investigations. 
-There is nothing in the model or variable list that would help predict  the intensiveness of outside scrutiny (or indeed of internal scrutiny by the firm's auditors).
+There is nothing in the model or variable list that would help predict  the intensiveness of outside scrutiny (or indeed of scrutiny by the firm's external auditors).
 
 \subsection{An alternative model}
 
@@ -371,7 +371,7 @@ zero and one. This is true provided $C_R$ and $B$ satisfy the inequality\\
 $$  C_R > \frac{C_A}{(p_H-p_L)p_I} $$
 and \\
 $$ B > \frac{C_M}{1 - p_I}  $$}
-\begin{equation} \label{equilpr}
+\begin{equation} \label{equilpr1}
 \begin{array}{lcl}
 \mbox{Pr(Restate)} & = &  \mbox{Pr(Misstate)} \times \mbox{Pr(Auditor Misses)} \times
 \mbox{Pr(Investigation Finds)}\\[1em]
@@ -381,7 +381,7 @@ This equation tells us how the observed (or measurable) probability of a restate
 the unobserved frequency of misstatements. In particular, if we knew the frequency with which auditors and investigations caught misstatements, we could easily link the two. Otherwise,
 we would have to estimate these probabilities (or make assumptions about them).
 
-Substituting the equilibrium strategies (\ref{equilstrat}) into (\ref{equilpr}) yields
+Substituting the equilibrium strategies (\ref{equilstrat}) into (\ref{equilpr1}) yields
 \begin{equation} \label{equilpr2}
 \begin{array}{lcl}
 \mbox{Pr(Restate)}& = &  \dfrac{C_AC_M(1-p_{IL})}{(p_{IH}-p_{IL})(1-p_I)C_RB}.
@@ -390,7 +390,7 @@ We now are in a position to use the theory to help interpret the conflicting log
 in Table 3. 
 
  
-Equation (\ref{equilpr2}) shows that the presence of a strategic internal auditor
+Equation (\ref{equilpr2}) shows that the presence of a strategic external auditor
 changes how the CEO's incentives impact the probability of a restatement.\footnote{Notice that
 the probability statement in equation  (\ref{equilpr2})  differs from that in equation (\ref{restate1}).
 The probability statement in equation  (\ref{equilpr2}) reflects the randomness of the
@@ -400,8 +400,8 @@ does not observe.} Partial derivatives of equation (\ref{equilpr2}) show that th
 \begin{itemize}
 \item Decreasing in the benefit $B$ that the manager enjoys from misstatement.
 \item Increasing in the personal cost of manipulation $C_M$ incurred by the manager.
-\item Decreasing in the reputational cost $C_R$ incurred by the internal auditor.
-\item Increasing in the cost of high effort $C_A$ incurred by the internal auditor.\\
+\item Decreasing in the reputational cost $C_R$ incurred by the external auditor.
+\item Increasing in the cost of high effort $C_A$ incurred by the external auditor.
 \end{itemize}
 
 Thus, in contrast to the nonstrategic model, increasing the benefit that managers enjoy from misstatement,
@@ -409,8 +409,8 @@ or decreasing the misstatement cost, leads to fewer restatements being observed 
 These two effects explain the negative sign on BONUS and the positive sign on SALARY observed in the previous logit results. Thus, this structural model has the potential to rationalize patterns observed in the data.
 
 To have a better sense of how one might connect the strategic auditor theory to the
-logistic models in Table 3, suppose, similar to ways we motivated (\ref{eqns1}), that 
-\begin{equation}\begin{array}{lcl}\label{eqns1}
+logistic models in Table \ref{tab:logit}, suppose, similar to ways we motivated (\ref{eqns1}), that 
+\begin{equation}\begin{array}{lcl}\label{eqns2}
 B & = & b_0 + b_1 \, \mbox{BONUS} \\[.5em]
 C_M & = & m_0 + m_1 \, \mbox{SALARY} \\[.5em]
 C_A & = & a_0 + a_1 \, \mbox{INT} + a_2 \, \mbox{SEG}\\[.5em]
@@ -428,7 +428,7 @@ Inserting these expressions into the expected restatement rate (\ref{equilpr2}) 
 \end{equation*}
 \begin{equation}\label{equilpr4}
  =  \dfrac{\theta_0 + \theta_1\mbox{\small INT} + \theta_2\mbox{\small SEG} + \theta_3\mbox{\small SALARY}
-+ \theta_4\mbox{\small INT}\; \mbox{\small SALARY}+ \theta_5\mbox{\small SEG}\; \mbox{\small SALARY}}
++ \theta_4\mbox{\small INT} \times \mbox{\small SALARY}+ \theta_5\mbox{\small SEG} \times \mbox{\small SALARY}}
 {1 +  \theta_6\mbox{\small BONUS}}
 \end{equation}
 Notice that the $\theta$s absorb unknown quantities such as $r_0$ and $p_0$, and that the denominator intercept
@@ -448,32 +448,24 @@ between zero and one, we add a penalty function to the GMM objective function.
 This penalty increases with the number of estimated probabilities below zero or
 above one. For most replications this penalty is immaterial to the results obtained.} The $X_j$ used in the moments include all explanatory variables. Thus, because $X$ includes  a dummy variable for whether the firm is an INTional company, the corresponding moment equation seeks to match the sample INTional companies average restatement rate to the model's prediction for that rate.
 
-Table 4 reports the results of estimating the new (strategic auditor) structural model on 
-the sample of 5,000 firms. The results show that in this particular case, even without sample information on the unobserved probabilities $p_A$ and 
-$p_I$, we can recover estimates of the model parameters up to a normalization.\footnote{A simple way to
-see this might be the case is to observe that there are seven $\theta$ coefficients and eight underlying structural parameters.}
-For instance, the coefficient ratio $\theta_3/\theta_0$ estimates the ratio of cost parameters $m_1/m_0$. Since $m_1$ is the cost coefficient on SALARY and $m_0>0$
-for costs to make sense, the sign of $\theta_3/\theta_0$ reveals the sign of $m_1$.
-From the theory, we expect the sign to be positive, and in the estimates it is. Similarly,
-$\theta_6$ equals the (scaled) misstatement benefit coefficient on the BONUS variable.
-Although the descriptive regression coefficients in Table 3 suggest BONUS has a
-negative effect on restatements, here, because we model misstatements as part of
-restatements, we find it has a positive effect, as expected.
+Table \ref{tab:gmm} reports the results of estimating the new (strategic auditor) structural model on 
+the sample of 5,000 firms. 
+The results show that in this particular case, even without sample information on the unobserved probabilities $p_A$ and $p_I$, we can recover estimates of the model parameters up to a normalization.\footnote{
+A simple way to see this might be the case is to observe that there are seven $\theta$ coefficients and eight underlying structural parameters.}
+For instance, the coefficient ratio $\theta_3/\theta_0$ estimates the ratio of cost parameters $m_1/m_0$.
+Since $m_1$ is the cost coefficient on SALARY and $m_0>0$ for costs to make sense, the sign of $\theta_3/\theta_0$ reveals the sign of $m_1$.
+From the theory, we expect the sign to be positive, and in the estimates it is. Similarly, $\theta_6$ equals the (scaled) misstatement benefit coefficient on the BONUS variable.
+Although the descriptive regression coefficients in Table 3 suggest BONUS has a negative effect on restatements, here, because we model misstatements as part of restatements, we find it has a positive effect, as expected.
 
-The one sign that
-does not make sense given the other coefficient estimates is the negative sign on $\theta_6$,
-however this coefficient is insignificantly different from zero. This is indeed true of most of
-the coefficients, and is perhaps not surprising given the participants use of randomized strategies.
-Further, even with a sample size of 5,000, restatements are relatively rare, thus making
-it difficult for the model to predict them with much accuracy. 
+The one sign that does not make sense given the other coefficient estimates is the negative sign on $\theta_6$, however this coefficient is insignificantly different from zero.
+This is indeed true of most of the coefficients, and is perhaps not surprising given the participants use of randomized strategies.
+Further, even with a sample size of 5,000, restatements are relatively rare, thus making it difficult for the model to predict them with much accuracy. 
 
-While
-the coefficient magnitudes do not allow us to estimate the underlying benefits and costs to managers from
-misstatements, we can illustrate the value of the model by performing a counterfactual calculation.
-There are many different counterfactuals that could be considered. Here, for illustrative purposes
-we can ask what would happen to misstatements and restatements if we 
-do away with incentive pay and nothing else changes. The value of having a model to analyze this
-change is that we can see how the internal auditing process would adjust to the removal of 
+While the coefficient magnitudes do not allow us to estimate the underlying benefits and costs to managers from misstatements, we can illustrate the value of the model by performing a counterfactual calculation.
+There are many different counterfactuals that could be considered. 
+Here, for illustrative purposes we can ask what would happen to misstatements and restatements if we  do away with incentive pay and nothing else changes.
+The value of having a model to analyze this
+change is that we can see how the auditing process would adjust to the removal of 
 CEO incentives to misstate. 
 From the equilibrium strategies in equation (\ref{equilstrat}), we see that removing bonus pay does not
 change the equilibrium frequency of misstatements, but does change the frequency of high effort auditing.
@@ -483,7 +475,7 @@ $$ \dfrac{\mbox{Pr(Restate }\vert \mbox{ No Bonus)}}{\mbox{Pr(Restate }\vert \mb
 What this says is that the restatement rate increases by 10\% (from 10.24\% to 11.25\%) when the bonuses
 are withdrawn. The fact that the restatement rate goes up may at first seem somewhat odd
 given that the benefits to the CEOs have fallen. The model, however, shows that the increase 
-comes about because the internal auditors exert {\it less} effort in detecting
+comes about because the auditors exert {\it less} effort in detecting
 misstatements, thereby catching fewer, leaving more for outsiders to subsequently catch.  
 
 \subsection{Strengths and Weaknesses of Structural Models}
