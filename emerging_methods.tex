@@ -544,6 +544,11 @@ We agree that the revolution in econometric methods for causal inference has cer
 
 \section{Alternative approaches}
 
+\begin{quotation}
+In complex fields like the social sciences and epidemiology, there are only few (if any) real life situations where we can make enough compelling assumptions that would lead to identification of causal effects.
+\attrib{Judea Pearl, cited in \citealt[p.\,287]{Freedman:2004ix}}
+\end{quotation}
+
 In the first half of the paper, we have argued that causal inference is the goal of most accounting research using observational data.
 This perspective may cause a reader to ask: So, what should researchers do? Do we stop doing research? Do we need to give up on causal inference? 
 We believe that this is too pessimistic and that there are viable paths forward that do not rely on researchers identifying ``clever" identification strategies to answer questions of interest.
@@ -580,7 +585,38 @@ But another important feature of the case of John Snow and cholera is that wides
 ``However, widespread acceptance was achieved only when Robert Koch isolated the causal agent (\emph{Vibrio cholerae}, a comma-shaped bacillus) during the Indian epidemic of 1883." %TODO: Add cite to Freedman here.
 Only once persuasive evidence of a plausible mechanism was provided (i.e., direct observation of microorganisms now known to cause the disease) did Snow's ideas become widely accepted.
 
-\include{structural}
+\subsubsection{Smoking and heart disease}
+A more recent illustration of plausible causal inference is discussed by \citet{Gillies2011-GILTRT-3}.
+ \citet{Gillies2011-GILTRT-3} points discusses the paper by \citet{Doll:1976aa}, which studies the mortality rates of male doctors between 1951 and 1971.
+ The data that \citet{Doll:1976aa} had ``a striking correlation between smoking and lung cancer" \citep[p.\,111]{Gillies2011-GILTRT-3}.
+ \citet{Gillies2011-GILTRT-3} argues that ``this correlation was accepted at the time by most researchers (if not quite all!) as establishing a causal link between smoking and lung cancer. Indeed Doll and Peto themselves say explicitly (p.\,1535) that the excess mortality from cancer of the lung in cigarette smokers is caused by cigarette smoking."
+In contrast, while \citet{Doll:1976aa} also had highly statistically significant evidence of an association between smoking and heart disease, they were cautious about drawing inferences of direct causal explanation for the association.
+\citet[p.\,1528]{Doll:1976aa} say ``To say that these conditions were related to smoking does not necessarily imply that smoking caused \dots them. The relation may have been secondary in that smoking was associated with some other factor, such as alcohol consumption or a feature of the personality, that caused the disease.''
+ 
+ \citet{Gillies2011-GILTRT-3} then discussed extensive research into atherosclerosis between 1979 and 1989 and concludes that ``by the end of the 1980s, it was established that the oxidation of LDL was an important step in the process which led to atherosclerotic plaques."  Later research established evidence of much higher levels of a new measure (levels of $F_2$-isoprostanes in blood samples) of the relevant oxidation in the body ``provides compelling evidence that smoking causes oxidative modification of biologic components in humans. This conclusion is greatly strengthened by the finding that levels of $F_2$-isoprostanes in the smokers fell significantly after two weeks of abstinence from smoking" \citep[pp.\,1201--2]{Morrow:1995gz}.  \citet[p.\,120]{Gillies2011-GILTRT-3} points out that this evidence did not establish a confirmed mechanism linking smoking with heart disease, because the required oxidation needs to occur in the artery wall, not in the blood stream. But later research established a link: ``Smoking produced oxidative stress. This increased the adhesion of leukocytes to the \dots artery, which in turn accelerated the formation of atherosclerotic plaques" \citep[p.\,123]{Gillies2011-GILTRT-3}.
+Thus, a link between smoking and atherosclerosis was established.
+
+%TODO: Get an example from the social sciences, e.g., political science.
+
+\subsubsection{Implications of cases on mechanism}
+ \citet{Gillies2011-GILTRT-3} avers that the process by which a causal link between smoking and atherosclerosis was established illustrates the ``Russo-Williamson thesis."
+ \citet[p.\,159]{Russo:2007iz} suggest that ``mechanisms allow us to generalize a causal relation: while an appropriate dependence in the sample data can warrant a causal claim `$C$ causes $E$ in the sample population,' a plausible mechanism or theoretical connection is required to warrant the more general claim `$C$ causes $E$.' Conversely, mechanisms also impose negative constraints: if there is no plausible mechanism from $C$ to $E$, then any correlation is likely to be spurious. Thus mechanisms can be used to differentiate between causal models that are underdetermined by probabilistic evidence alone."
+
+ The Russo-Williamson thesis was arguably also at work in the case of Snow and cholera, where the establishment of a mechanism (\emph{Vibrio cholerae}) was essential before the causal explanation offered by Snow was widely accepted and also in the case of smoking and lung cancer, which was initially conjectured based on associational evidence, but was widely accepted by 1976.\footnote{
+ The suasive force of Snow's natural experiment, coming decades before the work of Neyman and Fisher, might be considered greater today.}
+
+A reader may wonder what relevance the cases above have for accounting research.
+Our view is that accounting researchers can learn from fields such as epidemiology and political science. 
+These fields grapple with the reality of observational data.
+While randomized controlled trials are a gold standard of sorts in epidemiology, in many cases it is unfeasible or unethical to use such trials.
+And in political science, it is not possible to randomly assign countries to treatment conditions such as \emph{democracy} or \emph{socialism}.
+Yet these fields have often been able to draw plausible causal inferences by establishing clear mechanisms, or causal pathways, from putative causes to putative effects.
+
+We argue that the value of the study of mechanisms is perhaps underestimated, perhaps due to a belief that the path to credible causal inferences involves clever identification strategies.
+As an example, many published papers have suggested that managers adopt conditional conservatism as a reporting strategy to obtain benefits such as reduced debt costs \citep{Ahmed:2002aa,Zhang:2008bc}.
+But, as \citet[p\,317]{Beyer:2010cj} points out, an ex ante commitment to such a reporting strategy ``requires a mechanism that allows managers to credibly commit to withholding good news or to commit to an accounting information system that implements a higher degree of verification for gains than for losses," yet research has only recently begun to focus on the mechanisms through which such commitments are made \citep[e.g.,][]{Erkens:2014hj}.
+
+\input{structural}
 
 % Peter's stuff here. May be worth bullet-pointing this for now.
 % I think it would be useful to do a little discussion of efforts to date.
