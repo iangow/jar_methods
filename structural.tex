@@ -1,4 +1,4 @@
-\section{\large Structural Modeling}
+\section{Structural Modeling}
 Structural empirical models consist of two main elements: \\
 
 \begin{enumerate}
@@ -303,27 +303,6 @@ To illustrate the application of this structural to data, we assembled a dataset
 Table 1 lists the variables in our dataset and provides definitions of them. 
 We discuss the source of the data in more detail after we estimate the structural model. 
 
-\begin{table}[t]
-\begin{center}
-{\bf Table 1} \\
-Variables used in the Regressions \\[1em]
-\begin{tabular}{|l|l|}
-\hline
-\T {\bf Variable}  &  {\bf Description}   \\ \hline
-\T {\bf RESTATE} & A zero-one indicator for whether the firm made a restatement\\
-   & \qquad in a particular year \\[.3em]
-{\bf CEOPAY} & The CEO's annual base salary.  \\[.3em]
-{\bf CEOBONUS} & The fraction of a CEO's total pay that is incentive compensation.   \\[.3em]
-{\bf BIG4} & A zero-one indicator for whether the firm uses a Big 4 auditor. \\[.3em]
-{\bf FINDIRECT} & The fraction of the board of directors with a finance background.  \\[.3em]
-{\bf INTERNAT} &  A zero-one indicator for non-US corporation.  \\[.3em]
-\B {\bf SEGMENTS} & Number of the firm's business segments. \\
-\hline
-\end{tabular}
-\end{center}
-\end{table}
-
-\vglue 10pt
 The data include variables that have previously been used to model restatements.\footnote{[Refs to be included]} The variable BIG4 is included 
 because it is believed that Big 4 auditing firms have more expertise and are therefore more likely
 to catch misstatements. Similarly, the corporate governance literature suggests that board oversight 
@@ -332,34 +311,6 @@ make misstatements. (Refs) Finally, the variables INTERNAT and
 SEGMENTS are included to capture the complexity and costs of audits. (See for example
 XYZ.) Specifically, international companies and companies with more business segments are 
 thought to raise the costs of auditing. 
-
-\begin{table}[t]
-\begin{center}
-{\bf Table 2} \\
-{\bf Descriptive Stats (N=5,000)} \\[1em]
-\begin{tabular}{|l|c|}
-\hline
-             & {\bf Sample }   \\
-{\bf Variable}  &   {\bf Mean }   \\ 
-          &  (Std Dev)   \\ \hline
-\T {\bf RESTATE} &   0.102  \\
-                           &   0.303  \\[.6em]
-    {\bf CEOPAY} &     0.95  \\
-                           &     0.15  \\[.6em]
-    {\bf CEOBONUS} &    0.26  \\
-                           &     0.29  \\[.6em]
-    {\bf BIG4} &   0.76  \\
-                           &     0.43  \\[.6em]
-    {\bf FINDIRECT} &    0.08  \\
-                           &     0.08  \\[.6em]
-    {\bf SEGMENTS} &    4.41  \\
-                           &    3.02  \\[.6em]
-    {\bf INTERNAT} &     0.30  \\
-                           &     0.46  \\[.6em]
-\hline
-\end{tabular}
-\end{center}
-\end{table}
 
 Table 2 reports descriptive statistics for the sample. CEOs are on average receive about three-quarters
 of a million dollars in base pay and their incentive-related pay averages 26\% of their total pay.
@@ -375,35 +326,6 @@ or it can be described as a prediction equation. Our structural model allows us 
 particularly when it comes to the signs of the CEOPAY and CEOBONUS variables. By including
 the other variables on the right hand side, we are in essence maintaining they belong in
 $X_C$, $X_B$, or both sets of regressors.
-
-\begin{table}[t]
-\begin{center}
-{\bf Table 3} \
-{\bf Logit Regression Results} \\
-{\bf Dependent Variable:  RESTATE} \\[1em]
-\begin{tabular}{|l|cc|cc|}
-\hline
-             & \multicolumn{2}{c|}{\bf Specification 1}  &  \multicolumn{2}{c|}{\bf Specification 2}   \\
- {\bf Coefficient on}  &  {\bf Coefficient} & {\bf Marginal Effect} & {\bf Coefficient} & {\bf Marginal Effect}  \\ 
-          &  (Std Dev)  & (Std Dev) &  (Std Dev)  & (Std Dev) \\ \hline
-\T {\bf Intercept} &   -2.210*   &   & -2.786*   &    \\
-                   &   0.308   &   & 0.349   &   \\[.6em]
- {\bf CEOPAY}    &   0.118    &  0.010  & 0.010    &  0.001   \\
-                   &   0.317   &  0.027 & 0.327   &  0.027 \\[.6em]
- {\bf CEOBONUS}  &   -0.644*   &  -0.055* & -0.673*   &  -0.056*  \\
-                   &   0.185   &  0.016 & 0.201   &  0.017 \\[.6em]
- {\bf BIG4 }  &       &    & 0.104    &  0.009   \\
-                   &      &   & 0.130   &  0.011 \\[.6em]
- {\bf FINDIRECT}  &       &    & -0.058    &  -0.005   \\
-                   &      &   & 0.740   &  0.062 \\[.6em]
- {\bf INTERNAT }  &       &    & 0.630*   &  0.052*  \\
-                   &      &   & 0.120   &  0.010 \\[.6em]
- {\bf SEGMENTS}  &       &    & 0.086*   &  0.007*  \\
-                   &      &   & 0.021   &  0.002 \\[.6em]
-\hline
-\end{tabular}
-\end{center}
-\end{table}
 
 Table 3 reports the results of logit regressions in which the dependent
 variable is the restatement indicator variable. The table contains both a simple 
@@ -568,27 +490,6 @@ Inserting these expressions into the expected restatement rate (\ref{equilpr2}) 
 \end{equation}
 Notice that the $\theta$s absorb unknown quantities such as $r_0$ and $p_0$, and that the denominator intercept
 is normalized to one. This last restriction is required to identify the ratio of the two linear functions.
-
-\begin{table}[t]
-\begin{center}
-{\bf Table 4} \\
-{\bf GMM Estimates for the Strategic Auditor Model}\\ 
-{\bf (N=5,000)} \\[1em]
-\begin{tabular}{|c|cc|}
-\hline
-\T  &  {\bf Estimated}  & {\bf Bootstrap Std} \\ 
-\B  & {\bf Coefficient} & {\bf Error} \\ \hline
-\T $\theta_0= \dfrac{(1-v_0)a_0m_0}{(p_0-v_0)r_0b_0}$ & 0.0342 &\\[1.5em]
- $\theta_1=\dfrac{(1-v_0)a_1m_0}{(p_0-v_0)r_0b_0}$  &  0.0022 & \\[1.5em]
-$\theta_2=\dfrac{(1-v_0)a_2m_0}{(p_0-v_0)r_0b_0}$  &  0.0145   & \\[1.5em]
-$\theta_3=\dfrac{(1-v_0)a_0m_1}{(p_0-v_0)r_0b_0}$  &  0.0108  & \\[1.5em]
-$\theta_4=\dfrac{(1-v_0)a_1m_1}{(p_0-v_0)r_0b_0}$ &  0.1015  &  \\[1.5em]
-$\theta_5=\dfrac{(1-v_0)a_2m_1}{(p_0-v_0)r_0b_0}$ &  -0.0064  & \\[1.5em]
-\B$\theta_6=\dfrac{b_1}{b_0}$ &  0.4557  & \\[1.6em]
-\hline
-\end{tabular}
-\end{center}
-\end{table}
 
 Although this model does not have a logit form, it is potentially estimable using 
 generalized method of moments (GMM). This method attempts to match so-called

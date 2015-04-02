@@ -1,0 +1,83 @@
+\begin{table}[t]
+
+\caption{Descriptive statistics.} \label{tab:desc}
+
+
+{\bf RESTATE} is a zero-one indicator for whether the firm made a restatement in a particular year.
+{\bf CEOPAY} is the CEO's annual base salary.  
+{\bf CEOBONUS} is the fraction of a CEO's total pay that is incentive compensation.  
+{\bf BIG4} is a zero-one indicator for whether the firm uses a Big 4 auditor.
+{\bf FINDIRECT} is the fraction of the board of directors with a finance background. 
+{\bf INTERNAT} is a zero-one indicator for non-US corporation.  
+{\bf SEGMENTS} is number of the firm's business segments.
+
+\begin{center}
+\begin{tabular}{|l|c|}
+\hline
+             & {\bf Sample }   \\
+{\bf Variable}  &   {\bf Mean }   \\ 
+          &  (Std Dev)   \\ \hline
+\T {\bf RESTATE} &   0.102  \\
+                           &   0.303  \\[.6em]
+    {\bf CEOPAY} &     0.95  \\
+                           &     0.15  \\[.6em]
+    {\bf CEOBONUS} &    0.26  \\
+                           &     0.29  \\[.6em]
+    {\bf BIG4} &   0.76  \\
+                           &     0.43  \\[.6em]
+    {\bf FINDIRECT} &    0.08  \\
+                           &     0.08  \\[.6em]
+    {\bf SEGMENTS} &    4.41  \\
+                           &    3.02  \\[.6em]
+    {\bf INTERNAT} &     0.30  \\
+                           &     0.46  \\[.6em]
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}[t]
+\caption{Logit Regression Results} \label{tab:logit}
+\begin{center}
+\begin{tabular}{|l|cc|cc|}
+\hline
+             & \multicolumn{2}{c|}{\bf Specification 1}  &  \multicolumn{2}{c|}{\bf Specification 2}   \\
+ {\bf Coefficient on}  &  {\bf Coefficient} & {\bf Marginal Effect} & {\bf Coefficient} & {\bf Marginal Effect}  \\ 
+          &  (Std Dev)  & (Std Dev) &  (Std Dev)  & (Std Dev) \\ \hline
+\T {\bf Intercept} &   -2.210*   &   & -2.786*   &    \\
+                   &   0.308   &   & 0.349   &   \\[.6em]
+ {\bf CEOPAY}    &   0.118    &  0.010  & 0.010    &  0.001   \\
+                   &   0.317   &  0.027 & 0.327   &  0.027 \\[.6em]
+ {\bf CEOBONUS}  &   -0.644*   &  -0.055* & -0.673*   &  -0.056*  \\
+                   &   0.185   &  0.016 & 0.201   &  0.017 \\[.6em]
+ {\bf BIG4 }  &       &    & 0.104    &  0.009   \\
+                   &      &   & 0.130   &  0.011 \\[.6em]
+ {\bf FINDIRECT}  &       &    & -0.058    &  -0.005   \\
+                   &      &   & 0.740   &  0.062 \\[.6em]
+ {\bf INTERNAT }  &       &    & 0.630*   &  0.052*  \\
+                   &      &   & 0.120   &  0.010 \\[.6em]
+ {\bf SEGMENTS}  &       &    & 0.086*   &  0.007*  \\
+                   &      &   & 0.021   &  0.002 \\[.6em]
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}[t]
+\caption{Logit GMM Estimates for the Strategic Auditor Model} \label{tab:logit}
+\begin{center}
+\begin{tabular}{|c|cc|}
+\hline
+\T  &  {\bf Estimated}  & {\bf Bootstrap Std} \\ 
+\B  & {\bf Coefficient} & {\bf Error} \\ \hline
+\T $\theta_0= \dfrac{(1-v_0)a_0m_0}{(p_0-v_0)r_0b_0}$ & 0.0342 &\\[1.5em]
+ $\theta_1=\dfrac{(1-v_0)a_1m_0}{(p_0-v_0)r_0b_0}$  &  0.0022 & \\[1.5em]
+$\theta_2=\dfrac{(1-v_0)a_2m_0}{(p_0-v_0)r_0b_0}$  &  0.0145   & \\[1.5em]
+$\theta_3=\dfrac{(1-v_0)a_0m_1}{(p_0-v_0)r_0b_0}$  &  0.0108  & \\[1.5em]
+$\theta_4=\dfrac{(1-v_0)a_1m_1}{(p_0-v_0)r_0b_0}$ &  0.1015  &  \\[1.5em]
+$\theta_5=\dfrac{(1-v_0)a_2m_1}{(p_0-v_0)r_0b_0}$ &  -0.0064  & \\[1.5em]
+\B$\theta_6=\dfrac{b_1}{b_0}$ &  0.4557  & \\[1.6em]
+\hline
+\end{tabular}
+\end{center}
+\end{table}
