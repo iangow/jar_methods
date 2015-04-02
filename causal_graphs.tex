@@ -1,0 +1,78 @@
+\begin{figure}
+	\caption{Three causal graphs without endogeneity} \label{fig:basic}
+    \centering
+    \begin{subfigure}[b]{\textwidth}
+        \caption{$C$ is a confounder}
+        \label{fig:confound}
+        \centering
+		\begin{tikzpicture}
+		    \node[rectangle] (X) {Treatment variable (X)}; 
+		    \node [right = 1 of X] (Y) {Outcome variable (Y)};
+		    \node [below = 1 of X] (C) {Controls (C)};
+		    \draw (X) edge[->] (Y);
+		    \draw (C) edge[->] (X);
+		    \draw (C) edge[->] (Y);
+		\end{tikzpicture}
+
+    \end{subfigure}
+
+    \begin{subfigure}[b]{\textwidth}
+        \caption{$C$ is a mechanism}
+        \label{fig:mech}
+        \centering
+		\begin{tikzpicture}
+		    %create X and Y node
+		    \node[rectangle] (X) {Treatment variable (X)}; 
+		    \node [right = 1 of X] (Y) {Outcome variable (Y)};
+		    \node [below = 1 of X] (C) {Controls (C)};
+		    \draw (X) edge[->] (Y);
+		    \draw (C) edge[<-] (X);
+		    \draw (C) edge[->] (Y);
+		\end{tikzpicture}
+
+    \end{subfigure}
+
+    \begin{subfigure}[b]{\textwidth}
+        	\caption{$C$ is a collider}
+		\label{fig:collider}
+		\centering
+		\begin{tikzpicture}
+		    \node[rectangle] (X) {Treatment variable (X)}; 
+		    \node [right = 1 of X] (Y) {Outcome variable (Y)};
+		    \node [below = 1 of X] (C) {Controls (C)};
+		    \draw (X) edge[->] (Y);
+		    \draw (C) edge[<-] (X);
+		    \draw (C) edge[<-] (Y);
+		\end{tikzpicture} 
+
+    \end{subfigure}
+
+\end{figure}
+
+
+
+\clearpage
+\begin{figure} \caption{Causal graph for \citet{Balakrishnan:2014js}} \label{fig:bbkl}
+\begin{tikzpicture}[
+	every node/.style = 
+    	{shape = rectangle, rounded corners, fill = black!30!white,
+   		text width = 3cm, minimum height = 1.5cm, align = center, text = black},
+    black edge/.style = { -,  ultra thick, black, shorten >= 2pt}]
+    %create X and Y node
+    \node[rectangle] (BC) {Brokerage closure$_t$}; 
+    \node [right = 1 of BC] (AC0) {Analyst coverage$_t$};
+    \node [right = 1 of AC0] (AC1) {Analyst coverage$_{t+1}$};
+    \node [below = 1 of AC0] (IA0) {Information asymmetry$_t$};
+    \node [right = 1 of IA0] (IA1) {Information asymmetry$_{t+1}$};
+    \node [below = 1 of IA0] (D) {Disclosure};
+    \node [right = 1 of D] (LQ) {Liquidity$_{t+1}$};
+    \draw (BC) edge[->] (AC0);
+    \draw (AC0) edge[->] (IA0);
+    \draw (AC0) edge[->] (AC1);
+    \draw (AC1) edge[dashed, <->] (IA1);
+    \draw (IA0) edge[->] (D);
+    \draw (IA1) edge[->] (LQ);
+    \draw (D) edge[->] (LQ);
+    \draw (IA0) edge[bend right=60, dashed, <->] (AC0);
+\end{tikzpicture}
+\end{figure}

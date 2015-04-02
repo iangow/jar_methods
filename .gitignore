@@ -10,3 +10,5 @@
 *.tpbuild
 .RData
 *.blg
+*concordance.tex
+play/*.tex
