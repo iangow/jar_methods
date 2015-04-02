@@ -170,7 +170,6 @@ Of the 91 papers in accounting research in 2014 seeking to draw causal inference
 The more common approach we observed is the use of estimation approaches such as ordinary least-squares regression or propensity-score matching for estimating coefficients that the authors use to draw causal inferences.
 The typical concern in these papers is with the inclusion of controls.
 
-
 For example, consider \cite{Hollander:2010jg} that explores the determinants of managers' decisions to disclose or withhold information response to analyst questions in earnings conference calls, and identify four ``explanatory variables" (namely, disclosure agency problems, proprietary information, firm performance, and litigation.\footnote {The role of firm performance as a causal variable of interest is clouded by the fact that the authors state " we control for performance" (p. 544)} \cite{Hollander:2010jg} state that ``prior research indicates the several other company characteristics determine investor demand for disclosure. In fact, some of our main variables are correlated with these characteristics.
 To alleviate concerns about correlated omitted variable bias, we control for these characteristics in our analyses."
 Clearly, by identifying ``concerns about correlated omitted variable bias," the authors are affirming their interest in estimating structural or causal effects.
@@ -299,27 +298,6 @@ Furthermore, the only path other than $X \rightarrow Y$ that exists is $X \right
 Again, the back-door criterion not only implies that we need not condition on $Z$, but that we must not condition of $Z$ to get an estimate of the causal effect of $X$ on $Y$.
 
 % Next relate the Pearl stuff to an accounting setting.
- 
-
-WE NEED TO SHOW HOW TO APPLY THE PEARL FRAMEWORK IN AN ACCOUNTING SETTING.
-
-HOLLANDER SEEMS ODD HERE -- I MOVED THIS TO WHERE WE DISCUSS THE SURVEY EVIDENCE
-
-DO WE HAVE SOME IDEA ABOUT WHERE HOLLANDER SHOULD HAVE CONTROLLED FOR SELECTED VARIABLES AND OTHER CASES WHERE THEY SHOULD NOT?  THIS SEEMS TO BE THE PART OF PEARL THAT WE HAVE PULLED INTO THE TEXT
-
-HOW ABOUT USING THIS HERE?
-
-\citet{Kelly:2012ih} treat mergers of brokerage firms that covered treatment firms as an exogenous (i.e., as-if random) source of variation in analyst coverage.%\footnote{Seems to me that we should highlight some of these issues with this instrument -- not clear why this is outside our scope.} 
-They then examine the effect of such changes in analyst coverage on information asymmetry.
-
-The causal graph for \citet{Kelly:2012ih} is depicted in Figure \ref{fig:bbkl}.
-The identifying assumption is that $\textit{Brokerage closure}_t$ affects $\textit{Analyst coverage}_t$, but otherwise has no effect, direct or otherwise, on $\textit{Information asymmetry}_t$.
-These three boxes, along with the arrows (or lack of arrows) between them are the causal graph underlying \citet{Kelly:2012ih}.
-
-An assumption in \citet{Kelly:2012ih} is that analyst coverage affects contemporaneous information asymmetry, which again affects contemporaneous liquidity.
-These relations are represented in Figure \ref{fig:bbkl} by the three nodes in the right-most column and the nodes between them.
-
-Then discuss why this identification strategy  breaks down
 
 
 MAYBE ALSO USE SOME OF THE HOLLANDER AS WELL?
@@ -331,16 +309,10 @@ We focus on the two explanatory variables for which \citet{Hollander:2010jg} fin
 
 Second, we note that the authors are quite explicit about the concerns they have, which can be understood in terms of Figure \ref{fig:basic}.
 In that figure we provide three alternative sets of relations between the treatment variable, $X$, the outcome variable $Y$, and other variables correlated with $X$ and $Y$, which we label $C$.
-<<<<<<< HEAD
+
 The typical approach in accounting research is to identify any potential correlated variables and include them in the regression.
 One control that 
-=======
-The typical approach in accounting research is to identify any variables.
-One control that % TO BE CONTINUED.
 
-
-
->>>>>>> a8ebe4eb7530ff8261393ce10c656ffc79722ee3
 
 %TODO: Dave: We want some general "endogeneity" talk here. Then we can introduce the SCM as a tool for evaluating and understanding causal issues. We can discuss Rubin Causal Model, etc., as I believe Pearl relates those to his framework.
 
@@ -370,77 +342,99 @@ Natural experiments occur when observations are assigned by nature (or some othe
 Truly (as if) random assignment to treatment and control provides a sound basis for causal inference, enhancing the appeal of natural experiments for social science research.
 However, argues that this appeal ``may provoke conceptual stretching, in which an attractive label is applied to research designs that only implausibly meet the definitional features of the method'' \citep[p.3]{Dunning:2012tt}.
 
-Our survey of accounting research identified six papers that exploited either a ``natural experiment'' or ``exogenous shock'' to identify causal effects \citep{Lo:2013jk,Aier:2014ii,Kirk:2014gx,Houston:2014hv}. %TODO: IDG: What about Hail:2014fq?
+Our survey of accounting research identified five papers that exploited either a ``natural experiment'' or ``exogenous shock'' to identify causal effects \citep{Lo:2013jk,Aier:2014ii,Kirk:2014gx,Houston:2014hv,Hail:2014fq}.
 But closer examination suggests that most of these papers misapply the fundamental idea of natural experiments  In fact, these papers seem to be good examples of ``conceptual stretching''.
 
-\cite{Aier:2014ii} exploit a 1991 Delaware court that ``expanded the scope of directors' fiduciary duties to include creditors when a Delaware incorporated firm is in the `vicinity of insolvency.'" as a ``natural experiment'' for the purpose of understanding the causal effect of debtholders' demand for conservatism (the treatment variable) on financial reporting conservatism (the outcome of interest). But it is completely unclear how this ``natural experiment'' sorted firms into differing levels of the treatment variable, let alone why this assignment is appropriately considered to as-if random.
+\cite{Aier:2014ii} exploit a 1991 Delaware court that ``expanded the scope of directors' fiduciary duties to include creditors when a Delaware incorporated firm is in the `vicinity of insolvency'" as a ``natural experiment'' for the purpose of understanding the causal effect of debtholders' demand for conservatism (the treatment variable) on financial reporting conservatism (the outcome of interest).
+But it is completely unclear how this ``natural experiment'' sorted firms into differing levels of the treatment variable, let alone why this assignment is appropriately considered to as-if random.
 
 \citet{Kirk:2014gx} ``exploit the natural experiment setting created by the exogenous shock of Reg FD to examine the effect of Reg FD on firms with an established IR [investor relations] program.'' 
 Given that the treatment of interest in \citet{Kirk:2014gx} is the establishment of an IR program, only a event that randomly assigned firms to having or not having such a program would qualify as a natural experiment for this research setting.
 
+\citet{Hail:2014fq} study the ``exogenous shocks" of mandatory IFRS adoption and enforcement of insider trading laws and their effect on dividend payments.
+While these shocks do sort firms in treatment and control groups, they equally clearly do not affect firms randomly, as they apply to firms in the affected countries and a variety of country-level effects plausibly exist. 
+For example, Figure 1 \citet{Hail:2014fq} suggests that most of the impact of IFRS adoption occurs three years after adoption; i.e., for European firms in 2008, when there may have been other reasons for reducing dividends.
+
 A plausible explanation for the ease with which conceptual stretching has occurred derives from the ambiguity of the word ``exogenous,'' which not only denotes  ``of, relating to, or developing from external factors'' (Oxford Dictionary), but is also the antonym of ``endogenous.''
 For example, the fact that Reg FD was perhaps not driven by factors related to firms' IR programs and firm-level capital market outcomes, it does not immediately imply random assignment of firms into IR treatment and control groups and thus does not help resolve the endogeneity of IR programs with such capital market outcomes.
 
-\cite{Houston:2014hv} analyzes ``whether the political connections of listed firms in the United States affect the cost and terms of loan contracts.'' They argue that ``the recent financial crisis can be viewed as a major exogenous shock, the effects of which may vary depending on whether the firm is politically connected.'' 
+\citet{Houston:2014hv} analyzes ``whether the political connections of listed firms in the United States affect the cost and terms of loan contracts.'' They argue that ``the recent financial crisis can be viewed as a major exogenous shock, the effects of which may vary depending on whether the firm is politically connected.'' 
+But this is not what is needed for a valid natural experiment, which would instead randomly sort firms into those with political connections and those without. 
 
-GIVE A BETTER EXPLANATION THAN THE SMOKING STORY
+The evidence from accounting research published in 2014 suggests that accounting researchers have a poor grasp of the idea of natural experiments.
+A natural experiment (i) sorts firms into treatment and control groups and (ii) such assignment is (as-if) random.
+Given that most of the putative natural experiments do not satisfy the first criterion, discussion of the second criterion is not meaningful.
 
-The "natural experiment" of the financial crisis did not randomly assign firms into politically connected and non-connected treatments.  The shock may well have increased the power of some statistical tests, but it does not help with endogeneity.
+% Are there any good examples of natural experiments in accounting?  The SHO experiment is one, but the one JAR paper on it is very messed up. I could add discussion of this later.
 
-
-%But this is not what is needed for a valid natural experiment. To see this, an analogy is perhaps helpful. Suppose we wanted to study the effects of smoking on life expectancy. A long-standing concern in studies of such effects is the existence of other differences in the lifestyles of smokers and non-smokers. A ``natural experiment'' analogous to that in \cite{Houston:2014hv} might be one that created gas leaks in the homes of smokers and non-smokers alike. Because gas leaks are likely to have more deleterious consequences on smokers (e.g., instant immolation when lighting a cigarette), the reasoning of \cite{Houston:2014hv} might suggest that gas leaks are a helpful ``exogenous shock,'' contrary to common sense. %TODO: IDG: Tone this down.
-
-
-GENERAL EVALUATION for the use of NATURAL EXPERIMENTS for causal inferences in accounting 
-
-Are there any good examples of natural experiments in accounting?  Should we put some "good examples" of natural experiments from other areas -- economics and finance?  Are some of the accounting natural experiments better than others?
-
-% IV starts here!
 \subsection{Instrumental variables}
 \citet[p.114]{Angrist:2008vk} describe instrumental variables (IV) as ``the most powerful weapon in the arsenal of [statistical tools]" in econometrics. 
 Accounting researchers have long used instrument variables to address concerns about endogeneity \citep{Larcker:2010fq} and continue to do so.  Our survey of research published in 2014 identifies 10 papers using instrumental variables \citep{Cannon:2014im,Cohen:2014jl,Kim:2014fm,Vermeer:2014bs,Fox:2014io,Guedhami:2013cj,Houston:2014hv,deFranco:2014ct,Erkens:2014hj,Correia:2014fp}. 
-
 However, much has been written on the challenges for researchers in using instrumental variables (IV) as the basis for causal inference \citep[e.g.,][]{Roberts:2013cz}. 
+
+\subsubsection{Evaluating IVs is \emph{not} a statistical exercise}
+
 With respect to accounting research, \citet{Larcker:2010fq} lament that ``some researchers consider the choice of instrumental variables to be a purely statistical exercise with little real economic foundation'' and call for 
 ``accounting researchers \dots to be much more rigorous in selecting and justifying their instrumental variables.'' 
 \citet[p.117]{Angrist:2008vk} argue that ``good instruments come from a combination of institutional knowledge and ideas about the process determining the variable of interest."
 One study that illustrates this is \cite{Angrist:2008vk}.
 In that setting, the draft lottery is well understood as random and the process of mapping from the lottery to draft eligibility is well understood.
 Furthermore, there are good reasons to believe that the draft lottery does not affect anything else directly except for draft eligibility.\footnote {Of course, this seemingly "ideal" instrument has been subject to considerable criticism. I think the idea is that even if you had a low draft number it was not clear that you actually went to the army.  In fact, upper class kids did not go (and the probably had much better skills) than the white hillbilly trash and minorities that ended up going to VN}
-%TODO: ADD
+%TODO: Get reference for this idea.
 
-
-
-\subsubsection{Evaluating IVs is \emph{not} a statistical exercise}
 It is evident that many researchers in accounting view causal inference as a purely statistical exercise.
-Most accounting papers using IV methods provide little justification for the validity of their chosen instruments (especially why they are expected to satisfy the important exclusion restriction) and tend not to evaluate other critical features such as whether the instruments are weak and overidentifying restrictions. Although perhaps obvious, the standard statistical tests associated with instrumental variable applications provide little insight into the quality of instruments.  
+Several papers using IV methods  provide little or no justification for the validity of their instruments.
+For example, to address endogeneity \citet{Cohen:2014jl} use ``two instrumental variables. The first is the natural log of industry size, measured as the number of companies within each two-digit SIC. The second measures industry competition using the Herfindahl-Hirschman index, which is well-established as a measure of competitive industries. Our untabulated results using this approach are qualitatively similar to our main analysis, thus indicating that endogeneity is not a concern when assessing the reliability of our findings.''
+\citet{Vermeer:2014bs} ``use Maddala's (1988) two-stage procedure'' in order to ``control for endogeneity'' without providing any explanation at all and in fact seem to be assuming the each of three endogeneous variables can used as an instrument for the other two.
+\citet[p.48]{Fox:2014io} state in a footnote that they ``instrumented for the price index employing a two stage least squares estimator'' without further details, simply noting that their ``conclusions are robust with respect to these concerns.''
+\citet{Cannon:2014im} uses ``industry-level capacity unit cost and selling price changes'' as instruments for firm-level capacity unit cost changes with no more justification than the fact that these ``are outside management's control.'' But being outside management control does not make a variable an adequate instrument.
 
-%\citet{Correia:2014fp} is relatively thorough. \citet{Correia:2014fp} tests for weak instruments and also uses a test of over-identifying restrictions to examine the validity of her chosen instruments. 
+In most cases, the reasoning in support of the validity of an instrument is evidently flawed. In some cases,\citet{Kim:2014fm} use director age as an instrument for director tenure in a study examining the effect of the latter on firm performance. But there  arguments that seek to justify this seem to provide reasons to believe that this is not a valid instrument. 
+``Importantly, research finds little or no association between age and performance \dots and a small negative association between age and executive functions \dots. 
+Related to directors, Ferris et al. (2003) suggest that any positive effects from director experience increasing with age may be offset by older directors having less energy, posing a last-period risk, and viewing directorships as lucrative part-time jobs for their retirement years.'' 
+But these arguments seem to invalidate age as an instrument for tenure. 
+For age to be a valid instrument, there should be no unblocked causal path between age and performance except for the path via tenure.
+ That possible positive effects may be offset by negative effects and thus detecting an association between age and performance is not a valid basis for claiming age to be a valid instrument.\footnote{
+We omit discussion of  \citet{Erkens:2014hj,Houston:2014hv} and \citet{deFranco:2014ct} for reasons of space. But in each case, the instruments have obvious flaws and no convincing arguments for their validity are offered (details available on request).}
 
-It is easy to illustrate this point with a simple simulation exercise.
-Suppose that we are interested in a model such as $y = X \beta + \epsilon$, but with $X$ and $\epsilon$ having correlation $\rho(X, \epsilon) = 0.2$ (i.e., $X$ is endogenous) and $\beta = 0$ (i.e., there is no causal relation between $X$ and $y$). 
-Now, suppose we "construct" the following three instruments 
-$z_1 = x +\eta_1$, $z_2 = \eta_2$, and $z_3 = \eta_3$, with $\sigma_{\eta_1} = \sigma_{\eta_2} = \sigma_{\eta_3} \sim N(0, 0.09)$ and independent. 
-That is, $z_1$ is $X$ plus noise, while $z_2$ and $z_3$ are random noise.  Obviously, these "instruments" are silly choices and completely inappropriate.
+\subsubsection{There are no simple tests to valid instruments}
+Although perhaps obvious, the standard statistical tests associated with instrumental variable applications provide little insight into the quality of instruments. 
+% \citet{Guedhami:2013cj} use $\textit{CAPITAL}$, an indicator for a firm being located in a capital city, as an instrument for political connectivity in a study looking at the effect of political connections on the use of a Big 4 auditor ($\textit{BIG 4}$).
+For example, the only justification \citet{Guedhami:2013cj} provide for their instrument is that ``importantly, the correlation between $\textit{CAPITAL}$ and $\textit{BIG 4}$ is small in our data set $(\rho = 0.05)$, helping to justify the validity of this exclusion restriction.''\footnote{
+ \citet{Guedhami:2013cj} cite \citet{Larcker:2010fq} as a reference for this approach, even though \citet{Larcker:2010fq} carefully explain why simple tests like this cannot be used to justify instruments.}
 
-We finally  Assume that $X$ and $\epsilon$ are bivariate-normally distributed with variance of $1$. We then run 1000 simulations and  estimate the IV regression using these instruments on the simulated data in each case. Doing so, we find a mean estimated coefficient on $X$ of $0.201$, which is statistically significant at the 5\% level 100\% of the time.\footnote{Note that this coefficient is close to $\rho(X, \epsilon) = 0.2$, which is to be expected given how our data were generated.} Based on a test statistic of 30, which easily exceeds the thresholds suggested by Stock et al. (2002), the null hypothesis of weak instruments is rejected 100\% of the time. 
+%\citet{Correia:2014fp} is relatively thorough. \citet{Correia:2014fp} 
+Even more sophisticated tests of weak instruments and tests of over-identifying restrictions are not obviously helpful, as can be demonstrated with a simple simulation exercise.
+Suppose that we are interested in a model such as $y = X \beta + \epsilon$, but with $X$ and $\epsilon$ having correlation $\rho(X, \epsilon) > 0$ (i.e., $X$ is endogenous) and $\beta = 0$ (i.e., there is no causal relation between $X$ and $y$). 
+Now, suppose we \emph{construct} the following three instruments 
+$z_1 = x +\eta_1$, $z_2 = \eta_2$, and $z_3 = \eta_3$, with $\eta_1, \eta_2,  \eta_3 \sim N(0, \sigma_{\eta}^2)$ and independent. 
+That is, $z_1$ is $X$ plus noise (e.g., industry averages or lagged values of $X$ would seem to approximate $z_1$), while $z_2$ and $z_3$ are random noise (many variables could be candidates here).\footnote{A paper using instruments with apparently similar properties is \citet{Correia:2014fp}. 
+She uses ``average level of political contributions made by the other firms in the same industry'' as an instrument for political contributions by a firm, as well as two additional instruments: ``the percentage of sales made to the government, and the number of years in the previous five years in which there was a close election involving two candidates in the firm's state.''  \citet{Reiss:2007ej} suggest that there is no reason to view industry averages as valid instruments.}
+Obviously, these``instruments" are silly choices and completely inappropriate.
+
+Assuming that $X$ and $\epsilon$ are bivariate-normally distributed with variance of $1$ and $\rho(X, \epsilon)=0.2$ and that $\sigma_{\eta}=0.03$, we run 1000 simulations and  estimate the IV regression using these instruments on the simulated data in each case.
+Doing so, we find a mean estimated coefficient on $X$ of $0.201$, which is statistically significant at the 5\% level 100\% of the time.\footnote{Note that this coefficient is close to $\rho(X, \epsilon) = 0.2$, which is to be expected given how our data were generated.} Based on a test statistic of 30, which easily exceeds the thresholds suggested by Stock et al. (2002), the null hypothesis of weak instruments is rejected 100\% of the time. 
 The test of overidentifying restrictions fails to reject a null hypothesis of valid instruments (at the 5\% level) 95.7\% of the time.
-In other words, it is easy for completely spurious instruments to deliver bad inferences, yet easily pass tests for weak instruments and endogeneity.\footnote{It is also common for accounting researchers to claim that they have established the validity of their instruments by implementing some type of Hausman test.  It is very clear that these types of overidentifying tests require the researcher to actually have one valid IV.  In general, there is no test that enables a researcher to verify that their IVs satisfy the exclusion restriction.}
 
+In other words, it is easy for completely spurious instruments to deliver bad inferences, yet easily pass tests for weak instruments and tests of overidentifying restrictions.
+%\footnote{It is also common for accounting researchers to claim that they have established the validity of their instruments by implementing some type of Hausman test.  It is very clear that these types of overidentifying tests require the researcher to actually have one valid IV. 
+In general, there is no test that enables a researcher to verify that their IVs satisfy the exclusion restriction.
 
-I AM TEMPTED TO ADD THE CORE JAR PAPER THAT BORROWS FROM THE AER PAPER IN THE SECTION BELOW.  MAYBE USE THE PEARL GRAPH ON THIS ONE?
-
-\subsubsection{Using instruments from other papers should be done with care}
+\subsubsection{Borrowing instruments from other papers should be done with care}
 One popular source of instruments in accounting, finance, and economics is prior research in economics and finance.
 For example, \citet{Balakrishnan:2014js} use the ``exogenous shocks" to analyst coverage in \citet{Kelly:2012ih} as an instrument for changes in voluntary disclosure practices. 
+
+The causal graph for \citet{Kelly:2012ih} is depicted in Figure \ref{fig:bbkl}.
+The identifying assumption is that $\textit{Brokerage closure}_t$ affects $\textit{Analyst coverage}_t$, but otherwise has no effect, direct or otherwise, on $\textit{Information asymmetry}_t$.
+These three boxes, along with the arrows (or lack of arrows) between them are the causal graph underlying \citet{Kelly:2012ih}.
+
+An assumption in \citet{Kelly:2012ih} is that analyst coverage affects contemporaneous information asymmetry, which again affects contemporaneous liquidity.
+These relations are represented in Figure \ref{fig:bbkl} by the three nodes in the right-most column and the nodes between them.
 \citet{Kelly:2012ih} seek to understand the effect of changes in analyst coverage on information asymmetry. 
 The challenge faced by \citet{Kelly:2012ih} is that changes in analyst coverage are generally not random and may be correlated with information asymmetry due to omitted correlated variables.
-\citet{Kelly:2012ih} treat mergers of brokerage firms that covered treatment firms as an exogenous (i.e., as-if random) source of variation in analyst coverage.%\footnote{Seems to me that we should highlight some of these issues with this instrument -- not clear why this is outside our scope.} 
+\citet{Kelly:2012ih} treat mergers of brokerage firms that covered treatment firms as an exogenous (i.e., as-if random) source of variation in analyst coverage.\footnote{Note number of analysts from the surviving brokerage firm covering an affected firm can be viewed as a random variable with possible values of one or, if coverage is dropped, zero. \citet{Kelly:2012ih} argue that this random variable is endogenous when its realization is zero, but exogenous when its realization is one. 
+The idea of realizations, rather than the random variable itself, being exogenous appears to be a novel contribution to econometrics.} 
 They then examine the effect of such changes in analyst coverage on information asymmetry.
-
-
-SEEMS LIKE WE NEED MORE THAN JUST FIGURE 3, AS WE ARE TALKING ABOUT THE ABSENCE OF SOME LINKS AND WHAT HAPPENS IF YOU ADD A LINK.  MAYBE DO AN "EVOLUTION" OF CURRENT FIGURE 3? MAYBE JUST THE KL DIAGRAM IN THE PEARL SECTION ABOVE, WHAT IS BEING ASSUMED BY BALA ET AL, AND THEN SOME EXAMPLES WHERE THERE ARE OBVIOUS LINKS AND WHAT HAPPENS ALA PEARL.  MAKE SENSE?
-
 
 The causal graph for \citet{Kelly:2012ih} is depicted in Figure \ref{fig:bbkl}.
 The identifying assumption is that $\textit{Brokerage closure}_t$ affects $\textit{Analyst coverage}_t$, but otherwise has no effect, direct or otherwise, on $\textit{Information asymmetry}_t$.
@@ -461,63 +455,41 @@ That such stickiness in coverage should exist seems to be assumed by \citet{Bala
 
 The point of the discussion above is not to impugn the precise findings of \citet{Balakrishnan:2014js}, but rather to illustrate the merit of more careful analysis of a paper's identification strategy and, we argue, the value of causal graphs in doing so.
 
-
-A review of these papers suggests that researchers have paid little heed to the suggestions and warnings of  \citet{Larcker:2010fq} and \citet{Roberts:2013cz}.
-
-Several papers provide little or no justification for the validity of their instruments. For example, to address endogeneity \citet{Cohen:2014jl} use ``two instrumental variables. The first is the natural log of industry size, measured as the number of companies within each two-digit SIC. The second measures industry competition using the Herfindahl-Hirschman index, which is well-established as a measure of competitive industries. Our untabulated results using this approach are qualitatively similar to our main analysis, thus indicating that endogeneity is not a concern when assessing the reliability of our findings.''
-\citet{Vermeer:2014bs} ``use Maddala's (1988) two-stage procedure'' in order to ``control for endogeneity'' without providing any explanation at all and in fact seem to be assuming the each of three endogeneous variables can used as an instrument for the other two.
-\citet[p.48]{Fox:2014io} state in a footnote that they ``instrumented for the price index employing a two stage least squares estimator'' without further details, simply noting that their ``conclusions are robust with respect to these concerns.''
-\citet{Cannon:2014im} uses ``industry-level capacity unit cost and selling price changes'' as instruments for firm-level capacity unit cost changes with no more justification than the fact that these ``are outside management's control.'' But being outside management control does not make a variable a an adequate instrumental variable. without some assessment for how this fits into the economic setting. %ADD HERE
-
-%  THIS IS WHAT WAS IN THE SENTENCE -- in an econometric sense.
-
-Other papers provide limited, but seemingly flawed, justification for their chosen instruments. 
- \citet{Guedhami:2013cj} use $\textit{CAPITAL}$, an indicator for a firm being located in a capital city, as an instrument for political connectivity in a study looking at the effect of political connections on the use of a Big 4 auditor ($\textit{BIG 4}$).
- The only justification \citet{Guedhami:2013cj} provide in support of the required exclusion restriction  is that ``importantly, the correlation between $\textit{CAPITAL}$ and $\textit{BIG 4}$ is small in our data set $(\rho = 0.05)$, helping to justify the validity of this exclusion restriction.''
- \citet{Guedhami:2013cj} cite \citet{Larcker:2010fq} as a reference for this approach, even though \citet{Larcker:2010fq} carefully explain why simple tests like this cannot be used to justify instruments.
+A review of IV in published research in accounting in 2014 suggests that researchers have paid little heed to the suggestions and warnings of  \citet{Larcker:2010fq} and \citet{Roberts:2013cz}.
+We find no case of an instrumental variable analysis in our survey that can withstand even the most elementary scrutiny.
+This is perhaps not unsurprising, as plausible instruments have tended to rely on some explicit randomization, which is likely to be extremely rare in accounting research settings.
+While IV is a classic textbook approach for credible causal inference, its applicability in actual research settings seems very limited and it seems unlikely that IV will provide a sound basis for causal inference in accounting research for the vast majority of research questions.
  
- \citet{Houston:2014hv} use variables variables that are related to the location of the company's headquarters as instruments for political connection and argue that ``these instruments should not be conceptually related to loan spreads. The key insight here is that the geographic locations of headquarters for companies are predetermined and are unlikely to affect banks' financing decision on loan costs. In summary, our identification assumption is that the costs of bank loans are not directly related to the companies' geographic locations, after controlling for a series of firm and loan characteristics'' (p.228). In justifying the relevance of the instrument, the authors seem eager to justify a connection, suggesting that ``the presumption is that the company's geographic location affects the company's ability to attract politically connected directors.'' But it far from clear why a company's geographic location would not also affect the its ability to attract directors with connections to \emph{financial institutions}, which plausibly affects financing terms directly \citep{Guner:2008tp}.\footnote{\citet{Houston:2014hv} also use firm age as an instrument, arguing that ``firm age affects a firm's incentive and capability in building up political connections''; but it is not clear why firm age would not also affect a firm's ``incentive and capability in building up'' financial connections.} 
+ % \citet{Houston:2014hv} use variables variables that are related to the location of the company's headquarters as instruments for political connection and argue that ``these instruments should not be conceptually related to loan spreads. The key insight here is that the geographic locations of headquarters for companies are predetermined and are unlikely to affect banks' financing decision on loan costs. In summary, our identification assumption is that the costs of bank loans are not directly related to the companies' geographic locations, after controlling for a series of firm and loan characteristics'' (p.228). In justifying the relevance of the instrument, the authors seem eager to justify a connection, suggesting that ``the presumption is that the company's geographic location affects the company's ability to attract politically connected directors.'' But it far from clear why a company's geographic location would not also affect the its ability to attract directors with connections to \emph{financial institutions}, which plausibly affects financing terms directly \citep{Guner:2008tp}.\footnote{\citet{Houston:2014hv} also use firm age as an instrument, arguing that ``firm age affects a firm's incentive and capability in building up political connections''; but it is not clear why firm age would not also affect a firm's ``incentive and capability in building up'' financial connections.} 
  
-Researchers tend to very unclear about the determinants of their selected instruments.  In many cases, it seems that the instruments are also endogenous.  This makes it very difficult to to rule out the possibility that the instrument directly affects (or is correlated with) variables other than the endogenous variable of interest.
- \citet{Erkens:2014hj} ``use the following three instrumental variables that capture the extent to which lenders are more likely to serve on a firm's board, which is studied for its potential effect on accounting conservatism. We use \emph{Industry importance to primary lender} because industry specialization increases the importance of acquiring information about a firm's industry, \emph{Primary lender within 50 mile radius} because physical proximity to lenders' headquarters reduces the cost of serving on the board, and \emph{Number of commercial banks within 50 mile radius} because the close proximity of multiple banks increases competition for board seats from other lenders.'' If industry specialization affects information-acquisition incentives, it seems it would do so through channels outside of board membership. With respect to the second instrument, it's quite likely that proximity affects information-gathering independent of service on the board. With respect to the third instrument, it is also implausible that the only direct effect of this variable is one on the service of bankers on the board (for example, this may lead to lower search costs in choosing potential lenders).
- 
-In some cases, arguments that seek to justify a set of instruments seem to provide reasons to believe that they \emph{not} valid. \citet{Kim:2014fm} use director age as an instrument for director tenure in a study examining the effect of the latter on firm performance. 
-``Importantly, research finds little or no association between age and performance \dots and a small negative association between age and executive functions \dots. 
-Related to directors, Ferris et al. (2003) suggest that any positive effects from director experience increasing with age may be offset by older directors having less energy, posing a last-period risk, and viewing directorships as lucrative part-time jobs for their retirement years.'' 
-But these arguments seem to invalidate age as an instrument for tenure. 
-For age to be a valid instrument, there should be no unblocked causal path between age and performance except for the path via tenure.
- That possible positive effects may be offset by negative effects and thus detecting an association between age and performance is not a valid basis for claiming age to be a valid instrument. \citet{deFranco:2014ct} ``find that the number of covenants is positively related to the interest rate, likely due to endogeneity between the interest rate and covenants.'' To address this using they use ``the number of covenants by calendar year indicators as the instrument'' for the number of covenants. Apart from the issues with using an average as an instrument discussed in \citet{Reiss:2007ej}, the authors justify their instrument by suggesting that ``the strictness of covenant packages significantly deteriorated during the years of the credit boom that preceded the financial crisis.'' But it seems likely that the credit boom would have a direct effect on interest rates on bond issues. 
+% Researchers tend to very unclear about the determinants of their selected instruments.  In many cases, it seems that the instruments are also endogenous.  This makes it very difficult to to rule out the possibility that the instrument directly affects (or is correlated with) variables other than the endogenous variable of interest.
+ % \citet{Erkens:2014hj} ``use the following three instrumental variables that capture the extent to which lenders are more likely to serve on a firm's board, which is studied for its potential effect on accounting conservatism. We use \emph{Industry importance to primary lender} because industry specialization increases the importance of acquiring information about a firm's industry, \emph{Primary lender within 50 mile radius} because physical proximity to lenders' headquarters reduces the cost of serving on the board, and \emph{Number of commercial banks within 50 mile radius} because the close proximity of multiple banks increases competition for board seats from other lenders.'' If industry specialization affects information-acquisition incentives, it seems it would do so through channels outside of board membership. With respect to the second instrument, it's quite likely that proximity affects information-gathering independent of service on the board. With respect to the third instrument, it is also implausible that the only direct effect of this variable is one on the service of bankers on the board (for example, this may lead to lower search costs in choosing potential lenders).
 
-SEEMS LIKE WE NEED TO COMBINE THE AVG AS AN IV TOGETHER IN THESE TWO PARAGRAPHS
-
-\citet{Correia:2014fp} uses ``average level of political contributions made by the other firms in the same industry'' as an instrument for political contributions by a firm, as well as two additional instruments: ``the percentage of sales made to the government, and the number of years in the previous five years in which there was a close election involving two candidates in the firm's state.'' With regard to the first instrument, the reasons that cause political contributions to be endogenous may well affect all firms in an industry (or at least be correlated across firms within an industry). 
-As such \citet{Reiss:2007ej} suggest that there is little reason to view such averages as valid instruments.
-
-% I agree with this!!! (IDG)
-GENERAL EVALUATION for the use of IV for causal inferences in accounting.  
-
-The classic textbook solution to endogeneity and causal inference does not seem like a viable approach for most observational accounting research.  Most of the selected instruments are unlikely to satisfy the necessary exclusion restriction.  The prospects for reasonable use of IVs in accounting research seem quite low.
+ %\citet{deFranco:2014ct} ``find that the number of covenants is positively related to the interest rate, likely due to endogeneity between the interest rate and covenants.'' To address this using they use ``the number of covenants by calendar year indicators as the instrument'' for the number of covenants. Apart from the issues with using an average as an instrument discussed in \citet{Reiss:2007ej}, the authors justify their instrument by suggesting that ``the strictness of covenant packages significantly deteriorated during the years of the credit boom that preceded the financial crisis.'' But it seems likely that the credit boom would have a direct effect on interest rates on bond issues. 
 
 \subsection{Regression discontinuity designs} 
 %\textbf{TBD.} Discuss RD d, how it works, but issues in applying it and the fact that it has limited applicability in general (i.e., need a discontinuity).
 
 In discussing the recent ``flurry of research" using regression discontinuity (RD) designs, \citet[p.282]{Lee:2010hya} point out that they ``require seemingly mild assumptions compared to those needed for other nonexperimental approaches \dots and that causal inferences from RD designs are potentially more credible than those from typical `natural experiment' strategies." 
-Recently, RD designs have attracted the interest of accounting researchers, as a number of phenomena of interest to accounting researchers involve discontinuities. For example, whether an executive compensation plan is approved is a discontinuous function of shareholder support \citet{Armstrong:2013io} and whether a firm had to comply with provisions of Sarbanes-Oxley Act in 2004 \citep{Iliev:2010ic}, and shareholder voting for approval of management proposals AGL (20xx)
+Recently, RD designs have attracted the interest of accounting researchers, as a number of phenomena of interest to accounting researchers involve discontinuities. For example, whether an executive compensation plan is approved is a discontinuous function of shareholder support \citet{Armstrong:2013io} and whether a firm had to comply with provisions of Sarbanes-Oxley Act in 2004 \citep{Iliev:2010ic} is a discontinuous function of market float.
 
-While RD designs make relatively mild assumptions, in practice these assumptions may be violated. In particular, manipulation of the running variable may occur.
+While RD designs make relatively mild assumptions, in practice these assumptions may be violated.
+In particular, manipulation of the running variable may occur.
 
-It is also important to note that various ``quasi-RD" designs bear little resemblance to RD designs. We need to explain and expand on this important point.
+It is also important to note that so-called ``quasi-RD" designs have only a superficial resemblance to RD designs.
+For example, as he cannot observe ``the specific covenant thresholds in [his] primary dataset," \citet{Tan:2013ce} is constrained to estimate a ``quasiRD" design like that estimated in \citep{Roberts:2009ka}.
+But this ``regression discontinuity design"  is nothing more than ordinary-least squares with an indicator for covenant violation and thus do not represent a method for estimating unbiased causal effects with observational data.
+
 % Listokin, McCrary, etc.  
 
 Point out that the estimated treatment effect is very local, which may or may not be the estimate desired.  Most of the accounting research is looking for average effects across the entire sample, not local effects.  However, the local effect is useful if RDD enables us to make statements that are close to being causal.
 
-Seems like we want to include in this section:  plot the data and if you can't see it in the data, it probably is not actually there (Imbens), do not use the high level polynomial approach, and other similar issues.  Probably something on whether the magnitude of the results is actually believable -- Yonca's, the prize winning JF paper, and others results seem implausibly large for governance topics.
+% Seems like we want to include in this section:  plot the data and if you can't see it in the data, it probably is not actually there (Imbens), do not use the high level polynomial approach, and other similar issues.  Probably something on whether the magnitude of the results is actually believable -- Yonca's, the prize winning JF paper, and others results seem implausibly large for governance topics.
 
 
-I believe that you have some type of simulation where the RDD does not work when the threshold is endogenously selected (75 million dollar cap and other similar thresholds).  This would be good to add similar to the simple IV example above.
+% I believe that you have some type of simulation where the RDD does not work when the threshold is endogenously selected (75 million dollar cap and other similar thresholds).  This would be good to add similar to the simple IV example above.
 
-GENERAL EVALUATION for the use of RDD for causal inferences in accounting 
-
+%TODO: GENERAL EVALUATION for the use of RDD for causal inferences in accounting 
 
 \subsection{Propensity score matching}
 
@@ -531,10 +503,8 @@ It seems like we should highlight that PSM (or for that matter any matching appr
 %TODO: general evaluation of the use of PSM for causal inferences in accounting 
 
 
-\subsection{Overall evaluation} 
-\textbf{TBD.} Quasi-experimental methods are very poorly applied by accounting researchers. Even if accounting researchers knew what they were doing, the reality is that instruments, natural experiments, and discontinuities do not grow on trees. So quasi-experimental methods are unlikely to deliver anything like the 100+ papers that accounting researchers crank out every year (in economics---a much broader field---it's the same handful of examples brought out over and over).
-
-The next part of the paper has a more positive take (structural modeling, etc.).
+% \subsection{Overall evaluation} 
+%  \textbf{TBD.} Quasi-experimental methods are very poorly applied by accounting researchers. Even if accounting researchers knew what they were doing, the reality is that instruments, natural experiments, and discontinuities do not grow on trees. So quasi-experimental methods are unlikely to deliver anything like the 100+ papers that accounting researchers crank out every year (in economics---a much broader field---it's the same handful of examples brought out over and over).
 
 Likely effective in settings, but of limited applicability and care is needed to do it well and to interpret the results. Discuss examples from shareholder voting and the \$75 million threshold for SOX.
 
@@ -602,7 +572,7 @@ Thus, a link between smoking and atherosclerosis was established.
  \citet{Gillies2011-GILTRT-3} avers that the process by which a causal link between smoking and atherosclerosis was established illustrates the ``Russo-Williamson thesis."
  \citet[p.\,159]{Russo:2007iz} suggest that ``mechanisms allow us to generalize a causal relation: while an appropriate dependence in the sample data can warrant a causal claim `$C$ causes $E$ in the sample population,' a plausible mechanism or theoretical connection is required to warrant the more general claim `$C$ causes $E$.' Conversely, mechanisms also impose negative constraints: if there is no plausible mechanism from $C$ to $E$, then any correlation is likely to be spurious. Thus mechanisms can be used to differentiate between causal models that are underdetermined by probabilistic evidence alone."
 
- The Russo-Williamson thesis was arguably also at work in the case of Snow and cholera, where the establishment of a mechanism (\emph{Vibrio cholerae}) was essential before the causal explanation offered by Snow was widely accepted and also in the case of smoking and lung cancer, which was initially conjectured based on associational evidence, but was widely accepted by 1976.\footnote{
+The Russo-Williamson thesis was arguably also at work in the case of Snow and cholera, where the establishment of a mechanism (\emph{Vibrio cholerae}) was essential before the causal explanation offered by Snow was widely accepted and also in the case of smoking and lung cancer, which was initially conjectured based on associational evidence, but was widely accepted by 1976.\footnote{
  The suasive force of Snow's natural experiment, coming decades before the work of Neyman and Fisher, might be considered greater today.}
 
 A reader may wonder what relevance the cases above have for accounting research.
