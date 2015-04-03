@@ -435,26 +435,26 @@ Notice that the $\theta$s absorb unknown quantities such as $r_0$ and $p_0$, and
 is normalized to one. This last restriction is required to identify the ratio of the two linear functions.
 
 Although this model does not have a logit form, it is potentially estimable using 
-generalized method of moments (GMM). This method attempts to match so-called
-sample moments to what the structural model implies they should be. For example,
-an obvious sample moment would be the average restatement rate in the sample.
-The corresponding theoretical moment would be the probabilty expression
-in equation (\ref{equilpr4}). Because we need at least as many moments as
-we have $\theta$ parameters to estimate (there are seven $\theta$'s in the model),
-we use seven sample moments, each of the form:
+generalized method of moments (GMM).
+This method attempts to match so-called sample moments to what the structural model implies they should be. 
+For example, an obvious sample moment would be the average restatement rate in the sample.
+The corresponding theoretical moment would be the probabilty expression in equation (\ref{equilpr4}).
+Because we need at least as many moments as we have $\theta$ parameters to estimate (there are seven $\theta$s in the model), we use seven sample moments, each of the form:
 $$ \mathcal{M}_j = \sum_{i=1}^{5,000} \; X_{ji}^\prime\left[\; \mbox{RESTATE}_A - \mbox{Pr(Restate)}_A \; \right]. $$
-where Pr(Restate) comes from equation (\ref{equilpr4}).\footnote{To insure that the model parameters imply restatement probabilities
-between zero and one, we add a penalty function to the GMM objective function.
-This penalty increases with the number of estimated probabilities below zero or
-above one. For most replications this penalty is immaterial to the results obtained.} The $X_j$ used in the moments include all explanatory variables. Thus, because $X$ includes  a dummy variable for whether the firm is an INTional company, the corresponding moment equation seeks to match the sample INTional companies average restatement rate to the model's prediction for that rate.
+where Pr(Restate) comes from equation (\ref{equilpr4}).\footnote{
+To ensure that the model parameters imply restatement probabilities between zero and one, we add a penalty function to the GMM objective function.
+This penalty increases with the number of estimated probabilities below zero or above one.
+For most replications this penalty is immaterial to the results obtained.} 
+The $X_j$ used in the moments include all explanatory variables. 
+Thus, because $X$ includes  a dummy variable for whether the firm is an international company, the corresponding moment equation seeks to match the sample international companies average restatement rate to the model's prediction for that rate.
 
-Table \ref{tab:gmm} reports the results of estimating the new (strategic auditor) structural model on 
-the sample of 5,000 firms. 
+Table \ref{tab:gmm} reports the results of estimating the new (strategic auditor) structural model on the sample of 5,000 firms. 
 The results show that in this particular case, even without sample information on the unobserved probabilities $p_A$ and $p_I$, we can recover estimates of the model parameters up to a normalization.\footnote{
 A simple way to see this might be the case is to observe that there are seven $\theta$ coefficients and eight underlying structural parameters.}
 For instance, the coefficient ratio $\theta_3/\theta_0$ estimates the ratio of cost parameters $m_1/m_0$.
 Since $m_1$ is the cost coefficient on SALARY and $m_0>0$ for costs to make sense, the sign of $\theta_3/\theta_0$ reveals the sign of $m_1$.
-From the theory, we expect the sign to be positive, and in the estimates it is. Similarly, $\theta_6$ equals the (scaled) misstatement benefit coefficient on the BONUS variable.
+From the theory, we expect the sign to be positive, and in the estimates it is. 
+Similarly, $\theta_6$ equals the (scaled) misstatement benefit coefficient on the BONUS variable.
 Although the descriptive regression coefficients in Table 3 suggest BONUS has a negative effect on restatements, here, because we model misstatements as part of restatements, we find it has a positive effect, as expected.
 
 The one sign that does not make sense given the other coefficient estimates is the negative sign on $\theta_6$, however this coefficient is insignificantly different from zero.
@@ -473,22 +473,24 @@ From (\ref{equilpr}), the model and the data we find
 $$ \dfrac{\mbox{Pr(Restate }\vert \mbox{ No Bonus)}}{\mbox{Pr(Restate }\vert \mbox{ Bonus)}}=\dfrac{\beta^* \times (1-p_A^{**}) \times p_{E}}
 {\beta^* \times (1-p_A^{*}) \times p_{E}} = \dfrac{(1-p_A^*)}{(1-p_A^*)} = 1.10.$$
 What this says is that the restatement rate increases by 10\% (from 10.24\% to 11.25\%) when the bonuses
-are withdrawn. The fact that the restatement rate goes up may at first seem somewhat odd
-given that the benefits to the CEOs have fallen. The model, however, shows that the increase 
-comes about because the auditors exert {\it less} effort in detecting
-misstatements, thereby catching fewer, leaving more for outsiders to subsequently catch.  
+are withdrawn. 
+The fact that the restatement rate goes up may at first seem somewhat odd given that the benefits to the CEOs have fallen. 
+The model, however, shows that the increase  comes about because the auditors exert \emph{less} effort in detecting misstatements, thereby catching fewer, leaving more for outsiders to subsequently catch.  
 
-\subsection{Strengths and Weaknesses of Structural Models}
+The discussion above illustrates some of the ways in which a structural modeling exercise might help understand accounting data. 
+In particular, the comparative statics of the model shed light on the difference between restatements and misstatements, and what assumptions (e.g., strategic versus nonstrategic auditor) and data were needed to draw  inferences about misstatements from restatements. 
+Additionally, we were able to recover some of the primitive parameters impacting incentives for managers to misstate results, as well as perform counterfactual analyses.
 
-The previous section illustrated some of the ways in which a structural modeling exercise might help understand
-accounting data. In particular, the comparative statics of the model shed light on the difference between restatements
-and misstatements, and what assumptions (e.g., strategic versus nonstrategic auditor) and data was needed to draw 
-inferences about misstatements from restatements. Additionally, we were able to recover some of the primitive parameters
-impacting incentives for managers to misstate results, as well as perform counterfactual exercises for a situation not
-seen in the data.
+While there is the potential for disappointment in the simplistic theory we used, we see room for improving models as an opportunity rather than a defining limitation.
 
-Does this mean that the exercise was a complete success? Our view is that the exercise could be seen in different ways, depending on one's point of view about the state of accounting research. 
+\subsection{Limitations of structural models}
+% This discussion may belong near the end. When we talk about structural modeling, we should make clear that some questions are difficult to fit into a structural model, etc.
+The vast majority of empirical research papers in accounting do not rely on a formal theoretical model to motivate their hypotheses.
+But in many cases, extant theory would not support estimation of a structural model.
+For example, \citet{Huang:2014cs} study the effect ``tone management'' on capital market outcomes.
+Developing a formal theory of the relation between firm performance, managerial psychological states, and measures of tone would be a complex undertaking involving economics, psychology, and linguistics.
+Building on such a (hypothetical) foundation to solve the complex game involving managers and capital markets would be extremely ambitious.
+Instead, \citet{Huang:2014cs} does what almost all empirical research papers in accounting do and resorts to more verbal approaches to hypothesis development. 
+% Can we find some critique of this approach? Pfleiderer?  YES -- let's review Paul's paper and add some of this and include him in the references
+
 To those who would see the ``glass as half full," the exercise can be seen as yielding insight into an important accounting issue and how accountants might better take advantage of data (and indeed what extra data they might like to collect).
-To those who would see the  ``glass as half empty," there is the potential
-disappointment that the application is overly simplistic, both on the theory and the details of the actors and institutions involved. 
-Personally, we take the more optimistic view, particularly because we because we see room for improving models as an opportunity rather than a defining limitation.
