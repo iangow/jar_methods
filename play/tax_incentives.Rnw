@@ -1,0 +1,67 @@
+\documentclass{article}
+
+\title{Taxes and incentives}
+
+\begin{document}
+
+Here is an illustration of how, if you can't frame the question right, you certainly can't interpret the statistic.\footnote{And even if you can frame the question correctly, I think the statistic is meaningless unless you have a sense for the omitted variable of interest. If Frank does the economics of education, then it's some ``unobserved ability" variable or such like; I'm guessing education researchers have a handle for what's left out of their models. In accounting research, we barely have any clue what we're missing from the models.}
+
+\section{Model}
+
+Consider a simple set up in which tax expense $t$ is a function of firm characteristics $\theta$, tax director effort $e$ and random noise $\epsilon$. 
+
+\[ t = \theta - b e + \epsilon \]
+
+where $\theta$ is observable variables and $e$ is effort of the tax director, which has personal cost of $1/2 e^2$.
+
+Suppose we're in a simple LEN setting, with risk aversion ($r$) and volatility ($\sigma$) of $\epsilon$ cross-sectionally varying but observed.
+
+In a LEN model, compensation will equal $s = \alpha - \beta * t$ and, given the parameters above, the principal will set 
+
+\[ \beta = b/(1 + r \sigma^2).\]
+
+"We interpret these results as indicating that tax directors are provided with incentives to reduce the level of tax expense reported in the financial statements."
+
+OK. This amounts to a test that $\beta > 0$. To estimate $\beta$, regress pay on tax expense.
+
+In this model, pay does not cause any cross-sectional variation in tax expense at all. It's simply noise. So a PSM analysis treating tax expense as an outcome and pay as a treatment variable makes no sense (though that's precisely what you do in your paper with Chris and Jennifer). But I'm pretty sure I could do bounding analysis that would produce a number that would make you feel comfortable (say I observe $\theta$). But what does that mean given the analysis is all wrong?
+
+\section{Simulation}
+
+<<set_parameters>>=
+n <- 1000
+theta <- runif(n, min = 0.15, max = 0.3)
+sigma <- 0.2
+r <- 2
+b <- 0.001
+beta <- -b/(1 + r * sigma^2)
+epsilon <- rnorm(n, sd=sigma)
+e <- beta
+ubar <- 1
+alpha <- ubar + 1/2*e^2 + 1/2 * r * beta^2 * sigma^2 - beta * e
+
+t <- theta - b * e + epsilon 
+s <- alpha + beta * t
+plot(t, s)
+@
+
+We match on $\theta$, $r$, and $\sigma$:
+<<do_match, message=FALSE, echo=TRUE>>=
+library("rbounds")
+Tr <- s > mean(s)
+psm <- Match(Y=t, Tr, X=cbind(theta, r, sigma))
+@
+
+Then we do the bounding analysis:
+<<do_sens, message=FALSE, echo=TRUE>>=
+pcut <- 0.05
+bounding <- psens(psm, Gamma=1000, GammaInc=1)$bounds
+gamma <- min(bounding$Gamma[bounding$`Upper bound`>pcut])
+@
+
+The estimated effect of incentives on tax expense is \Sexpr{prettyNum(psm$est, digits=3)}
+($t$-stat $=\Sexpr{prettyNum(psm$est/psm$se.standard, digits=3)}$, $p$-value=\Sexpr{prettyNum(pnorm(psm$est/psm$se.standard), digits=5)}).
+The $\Gamma$ value at which the $p$-value exceeds the threshold of $\Sexpr{pcut}$ is $\Sexpr{prettyNum(gamma)}$.
+
+
+\end{document}
