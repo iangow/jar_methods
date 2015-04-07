@@ -35,19 +35,17 @@ We now explore these benefits of structural models in more detail, as well as di
 
 \subsection{The Structural Approach}
 
-The term structural model originated with economists and statisticians working at
-the Cowles Foundation in the 1940s and 1950s.
+The term structural model originated with economists and statisticians working at the Cowles Foundation in the 1940s and 1950s.
 The earliest structural models showed how price and quantity data could be used to recover unobserved demand and supply curves. 
-This literature
-introduced the issue of identification, and more specifically the idea that (instrumental) variables beyond price and quantity were needed to identify demand and supply schedules. 
-The impact of these early models on empirical work in economics encouraged and other social scientists to begin using theoretical models to help interpret 
-data.
+This literature introduced the issue of identification, and more specifically the idea that (instrumental) variables beyond price and quantity were needed to identify demand and supply schedules. 
+The impact of these early models on empirical work in economics encouraged and other social scientists to begin using theoretical models to help interpret data.
 Indeed, structural models have been used to study: educational choices, voting, 
 contraception, addiction, and financing decisions. 
 More modern definitions and applications 
 of structural models can be found in \citet{Reiss:2007ej} and \citet{Reiss:2011go}.
 
-Generically, structural empirical models consist of equations or inequalities that describe the optimizing behavior of individuals or organizations. These equations come from decision making models that describe what factors (variables) impact agents' decisions.
+Generically, structural empirical models consist of equations or inequalities that describe the optimizing behavior of individuals or organizations. 
+These equations come from decision making models that describe what factors (variables) impact agents' decisions.
 Let $y^*$ denote the endogenous choices of agents. 
 The researcher may observe these choices, or some transformation of them.
 Let $y=y(y^*)$ denote the choices the researcher observes. 
@@ -61,8 +59,8 @@ Mathematically, the theoretical model delivers either equalities (``structural e
 $$  y = g(y, x,\xi ,\theta)$$ 
 or inequalities, e.g.,
 $$  y \le g(y, x,\xi ,\theta)$$
-that relate these quantities. In most structural models, the functional form of $g(\cdot)$ is known
-and is a consequence of specific functional forms used in the theoretical model. 
+that relate these quantities.
+In most structural models, the functional form of $g(\cdot)$ is known and is a consequence of specific functional forms used in the theoretical model. 
 Usually the ultimate goal of the structural model is to show how the unknown parameters 
 $\theta$ can be recovered from data on $y$ and $x$. 
 
@@ -432,7 +430,7 @@ Inserting these expressions into the expected restatement rate (\ref{equilpr2}) 
 + \theta_4\mbox{\small INT} \times \mbox{\small SALARY}+ \theta_5\mbox{\small SEG} \times \mbox{\small SALARY}}
 {1 +  \theta_6\mbox{\small BONUS}}
 \end{equation}
-Notice that the $\theta$s absorb unknown quantities such as $r_0$ and $p_0$, and that the denominator intercept
+Notice that the $\theta$'s absorb unknown quantities such as $r_0$ and $p_0$, and that the denominator intercept
 is normalized to one. This last restriction is required to identify the ratio of the two linear functions.
 
 Although this model does not have a logit form, it is potentially estimable using 
@@ -440,7 +438,7 @@ generalized method of moments (GMM).
 This method attempts to match so-called sample moments to what the structural model implies they should be. 
 For example, an obvious sample moment would be the average restatement rate in the sample.
 The corresponding theoretical moment would be the probabilty expression in equation (\ref{equilpr4}).
-Because we need at least as many moments as we have $\theta$ parameters to estimate (there are seven $\theta$s in the model), we use seven sample moments, each of the form:
+Because we need at least as many moments as we have $\theta$ parameters to estimate (there are seven $\theta$'s in the model), we use seven sample moments, each of the form:
 $$ \mathcal{M}_j = \sum_{i=1}^{5,000} \; X_{ji}^\prime\left[\; \mbox{RESTATE}_A - \mbox{Pr(Restate)}_A \; \right]. $$
 where Pr(Restate) comes from equation (\ref{equilpr4}).\footnote{
 To ensure that the model parameters imply restatement probabilities between zero and one, we add a penalty function to the GMM objective function.
