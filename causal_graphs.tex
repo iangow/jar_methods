@@ -87,3 +87,66 @@
 		\end{tikzpicture}
     \end{subfigure}
 \end{figure}
+
+\begin{landscape}
+
+\begin{figure}
+
+\caption{Causal diagram for strategic auditor model} \label{fig:audit}
+
+% Figure depicts causal graph for model with strategic auditor discussed in the text. 
+
+\begin{tikzpicture}
+    
+    % Exogenous stuff
+    \node[rectangle] (BONUS) {BONUS};  
+    \node [right = 1 of BONUS] (SALARY) {SALARY};  
+    \node [left = 1 of BONUS] (SEG) {SEG};    
+    \node [left = 1 of SEG] (INT) {INT};    
+	
+    \node[below = 1 of BONUS] (B) {Managerial incentives ($B$)}; 
+    
+    % Equilibrium
+    \node [right = 1 of B, below = 2 of B] (alpha) {Audit effort};
+    \node [right = 1 of alpha] (beta) {Attempted misstatement};
+    \node [below = 1 of SALARY] (C_M) {Cost of manipulation ($C_M$)};
+    \node [below = 1 of beta] (M) {Misstatement};
+    \node [left = 1 of B] (C_A) {Cost of audit effort\\ ($C_A$)};
+    \node [below = 4 of C_A] (p_G) {$\mathrm{Pr}$(Detection by subsequent investigation)\\ ($p_G$)};
+    \node [below = 1.5 of INT] (C_R) {Auditor reputational concerns ($C_R$)};  
+    
+    % Unobservable outcome
+
+    % Observable outcome
+    \node [below = 2 of alpha] (R) {Restatement};
+    
+    \draw (INT) edge[->] (C_A);
+	\draw (SEG) edge[->] (C_A);
+    \draw (BONUS) edge[->] (B);
+    
+    \draw (BONUS) edge[->] (B);
+    \draw (SALARY) edge[->] (C_M);
+    \draw (B) edge[->] (beta);
+    
+    \draw (C_R) edge[->] (beta);
+    \draw (C_A) edge[->] (beta);
+    \draw (C_M) edge[->] (beta);
+    \draw (C_M) edge[->] (beta);
+    \draw (p_G) edge[->] (beta);
+    
+    \draw (B) edge[->] (alpha);
+	\draw (C_R) edge[->] (alpha);
+    \draw (C_A) edge[->] (alpha);
+    \draw (C_M) edge[->] (alpha);
+    \draw (p_G) edge[->] (alpha);
+    
+    \draw (alpha) edge[->] (M);
+    \draw (beta) edge[->] (M);
+    \draw (M) edge[->] (R);
+    \draw (p_G) edge[->] (R);
+    
+    % \draw (IA) edge[bend right=60, dashed, <->] (AC);
+\end{tikzpicture}
+\end{figure}
+\end{landscape}
+
