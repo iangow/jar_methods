@@ -1,19 +1,22 @@
 \section{Structural modeling}
-Indeed, in general there is a divide between theoretical and empirical research in accounting.
+In general there is a divide between theoretical and empirical research in accounting.
 With few exceptions, theoretical accounting researchers do not explain how to map the specifics of their models to data. 
 % Similarly, few empirical papers have attempted to take theoretical models directly to data.
 % This discussion may belong near the end. When we talk about structural modeling, we should make clear that some questions are difficult to fit into a structural model, etc.
-The vast majority of empirical research papers in accounting do not rely on a formal theoretical model to motivate their hypotheses.
-In many cases, extant theory would not support estimation of a structural model.
+And the vast majority of empirical research papers in accounting do not rely on formal theoretical models to motivate their hypotheses\footnote{
+Often when empirical researchers \emph{do} rely on theoretical papers to motivate hypotheses, the predictions claimed to be derived from those papers have little connection with the actual content of those papers.
+For example, \citet{Hollander:2010jg} suggest that \citet{Verrecchia:1983} ``argues that firms with good information quality will issue less expansive disclosures because information asymmetry is lower in such firms," which seems to be a very imaginative reading of that paper.}
+In many cases, extant theory is not sufficient to motivate the hypotheses tested by empirical researchers.
 For example, \citet{Huang:2014cs} study the effect ``tone management'' on capital market outcomes. 
 Developing a formal theory of the relation between firm performance, managerial psychological states, and measures of tone would be a complex undertaking involving economics, psychology, and linguistics.
 Building on such a (hypothetical) foundation to solve the complex game involving managers and capital markets would be extremely ambitious.
-Instead, almost all empirical research papers in accounting do and resorts to more verbal approaches to hypothesis development. 
+Instead, almost all empirical research papers in accounting use more informal, verbal approaches to hypothesis development. 
 % Can we find some critique of this approach? Pfleiderer?  YES -- let's review Paul's paper and add some of this and include him in the references
 
-An alternative approach to empirical research is labeled the structural approach \citep{Wolpin:2013bl}, which 
+However, an alternative approach to empirical research uses theoretical models as the basis for empirical analyses. This ``structural" approach
  ``requires that a researcher explicitly specify a model of economic behavior, that is, a theory." (Wolpin, 2013, p.2).
 The term structural model originated with economists and statisticians working at the Cowles Foundation in the 1940s and 1950s.
+%TODO: Quote Haalvemo [1943, 1944].
 The earliest structural models showed how price and quantity data could be used to recover unobserved demand and supply curves. 
 This literature introduced the issue of identification, and more specifically the idea that (instrumental) variables beyond price and quantity were needed to identify demand and supply schedules. 
 The impact of these early models on empirical work in economics encouraged and other social scientists to begin using theoretical models to help interpret data.
@@ -43,35 +46,35 @@ Third, structural models provide a foundation for estimation and inference.
 Finally, structural models facilitate counterfactual analyses, such as what might happen under conditions not observed in the data. 
 For example, they might show how accounting reports would change if a new accounting standards were adopted. 
  
-We now explore these benefits of structural models in more detail, as well as discuss some of the costs that arise in formulating and estimating structural models.
+We now explore these benefits of structural models in more detail and discuss some of the challenges to formulating and estimating structural models.
 
-
-\subsection{The structural : A framework}
+\subsection{Structural modeling: A framework}
 Generically, structural empirical models consist of equations or inequalities that describe the optimizing behavior of individuals or organizations. 
-These equations come from decision making models that describe what factors (variables) impact agents' decisions.
-Let $y^*$ denote the endogenous choices of agents. 
+These equations come from decision making models that describe what factors (variables) impact agents' choices.
+ 
 The researcher may observe these choices, or some transformation of them.
-Let $y=f(y^*)$ denote the choices the researcher observes. 
+We used $y^*$ to denote the choices of agents and $y=f(y^*)$ to denote those choices the researcher observes. 
 The exogenous factors affecting decisions observed by the researcher are denoted by the vector $x$. 
-Unobserved factors generally are divided into two types: those that vary across sample observations, $\xi$, and those that are constant across observations, $\theta$. 
-The $\theta$s are referred to as parameters.
+Unobserved factors generally are divided into two types: those that vary across sample observations, $\xi$, and the parameters, $\theta$, which are constant across observations.
 
 Mathematically, the theoretical model delivers either equalities (``structural equations")
-$$  y = g(y, x,\xi ,\theta)$$ 
-or inequalities, e.g.,
-$$  y \le g(y, x,\xi ,\theta)$$
+% $$  y = g(y, x,\xi ,\theta)$$ 
+or inequalities %, e.g.,
+% $$  y \le g(y, x,\xi ,\theta)$$ % Should y be on both sides of these relations?
 that relate these quantities. 
-In most structural models, the functional form of $g(\cdot)$ is known and is a consequence of specific functional forms used in the theoretical model. 
+% In most structural models, the functional form of $g(\cdot)$ is known and is a consequence of specific functional forms used in the theoretical model. 
 Usually the ultimate goal of the structural model is to show how the unknown parameters $\theta$ can be recovered from data on $y$ and $x$. 
+%
 
-To illustrate these ideas, under specific economic and behavioral
-assumptions, the behavior of demanders and suppliers can be described by a demand and supply system of the form:
-$$\begin{array}{lcl}
-q^D & = & \theta_1 + \theta_2 \, p + \theta_3 \, x_1 \\[.5em]
-q^S & = & \theta_4 + \theta_5\, p + \theta_6 \, x_2 \\[.5em]
-q^D  & = & q^S 
-\end{array}
-$$
+To illustrate, 
+% under specific economic and behavioral assumptions,
+the behavior of buyers and sellers might be described by a system of the form:
+\begin{align*}
+q^D &=\theta_1 + \theta_2 \, p + \theta_3 \, x_1 \\
+q^S &= \theta_4 + \theta_5\, p + \theta_6 \, x_2 \\
+q^D  &= q^S 
+\end{align*}
+%
 Here $y^*$ equals: quantity demanded, $q^D$;  quantity supplied, 
 $q^S$; and price $p$.
 The exogenous variables in $x$ include demand and cost shifters such as consumer incomes ($x_1$) and suppliers' input prices ($x_2$).
@@ -79,7 +82,7 @@ It is important to notice that this structural model consists of three equations
 The first two equations are a consequence of the optimizing behavior by individual demanders and suppliers. 
 The third condition is an equilibrium condition (i.e., ``demand equals supply") imposed by the modeler to close the model and map the unobserved quantities in $y^*$ to an observed $y$, which is simply quantity ($q$) and price ($p$).
 
-In principle these theoretical relations can be taken directly to data.
+In principle, these theoretical relations can be taken directly to data.
 The problem with taking them directly to data is that the data will prove them flawed. 
 For example, in the above demand and supply system the
 only object besides $x$ that explain variation in $y$ is the vector $\theta$. 
