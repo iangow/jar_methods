@@ -302,7 +302,7 @@ Equation (\ref{eqn:lrt2}) will be biased due to omission of confounders, while E
 Additionally, the claim that the estimates are ``conservative" is only correct if the indirect effect via mediators is of the same sign as the direct (i.e., unmediated) effect. 
 If this is not the case, then the relation between the magnitude (and even the sign) of the direct effect and the indirect effect is unclear.
 
-In other cases, the assumption that the causal relation between variables included as ``controls" is best represented by Figure \ref{fig:confound} rather than either of Figures \ref{fig:mech} or \ref{fig:collider} seems implausible.
+In other cases, the assumption that the causal relation between variables included as ``controls" is best represented by Figure \ref{fig:confound} rather than either of Figures \ref{fig:mech} or \ref{fig:collider}.
 For example, \citet{Cadman:2014cr} study, \emph{inter alia}, the effect of being a venture capital (VC)-backed firm on CEO incentive horizons after IPO.
 In Table 5, they include as controls variables such as \emph{Toptier Underwriter} and \emph{R\&D/Assets}.
 But it is much easier to believe that being VC-backed would effect the choice of underwriter than it is to imagine the choice of underwriter affecting the fact that a firm was VC-backed.
@@ -316,12 +316,12 @@ While the with-and-without-controls approach used by \citet{Larcker:2011bw} has 
 \subsection{Difference-in-difference and fixed effect estimators}
 \citet[p.\,12]{Angrist:2010jv} include so-called difference-in-difference (DD) estimators on their list of quasi-experimental methods, along with ``instrumental variables and regression discontinuity methods."\footnote{As \citet[p.\,228]{Angrist:2008vk} argue that ``DD is a version of fixed effects estimation," we discuss these methods together.}
 Enthusiasm for DD designs perhaps stems from a belief that these are ``quasi-experimental" methods in the same sense as the other two approaches cited by \citet[p.\,12]{Angrist:2010jv}.
-But the essential feature of instrumental variables and regression discontinuity methods is the as-if random treatment assignment mechanism that these methods provide.
+But the essential feature of instrumental variables and regression discontinuity methods is the as-if random treatment assignment mechanism that these methods potentially provide for the research design.
 If treatment assignment is driven by unobserved confounding variables, then DD and fixed-effect estimates will be biased.
 Our view is that the notion that the mechanical application of DD or fixed-effect estimators allows researchers to recover unbiased estimates of causal effects is fanciful in most settings.
 
 Even when assignment to treatment is random, care needs to be taken in interpreting estimates as causal effects.
-\citet[p.\,1305]{Cadman:2014cr} conjecture that ``VCs have strong incentives to design compensation schemes that provide CEOs with short-horizon incentoves in the fiscal years after the IPO." 
+\citet[p.\,1305]{Cadman:2014cr} conjecture that ``VCs have strong incentives to design compensation schemes that provide CEOs with short-horizon incentives in the fiscal years after the IPO." 
 The main analysis in support of this hypothesis is a regression DD analysis \citep[pp.\,233--241]{Angrist:2008vk}. 
 In their analysis, \citet[Table 4, Panel A]{Cadman:2014cr} estimate a difference in difference of $-0.269$, which they interpret as consistent with their causal hypothesis.
 However, this analysis glosses over the fact that pre-IPO horizons of VC-backed firms are longer (coefficient on \emph{VC-backed} of $0.416$), so that the post-IPO horizon of VC-backed firms will be longer ($0.416-0.269=0.147$).
@@ -330,7 +330,6 @@ As VC firms chose a horizon that was closer to the optimum, there was less need 
 A simple DD analysis, by focusing on the change in outcomes from the pre-period to the post-period, neglects to explain why ``pre-treatment" values differ.
 Of course, in the case of \citet{Cadman:2014cr}, the treatment (i.e., VC backing) occurs prior the pre-period.
 So even if assignment to VC-backing  or not were random, a DD estimate would not provide an estimate of the effect of interest.
-
 \subsection{Propensity score matching}
 Another method that has become popular in accounting research is propensity score matching (PSM).
 Regression methods can be viewed as making model-based adjustments to address confounding variables.  
