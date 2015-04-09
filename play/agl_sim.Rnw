@@ -1,0 +1,99 @@
+\documentclass{article}
+
+\usepackage{palatino}
+\usepackage{amsmath}
+
+\title{Simulation of IV in AGL (2013)}
+\author{Ian D. Gow}
+
+\begin{document}
+
+\maketitle
+
+Here is a small simulation to show that we can recover the causal effect of shareholder voting on 
+
+<<set_parameters, echo=FALSE>>=
+# Set parameters ----
+n <- 10000
+a_ISS <- 0.3
+a_U <- 0.12
+
+b_ISS <- 0.5
+b_U <- 0.3
+
+c_1 <- 0.3
+c_2 <- 0.4
+c_3 <- 0.0
+
+sigma <- 0.2
+
+p_crit <- 0.05
+@
+
+Consistent with the causal graph in Gow, Larcker and Reiss (2015), the assumed structure is as follows
+%
+\begin{align*}
+C_t &= \epsilon_{C_t} \\
+\text{ISS}_t &= C_t \times \alpha_{\text{ISS}} + \epsilon_{\text{ISS}} \\
+U &= C_t \times \alpha_U + \epsilon_U \\
+\text{SS}_t &= \text{ISS}_t \times \beta_1 + U \times \beta_2 + \epsilon_{\text{SS}} \\
+C_{t+1} &= C_t \times \gamma_1 + U \times \gamma_2 + \text{SS}_t \times \gamma_3 + \epsilon_{C_{t+1}}
+\end{align*}
+where $\epsilon_{C_t}, \epsilon_{\text{ISS}}, \epsilon_U, \epsilon_{\text{SS}}, \epsilon_{C_{t+1}} \sim N(0, \sigma)$ are i.i.d. 
+
+We simulated \Sexpr{prettyNum(n)} observations using this structure and parameter values 
+$\alpha_{\text{ISS}}  = \Sexpr{a_ISS}$, 
+$\alpha_{U} = \Sexpr{a_U}$,
+$\beta_1  = \Sexpr{b_ISS}$, 
+$\beta_2 = \Sexpr{b_U}$,
+$\gamma_1 = \Sexpr{c_1}$,
+$\gamma_2 = \Sexpr{c_2}$,
+$\gamma_3 = \Sexpr{c_3}$,
+and $\sigma = \Sexpr{sigma}$.
+
+Because $\gamma_3 = \Sexpr{c_3}$, there is no causal effect of shareholder voting on future compensation. 
+The question is whether using $\text{ISS}_t$ as an instrument ``confirms" this underlying fact.
+
+<<sim_function, dependon="set_parameters", cache=TRUE, echo=FALSE>>=
+# Simulation function ----
+run_sim <- function(i) {
+
+    # Linear model consistent with causal graph
+    C_0 <- rnorm(n, sd = sigma)
+    ISS <- C_0 * a_ISS + rnorm(n, sd = sigma)
+    U <- C_0 * a_U + rnorm(n, sd = sigma)
+    SS <- ISS * b_ISS + U * b_U + rnorm(n, sd = sigma)
+    C_1 <- C_0 * c_1 + U * c_2 + SS * c_3 + rnorm(n, sd = sigma)
+    
+    # Run OLS
+    ols <- summary(lm(C_1 ~ C_0 + SS))
+    ols_coeff <- ols$coefficients["SS", 1]
+    ols_p <- ols$coefficients["SS", 4]
+    
+    # Do IV regression
+    library("AER")
+    iv <- summary(ivreg(C_1 ~ C_0 + SS | C_0 + ISS))
+    iv_coeff <- iv$coefficients["SS", 1]
+    iv_p <- iv$coefficients["SS", 4]
+    
+    # Return results
+    return(data.frame(i, ols_coeff, ols_p, iv_coeff, iv_p))
+}
+@
+
+<<run_sim, dependon=c("set_parameters", "sim_function"), cache=TRUE, echo=FALSE>>=
+# Run simulation ----
+k <- 1000
+library("parallel")
+sim_results <- do.call("rbind", mclapply(1:k, run_sim, mc.cores=12))
+@
+
+To test this, we ran the simulation \Sexpr{k} times.
+The mean value of the OLS coefficient $\gamma_3$ on $\text{SS}_t$ from regressing the equation for $C_{t+1}$ above is
+\Sexpr{prettyNum(mean(sim_results$ols_coeff), digits=4)}.
+Using the OLS estimates of $\gamma_3$, the null hypothesis $H_0: \gamma_3 = 0$ is rejected \Sexpr{mean(sim_results$ols_p<0.05)*100}\% of the time.
+The mean value of the coefficient $\gamma_3$ on $\text{ISS}_t$ estimated using an IV regression using $\text{ISS}_t$ as an instrument for $\text{SS}_t$ in the equation for $C_{t+1}$ above is 
+\Sexpr{prettyNum(mean(sim_results$iv_coeff), digits=4)}.
+Using the IV estimates of $\gamma_3$, the null hypothesis $H_0: \gamma_3 = 0$ is rejected \Sexpr{mean(sim_results$iv_p<0.05)*100}\% of the time using a critical $p$-value of \Sexpr{p_crit*100}\%.
+
+\end{document}
