@@ -48,11 +48,33 @@
 
 \clearpage
 \begin{figure} 
+    \caption{Causal graph for \citet{Armstrong:2013io}} \label{fig:agl}
     \centering
-	\caption{Identifying effects of analyst coverage} 
+	\begin{tikzpicture}
+		\node[rectangle] (C0) {Compensation$_{t-1}$}; 
+		\node[draw,dashed,fill=white] at ([shift={(3,-2.5)}] C0) (EC1) {Shareholder-observable determinants of compensation$_{t+1}$};
+		\node [right = 3 of C0] (C1) {Compensation$_{t+1}$};
+		\node [below = 3 of C1] (SS0) {Shareholder support$_t$};
+		\node [below = 3 of C0] (ISS) {ISS recommendation$_t$};
+				
+		\draw (C0) edge[->] (ISS);
+		\draw (C0) edge[->] (EC1);
+		\draw (SS0) edge[->] (C1);
+		\draw (C0) edge[->] (C1);
+		\draw (ISS) edge[->] (SS0);
+		\draw (EC1) edge[->] (C1);
+		\draw (EC1) edge[->] (SS0);
+	\end{tikzpicture}
+\end{figure}
+
+
+\clearpage
+\begin{figure} 
+    \centering
+	\caption{Identifying effects of analyst coverage changes} 
     \addtocounter{figure}{-1}
     \begin{subfigure}{\textwidth}
-        \caption{Causal graphs for \citet{Kelly:2012ih}} \label{fig:kl}
+        \caption{Causal graph for \citet{Kelly:2012ih}} \label{fig:kl}
         \centering
 		\begin{tikzpicture}
 			\node[rectangle] (BC) {Brokerage closure$_t$}; 
@@ -65,7 +87,7 @@
     \end{subfigure}
 
     \begin{subfigure}[b]{\textwidth}
-        \caption{Causal graphs for \citet{Balakrishnan:2014js}} \label{fig:bbkl}
+        \caption{Causal graph for \citet{Balakrishnan:2014js}} \label{fig:bbkl}
         \centering
 		\begin{tikzpicture}
 						\node[rectangle] (BC) {Brokerage closure$_t$}; 
@@ -112,7 +134,7 @@
     \node [below = 1 of SALARY] (C_M) {Cost of manipulation ($C_M$)};
     \node [below = 1 of beta] (M) {Misstatement};
     \node [left = 1 of B] (C_A) {Cost of audit effort\\ ($C_A$)};
-    \node [below = 4 of C_A] (p_G) {$\mathrm{Pr}$(Detection by subsequent investigation)\\ ($p_G$)};
+    \node [below = 4 of C_A] (p_I) {$\mathrm{Pr}$(Detection by subsequent investigation)\\ ($p_I$)};
     \node [below = 1.5 of INT] (C_R) {Auditor reputational concerns ($C_R$)};  
     
     % Unobservable outcome
@@ -132,18 +154,18 @@
     \draw (C_A) edge[->] (beta);
     \draw (C_M) edge[->] (beta);
     \draw (C_M) edge[->] (beta);
-    \draw (p_G) edge[->] (beta);
+    \draw (p_I) edge[->] (beta);
     
     \draw (B) edge[->] (alpha);
 	\draw (C_R) edge[->] (alpha);
     \draw (C_A) edge[->] (alpha);
     \draw (C_M) edge[->] (alpha);
-    \draw (p_G) edge[->] (alpha);
+    \draw (p_I) edge[->] (alpha);
     
     \draw (alpha) edge[->] (M);
     \draw (beta) edge[->] (M);
     \draw (M) edge[->] (R);
-    \draw (p_G) edge[->] (R);
+    \draw (p_I) edge[->] (R);
     
     % \draw (IA) edge[bend right=60, dashed, <->] (AC);
 \end{tikzpicture}
