@@ -21,6 +21,8 @@
 % Citations are automatic with the correct key. 
 % LaTeX doesn't pay attention to multiple spaces. Also adjacent lines get collapsed into single paragraphs.
 % Insert a blank line between lines that are part of two separate paragraphs.
+% It's actually helpful to put every sentence on a separate line. 
+% You need two line breaks to indicate a paragraph.
 % \section, \subsection, and \subsubsection have the obvious meanings.
 % Note that there is a file jar_methods.bib in the list of files to the right that this pulls bibliographic information from.
 \begin{titlepage}
@@ -76,10 +78,8 @@
 \attrib{\citealt{Berk:1999uz}}
 \end{quotation}
 
-% Dave: It's actually helpful to put every sentence on a separate line. 
-% You need two line breaks to indicate a paragraph.
-
-Most empirical research in accounting relies primarily on observational data, i.e., data produced by observation of processes completely outside the control of the researcher. The goal of this paper is to evaluate the approaches used by accounting researchers to causal inference using observational (or non-experimental) data and, drawing on developments in fields such statistics, epidemiology, sociology, and political science, identify opportunities for improvement.
+Most empirical research in accounting relies primarily on observational data, i.e., data produced by observation of processes completely outside the control of the researcher.
+The goal of this paper is to evaluate the approaches used by accounting researchers to causal inference using observational (or non-experimental) data and, drawing on developments in fields such statistics, epidemiology, sociology, and political science, identify opportunities for improvement.
 
 The importance of causal inference in accounting research is clear from the research questions that accounting researchers seek to answer. Using papers published in 2014 in the \textit{Journal of Accounting Research}, \textit{The Accounting Review}, or \textit{Journal of Accounting and Economics} as a sample, we find that most original research papers use observational data and that that about 90\% of such papers seek to draw causal inferences.\footnote{
  ``Original" research excludes papers that are surveys or discussions of other papers.
@@ -96,8 +96,9 @@ Did IFRS cause an increase in liquidity in the jurisdictions that adopted it?
 Additionally, inferences that support or refute broader theories are arguably generalizable, whereas atheoretical correlations provide no basis for predictions about what would happen in different circumstances.
 
 It is well understood by accounting researchers that the use of observational data for causal inference is problematic.
-In an experimental setting, the validity of causal inference usually relies on random assignment to differing treatment groups (e.g., ``treatment" and ``control"), where randomization can be effected through manipulation by the researcher. %TODO: Cite some classic reference here.
-However, with observational data, treatment assignment is outside the control of the researcher and quite likely driven by forces that confound attempts to draw causal inferences using approaches that would appropriate using experimental data.
+In an experimental setting, the validity of causal inference usually relies on random assignment to differing treatment groups (e.g., ``treatment" and ``control"), where randomization can be effected through manipulation by the researcher. 
+%TODO: Cite some classic reference here.
+However, with observational data, treatment assignment is outside the control of the researcher and quite likely driven by forces that confound attempts to estimate causal effects using approaches that would appropriate using experimental data.
 
 Our survey of published research in accounting in 2014 suggests that most papers seeking to draw causal inferences use traditional methods such as regression analysis with potential confounding variables included as controls.
 We first examine the use of these traditional methods and the appropriateness of their use for causal inference.
@@ -122,7 +123,7 @@ The randomization required by natural experiments and instrumental variables is 
 
 % Dave: "One especially promising path is use of field experiments with randomized treatments to measure causal effects (a good example -- Roberts QJE paper)." 
 % Ian: "I think we could discuss these as interesting and a path forward, but scope them out as our focus is on observational data."
- 
+
 %TODO: IDG: Discuss how we will use this as a framework for evaluating the 2014 accounting research
 
 Having argued that causal inference is the primary focus of accounting research, but that quasi-experimental methods have limited applicability in accounting research settings, the message of the first part of our paper might be perceived as pessimistic and as not offering a realistic path forward for accounting researchers.
@@ -132,7 +133,7 @@ In particular, we discuss developments in thinking about causal inference in eco
 
 % Structural model does not solve endogeneity, but makes it explicit and gives it a theoretical and institutional basis.
 
-Ultimately we believe that accounting researchers need to move away from the ``false promises" of causal inference using quasi-experimental methods being applied to somewhat contrived research topics.
+Ultimately we believe that accounting researchers need to shift their focus from the ``false promises" of causal inference using quasi-experimental methods.
 A more compelling direction is threefold:
 \begin{itemize}
 \item Increased emphasis on the study of causal mechanisms. We argue that credible evidence of causal pathways between putative causes and putative effects can provide persuasive scientific evidence of causal effects even in the absence of appropriate experimental or quasi-experimental methods for direct estimates of those effects.
@@ -441,20 +442,50 @@ But their arguments to justify this instrument seem instead to provide reasons t
 Related to directors, Ferris et al. (2003) suggest that any positive effects from director experience increasing with age may be offset by older directors having less energy, posing a last-period risk, and viewing directorships as lucrative part-time jobs for their retirement years.'' 
 But these arguments seem to invalidate age as an instrument for tenure. 
 For age to be a valid instrument, there should be no unblocked causal path between age and performance except for the path via tenure.
- 
- % and thus detecting an association between age and performance 
- That possible positive effects \emph{may} be offset by negative effects is not a valid basis for claiming age to be a valid instrument.\footnote{
+That possible positive effects \emph{may} be offset by negative effects is not a valid basis for claiming age to be a valid instrument.\footnote{
 We omit discussion of  \citet{Erkens:2014hj,Houston:2014hv} and \citet{deFranco:2014ct} for reasons of space. But in each case, the instruments have obvious flaws and no convincing arguments for their validity are offered (details available on request).}
 
-\citet{Armstrong:2013io} claim that their instrument is valid based on reasoning that could be expressed in terms Figure \ref{fig:agl}.
+\subsubsection{Causal diagrams and instruments}
+To illustrate the application of causal diagrams to the evaluation of instrumental variables, we consider two papers: \citet{Armstrong:2013io} and \citet{Balakrishnan:2014js}. 
+
+\citet{Armstrong:2013io} studies the effect of shareholder voting on future executive compensation.
+Because of the plausible existence of unobserved confounding variables that affect both future compensation and shareholder support
+claim that their instrument is valid based on reasoning that can be expressed as the  Figure \ref{fig:agl}.
 By conditioning on $\textit{Compensation}_{t-1}$ and using ISS recommendations as an instrument, \citet{Armstrong:2013io} argue that they can identify a consistent estimate of the causal effect of shareholder voting on $\textit{Compensation}_{t+1}$, even though there is an unobserved confounder, namely determinants of future compensation observed by shareholders, but not the researcher.\footnote{
-In Figure \ref{fig:agl}, we depict the unobservability of this variable (to the researcher) by putting it in a dashed box.}
-Note that this requires that the ISS recommendation only affects $\textit{Compensation}_{t+1}$ through its effect on $\textit{Shareholder support}_{t}$.
-\citet[p.\,912]{Armstrong:2013io} agree that the ``validity of this instrument depends on ISS recommendations not having an influence on future compensation decisions conditional on shareholder support (i.e., firms listen to their shareholders, with ISS having only an indirect impact on corporate policies through its influence on shareholders' voting decisions)."\footnote{
-This is a necessary condition, but assumptions about functional form are also critical in this setting.
+In Figure \ref{fig:agl}, we depict the unobservability of this variable (to the researcher) by putting it in a dashed box.
+Note that we have omitted the controls included by \citet{Armstrong:2013io} for simplicity, though a good causal analysis would consider these carefully.}
+
+We use Figure \ref{fig:agl} as a causal diagram for evaluating the instrument used in \citet{Armstrong:2013io}.
+\citet[p.\,248]{Pearl:2009vo} provides the following definition of an instrument.
+
+\begin{definition}
+Let $G$ denote a causal graph in which $X$ has an effect on $Y$. 
+Let $G_{\overline{X}}$ denote the causal graph created by deleting all arrows emanating from $X$.
+A variable $Z$ is an instrument relative to the total effect of $X$ on $Y$ if there exists a set of nodes $S$, unaffected by $X$, such that
+\begin{enumerate}
+\item $S$ $d$-separates $Z$ from $Y$ in $G_{\overline{X}}$
+\item $S$ does not $d$-separate $Z$ from $X$ in $G$
+\end{enumerate}
+\end{definition}
+%
+Applying this definition, we have $S = \textit{Compensation}_{t-1}$,
+$X =\textit{Shareholder support}_{t}$, $Y = \textit{Compensation}_{t-1}$, and $Z = \textit{ISS recommendation}_{t}$.
+We use $U$ to denote the observed variables depicted in the dashed box of Figure \ref{fig:agl}.
+If create $G_{\overline{X}}$ by deleting the single arrow emanating from $\textit{Shareholder support}_{t}$, we can see that there are two back-door paths running from $Y$ to $Z$: 
+$Z \leftarrow S \rightarrow U \rightarrow Y$ and $Z \leftarrow S \rightarrow Y$.
+However, both of these paths are blocked by $S$ and the first requirement is satisfied.
+The second requirement is clearly satisfied as $Z$ is directly linked to $X$.\footnote{
+This is a necessary condition, but assumptions about functional form are also critical in using an instrument to estimate a causal effect.
 However, this is not essential to our argument here.}
-This is represented in Figure \ref{fig:agl} by the absence of an arrow from $\textit{ISS recommendation}_t$ to $\textit{Compensation}_{t+1}$.
-Unfortunately, this assumption seems inconsistent with the findings of \citet{Gow:2013aa}, who provide evidence that firms are carefully calibrating compensation plans (i.e., factors that directly affect $\textit{Compensation}_{t+1}$, to comply with the requirements of ISS's policies), implying a path from $\textit{ISS recommendation}_t$ to $\textit{Compensation}_{t+1}$ that does not pass through $\textit{Shareholder support}_{t}$, which would make the instrument of \citet[p.\,912]{Armstrong:2013io} invalid for the causal effect they seek to estimate.
+%
+Note that analysis can be expressed intuitively as requiring that the ISS recommendation only affects $\textit{Compensation}_{t+1}$ through its effect on $\textit{Shareholder support}_{t}$, and that $\textit{Compensation}_{t+1}$ has an effect on $\textit{Shareholder support}_{t}$.
+
+But this analysis presumes that the causal diagram Figure \ref{fig:agl} is correct.
+\citet[p.\,912]{Armstrong:2013io} note that the ``validity of this instrument depends on ISS recommendations not having an influence on future compensation decisions conditional on shareholder support (i.e., firms listen to their shareholders, with ISS having only an indirect impact on corporate policies through its influence on shareholders' voting decisions)."
+
+This assumption represented in Figure \ref{fig:agl} by the \emph{absence} of an arrow from $\textit{ISS recommendation}_t$ to $\textit{Compensation}_{t+1}$.
+Unfortunately, this assumption seems inconsistent with the findings of \citet{Gow:2013aa}, who provide evidence that firms are carefully calibrating compensation plans (i.e., factors that directly affect $\textit{Compensation}_{t+1}$) to comply with the requirements of ISS's policies, implying a path from $\textit{ISS recommendation}_t$ to $\textit{Compensation}_{t+1}$ that does not pass through $\textit{Shareholder support}_{t}$.
+The plausible existence of this path suggests that the instrument of \citet[p.\,912]{Armstrong:2013io} is not credibly valid for the causal effect they seek to estimate.
 
 \subsubsection{There are no simple (statistical) tests for the validity of instruments}
 Although perhaps obvious, the standard statistical tests applied by authors using instrumental variables provide little insight into the quality of the chosen instruments. 
@@ -472,10 +503,11 @@ That is, $z_1$ is $X$ plus noise (e.g., industry averages or lagged values of $X
 Obviously, these ``instruments" are silly choices and completely inappropriate.
 
 Assuming that $X$ and $\epsilon$ are bivariate-normally distributed with variance of $1$ and $\rho(X, \epsilon)=0.2$ and that $\sigma_{\eta}=0.03$, we run 1000 simulations and  estimate the IV regression using these instruments on the simulated data in each case.
-Doing so, we find a mean estimated coefficient on $X$ of $0.201$, which is statistically significant at the 5\% level 100\% of the time.\footnote{Note that this coefficient is close to $\rho(X, \epsilon) = 0.2$, which is to be expected given how the data were generated.} Based on a test statistic of 30, which easily exceeds the thresholds suggested by Stock et al. (2002), the null hypothesis of weak instruments is rejected 100\% of the time. 
+Doing so, we find a mean estimated coefficient on $X$ of $0.201$, which is statistically significant at the 5\% level 100\% of the time.\footnote{Note that this coefficient is close to $\rho(X, \epsilon) = 0.2$, which is to be expected given how the data were generated.} 
+Based on a test statistic of 30, which easily exceeds the thresholds suggested by \citet{Stock:2002aa}, the null hypothesis of weak instruments is rejected 100\% of the time. 
 The test of overidentifying restrictions fails to reject a null hypothesis of valid instruments (at the 5\% level) 95.7\% of the time.
 
-In other words, it is easy for completely spurious instruments to deliver bad inferences, yet easily pass tests for weak instruments and tests of overidentifying restrictions.
+In other words, it is quite possible for completely spurious instruments to deliver bad inferences, yet easily pass tests for weak instruments and tests of overidentifying restrictions.
 %\footnote{It is also common for accounting researchers to claim that they have established the validity of their instruments by implementing some type of Hausman test.  It is very clear that these types of overidentifying tests require the researcher to actually have one valid IV. 
 In general, there is no test that enables a researcher to verify that their IVs satisfy the exclusion restriction.
 
