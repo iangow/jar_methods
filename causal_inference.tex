@@ -249,34 +249,9 @@ While conditioning is much like the standard notion of ``controlling for" variab
 First, reflecting the non-parametric nature of causal diagrams in their most general form, conditioning in principle means estimating effects for each distinct level of the set of variables in $Z$.
 Second, as we discuss below, the inclusion of a variable in $Z$ may actually result in biased estimates of causal effects. 	
 
-We will use Figure \ref{fig:basic} to illustrate the basic ideas of causal diagrams, but before doing so, we introduce some definitions and a key result from \citet{Pearl:2009vo}.
+We will use Figure \ref{fig:basic} to illustrate the basic ideas of causal diagrams, but before doing so, we introduce some definitions and a key result from \citet{Pearl:2009vo}. 
+While formal definition of the back-door criterion is relatively abstract, its application is relatively straightforward and we use Figure \ref{fig:basic} to illustrate.
 
-\begin{definition}[$d$-separation, block, collider]
-A path $p$ is said to be \emph{$d$-separated} (or \emph{blocked}) by a set of nodes $Z$ if and only if
-\begin{enumerate}
-	\item $p$ contains a chain $i \rightarrow m \rightarrow j$ or a fork $i \leftarrow m \rightarrow j$ such that the middle node $m$ is in $Z$, or
-	\item $p$ contains an inverted fork (or \emph{collider}) $i \rightarrow m \leftarrow j$ such that the middle node $m$ is not in $Z$ and such that no descendant of $m$ is in $Z$
-\end{enumerate}
-\end{definition}
-
-\begin{definition}[Back-door criterion]
-A set of variables $Z$ satisfies the \emph{back-door criterion} relative to a an ordered pair of variables $(X, Y)$ in a 
-	DAG $G$ if:
-	\begin{itemize}
-		\item no node in $Z$ is a descendant of $X$; and
-		\item $Z$ blocks every path between $X$ and $Y$ that contains an arrow into $X$.\footnote{The ``arrow into $X$" is the portion of the definition that is explains the ``back-door" terminology.}
-	\end{itemize}
-\end{definition}%
-Given this criterion, \citet[p.\,79]{Pearl:2009vo} proves the following result.
-%
-\begin{theorem}[Back-door adjustment]
-	If a set of variables $Z$ satisfies the back-door criterion relative to $(X, Y)$, then the causal effect of $X$ on $Y$ is identifiable and is given by the formula 
-	\[ P(y | x) = \sum_{z} P(y | x, z) P(z), \]
-where $P(y|x)$ stands for the probability that $Y = y$, given that $X$ is set to level $X=x$ by external intervention.
-\end{theorem}
-%
-As the back-door criterion is relatively abstract, we use Figure \ref{fig:basic} to illustrate its application.\footnote{
-How the quantities $P(y|x)$ map into estimates of causal effects is not critical to the current discussion, it suffices to note that in a given setting, it can be calculated if the needed variables are observable.}
 In Figure \ref{fig:basic} we assume very simple causal graphs in which we are interested in estimating the causal effect of $X$ on $Y$ in the presence of a third variable, $Z$ that is related to $X$ and $Y$ in some fashion.
 These causal diagrams are straightforward, as all variables are observable and there are just three variables and, in all cases, there is a hypothesized causal link between $X$ and $Y$.
 The only difference between the three graphs is in the direction of arrows linking either $X$ and $Z$ or $Y$ and $Z$.
@@ -458,15 +433,6 @@ Note that we have omitted the controls included by \citet{Armstrong:2013io} for 
 We use Figure \ref{fig:agl} as a causal diagram for evaluating the instrument used in \citet{Armstrong:2013io}.
 \citet[p.\,248]{Pearl:2009vo} provides the following definition of an instrument.
 
-\begin{definition}
-Let $G$ denote a causal graph in which $X$ has an effect on $Y$. 
-Let $G_{\overline{X}}$ denote the causal graph created by deleting all arrows emanating from $X$.
-A variable $Z$ is an instrument relative to the total effect of $X$ on $Y$ if there exists a set of nodes $S$, unaffected by $X$, such that
-\begin{enumerate}
-\item $S$ $d$-separates $Z$ from $Y$ in $G_{\overline{X}}$
-\item $S$ does not $d$-separate $Z$ from $X$ in $G$
-\end{enumerate}
-\end{definition}
 %
 Applying this definition, we have $S = \textit{Compensation}_{t-1}$,
 $X =\textit{Shareholder support}_{t}$, $Y = \textit{Compensation}_{t-1}$, and $Z = \textit{ISS recommendation}_{t}$.
@@ -793,6 +759,46 @@ Although our suggested approach does not completely resolve the controversies as
 
 \clearpage
 \include{tables}
+
+\appendix
+\section{Causal diagrams: Formalities} \label{append}
+
+\begin{definition}[$d$-separation, block, collider]
+A path $p$ is said to be \emph{$d$-separated} (or \emph{blocked}) by a set of nodes $Z$ if and only if
+\begin{enumerate}
+	\item $p$ contains a chain $i \rightarrow m \rightarrow j$ or a fork $i \leftarrow m \rightarrow j$ such that the middle node $m$ is in $Z$, or
+	\item $p$ contains an inverted fork (or \emph{collider}) $i \rightarrow m \leftarrow j$ such that the middle node $m$ is not in $Z$ and such that no descendant of $m$ is in $Z$
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Back-door criterion]
+A set of variables $Z$ satisfies the \emph{back-door criterion} relative to a an ordered pair of variables $(X, Y)$ in a 
+	DAG $G$ if:
+	\begin{itemize}
+		\item no node in $Z$ is a descendant of $X$; and
+		\item $Z$ blocks every path between $X$ and $Y$ that contains an arrow into $X$.\footnote{The ``arrow into $X$" is the portion of the definition that is explains the ``back-door" terminology.}
+	\end{itemize}
+\end{definition}%
+Given this criterion, \citet[p.\,79]{Pearl:2009vo} proves the following result.
+%
+\begin{theorem}[Back-door adjustment]
+	If a set of variables $Z$ satisfies the back-door criterion relative to $(X, Y)$, then the causal effect of $X$ on $Y$ is identifiable and is given by the formula 
+	\[ P(y | x) = \sum_{z} P(y | x, z) P(z), \]
+where $P(y|x)$ stands for the probability that $Y = y$, given that $X$ is set to level $X=x$ by external intervention.\footnote{
+How the quantities $P(y|x)$ map into estimates of causal effects is not critical to the current discussion, it suffices to note that in a given setting, it can be calculated if the needed variables are observable.}
+\end{theorem}
+%
+
+\begin{definition}[Instrument]
+Let $G$ denote a causal graph in which $X$ has an effect on $Y$. 
+Let $G_{\overline{X}}$ denote the causal graph created by deleting all arrows emanating from $X$.
+A variable $Z$ is an \emph{instrument} relative to the total effect of $X$ on $Y$ if there exists a set of nodes $S$, unaffected by $X$, such that
+\begin{enumerate}
+\item $S$ $d$-separates $Z$ from $Y$ in $G_{\overline{X}}$
+\item $S$ does not $d$-separate $Z$ from $X$ in $G$
+\end{enumerate}
+\end{definition}
+
 
 \end{document}
 	
