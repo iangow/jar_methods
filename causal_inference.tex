@@ -161,29 +161,31 @@ Section \ref{sec:conclude} concludes.
 %TODO: Flag experimental research, then say we're focused on studies using observational data.
 %TODO: Add a footnote to the guy doing something similar is AOS -- claims that only 3% of papers are causal.
 %TODO: Add a footnote *somewhere* discussing other work on "causal diagrams" in accounting research. I think we want to do no more than mention that these exist and suggest that what we're doing is a bit more formal.
-Using papers published in 2014 in the \textit{Journal of Accounting Research}, \textit{The Accounting Review}, or \textit{Journal of Accounting and Economics} as a sample, we find that most original research papers use observational data and that about 90\% of these papers seek to draw causal inferences.\footnote{
- ``Original" research excludes papers that are surveys or discussions of other papers.}
-While we exclude research papers using experimental methods, all of these papers also seek to draw causal inferences. 
-We recognize that some authors might deny making causal inferences and there is some subjectivity in our characterizations.
-For example, a researcher might argue that a paper that claimed that ``theory predicts $X$ is associated $Y$ and, consistent with that theory, we show $X$ is associated with $Y$" is merely a descriptive paper that does not make causal inferences.
-However, by stating that ``consistent with \dots theory, $X$ is associated with $Y$," the clear purpose is to argue that the evidence tilts the scale, however slightly, in the director of believing the theory to be a valid description of the real world: in other words, inference.
-Since a theory inevitably involves causal relations, such inference is, we argue, inherently causal inference.
+
 
 To get a sense for the importance of causal questions in accounting research,
 we examined all papers published in 2014 in the \textit{Journal of Accounting Research}, \textit{The Accounting Review}, or the \textit{Journal of Accounting and Economics}).
 We counted 139 papers, of which 125 are original research papers and a further 14 papers survey or discuss other papers.
-
 We assign a category to each original research paper based on the methods used in the paper: ``theoretical'' (7), ``experimental'' (12), ``field" (3), or ``archival" (103). 
 For our discussion below, we collect the field and archival papers into a single category as they all use observational data.
-For each non-theoretical paper, we examined the paper to determine the primary research questions asked and whether the primary or secondary research questions in each paper are
-``causal" in nature.
-To do this, it generally sufficed to examine the title and abstract for evidence of causal inference. 
+
+For each non-theoretical paper, we examined the paper to determine the primary research questions asked and whether the primary or secondary research questions in each paper are ``causal" in nature.
+To do this, it generally suffices to examine the title and abstract for evidence of causal inference. 
 Often the title reveals a causal question, with words such as  ``effect of \dots" or ``impact of \dots"  
 \citep[e.g.][]{Cohen:2014jl,Clorproell:2014cv} making it clear that the authors seek to answer causal questions. 
 Often language in the abstract reveals a goal of causal inference. 
 For example, \citet{deFranco:2014ct} asks ``how the tone of sell-side debt analysts' discussions about debt-equity conflict events \emph{affects} the informativeness of debt analysts’ reports in debt markets.''
 
-Of the 106 original papers using observational data, we coded 91 as seeking to draw causal inferences.
+We recognize that some authors might deny making causal inferences and there is some subjectivity in our characterizations.
+For example, a researcher might argue that a paper that claimed that ``theory predicts $X$ is associated $Y$ and, consistent with that theory, we show $X$ is associated with $Y$" is merely a descriptive paper that does not make causal inferences.
+However, by stating that ``consistent with \dots theory, $X$ is associated with $Y$," the clear purpose is to argue that the evidence tilts the scale, however slightly, in the director of believing the theory to be a valid description of the real world: in other words, inference.
+Since a theory inevitably involves causal relations, such inference is, we argue, inherently causal inference.\footnote{
+Thus papers that seek to estimate a causal effect of $X$ on $Y$ are a subset of papers we classify as causal.
+A paper that argues that $Z$ is a common cause of $X$ and $Y$ and claims to find evidence of this is still making causal inferences (i.e., that $Z$ causes $X$ and $Z$ causes $Y$.
+However, we do not find this kind of reasoning to be common in our survey.}
+%TODO: Find an example of this kind of paper. I know there are some.
+
+Of the 106 original papers using observational data, we coded 91 as seeking to draw causal inferences.\footnote{While we exclude research papers using experimental methods, all of these papers also seek to draw causal inferences.}
 Of the remaining empirical papers, we coded 7 papers as having a goal of ``description'' (including two of the three field papers). 
 For example, \citet{Soltes:2013ba} uses data collected from one firm to provide insights into when analysts privately interact with management the nature of these interactions.
 We coded 5 papers as having a goal of ``prediction.'' 
@@ -191,8 +193,8 @@ For example, \citet{Czerney:2014bv} examine whether the inclusion of ``explanato
 We coded 3 papers as having a goal of ``measurement.'' 
 For example, \citet{Cready:2014ji} examine whether inferences about traders based on trade size are reliable and suggest improvements to the measurement of variables used by accounting researchers.
 
-Of the 91 papers in accounting research in 2014 seeking to draw causal inference from archival data, as discussed below, relatively use quasi-experimental methods for inferences.
-The more common approach we observed is the use of estimation approaches such as ordinary least-squares (OLS) regression, difference-in-difference estimates, and propensity-score matching for estimating coefficients that the authors use to draw causal inferences.
+In summary, we find that most original research papers use observational data and that about 90\% of these papers seek to draw causal inferences.
+The more common approach we observe is the use of estimation approaches such as ordinary least-squares (OLS) regression, difference-in-difference estimates, and propensity-score matching for estimating coefficients that the authors use to draw causal inferences.
 While it is widely understood that OLS regressions do not yield unbiased estimates of causal effects, accounting researchers appear incorrectly to view some of these methods as delivering such estimates.\footnote{
 There are settings where difference-in-difference and fixed effect estimators may deliver causal estimates.
 For example, if assignment to treatment is random, then it is possible for a difference-in-difference estimate using pre- and post-treatment data to yield unbiased estimates of causal effects.
@@ -206,17 +208,17 @@ But the essential feature that instrumental variables and regression discontinui
 If treatment assignment is driven by unobserved confounding variables, then DD and fixed-effect estimates will be biased.
 Our view is that the notion that the mechanical application of DD or fixed-effect estimators allows researchers to recover unbiased estimates of causal effects is fanciful in most settings.
 
-%TODO: Tighten this discussion of Cadman and Sunder (2014)
 Even when assignment to treatment is random, care needs to be taken in interpreting estimates as causal effects.
-\citet[p.\,1305]{Cadman:2014cr} conjecture that ``VCs have strong incentives to design compensation schemes that provide CEOs with short-horizon incentives in the fiscal years after the IPO." 
-The main analysis in support of this hypothesis is a regression DD analysis \citep[pp.\,233--241]{Angrist:2008vk}. 
-In their analysis, \citet[Table 4, Panel A]{Cadman:2014cr} estimate a difference in difference of $-0.269$, which they interpret as consistent with their causal hypothesis.
-However, this analysis glosses over the fact that pre-IPO horizons of VC-backed firms are longer (coefficient on \emph{VC-backed} of $0.416$), so that the post-IPO horizon of VC-backed firms will be longer ($0.416-0.269=0.147$).
-An alternative hypothesis would be that, prior to IPO, non-VC firms choose a sub-optimally short incentive horizon, which is corrected after the IPO. 
-As VC firms chose a horizon that was closer to the optimum, there was less need to increase this after the IPO.
-A simple DD analysis, by focusing on the change in outcomes from the pre-period to the post-period, neglects to explain why ``pre-treatment" values differ.
-Of course, in the case of \citet{Cadman:2014cr}, the treatment (i.e., VC backing) occurs prior the pre-period.
-So even if assignment to VC-backing  or not were random, a DD estimate would not provide an estimate of the effect of interest.
+For example, \citet[p.\,1305]{Cadman:2014cr} conjecture that ``VCs have strong incentives to design compensation schemes that provide CEOs with short-horizon incentives in the fiscal years after the IPO." 
+The main analysis in support of this hypothesis is a regression DD analysis \citep[pp.\,233--241]{Angrist:2008vk} using the pre-IPO year as the pre-treatment period, and the two years after IPO as the post-treatment period. 
+But, one treatment of interest (i.e., being VC-backed) is likely implemented well before the ``pre-treatment" period, making it difficult to consider the pre-treatment values of the outcome variable as not being caused by the treatment.
+% In their analysis, \citet[Table 4, Panel A]{Cadman:2014cr} estimate a difference in difference of $-0.269$, which they interpret as consistent with their causal hypothesis.
+% However, this analysis glosses over the fact that pre-IPO horizons of VC-backed firms are longer (coefficient on \emph{VC-backed} of $0.416$), so that the post-IPO horizon of VC-backed firms will be longer ($0.416-0.269=0.147$).
+% An alternative hypothesis would be that, prior to IPO, non-VC firms choose a sub-optimally short incentive horizon, which is corrected after the IPO. 
+% As VC firms chose a horizon that was closer to the optimum, there was less need to increase this after the IPO.
+% A simple DD analysis, by focusing on the change in outcomes from the pre-period to the post-period, neglects to explain why ``pre-treatment" values differ.
+% Of course, in the case of \citet{Cadman:2014cr}, the treatment (i.e., VC backing) occurs prior the pre-period.
+% So even if assignment to VC-backing  or not were random, a DD estimate would not provide an estimate of the effect of interest.
 %
 \subsubsection{Propensity score matching}
 Another method that has become popular in accounting research is propensity score matching (PSM).
@@ -226,23 +228,20 @@ First, matching methods do not use the outcome values in the design of the study
 Second, when there are large differences in the covariate distributions between the groups, standard model-based adjustments rely heavily on extrapolation and model-based assumptions.
 Matching methods highlight these differences and also provide a way to limit reliance on the inherently untestable modeling assumptions and the consequential sensitivity to those assumptions."
 
-It is important to note that PSM does not provide ``the closest archival approximation to a true random experiment and represents the most appropriate and rigorous research design for testing the effects of an ex ante treatment."
+It is important to note that PSM does \emph{not} provide ``the closest archival approximation to a true random experiment and represents the most appropriate and rigorous research design for testing the effects of an ex ante treatment" \citep[p.\,1429]{Kirk:2014gx}.
 \citet[pp.\,73-75]{Rosenbaum:2009ul} points out that matching is ``a fairly mechanical  task," and when assignment to treatment is driven by unobservable variables, then PSM-based estimates may be biased much as regression estimates may be biased by omission of unobserved correlated variables.
 \citet{MinuttiMeza:2014fn} points out that ``matching does not necessarily eliminate the endogeneity problem resulting from unobservable variables driving [treatment] and [outcomes]."
 
-% I don't think bounding should be conflated with PSM.
-
-%TODO: general evaluation of the use of PSM for causal inferences in accounting 
-
+%TODO: Add a general evaluation of the use of PSM for causal inferences in accounting 
 %TODO: Expand survey to discuss use of PSM in accounting.
 %TODO: Discuss papers matching on post-treatment variables.
 %TODO: Find a home for discussion of bounding. I don't think it belongs with PSM.
 
-\subsection{Causal inference: Recent developments}
+\subsection{Causal inference: A brief overview}
 Recent decades have seen a great deal of research on causal inference in fields as diverse as epidemiology, sociology, statistics, and computer science. 
-Work by \citet{Rubin:1974im,Rubin:1977dv} and Holland (1986) formalized ideas from the potential-outcome framework of Neyman (1923) to develop the Rubin causal model. %TODO: Get references.
-Other fields have used path analysis, as initially studied by geneticist Sewell Wright (1921), as an organizing framework.
-%TODO: Get reference.
+Work by \citet{Rubin:1974im,Rubin:1977dv} and \citet{Holland:1986p7458} formalizes ideas from the potential-outcome framework of \citet{Neyman:1923aa} to develop the Rubin causal model. 
+Other fields have used path analysis, as initially studied by geneticist Sewell Wright \citep{Wright:1921:aa}, as an organizing framework.
+
 In economics and econometrics, while the status of causal notions has occasionally been uncertain, early proponents of structural models were quite clear about the causal interpretation of these models.
 As discussed by \citet{Heckman:2015ez}, \citet{Haavelmo:1943cl,Haavelmo:1944jq} studies a structural model ``based on a system of structural equations that define causal relationships among a set of variables."
 %standard econometric texts generally avoid explicit discussion of causation.
@@ -275,61 +274,54 @@ Another difference between a structural, or causal, model and more statistical v
 This fact may imply that our ability to obtain an unbiased estimate of $\beta$ from observational data is compromised, but does not imply that $y = x \beta + \epsilon$ is somehow not a valid structural model.
 
 \subsection{Causal diagrams: A primer}
-More recently, \citet{Pearl:2009kh} has sought to integrate these perspectives into a single analytical framework based on graph theory and probability.
+A recent research agenda, originating in computer science, has sought to integrate the causal approaches discussed above into a single analytical framework based on graph theory and probability \citep{Pearl:2009kh}.
 Pearl's framework, which he calls the structural causal model, uses directed acyclic graphs (DAGs) to describe causal relationships.
-\citet{Pearl:2009kh} shows that the structural causal model provides a framework for analyzing observational data and the valid causal inferences that can be derived from a given causal graph.
-\citet[p.\,698]{Pearl:2011jd} points out that his framework has been ``adapted warmly" by epidemiologists, sociologists, and statisticians.
+% \citet{Pearl:2009kh} shows that the structural causal model provides a framework for analyzing observational data and the valid causal inferences that can be derived from a given causal graph.
+\citet[p.\,698]{Pearl:2011jd} suggests that his framework has been ``adapted warmly" by epidemiologists, sociologists, and statisticians.
 
 One of the products of the research of \citet{Pearl:2009kh} and others is the causal diagram or causal graph.
-\citet{Pearl:2009kh} shows how graphs can be used to encode causal assumptions and how such causal diagrams can be viewed as non-parametric structural models.
-Pearl identifies straightforward criteria that can be applied to a causal diagram to allow a researcher to deduce what causal inferences can be drawn from a given research design.
+\citet{Pearl:2009kh} shows how causal diagram encode causal assumptions and how straightforward criteria  can be applied to causal diagram to deduce what causal inferences can be drawn from a given research design.
 Given a \emph{correctly specified} causal diagram, these criteria can be used to verify conditioning strategies, instrumental variable designs, and mechanism-based causal inferences.\footnote{While \citet[p.248]{Pearl:2009kh} defines an instrument in terms of conditional independence criteria applied to causal diagrams, additional assumptions are often needed to estimate causal effects using an instrument \citep{Angrist:1996p7456}.}
 We will use causal diagrams as a framework for discussing issues in causal inference throughout the paper.
 
-\subsubsection{Causal diagrams: Some terminology}
 A causal diagram is a directed, acyclic graph (DAG) consisting of nodes and edges.
 A node represents a random variable and edges connect variables.
 An edge in causal diagrams is directed, with an arrow pointing from one node to another representing a causal relation between these variables running in the direction of the arrow.\footnote{
 That arrows have a direction accounts for the ``D" in DAG, and that there are no cycles (e.g., $X \rightarrow Y \rightarrow Z \rightarrow X$) accounts for the ``A" element.}
 A distinction is made between observed and unobserved random variables.
-In some cases, an unobserved joint determinant of two random variables will not be explicitly represented, but replaced by a dashed, undirected edge between those two random variables.
+In some cases, an unobserved joint determinant of two random variables will not be represented explicitly, but replaced by a dashed, undirected edge between those two random variables.
 
 \citet{Pearl:2009vo} shows that, if we are interested in assessing the causal effect of $X$ on $Y$, that we may be able to do so by conditioning on a set of variables, $Z$, that satisfies the ``back-door criterion" \citep[p.79]{Pearl:2009vo}.
 While conditioning is much like the standard notion of ``controlling for" variables by including them as additional regressors in OLS regression, there are critical differences.
 First, reflecting the non-parametric nature of causal diagrams in their most general form, conditioning in principle means estimating effects for each distinct level of the set of variables in $Z$.
 Second, as we discuss below, the inclusion of a variable in $Z$ may actually result in biased estimates of causal effects. 	
 
-We will use Figure \ref{fig:basic} to illustrate the basic ideas of causal diagrams, but before doing so, we introduce some definitions and a key result from \citet{Pearl:2009vo}. 
-While formal definition of the back-door criterion is relatively abstract, its application is relatively straightforward and we use Figure \ref{fig:basic} to illustrate.
-
-In Figure \ref{fig:basic} we assume very simple causal graphs in which we are interested in estimating the causal effect of $X$ on $Y$ in the presence of a third variable, $Z$ that is related to $X$ and $Y$ in some fashion.
-These causal diagrams are straightforward, as all variables are observable and there are just three variables and, in all cases, there is a hypothesized causal link between $X$ and $Y$.
+We use Figure \ref{fig:basic} to illustrate the basic ideas of causal diagrams and how they can be used to facilitate causal inference.
+Figure \ref{fig:basic} depicts three variants of a simple causal graph with three variables, all of which are observable.
+In each case, we are interested in estimating the causal effect of $X$ on $Y$ in the presence of a third variable, $Z$ that is related to $X$ and $Y$ in some fashion.
 The only difference between the three graphs is in the direction of arrows linking either $X$ and $Z$ or $Y$ and $Z$.
+the criterion developed by \citep{Pearl:2009vo} (see Appendix \ref{append}) implies that very different conditioning strategies are needed for each of the causal diagrams.
 
-Applying the back-door criterion to Figure \ref{fig:confound} is straightforward. 
-The set of variables $\{Z\}$ or simply $Z$ satisfies the criterion, as $Z$ is not a descendant of $X$ and $Z$ blocks the back-door path $X \leftarrow Z \rightarrow Y$.
-So by conditioning on $Z$, we can estimate the causal effect of $X$ on $Y$.
+Figure \ref{fig:confound} is straightforward and it is likely intuitive for all accounting researchers that we need to condition on $Z$ and that, by doing so, we can estimate the causal effect of $X$ on $Y$.
 This situation is a generalization of linear model in which $Y = X \beta + Z \gamma + \epsilon_Y$ and $\epsilon_Y$ is independent of $X$ and $Z$, but $X$ and $Z$ are correlated.
 In this case, it is well known that omission of $Z$ would result in a biased estimate of $\beta$, the causal effect of $X$ on $Y$, but by including $Z$ in the regression, we get an unbiased estimate of $\beta$.
 In this situation, $Z$ is a \emph{confounder}.
 
-Turning to Figure \ref{fig:mech}, we see that $Z$, which is a \emph{mediator} of the effect of $X$ on $Y$, does not satisfy the back-door criterion, because $Z$ is a descendant of $X$.
-However, $\emptyset$ (i.e., the empty set) does satisfy the back-door criterion.
-Clearly, $\emptyset$ contains no descendant of $X$.
-Furthermore, the only path other than $X \rightarrow Y$ that exists is $X \rightarrow Z \rightarrow Y$, which does not have a back-door into $X$.
+Turning to Figure \ref{fig:mech}, we see that $Z$, which is a \emph{mediator} of the effect of $X$ on $Y$.
+In this case, $Z$ does not satisfy the back-door criterion, as $Z$ is a descendant of $X$.
+However,  the empty set does satisfy the back-door criterion.
+So no conditioning is required to obtain an unbiased estimate of the effect of $X$ on $Y$.
 Note that the back-door criterion not only implies that we need not condition on $Z$ to obtain an unbiased estimate of the causal effect of $X$ on $Y$, but that we should not condition of $Z$ to get such an estimate.
 
 Finally in Figure \ref{fig:collider}, we have $Z$ acting as what \citet[p.\,17]{Pearl:2009kh} refers to as a ``collider" variable.\footnote{
 The two arrows from $X$ and $Y$ ``collide" in $Z$.} 
-Again, we see that $Z$ does not satisfy the back-door criterion, because $Z$ is a descendant of $X$.
-However, $\emptyset$ again satisfies the back-door criterion.
-First, contains no descendant of $X$.
-Second, the only path other than $X \rightarrow Y$ that exists is $X \rightarrow Z \leftarrow Y$, which does not have a back-door into $X$.
+Again, $Z$ does not satisfy the back-door criterion, because $Z$ is a descendant of $X$, while the empty set does satisfy the back-door criterion.
 Again, the back-door criterion not only implies that we need not condition on $Z$, but that we should not condition of $Z$ to get an unbiased estimate of the causal effect of $X$ on $Y$.
-%
+%TODO: I think I need to give a more intuitive account of this example.
+
 \subsubsection{Causal diagrams: Applications in accounting}
 A typical paper in accounting research will include many variables  to ``control for" potential confounding of causal effects.
-But why many of these variables should be considered confounders, in which case they should be controlled for, rather than mediators or colliders, in which case ``controlling for" these variables will lead to bias, is often unclear.
+But why many of these variables should be considered confounders, in which case they should be controlled for, rather than mediators or colliders, in which case ``controlling for" these variables may lead to bias, is often unclear.
 
 One paper that does discuss this distinction is \citet{Larcker:2007aa}, who use a multiple regression (or logistic) model of the form:\footnote{We alter the mathematical notation of  \citet{Larcker:2007aa} to conform with notation we use here.}
 \begin{equation}
@@ -359,14 +351,15 @@ But, given the timing of events, it is much easier to believe that being VC-back
 Given that the regression includes pre-IPO observations, it even seems plausible that CEO investor horizons would affect variables such as \emph{Toptier Underwriter} and \emph{R\&D/Assets}, in which case these variables would be colliders.
 Inclusion of collider variables can give rise to conditional associations between variables that are independent.
 %TODO: Add a citation here?
-The point of this discussion is not to question the results of  \citet{Cadman:2014cr}, but to illustrate that the inclusion of controls in regressions is something typically done with very little explanation, and to suggest that greater care regarding inclusion of controls may often be needed.
+The point of this discussion is not to question the results of  \citet{Cadman:2014cr}, but to illustrate that the inclusion of controls in regressions is something typically done with very little explanation, and to suggest that care regarding inclusion of controls is needed.
 
 We argue that researchers should explicitly discuss why they are including variables as controls in regressions.
-While the with-and-without-controls approach used by \citet{Larcker:2007aa} has intuitive appeal, a more robust approach would involve careful thinking about the plausible causal relations between the treatment variables, the outcomes of interest, and the potential control variables.
+While the with-and-without-controls approach used by \citet{Larcker:2007aa} has intuitive appeal, a more robust approach would involve careful thinking about the plausible causal relations between the treatment variables, the outcomes of interest, and the candidate control variables.
 
 \section{Quasi-experimental methods in accounting research} \label{sec:quasi}
 
 While most studies in accounting use methods of conditioning on confounding variables in some kind of regression or matching framework, a number of studies use quasi-experimental methods that rely on ``as if" random assignment to identify causal effects \citep{Dunning:2012tt}.
+Of the 91 papers in accounting research in 2014 seeking to draw causal inference from observational data, we identify 14 that use quasi-experimental methods for inferences.
 In this section, we discuss and evaluate the use of these methods in accounting research.
 
 %TODO: somewhere we want to note that there are some real field experiments -- John Roberts with the impact of consulting firms in India and a variety of related studies in Economics.  
@@ -758,7 +751,10 @@ Although our suggested approach does not completely resolve the controversies as
 
 \appendix
 \section{Causal diagrams: Formalities} \label{append}
-
+ 
+ \subsection{Definitions and a result}
+ We first introduce some basic definitions and a key result.
+ 
 \begin{definition}[$d$-separation, block, collider]
 A path $p$ is said to be \emph{$d$-separated} (or \emph{blocked}) by a set of nodes $Z$ if and only if
 \begin{enumerate}
@@ -794,6 +790,28 @@ A variable $Z$ is an \emph{instrument} relative to the total effect of $X$ on $Y
 \item $S$ does not $d$-separate $Z$ from $X$ in $G$
 \end{enumerate}
 \end{definition}
+
+ \subsection{Application of back-door criterion to Figure \ref{fig:basic}}
+Applying the back-door criterion to Figure \ref{fig:confound} is straightforward and likely intuitive for all accounting researchers.
+The set of variables $\{Z\}$ or simply $Z$ satisfies the criterion, as $Z$ is not a descendant of $X$ and $Z$ blocks the back-door path $X \leftarrow Z \rightarrow Y$.
+So by conditioning on $Z$, we can estimate the causal effect of $X$ on $Y$.
+This situation is a generalization of linear model in which $Y = X \beta + Z \gamma + \epsilon_Y$ and $\epsilon_Y$ is independent of $X$ and $Z$, but $X$ and $Z$ are correlated.
+In this case, it is well known that omission of $Z$ would result in a biased estimate of $\beta$, the causal effect of $X$ on $Y$, but by including $Z$ in the regression, we get an unbiased estimate of $\beta$.
+In this situation, $Z$ is a \emph{confounder}.
+
+Turning to Figure \ref{fig:mech}, we see that $Z$, which is a \emph{mediator} of the effect of $X$ on $Y$, does not satisfy the back-door criterion, because $Z$ is a descendant of $X$.
+However, $\emptyset$ (i.e., the empty set) does satisfy the back-door criterion.
+Clearly, $\emptyset$ contains no descendant of $X$.
+Furthermore, the only path other than $X \rightarrow Y$ that exists is $X \rightarrow Z \rightarrow Y$, which does not have a back-door into $X$.
+Note that the back-door criterion not only implies that we need not condition on $Z$ to obtain an unbiased estimate of the causal effect of $X$ on $Y$, but that we should not condition of $Z$ to get such an estimate.
+
+Finally in Figure \ref{fig:collider}, we have $Z$ acting as what \citet[p.\,17]{Pearl:2009kh} refers to as a ``collider" variable.\footnote{
+The two arrows from $X$ and $Y$ ``collide" in $Z$.} 
+Again, we see that $Z$ does not satisfy the back-door criterion, because $Z$ is a descendant of $X$.
+However, $\emptyset$ again satisfies the back-door criterion.
+First, contains no descendant of $X$.
+Second, the only path other than $X \rightarrow Y$ that exists is $X \rightarrow Z \leftarrow Y$, which does not have a back-door into $X$.
+Again, the back-door criterion not only implies that we need not condition on $Z$, but that we should not condition of $Z$ to get an unbiased estimate of the causal effect of $X$ on $Y$.
 
 
 \end{document}
