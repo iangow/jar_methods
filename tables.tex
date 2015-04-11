@@ -2,14 +2,14 @@
 
 \caption{Descriptive statistics.} \label{tab:desc}
 
-
+\justify{
 {\bf RESTATE} is a zero-one indicator for whether the firm made a restatement in a particular year.
 {\bf SALARY} is the CEO's annual base salary.  
 {\bf BONUS} is the fraction of a CEO's total pay that is incentive compensation.  
 {\bf BIG4} is a zero-one indicator for whether the firm uses a Big 4 auditor.
 {\bf FINDIRECT} is the fraction of the board of directors with a finance background. 
 {\bf INT} is a zero-one indicator for non-US corporation.  
-{\bf SEG} is number of the firm's business segments.
+{\bf SEG} is number of the firm's business segments.\\}
 
 \begin{center}
 \begin{tabular}{|l|c|}
@@ -38,6 +38,16 @@
 
 \begin{table}[t]
 \caption{Logit Regression Results} \label{tab:logit}
+
+\justify{This table presents results from logistic regressions of 
+{\bf RESTATE}, a zero-one indicator for whether the firm made a restatement in a particular year, on a proxy for managerial incentives ({\bf BONUS}) and controls.
+{\bf SALARY} is the CEO's annual base salary.  
+{\bf BONUS} is the fraction of a CEO's total pay that is incentive compensation.  
+{\bf BIG4} is a zero-one indicator for whether the firm uses a Big 4 auditor.
+{\bf FINDIRECT} is the fraction of the board of directors with a finance background. 
+{\bf INT} is a zero-one indicator for non-US corporation.  
+{\bf SEG} is number of the firm's business segments.\\}
+
 \begin{center}
 \begin{tabular}{|l|cc|cc|}
 \hline
@@ -63,8 +73,12 @@
 \end{center}
 \end{table}
 
+%TODO: Add standard errors and table heder to Table 3.
 \begin{table}[t]
 \caption{Logit GMM Estimates for the Strategic Auditor Model} \label{tab:gmm}
+
+\justify{This table presents results for GMM estimates of the strategic auditor model of Section \ref{sec:struct}.\\}
+
 \begin{center}
 \begin{tabular}{|c|cc|}
 \hline
