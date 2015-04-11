@@ -149,16 +149,16 @@
     \node [left = 1 of BONUS] (SEG) {SEG};    
     \node [left = 1 of SEG] (INT) {INT};    
 	
-    \node[below = 1 of BONUS] (B) {Managerial incentives ($B$)}; 
+    \node[below = 1 of BONUS,draw,dashed,fill=white] (B) {Managerial incentives ($B$)}; 
     
     % Equilibrium
-    \node [right = 1 of B, below = 2 of B] (alpha) {Audit effort};
-    \node [right = 1 of alpha] (beta) {Attempted misstatement};
-    \node [below = 1 of SALARY] (C_M) {Cost of manipulation ($C_M$)};
-    \node [below = 1 of beta] (M) {Misstatement};
-    \node [left = 1 of B] (C_A) {Cost of audit effort\\ ($C_A$)};
-    \node [below = 4 of C_A] (p_I) {$\mathrm{Pr}$(Detection by subsequent investigation)\\ ($p_I$)};
-    \node [below = 1.5 of INT] (C_R) {Auditor reputational concerns ($C_R$)};  
+    \node [right = 1 of B, below = 2 of B,draw,dashed,fill=white] (alpha) {Audit effort};
+    \node [right = 1 of alpha,draw,dashed,fill=white] (beta) {Attempted misstatement};
+    \node [below = 1 of SALARY,draw,dashed,fill=white] (C_M) {Cost of\\manipulation ($C_M$)};
+    \node [below = 1 of beta,draw,dashed,fill=white] (M) {Misstatement};
+    \node [left = 1 of B,,draw,dashed,fill=white] (C_A) {Cost of audit effort ($C_A$)};
+    \node [below = 4 of C_A,draw,dashed,fill=white] (p_I) {$\mathrm{Pr}$(Detection by subsequent investigation)\\ ($p_I$)};
+    \node [below = 1.5 of INT,draw,dashed,fill=white] (C_R) {Auditor\\reputational concerns ($C_R$)};  
     
     % Unobservable outcome
 
