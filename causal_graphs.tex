@@ -92,20 +92,20 @@
 		\begin{tikzpicture}
 						\node[rectangle] (BC) {Brokerage closure$_t$}; 
 			\node [right = 1 of BC] (AC0) {Analyst coverage$_t$};
-			\node [right = 1 of AC0] (AC1) {Analyst coverage$_{t+1}$};
+			% \node [right = 1 of AC0] (AC1) {Analyst coverage$_{t+1}$};
 			\node [below = 1 of AC0] (IA0) {Information asymmetry$_t$};
-			\node [right = 1 of IA0] (IA1) {Information asymmetry$_{t+1}$};
+			%\node [right = 1 of IA0] (IA1) {Information asymmetry$_{t+1}$};
 			\node [below = 1 of IA0] (D) {Disclosure};
 			\node [right = 1 of D] (LQ) {Liquidity$_{t+1}$};
 			\draw (BC) edge[->] (AC0);
 			\draw (AC0) edge[->] (IA0);
 			% \draw (AC0) edge[->] (AC1);
-			\draw (AC1) edge[->] (IA1);
+			%\draw (AC1) edge[->] (IA1);
 			\draw (IA0) edge[->] (D);
-			\draw (IA1) edge[->] (LQ);
+			%\draw (IA1) edge[->] (LQ);
 			\draw (D) edge[->] (LQ);
 			\draw (IA0) edge[bend right=60, dashed, <->] (AC0);
-			\draw (IA1) edge[bend right=60, dashed, <->] (AC1);
+			%\draw (IA1) edge[bend right=60, dashed, <->] (AC1);
 		\end{tikzpicture}
     \end{subfigure}
     

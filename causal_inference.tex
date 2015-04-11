@@ -368,7 +368,7 @@ In this section, we discuss and evaluate the use of these methods in accounting 
 \subsection{Natural experiments}
 Natural experiments occur when observations are assigned by nature (or some other force outside the control of the researcher) to treatment and control groups in a way that is random or ``as if'' random \citep{Dunning:2012tt}. 
 Truly (as if) random assignment to treatment and control provides a sound basis for causal inference, enhancing the appeal of natural experiments for social science research.
-However, argues that this appeal ``may provoke conceptual stretching, in which an attractive label is applied to research designs that only implausibly meet the definitional features of the method'' \citep[p.3]{Dunning:2012tt}.
+However, \citet[\,p.3, emphasis added]{Dunning:2012tt} argues that this appeal ``may provoke \emph{conceptual stretching}, in which an attractive label is applied to research designs that only implausibly meet the definitional features of the method.'' 
 
 Our survey of accounting research identified five papers that exploited either a ``natural experiment'' or ``exogenous shock'' to identify causal effects \citep{Lo:2013jk,Aier:2014ii,Kirk:2014gx,Houston:2014hv,Hail:2014fq}.
 But closer examination suggests that most of these papers misapply the fundamental idea of natural experiments  In fact, these papers seem to be good examples of ``conceptual stretching.''
@@ -425,39 +425,6 @@ For age to be a valid instrument, there should be no unblocked causal path betwe
 That possible positive effects \emph{may} be offset by negative effects is not a valid basis for claiming age to be a valid instrument.\footnote{
 We omit discussion of  \citet{Erkens:2014hj,Houston:2014hv} and \citet{deFranco:2014ct} for reasons of space. But in each case, the instruments have obvious flaws and no convincing arguments for their validity are offered (details available on request).}
 
-\subsubsection{Causal diagrams and instruments}
-To illustrate the application of causal diagrams to the evaluation of instrumental variables, we consider two papers: \citet{Armstrong:2013io} and \citet{Balakrishnan:2014js}. 
-
-\citet{Armstrong:2013io} studies the effect of shareholder voting on future executive compensation.
-Because of the plausible existence of unobserved confounding variables that affect both future compensation and shareholder support
-claim that their instrument is valid based on reasoning that can be expressed as the  Figure \ref{fig:agl}.
-By conditioning on $\textit{Compensation}_{t-1}$ and using ISS recommendations as an instrument, \citet{Armstrong:2013io} argue that they can identify a consistent estimate of the causal effect of shareholder voting on $\textit{Compensation}_{t+1}$, even though there is an unobserved confounder, namely determinants of future compensation observed by shareholders, but not the researcher.\footnote{
-In Figure \ref{fig:agl}, we depict the unobservability of this variable (to the researcher) by putting it in a dashed box.
-Note that we have omitted the controls included by \citet{Armstrong:2013io} for simplicity, though a good causal analysis would consider these carefully.}
-
-We use Figure \ref{fig:agl} as a causal diagram for evaluating the instrument used in \citet{Armstrong:2013io}.
-\citet[p.\,248]{Pearl:2009vo} provides the following definition of an instrument.
-
-%
-Applying this definition, we have $S = \textit{Compensation}_{t-1}$,
-$X =\textit{Shareholder support}_{t}$, $Y = \textit{Compensation}_{t-1}$, and $Z = \textit{ISS recommendation}_{t}$.
-We use $U$ to denote the observed variables depicted in the dashed box of Figure \ref{fig:agl}.
-If create $G_{\overline{X}}$ by deleting the single arrow emanating from $\textit{Shareholder support}_{t}$, we can see that there are two back-door paths running from $Y$ to $Z$: 
-$Z \leftarrow S \rightarrow U \rightarrow Y$ and $Z \leftarrow S \rightarrow Y$.
-However, both of these paths are blocked by $S$ and the first requirement is satisfied.
-The second requirement is clearly satisfied as $Z$ is directly linked to $X$.\footnote{
-This is a necessary condition, but assumptions about functional form are also critical in using an instrument to estimate a causal effect.
-However, this is not essential to our argument here.}
-%
-Note that analysis can be expressed intuitively as requiring that the ISS recommendation only affects $\textit{Compensation}_{t+1}$ through its effect on $\textit{Shareholder support}_{t}$, and that $\textit{Compensation}_{t+1}$ has an effect on $\textit{Shareholder support}_{t}$.
-
-But this analysis presumes that the causal diagram Figure \ref{fig:agl} is correct.
-\citet[p.\,912]{Armstrong:2013io} note that the ``validity of this instrument depends on ISS recommendations not having an influence on future compensation decisions conditional on shareholder support (i.e., firms listen to their shareholders, with ISS having only an indirect impact on corporate policies through its influence on shareholders' voting decisions)."
-
-This assumption represented in Figure \ref{fig:agl} by the \emph{absence} of an arrow from $\textit{ISS recommendation}_t$ to $\textit{Compensation}_{t+1}$.
-Unfortunately, this assumption seems inconsistent with the findings of \citet{Gow:2013aa}, who provide evidence that firms are carefully calibrating compensation plans (i.e., factors that directly affect $\textit{Compensation}_{t+1}$) to comply with the requirements of ISS's policies, implying a path from $\textit{ISS recommendation}_t$ to $\textit{Compensation}_{t+1}$ that does not pass through $\textit{Shareholder support}_{t}$.
-The plausible existence of this path suggests that the instrument of \citet[p.\,912]{Armstrong:2013io} is not credibly valid for the causal effect they seek to estimate.
-
 \subsubsection{There are no simple (statistical) tests for the validity of instruments}
 Although perhaps obvious, the standard statistical tests applied by authors using instrumental variables provide little insight into the quality of the chosen instruments. 
 % \citet{Guedhami:2013cj} use $\textit{CAPITAL}$, an indicator for a firm being located in a capital city, as an instrument for political connectivity in a study looking at the effect of political connections on the use of a Big 4 auditor ($\textit{BIG 4}$).
@@ -482,43 +449,65 @@ In other words, it is quite possible for completely spurious instruments to deli
 %\footnote{It is also common for accounting researchers to claim that they have established the validity of their instruments by implementing some type of Hausman test.  It is very clear that these types of overidentifying tests require the researcher to actually have one valid IV. 
 In general, there is no test that enables a researcher to verify that their IVs satisfy the exclusion restriction.
 
-\subsubsection{Using instruments from other papers should be done with care}
-One popular source of instruments in accounting, finance, and economics is prior research.
-For example, \citet{Balakrishnan:2014js} use the ``exogenous shocks" to analyst coverage in \citet{Kelly:2012ih} as an instrument for changes in voluntary disclosure practices.\footnote{
-\citet{Balakrishnan:2014js} does not appear in an accounting journal, but we examine it because it examines a topic of interest to accounting researchers (i.e., disclosure) and because the reasoning for the identification strategy is explicit and detailed.}
+\subsubsection{Causal diagrams and instruments}
+To illustrate the application of causal diagrams to the evaluation of instrumental variables, we consider two papers: \citet{Armstrong:2013io} and \citet{Balakrishnan:2014js}. 
 
-A causal diagram for \citet{Kelly:2012ih} is depicted in Figure \ref{fig:kl}.
-The identifying assumption is that $\textit{Brokerage closure}_t$ affects $\textit{Analyst coverage}_t$, but otherwise has no effect, direct or otherwise, on $\textit{Information asymmetry}_t$.
-These three boxes, along with the arrows (or lack of arrows) between them are the causal diagram implicit in \citet{Kelly:2012ih}.\footnote{
-Note that \citet{Kelly:2012ih} do not estimate an instrumental variable regression, and instead treat ``coverage shocks" as an exogenous event. 
-However, as it is changes in coverage driven by brokerage closures that they claim to be exogenous, Figure \ref{fig:kl} seems to represent the logic of  \citet{Kelly:2012ih}.}
+\citet{Armstrong:2013io} studies the effect of shareholder voting ($\textit{Shareholder support}_{t}$) on future executive compensation ($\textit{Compensation}_{t+1}$) .
+Because of the plausible existence of unobserved confounding variables that affect both future compensation and shareholder support, a simple regression of $\textit{Compensation}_{t+1}$ on $\textit{Shareholder support}_{t}$ and controls would not allow \citet{Armstrong:2013io} to obtain an unbiased estimate of the causal relation.
+Among other analyses, \citet{Armstrong:2013io} use an instrument variable to estimate the causal relation of interest.
+\citet{Armstrong:2013io} claim that their instrument is valid based on reasoning that can be expressed as the  Figure \ref{fig:agl}.
+By conditioning on $\textit{Compensation}_{t-1}$ and using ISS recommendations as an instrument, \citet{Armstrong:2013io} argue that they can identify a consistent estimate of the causal effect of shareholder voting on $\textit{Compensation}_{t+1}$, even though there is an unobserved confounder, namely determinants of future compensation observed by shareholders, but not the researcher.\footnote{
+In Figure \ref{fig:agl}, we depict the unobservability of this variable (to the researcher) by putting it in a dashed box.
+Note that we have omitted the controls included by \citet{Armstrong:2013io} for simplicity, though a good causal analysis would consider these carefully.}
+
+However, a critical assumption for this analysis is, as the authors note, that the ``validity of this instrument depends on ISS recommendations not having an influence on future compensation decisions conditional on shareholder support (i.e., firms listen to their shareholders, with ISS having only an indirect impact on corporate policies through its influence on shareholders' voting decisions)" \citep[p.\,912]{Armstrong:2013io}.
+
+In other words, the IV analysis in \citet[p.\,912]{Armstrong:2013io} requires that the causal diagram in Figure \ref{fig:agl} is correct and that there is no arrow from $\textit{ISS recommendation}_t$ to $\textit{Compensation}_{t+1}$. 
+Unfortunately, this assumption seems inconsistent with the findings of \citet{Gow:2013aa}, who provide evidence that firms are carefully calibrating compensation plans (i.e., factors that directly affect $\textit{Compensation}_{t+1}$) to comply with the requirements of ISS's policies so as to get a favorable $\textit{ISS recommendation}_t$, implying a path from $\textit{ISS recommendation}_t$ to $\textit{Compensation}_{t+1}$ that does not pass through $\textit{Shareholder support}_{t}$.
+Thus this new evidence suggests that the instrument of \citet[p.\,912]{Armstrong:2013io} is not credibly valid for the causal effect they seek to estimate.
+
+\citet{Balakrishnan:2014js} use the ``exogenous shocks" to analyst coverage in \citet{Kelly:2012ih} as an instrument for changes in voluntary disclosure practices.\footnote{
+\citet{Balakrishnan:2014js} does not appear in an accounting journal, but we examine it because it examines a topic of interest to accounting researchers (i.e., disclosure) and because the reasoning for the identification strategy is explicit and detailed.}
+Like many papers in accounting, finance, and economics is prior research, \citet{Balakrishnan:2014js} derive their identification strategy from prior research, in this case  \citet{Kelly:2012ih}.
+
 
 \citet{Kelly:2012ih} seek to understand the effect of changes in analyst coverage on information asymmetry. 
 The challenge faced by \citet{Kelly:2012ih} is that changes in analyst coverage are generally not random and may be correlated with information asymmetry due to omitted correlated variables.
 \citet{Kelly:2012ih} treat mergers of brokerage firms that covered treatment firms as an exogenous (i.e., ``as if" random) source of variation in analyst coverage.\footnote{Note number of analysts from the surviving brokerage firm covering an affected firm can be viewed as a random variable with possible values of one or, if coverage is dropped, zero.
 \citet{Kelly:2012ih} argue that this random variable is endogenous when its realization is zero, but exogenous when its realization is one. 
 The idea of realizations of a random variable, rather than the random variable itself, being exogenous seems unconventional.} 
+A causal diagram for \citet{Kelly:2012ih} is depicted in Figure \ref{fig:kl}.
+The identifying assumption is that $\textit{Brokerage closure}_t$ affects $\textit{Analyst coverage}_t$, but otherwise has no effect, direct or otherwise, on $\textit{Information asymmetry}_t$.\footnote{
+Note that \citet{Kelly:2012ih} do not estimate an instrumental variable regression, and instead treat ``coverage shocks" as an exogenous event. 
+However, as it is changes in coverage driven by brokerage closures that they claim to be exogenous, Figure \ref{fig:kl} seems to represent the logic of  \citet{Kelly:2012ih}.}
+%These three boxes, along with the arrows (or lack of arrows) between them are the causal diagram implicit in \citet{Kelly:2012ih}.
 They then examine the effect of such changes in analyst coverage on information asymmetry.
 
-Turning to \citet{Balakrishnan:2014js}, as the authors note, the critical identifying assumptions are that ``lagged coverage shocks a) lead to more disclosure, b) not affect liquidity directly, and c) not correlate with some omitted variable that in turn affects liquidity." 
-The link between coverage shocks and disclosure is the assumption that ``managers respond to exogenous shocks to their information environments" (i.e., the increase in information asymmetry shown by  \citet{Kelly:2012ih}).
-An assumption in \citet{Kelly:2012ih} is that analyst coverage affects contemporaneous information asymmetry, which standard models tell us is a driver of liquidity.
-These relations are represented in Figure \ref{fig:bbkl} by the three nodes in the right-most column and the nodes between them.\footnote{
-Again \citet{Balakrishnan:2014js} view ``coverage shocks" as exogenous, but it is the shift in analyst coverage driven by brokerage closure that is expected to be exogenous.
-The thrust of the analysis below is essentially the same if the ``coverage shocks" are treated as exogenous.} 
-These links can be expressed by adding to the causal graph in Figure \ref{fig:bbkl} a node for \textit{Disclosure}, driven by $\textit{Information assymetry}_t$, which is linked to $\textit{Liquidity}_{t+1}$.
+\citet{Balakrishnan:2014js} seek to build the identification strategy of  \citet{Kelly:2012ih} so  as to estimate the causal effect of disclosure on liquidity.
+The critical identifying assumptions are, as \citet{Balakrishnan:2014js}  note, that ``lagged coverage shocks a) lead to more disclosure, b) not affect liquidity directly, and c) not correlate with some omitted variable that in turn affects liquidity."
+These links can be expressed by augmenting the causal graph in Figure \ref{fig:kl} to add a node for \textit{Disclosure}, driven by $\textit{Information asymmetry}_t$, which is linked to a new node for $\textit{Liquidity}_{t+1}$. 
+The result of these additions is the causal diagram in  Figure \ref{fig:bbkl}.\footnote{
+ Again \citet{Balakrishnan:2014js} view ``coverage shocks" as exogenous and use these shock as instruments. However, it is the shift in analyst coverage driven by brokerage closures that is expected to be exogenous.
+The thrust of the analysis here is essentially the same if it is the ``coverage shocks" that are treated as exogenous.}
+Again, if Figure \ref{fig:bbkl} correctly represents the relevant causal relations, then \citet{Balakrishnan:2014js} have a valid instrument.
+% The link between coverage shocks and disclosure is the assumption that ``managers respond to exogenous shocks to their information environments" (i.e., the increase in information asymmetry shown by  \citet{Kelly:2012ih}).
+% An assumption in \citet{Kelly:2012ih} is that analyst coverage affects contemporaneous information asymmetry, which standard models tell us is a driver of liquidity. 
+% These relations are represented in Figure \ref{fig:bbkl} by the three nodes in the right-most column and the nodes between them.
+% As \citet{Balakrishnan:2014js} point out, it is necessary for $\textit{Information asymmetry}_t$ not to affect $\textit{Liquidity}_{t+1}$ through any channel other than \textit{Disclosure}.
+% This requires that neither $\textit{Information asymmetry}_t$ nor $\textit{Liquidity}_t$ affects $\textit{Liquidity}_{t+1}$ except through their effect on $\textit{Disclosure}$.\footnote{For reasons of space, $\textit{Liquidity}_t$ is omitted from Figure \ref{fig:bbkl} .}
 
-As \citet{Balakrishnan:2014js} point out, it is necessary for $\textit{Information assymetry}_t$ not to affect $\textit{Liquidity}_{t+1}$ through any channel other than \textit{Disclosure}.
-For example, it is well known that information asymmetry is a major driver of contemporaneous liquidity, so an assumption is that neither $\textit{Information assymetry}_t$ nor $\textit{Liquidity}_t$ affects $\textit{Liquidity}_{t+1}$ except through their effect on $\textit{Disclosure}$. 
-This assumption is represented in Figure \ref{fig:bbkl} by the omission of an arrow between $\textit{Information assymetry}_t$ and $\textit{Information assymetry}_{t+1}$.
+However, there are reasons to believe that Figure \ref{fig:bbkl} does not correctly represent the relevant causal relations.
+First, it seems likely that coverage shocks are be persistent. \citet{Balakrishnan:2014js} seem to  assume as much when they argue that ``firms [unable to respond  to the coverage shock through increased disclosure] suffer a \emph{permanent} reduction in liquidity" (p. 2239), which presumably requires the shocks to analyst coverage to be persistent.
+We represent this persistence in Figure \ref{fig:bbkl_alt} by adding a node for $\textit{Analyst coverage}_{t+1}$ and an arrow into this node from $\textit{Analyst coverage}_t$.
 
-An assumption in \citet{Kelly:2012ih} is that analyst coverage affects contemporaneous information asymmetry, which again affects contemporaneous liquidity.
-These relations are represented in Figure \ref{fig:bbkl} by the three nodes in the right-most column and the nodes between them.
-However, if analyst coverage is sticky (i.e., $\textit{Analyst coverage}_t$ affects $\textit{Analyst coverage}_{t+1}$ as represented in Figure \ref{fig:bbkl}), then the identification strategy in \citet{Balakrishnan:2014js} breaks down, as there is then a back-door path from $\textit{Liquidity}_{t+1}$ to $\textit{Disclosure}$ via this link.
-That such stickiness in coverage should exist seems to be assumed by \citet{Balakrishnan:2014js}, who argue that ``firms [unable to respond  to the coverage shock through increased disclosure] suffer a \emph{permanent} reduction in liquidity" (p. 2239), which presumably requires the shock to analyst coverage to be persistent.
+But we know from the main result in \citet{Kelly:2012ih} that analyst coverage affects contemporaneous information asymmetry, so we add a node for \textit{Information asymmetry}$_{t+1}$ and, similar to the relation in $t$, add an arrow from $\textit{Analyst coverage}_{t+1}$ into this node.
+Finally, it is well known that information asymmetry is a major driver of contemporaneous liquidity \citep{Glosten:1988gd}, which implies an arrow from \emph{Information asymmetry}$_{t+1}$ into $\textit{Liquidity}_{t+1}$.
 
+The end result of these additions is the causal diagram depicted in Figure \ref{fig:bbkl_alt}.
+But from this diagram, it is clear that $\textit{Analyst coverage}_t$ affects $\textit{Liquidity}_{t+1}$ through a channel other than disclosure, implying that the instrument of \citet{Balakrishnan:2014js} is not credibly valid for the causal effect they seek to estimate. 
 The point of the discussion above is not to impugn the precise findings of \citet{Balakrishnan:2014js}, but rather to illustrate the merit of more careful analysis of a paper's identification strategy and, we argue, the value of causal diagrams in doing so.
 
+\subsubsection{IV in accounting research: An evaluation}
 A review of IV in published research in accounting in 2014 suggests that researchers have paid little heed to the suggestions and warnings of  \citet{Larcker:2010fq} and \citet{Roberts:2013cz}.
 We find no case of an instrumental variable analysis in our survey of accounting research that can withstand even elementary scrutiny.
 This is perhaps not unsurprising, as plausible instruments have tended to rely on some explicit randomization, which is likely to be extremely rare in accounting research settings.
@@ -781,16 +770,6 @@ How the quantities $P(y|x)$ map into estimates of causal effects is not critical
 \end{theorem}
 %
 
-\begin{definition}[Instrument]
-Let $G$ denote a causal graph in which $X$ has an effect on $Y$. 
-Let $G_{\overline{X}}$ denote the causal graph created by deleting all arrows emanating from $X$.
-A variable $Z$ is an \emph{instrument} relative to the total effect of $X$ on $Y$ if there exists a set of nodes $S$, unaffected by $X$, such that
-\begin{enumerate}
-\item $S$ $d$-separates $Z$ from $Y$ in $G_{\overline{X}}$
-\item $S$ does not $d$-separate $Z$ from $X$ in $G$
-\end{enumerate}
-\end{definition}
-
  \subsection{Application of back-door criterion to Figure \ref{fig:basic}}
 Applying the back-door criterion to Figure \ref{fig:confound} is straightforward and likely intuitive for all accounting researchers.
 The set of variables $\{Z\}$ or simply $Z$ satisfies the criterion, as $Z$ is not a descendant of $X$ and $Z$ blocks the back-door path $X \leftarrow Z \rightarrow Y$.
@@ -812,6 +791,39 @@ However, $\emptyset$ again satisfies the back-door criterion.
 First, contains no descendant of $X$.
 Second, the only path other than $X \rightarrow Y$ that exists is $X \rightarrow Z \leftarrow Y$, which does not have a back-door into $X$.
 Again, the back-door criterion not only implies that we need not condition on $Z$, but that we should not condition of $Z$ to get an unbiased estimate of the causal effect of $X$ on $Y$.
+
+ \subsection{Causal diagrams and instrumental variables}
+
+\begin{definition}[Instrument]
+Let $G$ denote a causal graph in which $X$ has an effect on $Y$. 
+Let $G_{\overline{X}}$ denote the causal graph created by deleting all arrows emanating from $X$.
+A variable $Z$ is an \emph{instrument} relative to the total effect of $X$ on $Y$ if there exists a set of nodes $S$, unaffected by $X$, such that
+\begin{enumerate}
+\item $S$ $d$-separates $Z$ from $Y$ in $G_{\overline{X}}$
+\item $S$ does not $d$-separate $Z$ from $X$ in $G$
+\end{enumerate}
+\end{definition}
+
+We use Figure \ref{fig:agl} as a causal diagram for evaluating the instrument used in \citet{Armstrong:2013io}.
+
+Applying this definition, we have $S = \textit{Compensation}_{t-1}$,
+$X =\textit{Shareholder support}_{t}$, $Y = \textit{Compensation}_{t-1}$, and $Z = \textit{ISS recommendation}_{t}$.
+We use $U$ to denote the observed variables depicted in the dashed box of Figure \ref{fig:agl}.
+If create $G_{\overline{X}}$ by deleting the single arrow emanating from $\textit{Shareholder support}_{t}$, we can see that there are two back-door paths running from $Y$ to $Z$: 
+$Z \leftarrow S \rightarrow U \rightarrow Y$ and $Z \leftarrow S \rightarrow Y$.
+However, both of these paths are blocked by $S$ and the first requirement is satisfied.
+The second requirement is clearly satisfied as $Z$ is directly linked to $X$.\footnote{
+This is a necessary condition, but assumptions about functional form are also critical in using an instrument to estimate a causal effect.
+However, this is not essential to our argument here.}
+%
+Note that analysis can be expressed intuitively as requiring that the ISS recommendation only affects $\textit{Compensation}_{t+1}$ through its effect on $\textit{Shareholder support}_{t}$, and that $\textit{Compensation}_{t+1}$ has an effect on $\textit{Shareholder support}_{t}$.
+
+But this analysis presumes that the causal diagram Figure \ref{fig:agl} is correct.
+\citet[p.\,912]{Armstrong:2013io} note that the ``validity of this instrument depends on ISS recommendations not having an influence on future compensation decisions conditional on shareholder support (i.e., firms listen to their shareholders, with ISS having only an indirect impact on corporate policies through its influence on shareholders' voting decisions)."
+
+This assumption represented in Figure \ref{fig:agl} by the \emph{absence} of an arrow from $\textit{ISS recommendation}_t$ to $\textit{Compensation}_{t+1}$.
+Unfortunately, this assumption seems inconsistent with the findings of \citet{Gow:2013aa}, who provide evidence that firms are carefully calibrating compensation plans (i.e., factors that directly affect $\textit{Compensation}_{t+1}$) to comply with the requirements of ISS's policies, implying a path from $\textit{ISS recommendation}_t$ to $\textit{Compensation}_{t+1}$ that does not pass through $\textit{Shareholder support}_{t}$.
+The plausible existence of this path suggests that the instrument of \citet[p.\,912]{Armstrong:2013io} is not credibly valid for the causal effect they seek to estimate.
 
 
 \end{document}
