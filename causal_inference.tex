@@ -258,27 +258,29 @@ As discussed by \citet{Heckman:2015ez}, \citet{Haavelmo:1943cl,Haavelmo:1944jq} 
 Generally speaking the structural parameters do not coincide with coefficients of regressions among observable variables, but the model does impose constraints on those regression coefficients."
 \citet{Goldberger:1972cq} focuses on linking such approaches to the path analysis of Wright.
 
-An important point emphasized those in the structural tradition is that causal reasoning is distinct from statistical reasoning.
-%TODO: Relate this point to "structural model" discussion above.
-To see this, consider the following simple model
-\[ y = x \beta + \epsilon \]
-with $x \sim N(0, \sigma_x^2)$ and $\epsilon  \sim N(0, \sigma_{\epsilon}^2)$.
-If we have reason to believe that $\mathbb{E}[x \cdot \epsilon] = 0$, then OLS regression will yield an unbiased estimate of $\beta$, to which we might give a causal interpretation.
-However, simple algebra allows to rewrite the model above as 
-\[ x = y \alpha + \nu \]
-with $y \sim N(0, \sigma_y^2)$ and $\nu  \sim N(0, \sigma_{\nu}^2)$.
-Given the assumptions we made above, $\mathbb{E}[y \cdot \nu] = 0$ and OLS regression will yield an unbiased estimate of $\alpha$, to which we might give a causal interpretation.
-
-But either $x$ causes $y$ or $y$ causes $x$. 
+An important point worth emphasizing is that model-based causal reasoning is distinct from statistical reasoning. 
+This point seems to be understood, but regularly forgotten.
+Suppose we observed data on $x$ and $y$ and know only that one causes the other, but do not know whether $x$ causes $y$ or $y$ causes $x$. 
 How do we distinguish these two possibilities?
-Clearly we cannot do so on purely statistical grounds, as there is no basis for distinguishing between these two models on such grounds.
-Instead, we would use our understanding of the phenomenon, including institutional knowledge and existing theory to cast one model or the other as the plausible one.\footnote{
-Note that we would have already used such information to motivate the assumptions that $\mathbb{E}[x \cdot \epsilon] = 0$ and $\mathbb{E}[y \cdot \nu] = 0$.
-Additionally, if $x$ and $y$ are jointly determined, then these assumptions become implausible.}
-In this way, the structural model we put forth embeds our assumptions about what causes what, so $y = x \beta + \epsilon$ can be viewed in the sense used by \citet{Goldberger:1972cq}, as meaning that $x$ causes $y$.
+As there is no way to do so statistically, we need to use our understanding of the phenomenon, including institutional knowledge and existing theory to cast one model or the other as the plausible one.
+In this way, the structural model we put forth embeds our assumptions about what causes what, so $y = x \beta + \epsilon$ can be viewed in the sense used by \citet{Goldberger:1972cq}, as meaning that $x$ \emph{causes} $y$, rather than the converse.
 
-Another difference between a structural, or causal, model and more statistical view is that there is no issue in principle with having a correlation between $X$ and $\epsilon$ ($\mathbb{E} [x \cdot \epsilon] \neq 0$) in the structural model.
-This fact may imply that our ability to obtain an unbiased estimate of $\beta$ from observational data is compromised, but does not imply that $y = x \beta + \epsilon$ is somehow not a valid structural model.
+% Peter's example:
+% Consider what would happen to a presenter at a JAR conference who asserted that $\beta$ in the following regression of firm performance (e.g., ROE) on a corporate governance measure (e.g., the E index), 
+%TODO: Relate this point to "structural model" discussion above.
+% \[ ROE = E \beta + X\gamma + \epsilon ,\]
+%represents the (causal) impact of governance on performance, We imagine the paper's discussant would utter the word endogeneity and that a heated exchange would ensue in which the phrases: "identification problem", "Wu-Hausman test", "over-identification test", "instruments", etc. were bandied about. Someone in the audience might even suggest reverse causality. Our point is no statistical model or test can resolve the underlying question of what causes what.
+
+% How does the profession decide who is right then? 
+% Even if we could agree that only one variable causes the other, simply writing down a linear model does not mean the two measures are linearly related. 
+% Further, the validity of any instrumenting strategy or statistical tests would be predicated on the maintained linear functional form. 
+% So how could one proceed given one only has observational data?
+
+% Peter's text (but not his examplem [which is above]):
+% Those who believe in structural models would argue that the advantage of writing down a firm decision-making model is it would allow others to understand what assumptions were made to establish a specific causal relation. Such models at the very least also would make clear conceptually the data experiments the researcher has in mind when they assert that in the observed data "$x$ causes $y$".
+
+% To underscore this last point, imagine that a structural modeling exercise determined that $x$ and $y$ are linearly related, that $x$ causes $y$, but that $x$ and the unobserved error are correlated. If they were just interested in predicting $y$ with $x$ (a statistical problem), then OLS works just fine because it delivers the best linear unbiased predictor of $y$. On the other hand, it the modeler is interested in an experiment NOT observed in the data, which is what would be the best prediction of $y$ assuming that $\epsilon$ could be held fixed while $x$ changes, then OLS is not fine and can be improved upon. Notice that in this latter case the structural modeler is interested in a counterfactual world where $x$ can be randomized or manipulated independently of $\epsilon$.
+
 
 \subsection{Causal diagrams: A primer}
 A recent research agenda, originating in computer science, has sought to integrate the causal approaches discussed above into a single analytical framework based on graph theory and probability \citep{Pearl:2009kh}.
@@ -381,10 +383,13 @@ Our survey of accounting research identified five papers that exploited either a
 But closer examination suggests that most of these papers misapply the fundamental idea of natural experiments  In fact, these papers seem to be good examples of ``conceptual stretching.''
 
 \cite{Aier:2014ii} exploit a 1991 Delaware court that ``expanded the scope of directors' fiduciary duties to include creditors when a Delaware incorporated firm is in the `vicinity of insolvency'" as a ``natural experiment'' for the purpose of understanding the causal effect of debtholders' demand for conservatism (the treatment variable) on financial reporting conservatism (the outcome of interest).
-But it is completely unclear how this ``natural experiment'' sorted firms into differing levels of the treatment variable, let alone why this assignment is appropriately considered to ``as if" random.
+But it is completely unclear how this ``natural experiment'' sorted firms into differing levels of debtholders' demand for conservatism, let alone why this assignment is considered to be ``as if" random.
 
-\citet{Kirk:2014gx} ``exploit the natural experiment setting created by the exogenous shock of Reg FD to examine the effect of Reg FD on firms with an established IR [investor relations] program.'' 
-Given that the treatment of interest in \citet{Kirk:2014gx} is the establishment of an IR program, only a event that randomly assigned firms to having or not having such a program would qualify as a natural experiment for this research setting. Similarly, \citet{Houston:2014hv} analyzes ``whether the political connections of listed firms in the United States affect the cost and terms of loan contracts.'' They argue that ``the recent financial crisis can be viewed as a major exogenous shock, the effects of which may vary depending on whether the firm is politically connected.'' 
+\citet{Kirk:2014gx} ``exploit the natural experiment setting created by the exogenous shock of Reg FD" to examine ``the effect of investments in internal investor relations (IR) departments on firm outcomes."
+Given that the treatment of interest in \citet{Kirk:2014gx} is the having an IR department, only a event that randomly assigned firms to having or not having such a department would qualify as a natural experiment for this research setting. 
+
+Similarly, \citet{Houston:2014hv} analyzes ``whether the political connections of listed firms in the United States affect the cost and terms of loan contracts.'' 
+They argue that ``the recent financial crisis can be viewed as a major exogenous shock, the effects of which may vary depending on whether the firm is politically connected.'' 
 But this is not what is needed for a valid natural experiment, which would instead randomly sort firms into those with political connections and those without. 
 
 \citet{Hail:2014fq} study the ``exogenous shocks" of mandatory IFRS adoption and enforcement of insider trading laws and their effect on dividend payments.
