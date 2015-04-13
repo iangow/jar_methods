@@ -57,16 +57,15 @@
 
 
 \begin{abstract}\normalsize
-	This paper examines approaches accounting researchers use to draw causal inferences from observational (or non-experimental) data. 
-	The vast majority of research papers draw causal inferences, notwithstanding the well-known difficulties with doing so.
-	While some papers use quasi-experimental research designs to estimate causal effects, it is rarely the case that the data and
+	The vast majority of research papers draw causal inferences from observational (or non-experimental) data, notwithstanding the well-known difficulties with doing so.
+	This paper examines different approaches accounting researchers use to draw causal inferences. It is rarely the case that the data and
 	methods used satisfy the assumptions required to draw causal inferences. We believe that accounting research would benefit from: a 
 	greater focus on the study of causal mechanisms (or causal pathways); increased emphasis on structural modeling of the phenomena 
 	of interest; and, more in-depth descriptive research. We argue these changes are possible and offer a practical path forward.
 	% While our suggested approach does not completely resolve the  controversies associated with drawing causal inferences from observational data, 
 \end{abstract}
 
-\thanks{We thank Eugene Soltes, Dan Taylor and Charlie Wang for helpful discussions.}
+\thanks{We thank Philip Berger, Eugene Soltes, Dan Taylor and Charlie Wang for helpful discussions.}
 
 \maketitle
 \clearpage
@@ -81,8 +80,10 @@
 \attrib{\citealt{Berk:1999uz}}
 \end{quotation}
 
-Most empirical research in accounting relies primarily on observational data (i.e., data produced by observation of processes completely outside the control of the researcher).
-The goal of this paper is to evaluate the approaches used by accounting researchers in making causal inferences using observational (or non-experimental) data and, drawing on developments in fields such as statistics and epidemiology, identify opportunities for improvement.
+Most empirical research in accounting relies primarily on observational data (i.e., data produced by processes outside the control of the researcher).
+This paper evaluates the different approaches accounting researchers use to draw causal inferences from observational data. Our discussion draws on developments in 
+fields such as statistics, econometrics and epidemiology. Our goal is to identify areas for improvement and suggest how empirical accounting 
+research can increase its impact.
 
 The importance of causal inference in accounting research is clear from the research questions that accounting researchers seek to answer. 
 Most long-standing questions in accounting research are causal: 
@@ -90,20 +91,22 @@ Does conservatism affect the terms of loan contracts?
 Do higher quality earnings lead to lower information asymmetry? 
 Did IFRS cause an increase in liquidity in the jurisdictions that adopted it?
 That accounting researchers focus on causal inference is consistent with the view that ``the most interesting research in social science is about questions of cause and effect" \cite[p. 3]{Angrist:2008vk}.
-Merely documenting atheoretical correlations would provide no basis for predictions about what would happen in different circumstances, whereas using data to make inferences that support or refute broader theories does facilitate these kinds of predictions.
+Simply documenting descriptive correlations provides no basis for understanding what would happen should circumstances change, 
+whereas using data to make inferences that support or refute broader theories could facilitate these kinds of predictions.
 
-It is well understood by accounting researchers that the use of observational data for causal inference is problematic.
-In an experimental setting, the validity of causal inference usually relies on random assignment to differing treatment groups (e.g., ``treatment" and ``control"), where randomization can be effected through manipulation by the researcher. 
-%TODO: Cite some classic reference here.
-However, with observational data, treatment assignment is outside the control of the researcher and quite likely driven by forces that confound attempts to estimate causal effects using approaches that would appropriate is researcher were using experimental data.
+Accounting researchers are aware of problems that can arise from the use of observational data to draw causal inferences.
+For instance, many researchers who estimate so-called treatment effect models are aware that random assignment is often 
+required to ensure that differences between the treatment and control samples is due to the treatment. Despite this awareness,
+many accounting "treatments" are not randomly assigned, and the researcher then is in the position of arguing that they
+can account for all other reasons that might lead to a difference between the treatment and control sample outcomes.
 
-From an examination of research published in accounting in 2014, we find that most papers seeking to draw causal inferences use traditional methods such as regression analysis with potential confounding variables included as controls.
-In Section \ref{sec:causal}, we examine the use of these traditional methods and the appropriateness of their use for causal inference.
-To structure our discussion, we use the technology of causal diagrams \citep{Pearl:2009kh}.
-We argue that causal diagrams help to clarify thinking about the causal relations assumed by the researcher and, using straightforward reasoning, provide clarity about the causal inferences that can (and cannot) be drawn from observational data.
-With regard to regression approaches, causal diagrams provide guidance regarding such practical issues as which covariates should be included as controls in regressions and, an often overlooked issue, which should \emph{not} be included.
-Nonetheless, the fact that treatment is not randomly assigned  leads many researchers to be skeptical of any efforts to use regression analyses of observational data for causal inference.
+To understand what is actually done in empirical accounting research, we examined all empirical papers published in the leading accounting journals
+in 2014. We found that overwhelmingly these papers drew causal inferences from statistical models, such as regressions. These studies drew their inferences assuming that they had included sufficient controls for changes in conditions related to the treatments of interest.
+In Section \ref{sec:causal}, we examine statistical models commonly used to draw causal inferences.
+To structure our discussion, we use causal diagrams (advocated by among other \citep{Pearl:2009kh}). These diagrams can help clarify the assumptions that are required to draw a causal inference from observational data. In particular, causal diagrams are useful means for representing the cause and effect logic of regression analyses, as they make it clear what variables are controls and which are not. 
+%Nonetheless, the fact that treatment is not randomly assigned  leads many researchers to be skeptical of any efforts to use regression analyses of observational data for causal inference.
 
+Causal diagrams are of course no magic fix for the modeling issues raised by observational data.
 Recently, some social scientists have held out hope that better research designs and statistical methods can increase the credibility of causal inferences.
 For example, \citet{Angrist:2010jv} claim that ``empirical microeconomics has experienced a credibility revolution, with a consequent increase in policy relevance and scientific impact.''  
 \citet[p. 26]{Angrist:2010jv} argue that such ``improvement has come mostly from better research designs, either by virtue of outright experimentation or through the well-founded and careful implementation of quasi-experimental methods."
@@ -116,21 +119,19 @@ Our survey of research published in 2014 finds five studies claiming to study na
 In Section \ref{sec:quasi}, we examine and evaluate the use of quasi-experimental methods in accounting research.
 % \citet{Roberts:2013cz} 
 We find that, upon closer examination, the manner in which these approaches are applied in accounting research does not enhance the credibility of the causal inferences drawn by the authors.
-We argue that more transparent reasoning, perhaps with the aid of causal diagrams, would have revealed the flaws apparent in these studies.
+We argue that more transparent reasoning, perhaps with the aid of causal diagrams, would have revealed implicit maintained assumptions that are difficult to defend.
 While regression discontinuity designs rely on weaker assumptions than other methods, the estimates they provide often will not be of the effects of primary interest to researchers.
 In summary, we argue that the assumptions underlying quasi-experimental methods are unlikely to apply in the vast majority of accounting research settings.
 The randomization required by natural experiments and instrumental variables is likely to be very rare and few studies can avail themselves of the sharp breaks in treatment assignment required for regression discontinuity designs.
 
 % Dave: "One especially promising path is use of field experiments with randomized treatments to measure causal effects (a good example -- Roberts QJE paper)." 
 % Ian: "I think we could discuss these as interesting and a path forward, but scope them out as our focus is on observational data."
-Ultimately we believe that accounting researchers need to shift their focus from the ``false promise" of causal inference using quasi-experimental methods.
-These methods are generally misused in accounting research and, even if used correctly, have likely have very limited applicability in accounting research settings.
-In the second part of the paper we seek to identify approaches that provide a viable path forward for accounting research. 
+Ultimately we believe that accounting research needs to lean less heavily on descriptive statistical models and observational data. Method is not a panacea for the problems that can arise in non-experimental data. In the second part of the paper we seek to identify approaches that provide a viable path forward for accounting research. 
 We identify emerging approaches in accounting research and also draw on other disciplines to offer a vision for how accounting research might successfully address causal questions even when clever instruments or natural experiments do not provide straightforward answers to the questions of interest to accounting researchers.
 In particular, we discuss developments in thinking about causal inference in economics, statistics, and other fields.
 % Structural model does not solve endogeneity, but makes it explicit and gives it a theoretical and institutional basis.
 
-A more compelling path forward is threefold:
+We see at least three compelling paths forward:
 \begin{itemize}
 \item Increased emphasis on the study of causal mechanisms. We argue that credible evidence of causal pathways between putative causes and putative effects can provide the basis of persuasive scientific evidence for causal effects, even in the absence of appropriate experimental or quasi-experimental methods for direct estimates of those effects.
 \item Increased use of structural models.
@@ -139,19 +140,19 @@ A more compelling path forward is threefold:
 	\item More descriptive research to actually understand the institutional phenomena of interest to accountants.
 	One aspect of accounting research that is difficult to formalize is hypothesis development.
 	In accounting, hypotheses that are studied empirically are rarely supported by either formal theory or evidence from practice.
-	More commonly, hypotheses are based on fairly heuristic reasoning drawing from prior research and intuitive guesswork.
+	More commonly, hypotheses are based on heuristic reasoning that draws on prior research and intuition.
 	%TODO: The 2017 JAR call for papers is arguably evidence of this concern being shared by others. Considering adding a footnote saying this.  DL -- this is a good idea
-	A more sound basis for hypothesis development could be one drawing on detailed descriptive evidence of interesting phenomena.
-	Additionally, an increased focus on descriptive studies is likely to help us to identify causal pathways, and help build better models of the phenomena of interest.
+	A better approach would be to draw on detailed studies that better \emph{describe} the accounting institutions and phenomena of interest.
+	Such studies likely will have a greater chance of identifying causal pathways and entice theorists to build better models of the phenomena of interest.
 	%TODO: Trim the "descriptive research" bullet point.
 \end{itemize}
 
 The balance of the paper is structured as follows.
-In \ref{sec:causal}, we provide an overview of causal inference in accounting and discuss key frameworks for examining causal issues.
-In Section \ref{sec:quasi}, we examine and evaluate the use of quasi-experimental methods.
+Section \ref{sec:causal}  provides an overview of causal inference in accounting and discuss key frameworks for examining causal issues.
+Section \ref{sec:quasi} examines and evaluates the use of quasi-experimental methods.
 We then turn to outlining a path forward for accounting research.
-In Section \ref{sec:mech}, we sketch the idea of mechanism-based causal inference.
-In Section \ref{sec:struct}, we illustrate how the structural modeling approach might be used by accounting researchers and discuss its strengths and weaknesses.
+Section \ref{sec:mech} sketches the idea of mechanism-based causal inference.
+Section \ref{sec:struct} then illustrates how the structural modeling approach might be used by accounting researchers and discuss its strengths and weaknesses.
 We then argue for more descriptive research in Section \ref{sec:desc}.
 Section \ref{sec:conclude} concludes.
 
@@ -164,7 +165,7 @@ Section \ref{sec:conclude} concludes.
 
 
 To get a sense for the importance of causal questions in accounting research,
-we examined all papers published in 2014 in the \textit{Journal of Accounting Research}, \textit{The Accounting Review}, or the \textit{Journal of Accounting and Economics}).
+we examined all papers published in 2014 in the \textit{Journal of Accounting Research}, \textit{The Accounting Review}, and the \textit{Journal of Accounting and Economics}.
 We counted 139 papers, of which 125 are original research papers and a further 14 papers survey or discuss other papers.
 We assign a category to each original research paper based on the methods used in the paper: ``theoretical'' (7), ``experimental'' (12), ``field" (3), or ``archival" (103). 
 For our discussion below, we collect the field and archival papers into a single category because they all use observational data.
@@ -173,13 +174,12 @@ For each non-theoretical paper, we examined the paper to determine the primary r
 To do this, it generally suffices to examine the title and abstract for evidence of causal inference. 
 Often the title reveals a causal question, with words such as  ``effect of \dots" or ``impact of \dots"  
 \citep[e.g.][]{Cohen:2014jl,Clorproell:2014cv} making it clear that the authors seek to answer causal questions. 
-Often language in the abstract reveals a goal of causal inference. 
+Language found in abstracts also reveals that authors see causal inferences as central to their paper. 
 For example, \citet{deFranco:2014ct} asks ``how the tone of sell-side debt analysts' discussions about debt-equity conflict events \emph{affects} the informativeness of debt analysts’ reports in debt markets.''
 
 We recognize that some authors might deny making causal inferences and there is some subjectivity in our characterizations.
 For example, a researcher might argue that a paper that claimed that ``theory predicts $X$ is associated $Y$ and, consistent with that theory, we show $X$ is associated with $Y$" is merely a descriptive paper that does not make causal inferences.
-However, by stating that ``consistent with \dots theory, $X$ is associated with $Y$," the clear purpose is to argue that the evidence tilts the scale, however slightly, in the director of believing the theory to be a valid description of the real world: in other words, inference.
-Since a theory inevitably involves causal relations, such inference is, we argue, inherently causal inference.\footnote{
+However, by stating that ``consistent with \dots theory, $X$ is associated with $Y$," the clear purpose is to argue that the evidence tilts the scale, however slightly, in the direction of believing the theory is valid description of the real world: in other words, inference.\footnote{
 Papers that seek to estimate a causal effect of $X$ on $Y$ are a subset of papers we classify as causal.
 A paper that argues that $Z$ is a common cause of $X$ and $Y$ and claims to find evidence of this is still making causal inferences (i.e., that $Z$ causes $X$ and $Z$ causes $Y$.
 However, we do not find this kind of reasoning to be common in our survey.}
@@ -194,8 +194,8 @@ We coded 3 papers as having a goal of ``measurement.''
 For example, \citet{Cready:2014ji} examine whether inferences about traders based on trade size are reliable and suggest improvements to the measurement of variables used by accounting researchers.
 
 In summary, we find that most original research papers use observational data and that about 90\% of these papers seek to draw causal inferences.
-The more common approach we observe is the use of estimation approaches such as ordinary least-squares (OLS) regression, difference-in-difference estimates, and propensity-score matching for estimating coefficients that the authors use to draw causal inferences.
-While it is widely understood that OLS regressions do not yield unbiased estimates of causal effects, accounting researchers appear incorrectly to view some of these methods as delivering such estimates.\footnote{
+The most common estimation methods used in these studies include ordinary least-squares (OLS) regression, difference-in-difference estimates, and propensity-score matching.
+While it is widely understood that OLS regressions that use observational data produce unbiased estimates of causal effects only under very strong assumptions, the credibility of these assumptions is rarely explicitly addressed.\footnote{
 There are settings where difference-in-difference and fixed effect estimators may deliver causal estimates.
 For example, if assignment to treatment is random, then it is possible for a difference-in-difference estimate using pre- and post-treatment data to yield unbiased estimates of causal effects.
 But in this case, it is detailed understanding of the setting, not the method \emph{per se}, that makes these estimates credible.}
@@ -204,11 +204,10 @@ But in this case, it is detailed understanding of the setting, not the method \e
 %TODO: Seems like we eventually want to add some type of Table to describe the literature survey and classification.
 
 \subsubsection{Difference-in-difference and fixed effect estimators}
-\citet[p.\,12]{Angrist:2010jv} include so-called difference-in-difference (DD) estimators on their list of quasi-experimental methods, along with ``instrumental variables and regression discontinuity methods."\footnote{As \citet[p.\,228]{Angrist:2008vk} argue that ``DD is a version of fixed effects estimation," we discuss these methods together.}
+Accounting researchers have come to view some statistical methods as requiring fewer assumptions and thus being less subject to problems when it comes to drawing causal inferences. \citet[p.\,12]{Angrist:2010jv} include so-called difference-in-difference (DD) estimators on their list of such quasi-experimental methods, along with ``instrumental variables and regression discontinuity methods."\footnote{As \citet[p.\,228]{Angrist:2008vk} argue that ``DD is a version of fixed effects estimation," we discuss these methods together.}
 Enthusiasm for DD designs perhaps stems from a belief that these are ``quasi-experimental" methods in the same sense as the other two approaches cited by \citet[p.\,12]{Angrist:2010jv}.
 But the essential feature that instrumental variables and regression discontinuity methods rely on is the ``as if" random treatment assignment mechanism.
-If treatment assignment is driven by unobserved confounding variables, then DD and fixed-effect estimates will be biased.
-Our view is that the notion that the mechanical application of DD or fixed-effect estimators allows researchers to recover unbiased estimates of causal effects is fanciful in most settings.
+If treatment assignment is driven by unobserved confounding variables, then DD and fixed-effect estimates will be biased and inconsistent. We are not confident that there are many settings in accounting that are likely to satisfy random treatment assignment. This then means that there is a (strong) burden of the users of these methods to explain why they believe that DD or fixed-effect estimators allow them to recover unbiased estimates of causal effects.
 
 Even when assignment to treatment is random, care needs to be taken in interpreting estimates as causal effects.
 For example, \citet[p.\,1305]{Cadman:2014cr} conjecture that ``VCs have strong incentives to design compensation schemes that provide CEOs with short-horizon incentives in the fiscal years after the IPO." 
@@ -253,27 +252,19 @@ As discussed by \citet{Heckman:2015ez}, \citet{Haavelmo:1943cl,Haavelmo:1944jq} 
 Generally speaking the structural parameters do not coincide with coefficients of regressions among observable variables, but the model does impose constraints on those regression coefficients."
 \citet{Goldberger:1972cq} focuses on linking such approaches to the path analysis of Wright.
 
-An important point emphasized those in the structural tradition is that causal reasoning is distinct from statistical reasoning.
+An important point worth emphasizing is that model-based causal reasoning is distinct from statistical reasoning. This point seems to be understood but regularly forgotten. Consider what would happen to a presenter at a JAR conference who asserted that $\beta$ in the following regression
+of firm performance (e.g., ROE) on a corporate governance measure (e.g., the E index), 
 %TODO: Relate this point to "structural model" discussion above.
-To see this, consider the following simple model
-\[ y = x \beta + \epsilon \]
-with $x \sim N(0, \sigma_x^2)$ and $\epsilon  \sim N(0, \sigma_{\epsilon}^2)$.
-If we have reason to believe that $\mathbb{E}[x \cdot \epsilon] = 0$, then OLS regression will yield an unbiased estimate of $\beta$, to which we might give a causal interpretation.
-However, simple algebra allows to rewrite the model above as 
-\[ x = y \alpha + \nu \]
-with $y \sim N(0, \sigma_y^2)$ and $\nu  \sim N(0, \sigma_{\nu}^2)$.
-Given the assumptions we made above, $\mathbb{E}[y \cdot \nu] = 0$ and OLS regression will yield an unbiased estimate of $\alpha$, to which we might give a causal interpretation.
+\[ ROE = E \beta + X\gamma + \epsilon ,\]
+represents the (causal) impact of governance on performance, We imagine the paper's discussant would utter the
+word endogeneity and that a heated exchange would ensue in which the phrases: "identification problem", "Wu-Hausman test", "over-identification test", "instruments", etc. were bandied about. Someone in the audience might even suggest reverse causality. Our point is no statistical model or test can resolve the underlying question of what causes what.
 
-But either $x$ causes $y$ or $y$ causes $x$. 
-How do we distinguish these two possibilities?
-Clearly we cannot do so on purely statistical grounds, as there is no basis for distinguishing between these two models on such grounds.
-Instead, we would use our understanding of the phenomenon, including institutional knowledge and existing theory to cast one model or the other as the plausible one.\footnote{
-Note that we would have already used such information to motivate the assumptions that $\mathbb{E}[x \cdot \epsilon] = 0$ and $\mathbb{E}[y \cdot \nu] = 0$.
-Additionally, if $x$ and $y$ are jointly determined, then these assumptions become implausible.}
-In this way, the structural model we put forth embeds our assumptions about what causes what, so $y = x \beta + \epsilon$ can be viewed in the sense used by \citet{Goldberger:1972cq}, as meaning that $x$ causes $y$.
+How does the profession decide who is right then? 
+Even if we could agree that only one variable causes the other, simply writing down a linear model does not mean the two measures are linearly 
+related. Further, the validity of any instrumenting strategy or statistical tests would be predicated 
+on the maintained linear functional form. So how could one proceed given one only has observational data? Those who believe in structural models would argue that the advantage of writing down a firm decision-making model is it would allow others to understand what assumptions were made to establish a specific causal relation. Such models at the very least also would make clear conceptually the data experiments the researcher has in mind when they assert that in the observed data "$x$ causes $y$".
 
-Another difference between a structural, or causal, model and more statistical view is that there is no issue in principle with having a correlation between $X$ and $\epsilon$ ($\mathbb{E} [x \cdot \epsilon] \neq 0$) in the structural model.
-This fact may imply that our ability to obtain an unbiased estimate of $\beta$ from observational data is compromised, but does not imply that $y = x \beta + \epsilon$ is somehow not a valid structural model.
+To underscore this last point, imagine that a structural modeling exercise determined that $x$ and $y$ are linearly related, that $x$ causes $y$, but that $x$ and the unobserved error are correlated. If they were just interested in predicting $y$ with $x$ (a statistical problem), then OLS works just fine because it delivers the best linear unbiased predictor of $y$. On the other hand, it the modeler is interested in an experiment NOT observed in the data, which is what would be the best prediction of $y$ assuming that $\epsilon$ could be held fixed while $x$ changes, then OLS is not fine and can be improved upon. Notice that in this latter case the structural modeler is interested in a counterfactual world where $x$ can be randomized or manipulated independently of $\epsilon$.
 
 \subsection{Causal diagrams: A primer}
 A recent research agenda, originating in computer science, has sought to integrate the causal approaches discussed above into a single analytical framework based on graph theory and probability \citep{Pearl:2009kh}.
