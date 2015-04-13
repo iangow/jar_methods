@@ -24,6 +24,7 @@ Indeed, structural models have been used to study: educational choices, voting, 
 Other applications of structural models are discussed in \citet{Reiss:2007ej} and \citet{Reiss:2011go}.
 
 A structural empirical model comprises two main elements:
+%TODO: Get rid of empty space here.
 \begin{enumerate}
 \item a theoretical (economic) model of the phenomenon of interest; and,
 \item a stochastic model that links the theoretical model to the observed
@@ -102,25 +103,34 @@ We now explore these benefits of structural models in more detail and discuss so
 
 \subsection{Structural models in accounting: An illustration}
 To illustrate how one might go about developing a structural model for accounting data, we turn to the topic of managerial incentives on accounting misstatements, which has been the focus of several papers in recent years \citep[see][]{Armstrong:2010jd}.
-% This literature is of importance to investors, managers and boards.
-Many papers examining misstatements regress indicators for misstatements on measures of managerial incentives and a host of controls including measures of the complexity of the accounting statements, accrual quality, off-balance sheet activities, firm performance, firm and auditor characteristics, and variables. 
-%TODO: Get real variables lists.
+The key question in this literature is whether certain kinds of incentives cause an increase in the tendency for firms to misstate (or attempt to misstate) their financial statements.
+An assumption underlying a number of these papers is that increasing the strength of incentives provided to managers is likely to increase their desire to report good performance and that, in certain cases, managers may attempt to misstate financial reports to do so.
+However, it should be recognized that some researchers suggest that, by aligning the long-term interests of shareholders and managers, certain kinds of incentives could actually \emph{reduce} misstatements \citep{Burns:2006ce}.
 
-If we take this literature as starting point, empirically we would like to have a model that explains why misstatements occur. 
-The first problem a structural model must confront is the empirical reality that we do not observe misstatements, but typically only restatements.
-Restatements occur after the firm and its auditor agree on how to report results, and as such are triggered by subsequent investigations by regulators, media, and others (for simplicity we shall refer to these collectively as ``subsequent investigations"). 
-Thus, any inferences about misstatements have to be seen through the lens of what is detected, or restatements.
+\citet{Efendi:2007ja} illustrates a fairly typical approach in this literature. 
+\citet[p.\,687]{Efendi:2007ja} estimate a logistic regression with an indicator for restatements as the dependent variable, and measures of CEO incentive variables as the independent variables of interest as well as several controls, including firm size, financial structure measures, and proxies for dimensions of corporate governance.\footnote{
+\citep{Efendi:2007ja} also employ a case-control design, which involves matching firms with restatements with firms without.
+We do not focus on that aspect of their research design in our discussion here.}
+ 
+A key assumption implicit in much of this literature is that restatements are a good proxy for \emph{mis}statements \citep[e.g.,][]{Efendi:2007ja,Armstrong:2010jd}.
+The empirical reality that we do not observe misstatements in general, but only restatements, which may be viewed as misstatements that were detected by some process after the financial statements were issued.
+Restatements occur after the firm issues financial statements, and as such are triggered by subsequent investigations by regulators, media, and others (for simplicity we shall refer to these collectively as ``subsequent investigations") \citep{Dyck:2010kh}.
 If subsequent investigations are perfect and detect all misstatements that are not detected and corrected by the auditor prior to the issuance of financial statements, then there is a one-to-one correspondence of misstatements and restatements. 
-Realistically, these subsequent investigations are not perfect, meaning that we will have to recognize the difference between the two in the structural model.
+Realistically, these subsequent investigations are not perfect, meaning that we need to recognize the difference between the two in any empirical analysis and understand how these differences will affect the results of such analysis.
+
+In the following analysis, we consider two alternative models of the causal mechanism linking managerial incentives to accounting restatements.
+Each model explicit considers the incentives of the manager, the role of the external auditor (who can detect \emph{attempted} restatements and prevent them from becoming \emph{actual} misstatements of financial statements), and the fact that unobserved attempted misstatements only become observed restatements if the auditor fails to detect them and subsequent investigations do detect them.
+We show that different assumptions made regarding the causal relationships between observable and unobservables lead to very different empirical implications.
+In doing so, we illustrate the value of a structural model in understanding these relationships.
 
 \subsubsection{A model with a non-strategic auditor}
-To simplify the initial model, we assume that misstatements  are deliberate and made by a single agent, the `CEO.'
+In our models, we assume that misstatements  are deliberate and made by a single agent, the `CEO.'
 Though this is clearly a strong assumption, it allows us to deliver clear predictions about the unobserved rate of misstatements.\footnote{
 A strong assumption can be seen as a weakness of the model, but also can be seen as a strength:
 If we, or others, do not like the resulting model, we know what assumptions to revisit.} 
 The CEO is assumed to be rational in the sense that he or she trades off the expected benefits and costs of misstatements when deciding whether to misstate.
 Suppose that the CEO receives a benefit of $B^*$ from the \emph{successful} manipulation of earnings, 
-i.e., a misstatement that is not detected by the firm's auditors before a report is released or subsequent investigations. 
+i.e., a misstatement that is not detected either by the firm's auditors before a report is released or by subsequent investigations. 
 
 We assume the firm's auditors independently catch and correct attempted misstatements at a constant rate $p_A$ and that the (conditional) probability of subsequent investigations catching a misstatement is $p_I$.
 Given these assumptions, the probability of misstatement getting past the firm's  auditor and subsequent investigations is $(1-p_A) \times (1 - p_I)$.
@@ -143,7 +153,6 @@ In general, researchers will not observe $B$, $C_M$, $p_A$, or $p_I$.
 To complete the structural model, the researcher must relate these objects to the observed data.
 Because we observe a zero-one indicator variable for restatements $y$ and not misstatements, we need to link the two. 
 In this model, restatements are the result of three stochastic processes:
-
 \begin{enumerate}
 \item The manager misstates (or not).
 \item The firm auditor detects and corrects an attempted misstatement (or not) .
@@ -174,22 +183,21 @@ From equation (\ref{bencost}), $\beta^*$ is the (researcher's) forecasted probab
 \end{equation}
 
 At this point, the theory has delivered a structure for relating the \emph{unobserved} probability of a misstatement, $\beta^*$, to the potentially estimable probability of a restatement.
-Now we face a familiar structural modeling problem, which is that the equations delivered by theory do not necessarily anticipate all the reasons why
-in practice why CEO behavior, auditor behavior or outside scrutiny might vary across accounting reports.
+Now we face a familiar structural modeling problem, which is that the equations delivered by theory do not necessarily anticipate all the reasons why in practice why CEO behavior, auditor behavior or outside scrutiny might vary across accounting reports.
 For example, the theory so far does not point to different reasons why CEO's might differ in their cost-benefit analyses of misstatements. 
-To move theoretical relations closer to the data, researchers typically introduce observable reasons into them. Often there is some ad hoc or ``nonstructural" element to these
-additions. 
+To move theoretical relations closer to the data, researchers typically introduce observable reasons into them. 
+Often there is an ad hoc element to these additions. 
 Empiricists are willing to do this, however, because they believe that it is important to account for heterogeneity they believe the theory does not explicitly recognize.
 
 To illustrate this approach, here we assume that CEO's unobserved costs and benefits do vary systematically with observables.
 In addition, because these observables do not perfectly represent the observed and unobserved benefits, it is important to allow for unobservable differences in the costs and benefits of misstatements. 
 One specification that does this is to assume
 \begin{equation}\begin{array}{lcl}\label{eqns1}
-B & = & b_0 + b_1 \, \mbox{BONUS} + X_B\beta\\[.5em]
+B & = & b_0 + b_1 \, \mbox{EQUITY} + X_B\beta\\[.5em]
 C_M & = & m_0 + m_1 \, \mbox{SALARY} + X_C\gamma + \xi\\[.5em]
 \end{array}
 \end{equation}
-where BONUS is the fraction of a CEO's total pay that is stock-based compensation, 
+where EQUITY is the fraction of a CEO's total pay that is stock-based compensation, 
 the $X_B$ are other observable factors that impact the manager's benefits from misstatements,
 SALARY is the CEO's annual base salary, and the $X_C$ are observable factors impacting the CEO's perceived costs of misstatements.\footnote{
 For expositional purposes, we assume away $X_B$ and $X_C$ in our analysis.}
@@ -199,7 +207,7 @@ We have no strong theoretical reason for the linear assumption.
 Instead, its motivation is practical.
 We shall shortly see that it facilitates estimation of the model unknowns.
 As for the variables in the benefit and cost specifications, here we rely in part on theoretical and empirical observations in the academic literature on misstatements. 
-The BONUS variable is intended to capture the idea that the more a CEO is rewarded for performance, the
+The EQUITY variable is intended to capture the idea that the more a CEO is rewarded for performance, the
 greater his or her incentive to misstate results so as to increase (perceived) performance.
 %TODO: Get refs
 Thus, we would expect the unknown coefficient $b_1$ to be positive.
@@ -215,23 +223,24 @@ $p_A$ and $p_I$.
 In this case, we might be able to distinguish between the cost and benefit unobservables based on their variances.}
 % To see this, observe that the additive error in costs becomes the additive error in the net benefit to a misstatement. 
 Further, the probability of a restatement becomes
-\begin{equation}\label{restate1}
-\mbox{Pr(Restate)} = \theta_0 \mbox{Pr}\left(\, \theta_1 + \theta_2 \mbox{BONUS}
+\begin{equation} \label{restate1}
+\mbox{Pr(Restate)} = \theta_0 \mbox{Pr}\left(\, \theta_1 + \theta_2 \mbox{EQUITY}
 + \theta_3 \mbox{SALARY}  \ge \xi \,\right)
 \end{equation}
 where $\theta_0=(1-p_A) \times p_{E}, \theta_1 = (1 - p_A)(1 - p_I) b_0 - m_0, 
 \theta_2 = (1 - p_A)(1 - p_I) b_1,$ and $\theta_3 = - m_1$. 
 
 Apart from the scalar multiple $\theta_0$, which can be absorbed into the probability statement (and thus is not identified), this probability model has the form of  a familiar binary choice (e.g., a probit or logit model).
-Thus, the value of the structure imposed so far is that it can motivate the application of a familiar statistical model, as  well as explain how the estimated coefficients are potentially connected to quantities that impact the probability of a misstatement.
+Thus, the value of the structure imposed so far is that it can motivate the application of a familiar statistical model \citep[as in]{Efendi:2007ja}, as well as explain how the estimated coefficients are potentially connected to quantities that impact the probability of a misstatement.
 
 \subsubsection{Estimation of model of a non-strategic auditor}
 To illustrate the application of this structural model to data, we assembled a dataset containing 5,000 firm-year observations on whether or not financial results were restated in a given year.
-Table \ref{tab:desc} describes the variables in our data set.\footnote{
+Definitions of the variables in our data set are provided in Table \ref{tab:desc}.\footnote{
 We discuss the source of the data in more detail below.}
 
-The data include variables that have previously been used to model restatements.%TODO: \footnote{[Refs to be included]} 
-The variable BIG4 is included  because it is believed that Big 4 auditing firms have more expertise and are therefore more likely to catch misstatements. 
+The data include variables that have previously been used to model restatements.
+%TODO: Provide a reference for BIG4 in this kind of regression.
+The variable BIG4 is included because it is believed that Big 4 auditing firms have more expertise and are therefore more likely to catch misstatements. 
 Similarly, the corporate governance literature suggests that board oversight from directors with accounting or finance backgrounds reduces the likelihood that CEOs will make misstatements. 
 %TODO: Get refs.
 Finally, the variables INT and SEG are included to capture the complexity and costs of audits. 
@@ -247,7 +256,7 @@ analyses of these data would summarize them by regressing the restatement
 indicator on the list of predictors in Table 1. 
 Such a regression can either be described
 as showing how the probability of a restatement co-varies with the right hand side variables, or it can be described as a prediction equation.
-Our structural model allows us to say more, particularly when it comes to the signs of the SALARY and BONUS variables.
+Our structural model allows us to say more, particularly when it comes to the signs of the SALARY and EQUITY variables.
 By including the other variables on the right hand side, we are in essence maintaining they belong in $X_C$, $X_B$, or both sets of regressors.
 
 Table \ref{tab:logit} reports the results of logit regressions in which the dependent variable is the restatement indicator variable. 
@@ -255,7 +264,7 @@ The table contains both a simple specification containing an intercept along wit
 For each specification we report the estimated coefficients of the logit and the  corresponding marginal effects evaluated at the sample averages of the exogenous variables.%TODO: Explain marginal effects.
 The results for the pay coefficients in both specifications run counter those the previous accounting literature might predict and counter to those predicted by the structural model.
 Specifically,  more base pay is associated with more restatements, while more incentive pay is associated with fewer restatements.
-Besides the intercepts and BONUS coefficients, the only other coefficients that are statistically significant are those on INT and SEG.
+Besides the intercepts and EQUITY coefficients, the only other coefficients that are statistically significant are those on INT and SEG.
 While we can say (descriptively) that they are associated with higher restatement rates, unless we take a position on how they enter $X_C$ or $X_B$, it is difficult to interpret whether their signs make sense.
 
 The question we now address is what to make of the fact that the coefficients on the CEO pay variables did not turn out as either informal arguments or our structural model would predict. 
@@ -362,12 +371,12 @@ Partial derivatives of equation (\ref{equilpr2}) show that the restatement proba
 
 Thus, in contrast to the model with a non-strategic auditor, increasing the benefit that managers enjoy from misstatement,
 or decreasing the misstatement cost, leads to fewer restatements being observed by researchers.
-These two effects explain the negative sign on BONUS and the positive sign on SALARY observed in the previous logit results. Thus, this structural model has the potential to rationalize patterns observed in the data.
+These two effects explain the negative sign on EQUITY and the positive sign on SALARY observed in the previous logit results. Thus, this structural model has the potential to rationalize patterns observed in the data.
 
 To have a better sense of how one might connect the strategic auditor theory to the
 logistic models in Table \ref{tab:logit}, suppose, similar to ways we motivated (\ref{eqns1}), that 
 \begin{equation}\begin{array}{lcl}\label{eqns2}
-B & = & b_0 + b_1 \, \mbox{BONUS} \\[.5em]
+B & = & b_0 + b_1 \, \mbox{EQUITY} \\[.5em]
 C_M & = & m_0 + m_1 \, \mbox{SALARY} \\[.5em]
 C_A & = & a_0 + a_1 \, \mbox{INT} + a_2 \, \mbox{SEG}\\[.5em]
 C_R & = & r_0, \quad B  =  b_0, \quad p_{AH}   =  p_0, \; \mbox{ and } \; p_{AL}  =  v_0 \\[.5em]
@@ -378,12 +387,12 @@ Inserting these expressions into the expected restatement rate (\ref{equilpr2}) 
 \begin{align*} \label{equilpr3}
 \mbox{Pr(Restate)} & =   \dfrac{C_AC_M(1-p_{IL})}{(p_{IH}-p_{IL})(1-p_I)C_RB} \\
 &= \dfrac{(1-v_0)(a_0 + a_1 \, \mbox{INT} + a_2 \, \mbox{SEG})(m_0 + m_1 \, \mbox{SALARY})}
-{(p_0-v_0)r_0(b_0 + b_1 \, \mbox{BONUS})}
+{(p_0-v_0)r_0(b_0 + b_1 \, \mbox{EQUITY})}
 \end{align*}
 \begin{equation}\label{equilpr4}
  =  \dfrac{\theta_0 + \theta_1\mbox{\small INT} + \theta_2\mbox{\small SEG} + \theta_3\mbox{\small SALARY}
 + \theta_4\mbox{\small INT} \times \mbox{\small SALARY}+ \theta_5\mbox{\small SEG} \times \mbox{\small SALARY}}
-{1 +  \theta_6\mbox{\small BONUS}}
+{1 +  \theta_6\mbox{\small EQUITY}}
 \end{equation}
 Notice that the $\theta$'s absorb unknown quantities such as $r_0$ and $p_0$, and that the denominator intercept
 is normalized to one. This last restriction is required to identify the ratio of the two linear functions.
@@ -408,8 +417,8 @@ A simple way to see this might be the case is to observe that there are seven $\
 For instance, the coefficient ratio $\theta_3/\theta_0$ estimates the ratio of cost parameters $m_1/m_0$.
 Since $m_1$ is the cost coefficient on SALARY and $m_0>0$ for costs to make sense, the sign of $\theta_3/\theta_0$ reveals the sign of $m_1$.
 From the theory, we expect the sign to be positive, and in the estimates it is. 
-Similarly, $\theta_6$ equals the (scaled) misstatement benefit coefficient on the BONUS variable.
-Although the descriptive regression coefficients in Table 3 might suggest BONUS has a negative effect on misstatements, here, because we model the difference between misstatements and restatements, we find it has the expected positive effect.
+Similarly, $\theta_6$ equals the (scaled) misstatement benefit coefficient on the EQUITY variable.
+Although the descriptive regression coefficients in Table 3 might suggest EQUITY has a negative effect on misstatements, here, because we model the difference between misstatements and restatements, we find it has the expected positive effect.
 
 The one sign that does not make sense given the other coefficient estimates is the negative sign on $\theta_6$, however this coefficient is insignificantly different from zero.
 % This is indeed true of most of the coefficients, and is perhaps not surprising given the participants use of randomized strategies.
@@ -427,7 +436,19 @@ What this says is that the restatement rate would increase by 10\% (from 10.24\%
 The fact that the restatement rate goes up may at first seem somewhat odd given that the benefits to the CEOs have fallen. 
 The model, however, shows that the increase  comes about because the auditors exert \emph{less} effort in detecting misstatements, thereby catching fewer, leaving more for subsequent investigations to detect.
 
-The discussion above illustrates some of the ways in which a structural modeling exercise might help understand accounting data. 
+\subsubsection{Implications of structural modeling analyses}
+From the discussion above, it seems that there are (at least) two alternative explanations (or hypotheses) for the results we find.
+One hypothesis is that the process generating the data is best modeled with a non-strategic auditor and that the effect of EQUITY on incentives to misstate is either negative (or zero).
+The support for this hypothesis comes from \Table \ref{tab:logit}, which is an appropriate regression analysis for the model with a non-strategic auditor, where a negative (and weakly statistically significant) coefficient on EQUITY is found.
+But a second hypothesis is that the process generating the data is best modeled with a strategic auditor and that the effect of EQUITY on incentives to misstate is positive (or zero).
+The support for this hypothesis comes from \Table \ref{tab:gmm}, which is predicated on the model with a strategic auditor, and where a positive coefficient on $b_1$ (the parameter linking EQUITY to benefits from misstatement) is found.
+
+The point of the discussion above is not to resolve the debate regarding the effect of incentives on misstatements. 
+Rather, the goal is to illustrate the necessity of having an underlying structural model of the process by which the data we observe were generated.
+The importance of such models was illustrated in Sections \ref{sec:causal} and \ref{sec:quasi}, where we used causal diagrams as a kind of (non-parametric) causal model to identify.
+Here we have show the additional value of developing a more formal, parametric model derived from behavioral assumptions such as rationality and details about the institutional structure of the phenomenon of interest.
+
+Not only does a structural model enable us to derive sharper predictions regarding the relations between variables for various parameterizations, but it also provides a basis for actually estimating those relations. 
 In particular, the comparative statics of the model shed light on the difference between restatements and misstatements, and what assumptions (e.g., a strategic or a non-strategic auditor) and data were needed to draw inferences about misstatements from restatements. 
 Additionally, we were able to recover some of the primitive parameters impacting incentives for managers to misstate results, as well as perform counterfactual analyses.
 % While there is the potential for disappointment in the simplistic theory we used, we see room for improving models as an opportunity rather than a defining limitation.
@@ -443,9 +464,9 @@ Additionally, when constructing a theoretical model that can be taken the data, 
 Second, structural models do not avoid the need to make causal assumptions.
 A causal diagram representing the model developed above is provided in Figure \ref{fig:audit}.\footnote{
 While the mixed-strategy of our model has $\beta$ not being a function of $B$ or $C_M$ and $\alpha$ not being a function of $C_A$ or $C_R$, we have retained this links as being plausible in a more general model.}
-As can be seen, we are assuming that $p_I$ is independent of BONUS. 
-But is quite plausible that these investigations are conducted (in part) by a regulator who is strategic much as the auditor in our model, thus giving rise to a link between BONUS and $p_I$.
-Also we assume that BONUS is exogenous, whereas it is plausibly related to the complexity of the business, which may also affect the cost of auditing.
+As can be seen, we are assuming that $p_I$ is independent of EQUITY. 
+But is quite plausible that these investigations are conducted (in part) by a regulator who is strategic much as the auditor in our model, thus giving rise to a link between EQUITY and $p_I$.
+Also we assume that EQUITY is exogenous, whereas it is plausibly related to the complexity of the business, which may also affect the cost of auditing.
 
 Finally, just because a researcher can write down a theoretical model and estimate it does not make the empirical model ``right."
 As was demonstrated above when examining the model with the non-strategic auditor, fitting a structural model with incorrect assumptions can result in incorrect inferences.
