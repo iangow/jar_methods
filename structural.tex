@@ -2,7 +2,7 @@
 
 \subsection{Structural modeling: An overview}
 
-Sections \ref{sec:causal} and \ref{sec:quasi} suggested that minimally researchers should use diagrammatic models to communicate the basis for the their causal inferences.
+Sections \ref{sec:causal} and \ref{sec:quasi} suggested that  researchers should consider using diagrammatic models to communicate the basis for the their causal inferences.
 This section explores a more formal approach to developing a causal model, namely the ``structural" approach. Structural models are empirical models that are derived from theoretical models of behavior.
 The term structural model originated with economists and statisticians working at the Cowles Foundation in the 1940s and 1950s.
 The earliest structural models used economic models of consumer and producer behavior to derive demand and supply equations.
@@ -53,11 +53,9 @@ In doing so, we illustrate the value of a structural model in understanding thes
 \subsubsection{A model with a non-strategic auditor}
 In our models, we assume that misstatements  are deliberate and made by a single agent, the `CEO.'
 Though this is clearly a strong assumption, it allows us to deliver clear predictions about the unobserved rate of misstatements.\footnote{
-A strong assumption can be seen as a weakness of the model, but also can be seen as a strength:
-If we, or others, do not like the resulting model, we know what assumptions to revisit.} 
+A strong (visible) assumption can be seen as a weakness of the model, but also can be seen as an advantage.  For example, if the assumption is considered inappropriate, it is very clear how to revise the model.} 
 The CEO is assumed to be rational in the sense that he or she trades off the expected benefits and costs of misstatements when deciding whether to misstate.
-Suppose that the CEO receives a benefit of $B^*$ from the \emph{successful} manipulation of earnings, 
-i.e., a misstatement that is not detected either by the firm's auditors before a report is released or by subsequent investigations. 
+Suppose that the CEO receives a benefit of $B^*$ from the \emph{successful} manipulation of earnings (i.e., a misstatement that is not detected either by the firm's auditors before a report is released or by subsequent investigations). 
 
 We assume the firm's auditors independently catch and correct attempted misstatements at a constant rate $p_A$ and that the (conditional) probability of subsequent investigations catching a misstatement is $p_I$.
 Given these assumptions, the probability of a misstatement getting past the firm's  auditor and subsequent investigations is $(1-p_A) \times (1 - p_I)$.
@@ -167,7 +165,7 @@ Finally, the variables INT and SEG are included to capture the complexity and co
 Specifically, international companies and companies with more business segments are thought to raise the costs of auditing. 
 
 Table \ref{tab:desc} reports descriptive statistics for the sample. 
-CEOs on average receive about three-quarters of a million dollars in base pay and their incentive-related pay averages 26\% of their total pay.
+CEOs on average receive about one million dollars in base pay and their incentive-related pay averages 26\% of their total pay.
 About three-quarters of the sample has a Big 4 accounting firm as its auditor. 
 The fraction of directors with financial expertise is less than ten percent. 
 The average firm has about 4.4 business segments and is primarily based in the United States.
@@ -211,9 +209,9 @@ To make matters simple, suppose that the auditor detects manipulation with proba
 Let the cost of high effort be a fixed cost $C_A > 0$. 
 Without loss of generality suppose the cost of low effort is zero. 
 When deciding whether to audit with high or low effort, the auditor perceives a cost to its reputation, $C_R$, to not detecting a misstatement that is subsequently caught by an external investigations. 
-This structure implies that the total cost of high effort to the auditor is $C_A + (1-p_{AH}) \times p_E \times C_R$ -- the cost of high effort plus the expected cost of missing a misstatement that is subsequently caught with probability $p_E$. 
+This structure implies that the total cost of high effort to the auditor is $C_A + (1-p_{AH}) \times p_E \times C_R$ or the cost of high effort plus the expected cost of missing a misstatement that is subsequently caught with probability $p_E$. 
 The total expected cost of
-low effort is similarly, $(1-p_{AL}) \times p_E \times C_R$. 
+low effort is similarly equal to $(1-p_{AL}) \times p_E \times C_R$. 
 
 To complete this new model, we need to make an (equilibrium) assumption about how the CEO and firm auditor interact. 
 Following the literature, we assume that the two simultaneously and independently make decisions, and that their strategies form a Nash equilibrium.
@@ -221,7 +219,7 @@ That is, we assume the players' strategies are such that they optimize their obj
 
 In this type of auditing game, the Nash equilibrium has the CEO and the auditor playing mixed (randomized) strategies.
 That is, the auditor will independently exert high effort with probability $\alpha^*$ and the manager independently misstates with probability $\beta^*$. 
-These probabilities are such that each has no incentive to change their randomized strategy; that is:
+These probabilities are such that each has no incentive to change their randomized strategy.  That is:
 \begin{quote}
 (i) the manager is indifferent between misstating and not misstating, or:
 \begin{equation}\label{manager}
@@ -257,7 +255,7 @@ $ B > \frac{C_M}{1 - p_I}  $.}
 & = & \beta^* \times (1-p_A^*) \times p_{E}
 \end{array}\end{equation}
 This equation tells us how the observed (or measurable) probability of a restatement is related to
-the unobserved frequency of misstatements. In particular, if we knew the frequency with which auditors and investigations caught misstatements, we could easily link the two. Otherwise,
+the unobserved frequency of misstatements. In particular, if we knew the frequency with which auditors and subsequent investigations caught misstatements, we could easily link the two. Otherwise,
 we would have to estimate these probabilities (or make assumptions about them).
 
 Substituting the equilibrium strategies (\ref{equilstrat}) into (\ref{equilpr1}) yields
@@ -323,7 +321,8 @@ Thus, because $X$ includes  a dummy variable for whether the firm is an internat
 
 Table \ref{tab:gmm} reports the results of estimating the new (strategic auditor) structural model on the sample of 5,000 firms. 
 The results show that in this particular case, even without sample information on the unobserved probabilities $p_A$ and $p_I$, we can recover estimates of the model parameters up to a normalization.\footnote{
-A simple way to see this might be the case is to observe that there are seven $\theta$ coefficients and eight underlying structural parameters.}
+A simple way to see this might be the case is to observe that there are seven $\theta$ coefficients and eight underlying structural parameters.} 
+% I thought that we had seven parameters (theta's).  Seems like we have ten unknown parameters in equation (13)
 For instance, the coefficient ratio $\theta_3/\theta_0$ estimates the ratio of cost parameters $m_1/m_0$.
 Since $m_1$ is the cost coefficient on SALARY and $m_0>0$ for costs to make sense, the sign of $\theta_3/\theta_0$ reveals the sign of $m_1$.
 From the theory, we expect the sign to be positive, and in the estimates it is. 
@@ -338,12 +337,12 @@ Further, even with a sample size of 5,000, restatements are relatively rare, thu
 While the coefficient magnitudes do not allow us to estimate the underlying benefits and costs to managers from misstatements, we can illustrate the value of the model by performing a counterfactual calculation.
 There are many different counterfactuals that could be considered. 
 Here, for illustrative purposes we can ask what would happen to misstatements and restatements if we  do away with incentive pay and nothing else changes.
-The value of having a model to analyze this change is that we can see how the auditing process would adjust to the removal of CEO incentives to misstate. 
+The value of having an equilibrium model to analyze this change is that we can see how the auditing process would adjust to the removal of CEO incentives to misstate. 
 From the equilibrium strategies in equation (\ref{equilstrat}), we see that removing bonus pay does not change the equilibrium frequency of misstatements, but does change the frequency of high effort auditing.
 From (\ref{equilpr}), the model and the data we find
 $$ \dfrac{\mbox{Pr(Restate }\vert \mbox{ No Bonus)}}{\mbox{Pr(Restate }\vert \mbox{ Bonus)}}=\dfrac{\beta^* \times (1-p_A^{**}) \times p_{E}}
 {\beta^* \times (1-p_A^{*}) \times p_{E}} = \dfrac{(1-p_A^*)}{(1-p_A^*)} = 1.10.$$
-What this says is that the restatement rate would increase by 10\% (from 10.24\% to 11.25\%) if bonuses were withdrawn. 
+This results tells us that the restatement rate would increase by 10\% (from 10.24\% to 11.25\%) if bonuses were withdrawn. 
 The fact that the restatement rate goes up may at first seem somewhat odd given that the benefits to the CEOs have fallen. 
 The model, however, shows that the increase  comes about because the auditors exert \emph{less} effort in detecting misstatements, thereby catching fewer, leaving more for subsequent investigations to detect.
 
@@ -397,6 +396,7 @@ Third, just because a researcher can write down a theoretical model and estimate
 As was demonstrated above when examining the model with the non-strategic auditor, fitting a structural model with incorrect assumptions can result in incorrect inferences.
  \cite{Nikolaev:2014er} provide an analysis of misreporting and accounting quality.
  The critical assumption in \citet[p.\,6]{Nikolaev:2014er} is the ``idea that both operating cash flow and earnings can be viewed as noisy measures of underlying economic performance."
+%DL: Not sure that I understand the discussion here on Nikolaev
 But, even if there is such a notion as ``underlying economic performance" and even if the goal in measuring earnings is to measure this, the fact that cash flow from operations is intended to measure something quite different (e.g., investing cash flows affect subsequent earnings quite differently from operating cash flows) suggests that this may not be an entirely credible identifying assumption for a structural model.
 
 Finally, there is no guarantee that after all the effort that went into developing the model, that the estimates will make sense or that the model will otherwise be validated.
