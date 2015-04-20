@@ -71,8 +71,6 @@
 \maketitle
 \clearpage
 
-
-\begin{doublespace} 
 \section{Introduction}
 
 \begin{quote}\begin{singlespace} {\addtolength{\leftmargin}{.25in}\addtolength{\rightmargin}{.25in}
@@ -81,9 +79,8 @@
 	The key issue, therefore, is not whether such studies should be done, but how they may be done well.
 \attrib{\citealt{Berk:1999uz}}}
 \end{singlespace}
-
 \end{quote}
-\vglue 10pt
+
 \begin{doublespace} 
 Most empirical research in accounting relies on observational data (i.e., data produced by processes outside the control of the researcher).
 This paper evaluates the different approaches accounting researchers use to draw causal inferences from observational data. 
@@ -268,27 +265,32 @@ There is no way to do this without a theory, even if that theory only involves v
 
 \subsection{Causal diagrams: A primer}
 Computer and decision scientists, among other disciplines, have recently sought to develop an analytical framework for thinking about causal models and their connection to probability statements \citep{Pearl:2009kh}.
-Pearl's framework, which he calls the structural causal model, uses directed acyclic graphs (DAGs) to describe causal relationships.
+Pearl's framework, which he calls the structural causal model, uses  causal diagram to describe causal relationships.
 % \citet{Pearl:2009kh} shows that the structural causal model provides a framework for analyzing observational data and the valid causal inferences that can be derived from a given causal graph.
 % \citet[p.\,698]{Pearl:2011jd} suggests that his framework has been ``adapted warmly" by epidemiologists, sociologists, and statisticians.
-A key tool in this approach is a causal diagram or causal graph. These diagrams encode causal assumptions and visually communicate how a causal inference is being drawn from a given research design.
+% A key tool in this approach is a causal diagram or causal graph. 
+These diagrams encode causal assumptions and visually communicate how a causal inference is being drawn from a given research design.
 Given a \emph{correctly specified} causal diagram, these criteria can be used to verify conditioning strategies, instrumental variable designs, and mechanism-based causal inferences.\footnote{While \citet[p.248]{Pearl:2009kh} defines an instrument in terms of conditional independence criteria applied to causal diagrams, additional assumptions are often needed to estimate causal effects using an instrument \citep{Angrist:1996p7456}.}
-
-A causal diagram consists of nodes and edges. A node represents a random variable and edges connect variables.
-Edges in causal diagrams are directed, with an arrow pointing from one node to another. The direction of the arrow communicates the hypothesized causal relation between the two variables.
-That arrows have a direction accounts for the ``D" in DAG (Directed Acyclic Graph). The acyclic "A" component means that there must be no cycles in the graph. Cycles cause obvious problems in causal reasoning. An example would be $X \rightarrow Y \rightarrow Z \rightarrow X$. In this graph there is no ultimate cause. Graphs make a distinction between observed and unobserved random variables.
-In some cases, an unobserved joint determinant of two random variables will not be represented explicitly, but replaced by a dashed, "undirected" edge between those two random variables.
-
-\citet{Pearl:2009vo} shows that, if we are interested in assessing the causal effect of $X$ on $Y$, that we may be able to do so by conditioning on a set of variables, $Z$, that satisfies the ``back-door criterion" \citep[p.79]{Pearl:2009vo}.
-While conditioning is much like the standard notion of ``controlling for" variables by including them as additional regressors in OLS regression, there are critical differences.
-First, reflecting the non-parametric nature of causal diagrams in their most general form, conditioning in principle means estimating effects for each distinct level of the set of variables in $Z$.
-Second, as we discuss below, the inclusion of a variable in $Z$ may actually result in biased estimates of causal effects. 	
 
 We use Figure \ref{fig:basic} to illustrate the basic ideas of causal diagrams and how they can be used to facilitate causal inference.
 Figure \ref{fig:basic} depicts three variants of a simple causal graph with three variables, all of which are observable.
 In each case, we are interested in estimating the causal effect of $X$ on $Y$ in the presence of a third variable, $Z$ that is related to $X$ and $Y$ in some fashion.
 The only difference between the three graphs is in the direction of arrows linking either $X$ and $Z$ or $Y$ and $Z$.
 the criterion developed by \citep{Pearl:2009vo} (see Appendix \ref{append}) implies that very different conditioning strategies are needed for each of the causal diagrams.
+
+The boxes (or ``nodes") represent random variables and the arrows (or ``edges") connecting boxes represent hypothesized causal relations, with each arrow pointing from a cause to a variable assumed to be affected by it.\footnote{
+That arrows have a direction accounts for the ``D" in DAG (Directed Acyclic Graph). 
+The acyclic (``A") component means that there must be no cycles in the graph. 
+Cycles cause obvious problems in causal reasoning.
+ An example would be $X \rightarrow Y \rightarrow Z \rightarrow X$. 
+In this graph there is no ultimate cause. 
+Graphs make a distinction between observed and unobserved random variables.
+In some cases, an unobserved joint determinant of two random variables will not be represented explicitly, but replaced by a dashed, ``undirected" edge between those two random variables.}
+
+\citet{Pearl:2009vo} shows that, if we are interested in assessing the causal effect of $X$ on $Y$, that we may be able to do so by conditioning on a set of variables, $Z$, that satisfies the ``back-door criterion" \citep[p.79]{Pearl:2009vo}.\footnote{See Appendix \ref{append} for details.}
+While conditioning is much like the standard notion of ``controlling for" variables by including them as additional regressors in OLS regression, there are critical differences.
+First, reflecting the non-parametric nature of causal diagrams in their most general form, conditioning in principle means estimating effects for each distinct level of the set of variables in $Z$.
+Second, as we discuss below, the inclusion of a variable in $Z$ may actually result in biased estimates of causal effects. 	
 
 Figure \ref{fig:confound} is straightforward and it is necessary to condition on $Z$ and that, by doing so, we can estimate the causal effect of $X$ on $Y$.
 This situation is a generalization of linear model in which $Y = X \beta + Z \gamma + \epsilon_Y$ and $\epsilon_Y$ is independent of $X$ and $Z$, but $X$ and $Z$ are correlated.
