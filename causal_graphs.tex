@@ -47,8 +47,10 @@
 \end{figure}
 
 \clearpage
-\begin{figure} 
-    \caption{Causal graph for \citet{Armstrong:2013io}} \label{fig:agl}
+\begin{figure} \caption{Identifying effects of shareholder support on compensation} \label{fig:agl}
+    \addtocounter{figure}{-1}
+\begin{subfigure}{\textwidth}
+    \caption{Causal diagram for \citet{Armstrong:2013io}} \label{fig:agl1}
     \centering
 	\begin{tikzpicture}
 		\node[rectangle] (C0) {Compensation$_{t-1}$}; 
@@ -65,6 +67,33 @@
 		\draw (EC1) edge[->] (C1);
 		\draw (EC1) edge[->] (SS0);
 	\end{tikzpicture}
+\end{subfigure}
+
+\begin{subfigure}{\textwidth} 
+    \caption{Alternative causal diagram for \citet{Armstrong:2013io}} \label{fig:agl2}
+    \centering
+	\begin{tikzpicture}
+		\node[rectangle] (C0) {Compensation$_{t-1}$}; 
+		\node[draw,dashed,fill=white] at ([shift={(3,-2.5)}] C0) (EC1) {Shareholder-observable determinants of compensation$_{t+1}$};
+		\node [right = 3 of C0] (C1) {Compensation$_{t+1}$};
+		\node [below = 3 of C1] (SS0) {Shareholder support$_t$};
+		\node [below = 3 of C0] (ISS) {ISS recommendation$_t$};
+		\node[draw,dashed,fill=white,below = 2 of SS0] (CD) {Design of proposed compensation plan};
+				
+		\draw (C0) edge[->] (ISS);
+		\draw (C0) edge[->] (EC1);
+		\draw (SS0) edge[->] (C1);
+		\draw (C0) edge[->] (C1);
+		\draw (ISS) edge[->] (SS0);
+		\draw (EC1) edge[->] (C1);
+		\draw (EC1) edge[->] (SS0);
+		
+		\draw (CD) edge[->] (ISS);
+		\draw (CD) edge[->] (SS0);
+		\draw (CD) edge[->,bend right=60] (C1);
+		
+	\end{tikzpicture}
+\end{subfigure}
 \end{figure}
 
 
@@ -74,7 +103,7 @@
 	\caption{Identifying effects of analyst coverage changes} 
     \addtocounter{figure}{-1}
     \begin{subfigure}{\textwidth}
-        \caption{Causal graph for \citet{Kelly:2012ih}} \label{fig:kl}
+        \caption{Causal diagram for \citet{Kelly:2012ih}} \label{fig:kl}
         \centering
 		\begin{tikzpicture}
 			\node[rectangle] (BC) {Brokerage closure$_t$}; 
@@ -87,7 +116,7 @@
     \end{subfigure}
 
     \begin{subfigure}[b]{\textwidth}
-        \caption{Causal graph for \citet{Balakrishnan:2014js}} \label{fig:bbkl}
+        \caption{Causal diagram for \citet{Balakrishnan:2014js}} \label{fig:bbkl}
         \centering
 		\begin{tikzpicture}
 						\node[rectangle] (BC) {Brokerage closure$_t$}; 
@@ -110,7 +139,7 @@
     \end{subfigure}
     
         \begin{subfigure}[b]{\textwidth}
-        \caption{Alternative causal graph for \citet{Balakrishnan:2014js}} \label{fig:bbkl_alt}
+        \caption{Alternative causal diagram for \citet{Balakrishnan:2014js}} \label{fig:bbkl_alt}
         \centering
 		\begin{tikzpicture}
 						\node[rectangle] (BC) {Brokerage closure$_t$}; 
