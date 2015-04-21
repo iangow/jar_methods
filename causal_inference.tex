@@ -349,9 +349,6 @@ While most studies in accounting use methods of conditioning on confounding vari
 Of the 91 papers in accounting research in 2014 seeking to draw causal inference from observational data, we identify 14 that use quasi-experimental methods for inferences. Despite the low count, we believe that papers using these methods are considered stronger contributions to empirical accounting research and there are pressures from editors and reviewers to incorporate quasi-experimental approaches into research designs.
 In this section, we discuss and evaluate the use of these methods in accounting research.
 
-%TODO: somewhere we want to note that there are some real field experiments -- John Roberts with the impact of consulting firms in India and a variety of related studies in Economics.  
-%TODO: There was also the SEC decision to randomly assign short selling restrictions.
-
 \subsection{Natural experiments}
 Natural experiments occur when observations are assigned by nature (or some other force outside the control of the researcher) to treatment and control groups in a way that is random or ``as if'' random \citep{Dunning:2012tt}. 
 Truly (as if) random assignment to treatment and control provides a sound basis for causal inference, enhancing the appeal of natural experiments for social science research.
@@ -364,7 +361,11 @@ But closer examination suggests that most of these papers misapply the fundament
 But it is completely unclear how this ``natural experiment'' sorted firms into differing levels of debtholders' demand for conservatism, let alone why this assignment is considered to be ``as if" random.
 
 \citet{Kirk:2014gx} ``exploit the natural experiment setting created by the exogenous shock of Reg FD" to examine ``the effect of investments in internal investor relations (IR) departments on firm outcomes."
-Given that the treatment of interest in \citet{Kirk:2014gx} is the having an IR department, only a event that randomly assigned firms to having or not having such a department would qualify as a natural experiment for this research setting. 
+Given that the treatment of interest in \citet{Kirk:2014gx} is the having an IR department, only a event that randomly assigned firms to having or not having such a department would qualify as a natural experiment for this research setting.
+Some of the discussion \citet{Kirk:2014gx} suggests that they are interested in the differential effect of Reg FD on firms with and without IR departments.
+It is perhaps helpful to follow the advice of \citep[p.\,236]{Cochran:1965if}, who write: ``The planner of an observational study should always ask himself the question, `How would the study be conducted if it were possible to do it by controlled experimentation?'"
+In this case, \citet{Kirk:2014gx} would like to run an experiment where Reg FD was assigned to firms randomly and compare the effects of Reg FD	
+
 
 Similarly, \citet{Houston:2014hv} analyzes ``whether the political connections of listed firms in the United States affect the cost and terms of loan contracts.'' 
 They argue that ``the recent financial crisis can be viewed as a major exogenous shock, the effects of which may vary depending on whether the firm is politically connected.'' 
@@ -469,9 +470,9 @@ Like many papers in accounting, finance, and economics is prior research, \citet
 
 \citet{Kelly:2012ih} seek to understand the effect of changes in analyst coverage on information asymmetry. 
 The challenge faced by \citet{Kelly:2012ih} is that changes in analyst coverage are generally not random and may be correlated with information asymmetry due to omitted correlated variables.
-\citet{Kelly:2012ih} treat mergers of brokerage firms that covered treatment firms as an exogenous (i.e., ``as if" random) source of variation in analyst coverage.\footnote{Note number of analysts from the surviving brokerage firm covering an affected firm can be viewed as a random variable with possible values of one or, if coverage is dropped, zero.
-\citet{Kelly:2012ih} argue that this random variable is endogenous when its realization is zero, but exogenous when its realization is one. 
-The idea of realizations of a random variable, rather than the random variable itself, being exogenous seems unconventional.} 
+\citet{Kelly:2012ih} treat mergers of brokerage firms that covered treatment firms as an exogenous (i.e., ``as if" random) source of variation in analyst coverage.%\footnote{Note number of analysts from the surviving brokerage firm covering an affected firm can be viewed as a random variable with possible values of one or, if coverage is dropped, zero.
+% \citet{Kelly:2012ih} argue that this random variable is endogenous when its realization is zero, but exogenous when its realization is one. 
+% The idea of realizations of a random variable, rather than the random variable itself, being exogenous seems unconventional.} 
 A causal diagram for \citet{Kelly:2012ih} is depicted in Figure \ref{fig:kl}.
 The identifying assumption is that $\textit{Brokerage closure}_t$ affects $\textit{Analyst coverage}_t$, but otherwise has no effect, direct or otherwise, on $\textit{Information asymmetry}_t$.\footnote{
 Note that \citet{Kelly:2012ih} do not estimate an instrumental variable regression, and instead treat ``coverage shocks" as an exogenous event. 
@@ -545,10 +546,12 @@ However, we have serious concerns regarding the value of these methods in accoun
 First, it is evident that accounting researchers often apply these methods poorly and inappropriately.
 Second, it is far from clear that these methods, properly applied, can support more than a small fraction of accounting research.
 
-
 \section{Mechanisms and causal inference} \label{sec:mech}
 
-\begin{quotation}\begin{singlespace} {\addtolength{\leftmargin}{.25in}\addtolength{\rightmargin}{.25in}
+\begin{quotation}
+\begin{singlespace} 
+	\addtolength{\leftmargin}{.25in}
+	\addtolength{\rightmargin}{.25in}
 In complex fields like the social sciences and epidemiology, there are only few (if any) real life situations where we can make enough compelling assumptions that would lead to identification of causal effects.
 \attrib{Judea Pearl, cited in \citealt[p.\,287]{Freedman:2004ix}}
 \end{singlespace}
@@ -655,13 +658,9 @@ The \emph{Journal of Accounting Research} used to publish some papers in a secti
 The editor at the time (Nicholas Dopuch) would seem to place papers into this section if ``did not fit" as a main article, but examined new institutional data or ideas. 
 Such a journal section might have provided a credible signal of a willingness to publish descriptive studies of institutionally interesting settings.}
 
-% Although it is a matter of taste, a number of the papers in our review seem to ask research questions and use causal mechanisms that are far removed from real world issues.
 We believe that accounting research could benefit substantially from more in-depth descriptive research.
-As we discuss below, this type of research is essential for those who seek to develop structural models or improve our understanding of causal mechanisms.
-%DL:  clean up the references in this footnote.
-\footnote{
-There are many ``classic" descriptive studies that have had a major impact on subsequent theoretical and empirical research in organizational behavior and strategy such as \citep{Cyert:1956fd,Bower:1986vd}
-%TODO: Get citation for Mintzberg, The Natural of Managerial Work.
+As we discuss below, this type of research is essential for those who seek to develop structural models or improve our understanding of causal mechanisms.\footnote{
+There are many ``classic" descriptive studies that have had a major impact on subsequent theoretical and empirical research in organizational behavior and strategy such as \citep{Cyert:1956fd,Bower:1986vd,Mintzberg1973nature}.
 \citet{Cyert:1956fd} argue that ``a realistic description and theory of the decision-making process are of central importance to business administration and organization theory. Moreover, it is extremely doubtful whether \dots economics does in fact provide a realistic account of decision-making in large organizations operating in a complex world."}
 
 One reason to value descriptive research is that it can uncover structures and mechanisms that exist, but which would be exceedingly difficult to arrive at from basic economic theory.
@@ -670,19 +669,13 @@ It seems highly unlikely that a model derived from fundamental economic theory w
 These institutional features can be used to identify precise mechanisms and also as elements of structural models in which other features might be motivated more directly by economic theory.
 
 Recent published research suggests that increased recognition of the value of descriptive research.
-\citet{Soltes:2013ba} examines the interactions between sell-side analysts and company management in one firm that granted him proprietary access to ``offer insights into which analysts privately meet with management, when analysts privately interact with management, and why these interactions occur."  By comparing private interaction to observed interaction between analysts and managers on conference calls and highlighting that private interaction with management is an important communication channel for analysts, \citet{Soltes:2013ba} provides a plausible mechanism through which information transfers hypothesized in more traditional empirical papers actually occur.
+\citet{Soltes:2013ba} examines the interactions between sell-side analysts and company management in one firm that granted him proprietary access to ``offer insights into which analysts privately meet with management, when analysts privately interact with management, and why these interactions occur."  
+By comparing private interaction to observed interaction between analysts and managers on conference calls and highlighting that private interaction with management is an important communication channel for analysts, \citet{Soltes:2013ba} provides a plausible mechanism through which information transfers hypothesized in more traditional empirical papers actually occur.
 
-That private communication with management is an important source of information is confirmed by  \citet{Brown:2015kd}. \citet{Brown:2015kd} survey and interview financial analysts to understand how they think about a variety of issues. Their findings suggest that analysts' views on earnings quality differ from those researchers focus on. For instance, analysts do not use the ``red flags" used by academics to identify manipulation; and analysts generally are not attempting to uncover manipulation.
-% Unintelligible sentence end:  and,  that forecasts are used to figure out the stock price target and are not an end in themselves.
+That private communication with management is an important source of information is confirmed by  \citet{Brown:2015kd}. \citet{Brown:2015kd} survey and interview financial analysts to understand how they think about a variety of issues. 
+Their findings suggest that analysts' views on earnings quality differ from those researchers focus on. 
+For instance, analysts do not use the ``red flags" used by academics to identify manipulation; and analysts generally are not attempting to uncover manipulation and use forecasts, not as ends in themselves, but figure out the stock price target.
 These insights should shape research seeking to develop hypotheses and models of accounting information and analyst behavior.
-
-
-% Use Groysberg, Healy, and Maber - compensation of analysts?  I guess this is new insights, but not from a descriptive study.  Just new proprietary data?
-
-
-% Clearly, there are other similar surveys - Dichev et al, JAE (2013).
-% These surveys seem pretty odd to me.
-% I guess my preference would be for there to be more structured or semi-structured interviews as opposed to impersonal surveys.  Looking for commonalities across many different interviews.
 
 Other fields provide interesting examples likely to be of interest to accounting researchers.
 For example, \citet{Ahern:2014id} examines 183 illegal insider networks using primary source documents from the SEC, DOJ, and various public records. 
@@ -692,6 +685,7 @@ Insiders are more likely to be an accountant or lawyer, less likely to be a Demo
 These results provide new institutional insights have have the potential to identify causal mechanisms regarding information transfer and disclosure.
 In economics, \citet{Bloom:2007ed} provide a descriptive study of 732 medium-sized firms to assess whether management practices, such as lean manufacturing and use of incentives, are related to productivity. These descriptive results have lead to the development of theoretical models of innovating and productivity along with increasingly sophisticated empirical studies.
 
+% Although it is a matter of taste, a number of the papers in our review seem to ask research questions and use causal mechanisms that are far removed from real world issues.
 
 %Select a topic or setting of real interest to accounting researchers - analysts, loan officers, executives making strategic decisions, compensation committee members, etc. 
 % How do managers and boards make decisions on ``disclosure quality" (an aside - do they even know what disclosure quality means and do they care?  Does this construct have any real relevance in the real world?)  
@@ -710,6 +704,9 @@ In economics, \citet{Bloom:2007ed} provide a descriptive study of 732 medium-siz
 %Ultimately uUse these mechanisms to develop structural models with a plausible causal mechanism.
 %
 %Punchline: if you want to explain something observed, maybe it is a good idea to understand the phenomenon of interest first.
+
+%TODO: somewhere we want to note that there are some real field experiments -- John Roberts with the impact of consulting firms in India and a variety of related studies in Economics.  
+%TODO: There was also the SEC decision to randomly assign short selling restrictions.
 
 \section{Concluding remarks} \label{sec:conclude}
 In this paper, we examined the approaches used by accounting researchers to draw causal inferences from analyses of observational (or non-experimental) data. 
@@ -768,7 +765,7 @@ How the quantities $P(y|x)$ map into estimates of causal effects is not critical
 %
 
  \subsection{Application of back-door criterion to Figure \ref{fig:basic}}
-Applying the back-door criterion to Figure \ref{fig:confound} is straightforward and likely intuitive for all accounting researchers.
+Applying the back-door criterion to Figure \ref{fig:confound} is straightforward and intuitive.
 The set of variables $\{Z\}$ or simply $Z$ satisfies the criterion, as $Z$ is not a descendant of $X$ and $Z$ blocks the back-door path $X \leftarrow Z \rightarrow Y$.
 So by conditioning on $Z$, we can estimate the causal effect of $X$ on $Y$.
 This situation is a generalization of linear model in which $Y = X \beta + Z \gamma + \epsilon_Y$ and $\epsilon_Y$ is independent of $X$ and $Z$, but $X$ and $Z$ are correlated.
@@ -801,9 +798,8 @@ A variable $Z$ is an \emph{instrument} relative to the total effect of $X$ on $Y
 \end{enumerate}
 \end{definition}
 
-We use Figure \ref{fig:agl} as a causal diagram for evaluating the instrument used in \citet{Armstrong:2013io}.
-
-Applying this definition, we have $S = \textit{Compensation}_{t-1}$,
+Applying this definition to Figure \ref{fig:agl}, we can evaluating the instrument used in \citet{Armstrong:2013io}.
+There we have have $S = \textit{Compensation}_{t-1}$,
 $X =\textit{Shareholder support}_{t}$, $Y = \textit{Compensation}_{t-1}$, and $Z = \textit{ISS recommendation}_{t}$.
 We use $U$ to denote the observed variables depicted in the dashed box of Figure \ref{fig:agl}.
 If create $G_{\overline{X}}$ by deleting the single arrow emanating from $\textit{Shareholder support}_{t}$, we can see that there are two back-door paths running from $Y$ to $Z$: 
@@ -813,14 +809,14 @@ The second requirement is clearly satisfied as $Z$ is directly linked to $X$.\fo
 This is a necessary condition, but assumptions about functional form are also critical in using an instrument to estimate a causal effect.
 However, this is not essential to our argument here.}
 %
-Note that analysis can be expressed intuitively as requiring that the ISS recommendation only affects $\textit{Compensation}_{t+1}$ through its effect on $\textit{Shareholder support}_{t}$, and that $\textit{Compensation}_{t+1}$ has an effect on $\textit{Shareholder support}_{t}$.
+Note that analysis can be expressed intuitively as requiring that the ISS recommendation only affects \textit{Compensation}$_{t+1}$ through its effect on \textit{Shareholder support}$_{t}$, and that \textit{Compensation}$_{t+1}$ has an effect on \textit{Shareholder support}$_{t}$.
 
 But this analysis presumes that the causal diagram Figure \ref{fig:agl} is correct.
 \citet[p.\,912]{Armstrong:2013io} note that the ``validity of this instrument depends on ISS recommendations not having an influence on future compensation decisions conditional on shareholder support (i.e., firms listen to their shareholders, with ISS having only an indirect impact on corporate policies through its influence on shareholders' voting decisions)."
 
-This assumption represented in Figure \ref{fig:agl} by the \emph{absence} of an arrow from $\textit{ISS recommendation}_t$ to $\textit{Compensation}_{t+1}$.
-Unfortunately, this assumption seems inconsistent with the findings of \citet{Gow:2013aa}, who provide evidence that firms are carefully calibrating compensation plans (i.e., factors that directly affect $\textit{Compensation}_{t+1}$) to comply with the requirements of ISS's policies, implying a path from $\textit{ISS recommendation}_t$ to $\textit{Compensation}_{t+1}$ that does not pass through $\textit{Shareholder support}_{t}$.
-The plausible existence of this path suggests that the instrument of \citet[p.\,912]{Armstrong:2013io} is not credibly valid for the causal effect they seek to estimate.
+This assumption represented in Figure \ref{fig:agl} by the \emph{absence} of an arrow from \textit{ISS recommendation}$_t$ to \textit{Compensation}$_{t+1}$.
+Unfortunately, this assumption seems inconsistent with the findings of \citet{Gow:2013aa}, who provide evidence that firms are carefully calibrating compensation plans (i.e., factors that directly affect \textit{Compensation}$_{t+1}$) to comply with the requirements of ISS's policies, implying a path from \textit{ISS recommendation}$_t$ to \textit{Compensation}$_{t+1}$ that does not pass through \textit{Shareholder support}$_{t}$.
+This path is represented in Figure \ref{fig:agl2} and the plausible existence of this path suggests that the instrument of \citet[p.\,912]{Armstrong:2013io} is not credibly valid for the causal effect they seek to estimate.
 
 
 \end{document}
