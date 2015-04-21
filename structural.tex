@@ -128,8 +128,7 @@ SALARY is the CEO's annual base salary, and the $X_C$ are observable factors imp
 For expositional purposes, we assume away $X_B$ and $X_C$ in our analysis.}
 The EQUITY variable is intended to capture the idea that the more a CEO is rewarded for performance, the greater his or her incentive to misstate results so as to increase (perceived) performance.
 Thus, we would expect the unknown coefficient $b_1$ to be positive if providing more equity incentives increases the tendency of the CEO to misstate earnings, but expect $b_1 < 0$ if it reduces that tendency.
-Similarly, the SALARY variable is included in costs because previous studies have hypothesized that the higher a CEO's guaranteed base pay, the more the CEO perceives ex ante that it is risky to make misstatements.
-%TODO: PCR: This doesn't quite fit the model. -IDG
+Similarly, we include the variable SALARY as a driver of the cost of making misstatements.
 Thus, we would expect the unknown coefficient $m_1$ also to be positive.
 For now, we leave the other $X$ variables unnamed.
 
@@ -145,7 +144,6 @@ Further, the probability of a restatement becomes
 \end{equation}
 where $\theta_0=(1-p_A) \times p_{E}, \theta_1 = (1 - p_A)(1 - p_I) b_0 - m_0, 
 \theta_2 = (1 - p_A)(1 - p_I) b_1,$ and $\theta_3 = - m_1$. 
-%TODO: PCR: Should it be \theta_0=(1-p_A) \times p_{I}?
 
 Apart from the scalar multiple $\theta_0$, which can be absorbed into the probability statement (and thus is not identified), this probability model has the form of  a familiar binary choice (e.g., a probit or logit model).
 Thus, the value of the structure imposed so far is that it can motivate the application of a familiar statistical model \citep[as in]{Efendi:2007ja}, as well as explain how the estimated coefficients are potentially connected to quantities that impact the probability of a misstatement.
@@ -170,16 +168,10 @@ About three-quarters of the sample has a Big 4 accounting firm as its auditor.
 The fraction of directors with financial expertise is less than ten percent. 
 The average firm has about 4.4 business segments and is primarily based in the United States.
 
-Absent a theoretical model of misstatement, most empirical analyses of these data would seek to estimate the effect of  them by regressing the restatement indicator on the predictors listed in Table \ref{tab:desc}.
-%TODO: PCR: People run these regressions to test a causal hypothesis. Whether they should do this is a separate question. If we think they shouldn't do this, we should say so. We can't let people off the hook by saying this is purely descriptive or predictive; that's not how they are used.
-Such a regression can either be described as showing how the probability of a restatement co-varies with the right hand side variables, or it can be described as a prediction equation.
-Our structural model allows us to say more, particularly when it comes to the signs of the SALARY and EQUITY variables.\footnote{
-By including the other variables on the right hand side, we are in essence maintaining they belong in $X_C$, $X_B$, or both sets of regressors.}
-
 Table \ref{tab:logit} reports the results of logit regressions in which the dependent variable is the restatement indicator variable. 
 The table contains both a simple specification containing an intercept along with the two CEO pay variables, and a more intricate specification involving the other variables we have in our data.
 For each specification we report the estimated coefficients of the logit and the corresponding marginal effects evaluated at the sample averages of the exogenous variables.
-%TODO: Explain marginal effects. (I would explain them in the table in which they appear. -IDG).
+
 The results for the pay coefficients in both specifications run counter those the previous accounting literature might predict and counter to those predicted by the structural model for $b_1 > 0$.
 Specifically, more base pay is associated with more restatements, while more equity-based compensation is associated with fewer restatements.
 
@@ -397,7 +389,7 @@ As was demonstrated above when examining the model with the non-strategic audito
  \cite{Nikolaev:2014er} provide an analysis of misreporting and accounting quality.
  The critical assumption in \citet[p.\,6]{Nikolaev:2014er} is the ``idea that both operating cash flow and earnings can be viewed as noisy measures of underlying economic performance."
 %DL: Not sure that I understand the discussion here on Nikolaev
-But, even if there is such a notion as ``underlying economic performance" and even if the goal in measuring earnings is to measure this, the fact that cash flow from operations is intended to measure something quite different (e.g., investing cash flows affect subsequent earnings quite differently from operating cash flows) suggests that this may not be an entirely credible identifying assumption for a structural model.
+But the fact that cash flow from operations is intended to measure something quite different (e.g., investing cash flows affect subsequent earnings quite differently from operating cash flows) suggests that this may not be the best assumption with which to identify a structural model.
 
 Finally, there is no guarantee that after all the effort that went into developing the model, that the estimates will make sense or that the model will otherwise be validated.
 Despite these challenges, we believe that there is significant value in making the theory underlying empirical research transparent and rigorous.
