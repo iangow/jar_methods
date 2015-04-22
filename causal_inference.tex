@@ -215,10 +215,10 @@ If treatment assignment is driven by unobserved confounding variables, then DD a
 We are not confident that there are many settings in accounting that are likely to satisfy random treatment assignment.
 This then means that there is a (heavy) burden on the users of these methods to explain why they believe that DD or fixed-effect estimators allow them to recover unbiased estimates of causal effects.
 
-Even when assignment to treatment is random, care needs to be taken in interpreting estimates as causal effects.
-For example, \citet[p.\,1305]{Cadman:2014cr} conjecture that ``VCs have strong incentives to design compensation schemes that provide CEOs with short-horizon incentives in the fiscal years after the IPO." 
-The main analysis in support of this hypothesis is a regression DD analysis \citep[pp.\,233--241]{Angrist:2008vk} using the pre-IPO year as the pre-treatment period, and the two years after IPO as the post-treatment period. 
-However, one treatment of interest (i.e., being VC-backed) is likely implemented well before the ``pre-treatment" period, making it difficult to consider the pre-treatment values of the outcome variable as not being caused by the treatment.
+%Even when assignment to treatment is random, care needs to be taken in interpreting estimates as causal effects.
+%For example, \citet[p.\,1305]{Cadman:2014cr} conjecture that ``VCs have strong incentives to design compensation schemes that provide CEOs with short-horizon incentives in the fiscal years after the IPO." 
+%The main analysis in support of this hypothesis is a regression DD analysis \citep[pp.\,233--241]{Angrist:2008vk} using the pre-IPO year as the pre-treatment period, and the two years after IPO as the post-treatment period. 
+%However, one treatment of interest (i.e., being VC-backed) is likely implemented well before the ``pre-treatment" period, making it difficult to consider the pre-treatment values of the outcome variable as not being caused by the treatment.
 
 \subsubsection{Propensity score matching}
 Another method that has become popular in accounting research is propensity score matching (PSM).
@@ -342,7 +342,7 @@ In their analysis they include as controls variables such as \emph{Toptier Under
 But, given the timing of events, being VC-backed affecting the choice of underwriter is the most plausible causal relation between these two variables.
 Also, given that \citet{Cadman:2014cr} include pre-IPO observations, it is plausible that the CEO's incentive horizons would affect variables such as \emph{Toptier Underwriter} and \emph{R\&D/Assets}.
 If these assertions are correct,  \emph{Toptier Underwriter} and \emph{R\&D/Assets} are colliders.
-While these variables may have little impact on the results of \citet{Cadman:2014cr}, we argue that more discussion for why researchers include controls is warranted.
+While these variables may have little impact on the results of \citet{Cadman:2014cr}, we argue that more discussion about why researchers include controls is warranted.
 While the with-and-without-controls approach used by \citet{Larcker:2007aa} has intuitive appeal, a more robust approach would involve careful thinking about the plausible causal relations between the treatment variables, the outcomes of interest, and the candidate control variables.
 
 \section{Quasi-experimental methods in accounting research} \label{sec:quasi}
@@ -356,7 +356,7 @@ Natural experiments occur when observations are assigned by nature (or some othe
 Truly (as if) random assignment to treatment and control provides a sound basis for causal inference, enhancing the appeal of natural experiments for social science research.
 However, \citet[\,p.3, emphasis added]{Dunning:2012tt} argues that this appeal ``may provoke \emph{conceptual stretching}, in which an attractive label is applied to research designs that only implausibly meet the definitional features of the method.'' 
 
-Our survey of accounting research identified five papers that exploited either a ``natural experiment'' or ``exogenous shock'' to identify causal effects \citep{Lo:2013jk,Aier:2014ii,Kirk:2014gx,Houston:2014hv,Hail:2014fq}.
+Our survey of accounting research in 2014 identified five papers that exploited either a ``natural experiment'' or ``exogenous shock'' to identify causal effects \citep{Lo:2013jk,Aier:2014ii,Kirk:2014gx,Houston:2014hv,Hail:2014fq}.
 An examination of these papers reveals how difficult it is to find a clear, natural experiment in observational data.
 
 \cite{Aier:2014ii} exploit a 1991 Delaware court ruling that ``expanded the scope of directors' fiduciary duties to include creditors when a Delaware incorporated firm is in the `vicinity of insolvency'" as a ``natural experiment'' for the purpose of understanding the causal effect of debtholders' demand for conservatism (the treatment variable) on financial reporting conservatism (the outcome of interest).
@@ -389,27 +389,26 @@ The evidence from accounting research published in 2014 suggests that accounting
 A natural experiment (i) sorts firms into treatment and control groups and (ii) such assignment is ``as if" random.
 Given that most of the putative natural experiments or ``exogenous shocks" do not satisfy the first criterion, discussion of the second criterion is not meaningful.
 
-One paper with a credible natural experiment is that studied by \citet{Michels:2015}.
-\citet{Michels:2015} exploits the difference in disclosure requirements for significant events that occur before financial statements are issued that differ according to whether the event occurs before or after the balance sheet date.
+One paper with a credible natural experiment is that studied by \citet{Michels:2015aa}.
+\citet{Michels:2015aa} exploits the difference in disclosure requirements for significant events that occur before financial statements are issued that differ according to whether the event occurs before or after the balance sheet date.
 He finds evidence that the market reacts more strongly to recognized events.
 Even with such a credible natural experiment, there are concerns that can arise.
-As recognized by \citet{Michels:2015}, there are possibly different materiality criteria that affect the relation been underlying events and the disclosures the he relies on.
+As recognized by \citet{Michels:2015aa}, there are possibly different materiality criteria that affect the relation been underlying events and the disclosures the he relies on.
 
 Another credible natural experiment is examined in \citet{Li:2015he}, who study the experiment whereby the SEC ``mandated temporary suspension of short-sale price tests for a set of randomly selected pilot stocks" \citet[p.\,80]{Li:2015he}.
 \citet[p.\,79]{Li:2015he} conjecture ``that managers respond to a positive exogenous shock to short selling pressure \dots by reducing the precision of bad news forecasts."
 But if the exogenous shock affects the properties of the forecast (i.e., makes it endogenous), the ``natural experiment" aspect of the research design is undone by the decision to include such properties in the regression analysis.\footnote{\citet{Li:2015he} include the magnitude of the forecast surprise (\textit{MFSURP}) in their regressions (e.g., regressions in Table 2 where abnormal returns around the forecast is the dependent variable).}
 
 Our view is that true natural experiments are likely to be rare.
-Certainly researchers should exploit these natural experiments when they occur \citep[as in][]{Michels:2015}, but that care is needed in doing so and that researchers should not to stretch the concept to situations where it does not apply.
+Certainly researchers should exploit these natural experiments when they occur \citep[as in][]{Michels:2015aa}, but that care is needed in doing so and that researchers should not to stretch the concept to situations where it does not apply.
 % Are there any good examples of natural experiments in accounting?  The SHO experiment is one, but the one JAR paper on it is very messed up. I could add discussion of this later.
-
 % Add something about what can be learning from "shocks" -- in my email to you:  I think that we need to include something about "shocks" (not necessarily exogenous) -- this is an interesting place to look for effects.  Not really causal, but you can get some insights into forcing a company to change something (we discussed staggered board last week).  Not telling us about the causal impact of staggered board, but perhaps the cost or benefit to the company when they make this decision.
-
-
 
 \subsection{Instrumental variables}
 \citet[p.114]{Angrist:2008vk} describe instrumental variables (IV) as ``the most powerful weapon in the arsenal of [statistical tools]" in econometrics. 
-Accounting researchers have long used instrument variables to address concerns about endogeneity \citep{Larcker:2010fq} and continue to do so.  Our survey of research published in 2014 identifies 10 papers using instrumental variables.\footnote{These are \citet{Cannon:2014im,Cohen:2014jl,Kim:2014fm,Vermeer:2014bs,Fox:2014io,Guedhami:2013cj,Houston:2014hv,deFranco:2014ct,Erkens:2014hj} and \citet{Correia:2014fp}.}
+Accounting researchers have long used instrument variables to address concerns about endogeneity \citep{Larcker:2010fq} and continue to do so.
+Our survey of research published in 2014 identifies 10 papers using instrumental variables.\footnote{
+These are \citet{Cannon:2014im,Cohen:2014jl,Kim:2014fm,Vermeer:2014bs,Fox:2014io,Guedhami:2013cj,Houston:2014hv,deFranco:2014ct,Erkens:2014hj} and \citet{Correia:2014fp}.}
 However, much has been written on the challenges for researchers in using instrumental variables (IV) as the basis for causal inference \citep[e.g.,][]{Roberts:2013cz}. 
 
 \subsubsection{Evaluating IVs requires careful causal (not statistical) reasoning}
