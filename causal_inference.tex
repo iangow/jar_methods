@@ -109,6 +109,7 @@ We introduce causal graphs, a device that can clearly communicate the causal rea
 These graphs should prove useful to accounting researchers who wish to communicate the cause-and-effect logic underlying their regression analyses.
 %Nonetheless, the fact that treatment is not randomly assigned leads many researchers to be skeptical of any efforts to use regression analyses of observational data for causal inference.
 
+
 Recently, some social scientists have held out hope that better research designs and statistical methods can increase the credibility of causal inferences.
 For example, \citet{Angrist:2010jv} claim that ``empirical microeconomics has experienced a credibility revolution, with a consequent increase in policy relevance and scientific impact.''  
 \citet[p. 26]{Angrist:2010jv} argue that such ``improvement has come mostly from better research designs, either by virtue of outright experimentation or through the well-founded and careful implementation of quasi-experimental methods."
@@ -136,8 +137,7 @@ We see at least three useful paths forward:
 
 \vskip -10pt
 \begin{itemize}
-\item At a minimum, there should be an increased emphasis on the study of causal mechanisms. Here we believe that causal diagrams can help clarify what assumptions an accounting researcher must make 
-about putative causes and putative effects. Progress can occur even in the absence of knowing the exact process that generated the (observational) data.
+\item At a minimum, there should be an increased emphasis on clearly communicating the assumptions needed to draw a causal inference. Here we believe that causal diagrams can help clarify what assumptions an accounting researcher must make about putative causes and putative effects. Researchers also need to be clearer about why these assumptions are reasonable given the specifics of their application.
 \item We believe that there should be an increased use of structural modeling methods. Structural models provide a more complete characterization of the behavior and institutions that produce a phenomenon of interest. They also allow researchers to reason about what would happen if some features of the model change. However, we certainly acknowledge that these advantages are also associated with important disadvantages. 	%TODO: Flesh this out somewhat. What are the benefits of doing structural modeling?
 \item There are many questions in accounting that have not yet be addressed by formal models.  In these settings, it is important to conduct descriptive research aimed at developing hypotheses, particularly when it comes to causes and effects. At present, most hypotheses that are tested
 are only loosely tied to the accounting institutions and phenomena of interest. One goal of this approach is to entice theorists to build models
@@ -269,6 +269,7 @@ We use Figure \ref{fig:basic} to illustrate the basic ideas of causal diagrams a
 Figure \ref{fig:basic} depicts three variants of a simple causal graph with three variables, all of which are observable.
 In each case, we are interested in estimating the causal effect of $X$ on $Y$ in the presence of a third variable, $Z$ that is related to $X$ and $Y$ in some fashion.
 The only difference between the three graphs is in the direction of arrows linking either $X$ and $Z$ or $Y$ and $Z$.
+
 The boxes (or ``nodes") represent random variables and the arrows (or ``edges") connecting boxes represent hypothesized causal relations, with each arrow pointing from a cause to a variable assumed to be affected by it.\footnote{
 That arrows have a direction accounts for the ``D" in DAG (Directed Acyclic Graph). 
 The acyclic (``A") component means that there must be no cycles in the graph. 
