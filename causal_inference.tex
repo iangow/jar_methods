@@ -345,7 +345,7 @@ While the with-and-without-controls approach used by \citet{Larcker:2007aa} has 
 \section{Quasi-experimental methods in accounting research} \label{sec:quasi}
 
 While most studies in accounting use methods of conditioning on confounding variables in some kind of regression or matching framework, a number of studies use quasi-experimental methods that rely on ``as if" random assignment to identify causal effects \citep{Dunning:2012tt}.
-Of the 91 papers in accounting research in 2014 seeking to draw causal inference from observational data, we identify 14 that use quasi-experimental methods for inferences. Despite the low count, we believe that papers using these methods are considered stronger contributions to empirical accounting research and there are pressures from editors and reviewers to incorporate quasi-experimental approaches into research designs.
+Of the 91 papers in accounting research in 2014 seeking to draw causal inference from observational data, we identify 14 that use quasi-experimental methods for inferences. Despite the low count, we believe that papers using these methods are considered stronger contributions to empirical accounting research and there seems a clear trend toward the use of quasi-experimental approaches.
 In this section, we discuss and evaluate the use of these methods in accounting research.
 
 %TODO: somewhere we want to note that there are some real field experiments -- John Roberts with the impact of consulting firms in India and a variety of related studies in Economics.  
@@ -357,17 +357,19 @@ Truly (as if) random assignment to treatment and control provides a sound basis 
 However, \citet[\,p.3, emphasis added]{Dunning:2012tt} argues that this appeal ``may provoke \emph{conceptual stretching}, in which an attractive label is applied to research designs that only implausibly meet the definitional features of the method.'' 
 
 Our survey of accounting research identified five papers that exploited either a ``natural experiment'' or ``exogenous shock'' to identify causal effects \citep{Lo:2013jk,Aier:2014ii,Kirk:2014gx,Houston:2014hv,Hail:2014fq}.
-But closer examination suggests that most of these papers misapply the fundamental idea of natural experiments  In fact, these papers seem to be good examples of ``conceptual stretching.''
+An examination of these papers reveals how difficult it is to find a clear, natural experiment in observational data.
 
-\cite{Aier:2014ii} exploit a 1991 Delaware court that ``expanded the scope of directors' fiduciary duties to include creditors when a Delaware incorporated firm is in the `vicinity of insolvency'" as a ``natural experiment'' for the purpose of understanding the causal effect of debtholders' demand for conservatism (the treatment variable) on financial reporting conservatism (the outcome of interest).
+\cite{Aier:2014ii} exploit a 1991 Delaware court ruling that ``expanded the scope of directors' fiduciary duties to include creditors when a Delaware incorporated firm is in the `vicinity of insolvency'" as a ``natural experiment.'' They use this ruling to identify the causal effect of debtholders' demand for conservatism (the treatment variable) on financial reporting conservatism (the outcome of interest).
 But it is completely unclear how this ``natural experiment'' sorted firms into differing levels of debtholders' demand for conservatism, let alone why this assignment is considered to be ``as if" random.
 
-\citet{Kirk:2014gx} ``exploit the natural experiment setting created by the exogenous shock of Reg FD" to examine ``the effect of investments in internal investor relations (IR) departments on firm outcomes."
-Given that the treatment of interest in \citet{Kirk:2014gx} is the having an IR department, only a event that randomly assigned firms to having or not having such a department would qualify as a natural experiment for this research setting. 
+\citet{Kirk:2014gx} ``exploit the natural experiment setting created by the exogenous shock of Reg FD" to examine ``the effect of investments in internal investor relations (IR) departments on firm outcomes." 
+Given that the treatment is having an IR department, only a event that randomly assigned firms to having or not having such a department would qualify as a truly natural experiment. An additional interpretational issue is whether Reg FD impacted firm outcomes only through IR departments. To know this, we require a correctly specified model of firm outcomes. Otherwise, there is a risk that
+a nonrandomly assigned Reg FD stands in for omitted variables.
 
 Similarly, \citet{Houston:2014hv} analyzes ``whether the political connections of listed firms in the United States affect the cost and terms of loan contracts.'' 
 They argue that ``the recent financial crisis can be viewed as a major exogenous shock, the effects of which may vary depending on whether the firm is politically connected.'' 
-But this is not what is needed for a valid natural experiment, which would instead randomly sort firms into those with political connections and those without. 
+But this is not what is needed for a valid natural experiment, which would instead randomly sort firms into those with political connections and those without. Without
+such random assignment, one must lean heavily on having an otherwise correct model of loan costs and terms.
 
 \citet{Hail:2014fq} study the ``exogenous shocks" of mandatory IFRS adoption and enforcement of insider trading laws and their effect on dividend payments.
 While these shocks do sort firms into treatment and control groups, they equally clearly do not do so randomly, as they apply to firms in the affected countries and a variety of country-level effects plausibly exist. 
