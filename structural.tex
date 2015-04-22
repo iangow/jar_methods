@@ -53,7 +53,8 @@ In doing so, we illustrate the value of a structural model in understanding thes
 \subsubsection{A model with a non-strategic auditor}
 In our models, we assume that misstatements  are deliberate and made by a single agent, the `CEO.'
 Though this is clearly a strong assumption, it allows us to deliver clear predictions about the unobserved rate of misstatements.\footnote{
-A strong (visible) assumption can be seen as a weakness of the model, but also can be seen as an advantage.  For example, if the assumption is considered inappropriate, it is very clear how to revise the model.} 
+A strong (visible) assumption can be seen as a weakness of the model, but also can be seen as an advantage.
+For example, if the assumption is considered inappropriate, it is very clear how to revise the model.} 
 The CEO is assumed to be rational in the sense that he or she trades off the expected benefits and costs of misstatements when deciding whether to misstate.
 Suppose that the CEO receives a benefit of $B^*$ from the \emph{successful} manipulation of earnings (i.e., a misstatement that is not detected either by the firm's auditors before a report is released or by subsequent investigations). 
 
@@ -142,7 +143,7 @@ Further, the probability of a restatement becomes
 \begin{equation} \label{restate1}
 \mbox{Pr(Restate)} = \theta_0 \mbox{Pr}\left(\, \theta_1 + \theta_2 \mbox{EQUITY} + \theta_3 \mbox{SALARY}  \ge \xi \,\right)
 \end{equation}
-where $\theta_0=(1-p_A) \times p_{E}, \theta_1 = (1 - p_A)(1 - p_I) b_0 - m_0, 
+where $\theta_0=(1-p_A) \times p_I, \theta_1 = (1 - p_A)(1 - p_I) b_0 - m_0, 
 \theta_2 = (1 - p_A)(1 - p_I) b_1,$ and $\theta_3 = - m_1$. 
 
 Apart from the scalar multiple $\theta_0$, which can be absorbed into the probability statement (and thus is not identified), this probability model has the form of  a familiar binary choice (e.g., a probit or logit model).
@@ -201,9 +202,9 @@ To make matters simple, suppose that the auditor detects manipulation with proba
 Let the cost of high effort be a fixed cost $C_A > 0$. 
 Without loss of generality suppose the cost of low effort is zero. 
 When deciding whether to audit with high or low effort, the auditor perceives a cost to its reputation, $C_R$, to not detecting a misstatement that is subsequently caught by an external investigations. 
-This structure implies that the total cost of high effort to the auditor is $C_A + (1-p_{AH}) \times p_E \times C_R$ or the cost of high effort plus the expected cost of missing a misstatement that is subsequently caught with probability $p_E$. 
+This structure implies that the total cost of high effort to the auditor is $C_A + (1-p_{AH}) \times p_I \times C_R$ or the cost of high effort plus the expected cost of missing a misstatement that is subsequently caught with probability $p_I$. 
 The total expected cost of
-low effort is similarly equal to $(1-p_{AL}) \times p_E \times C_R$. 
+low effort is similarly equal to $(1-p_{AL}) \times p_I \times C_R$. 
 
 To complete this new model, we need to make an (equilibrium) assumption about how the CEO and firm auditor interact. 
 Following the literature, we assume that the two simultaneously and independently make decisions, and that their strategies form a Nash equilibrium.
@@ -211,19 +212,19 @@ That is, we assume the players' strategies are such that they optimize their obj
 
 In this type of auditing game, the Nash equilibrium has the CEO and the auditor playing mixed (randomized) strategies.
 That is, the auditor will independently exert high effort with probability $\alpha^*$ and the manager independently misstates with probability $\beta^*$. 
-These probabilities are such that each has no incentive to change their randomized strategy.  That is:
-\begin{quote}
-(i) the manager is indifferent between misstating and not misstating, or:
+These probabilities are such that each has no incentive to change their randomized strategy. 
+That is:
+%\vspace{-3mm}
+\begin{enumerate}
+\item the manager is indifferent between misstating and not misstating, or:
 \begin{equation}\label{manager}
 (1 - p_A^*)(1 - p_I) B - C_M = 0 
 \end{equation}
 where $p_A^* = \alpha^* p_{AH }+ (1-\alpha^*) p_{AL}$ is the equilibrium 
 probability a misstatement is detected; and,
-\end{quote}
-\begin{quote} (ii) the auditor must be
-indifferent between exerting high and low effort, or
+\item the auditor is indifferent between exerting high and low effort, or
 $$ \beta^* (1-p_{AH}) p_G C_R + C_A = \beta^* (1-p_{AL}) p_I C_R .$$
-\end{quote}
+\end{enumerate}
 
 Solving these two equations for the equilibrium probabilities $\alpha^*$ and $\beta^*$
 yields:
@@ -244,7 +245,7 @@ $ B > \frac{C_M}{1 - p_I}  $.}
 \begin{array}{lcl}
 \mbox{Pr(Restate)} & = &  \mbox{Pr(Misstate)} \times \mbox{Pr(Auditor Misses)} \times
 \mbox{Pr(Investigation Finds)}\\[1em]
-& = & \beta^* \times (1-p_A^*) \times p_{E}
+& = & \beta^* \times (1-p_A^*) \times p_I
 \end{array}\end{equation}
 This equation tells us how the observed (or measurable) probability of a restatement is related to
 the unobserved frequency of misstatements. In particular, if we knew the frequency with which auditors and subsequent investigations caught misstatements, we could easily link the two. Otherwise,
@@ -332,8 +333,8 @@ Here, for illustrative purposes we can ask what would happen to misstatements an
 The value of having an equilibrium model to analyze this change is that we can see how the auditing process would adjust to the removal of CEO incentives to misstate. 
 From the equilibrium strategies in equation (\ref{equilstrat}), we see that removing bonus pay does not change the equilibrium frequency of misstatements, but does change the frequency of high effort auditing.
 From (\ref{equilpr}), the model and the data we find
-$$ \dfrac{\mbox{Pr(Restate }\vert \mbox{ No Bonus)}}{\mbox{Pr(Restate }\vert \mbox{ Bonus)}}=\dfrac{\beta^* \times (1-p_A^{**}) \times p_{E}}
-{\beta^* \times (1-p_A^{*}) \times p_{E}} = \dfrac{(1-p_A^*)}{(1-p_A^*)} = 1.10.$$
+$$ \dfrac{\mbox{Pr(Restate }\vert \mbox{ No Bonus)}}{\mbox{Pr(Restate }\vert \mbox{ Bonus)}}=\dfrac{\beta^* \times (1-p_A^{**}) \times p_{I}}
+{\beta^* \times (1-p_A^{*}) \times p_{I}} = \dfrac{(1-p_A^*)}{(1-p_A^*)} = 1.10.$$
 This results tells us that the restatement rate would increase by 10\% (from 10.24\% to 11.25\%) if bonuses were withdrawn. 
 The fact that the restatement rate goes up may at first seem somewhat odd given that the benefits to the CEOs have fallen. 
 The model, however, shows that the increase  comes about because the auditors exert \emph{less} effort in detecting misstatements, thereby catching fewer, leaving more for subsequent investigations to detect.
