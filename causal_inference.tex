@@ -105,7 +105,7 @@ Despite this awareness, many accounting ``treatments" are not randomly assigned,
 
 To understand what is actually done in empirical accounting research, we examined all empirical papers published in the leading accounting journals in 2014. 
 We found that overwhelmingly these papers used observational data and descriptive statistical models. For example, many believe that regression models can consistently estimate the causal impact of $X$ on $y$. This research makes strong assumptions about the functional relationship between $X$ and $y$, and that sufficient controls are present to account for changes in conditions related to changes in $X$.
-Section \ref{sec:causal} examines these assumptions in detail. We introduce causal graphs, a device that can clearly communicate the causal reasoning underlying an empirical model. These graphs should prove useful to accounting researchers who wish to communicate the cause-and-effect logic underlying a regression analysis.
+Section \ref{sec:causal} examines these assumptions in detail. We introduce causal graphs, a device that can clearly communicate the causal reasoning underlying an empirical model. These graphs should prove useful to accounting researchers who wish to communicate the cause-and-effect logic underlying their analysis.
 %Nonetheless, the fact that treatment is not randomly assigned  leads many researchers to be skeptical of any efforts to use regression analyses of observational data for causal inference.
 
 % Causal diagrams are of course no magic fix for the modeling issues raised by observational data.
@@ -139,8 +139,7 @@ We see at least three useful paths forward:
 
 \vglue -10pt
 \begin{itemize}
-\item At a minimum, there should be an increased emphasis on the study of causal mechanisms. Here we believe that causal diagrams can help clarify what assumptions an accounting researcher must make 
-about putative causes and putative effects. Progress can occur even in the absence of knowing the exact process that generated the (observational) data.
+\item At a minimum, there should be an increased emphasis on clearly communicating the assumptions needed to draw a causal inference. Here we believe that causal diagrams can help clarify what assumptions an accounting researcher must make about putative causes and putative effects. Researchers also need to be clearer about why these assumptions are reasonable given the specifics of their application.
 \item We believe that there should be an increased use of structural modeling methods. Structural models provide a more complete characterization of the behavior and institutions that produce a phenomenon of interest. They also allow researchers to reason about what would happen if some features of the model change. However, we certainly acknowledge that these advantages are also associated with important disadvantages. 	%TODO: Flesh this out somewhat. What are the benefits of doing structural modeling?
 \item There are many questions in accounting that have not yet be addressed by formal models.  In these settings, it is important to conduct descriptive research aimed at developing hypotheses, particularly when it comes to causes and effects. At present, most hypotheses that are tested
 are only loosely tied to the accounting institutions and phenomena of interest. One goal of this approach is to entice theorists to build models
@@ -279,7 +278,7 @@ We use Figure \ref{fig:basic} to illustrate the basic ideas of causal diagrams a
 Figure \ref{fig:basic} depicts three variants of a simple causal graph with three variables, all of which are observable.
 In each case, we are interested in estimating the causal effect of $X$ on $Y$ in the presence of a third variable, $Z$ that is related to $X$ and $Y$ in some fashion.
 The only difference between the three graphs is in the direction of arrows linking either $X$ and $Z$ or $Y$ and $Z$.
-the criterion developed by \citep{Pearl:2009vo} (see Appendix \ref{append}) implies that very different conditioning strategies are needed for each of the causal diagrams. The boxes (or ``nodes") represent random variables and the arrows (or ``edges") connecting boxes represent hypothesized causal relations, with each arrow pointing from a cause to a variable assumed to be affected by it.\footnote{
+\citet{Pearl:2009vo} (see Appendix \ref{append}) shows that very different conditioning strategies are required for each of the causal diagrams. The boxes (or ``nodes") in the diagrams represent random variables and the arrows (or ``edges") connecting boxes represent hypothesized causal relations, with each arrow pointing from a cause to a variable assumed to be affected by it.\footnote{
 That arrows have a direction accounts for the ``D" in DAG (Directed Acyclic Graph). 
 The acyclic (``A") component means that there must be no cycles in the graph. 
 Cycles cause obvious problems in causal reasoning.
@@ -293,12 +292,12 @@ While conditioning is much like the standard notion of ``controlling for" variab
 First, reflecting the non-parametric nature of causal diagrams in their most general form, conditioning in principle means estimating effects for each distinct level of the set of variables in $Z$.
 Second, as we discuss below, the inclusion of a variable in $Z$ may actually result in biased estimates of causal effects. 	
 
-Figure \ref{fig:confound} is straightforward and it is necessary to condition on $Z$ and that, by doing so, we can estimate the causal effect of $X$ on $Y$.
+Figure \ref{fig:confound} depicts the conventional case where it is necessary to condition on $Z$ to estimate the causal effect of $X$ on $Y$.
 This situation is a generalization of linear model in which $Y = X \beta + Z \gamma + \epsilon_Y$ and $\epsilon_Y$ is independent of $X$ and $Z$, but $X$ and $Z$ are correlated.
 In this case, it is well known that omission of $Z$ would result in a biased estimate of $\beta$, the causal effect of $X$ on $Y$, but by including $Z$ in the regression, we get an unbiased estimate of $\beta$.
-In this situation, $Z$ is a \emph{confounder}.
+Pearl  terms $Z$ in this case a \emph{confounder}.
 
-Figure \ref{fig:mech} is a bit different, and here we see that $Z$, which is a \emph{mediator} of the effect of $X$ on $Y$. No conditioning is required in this setting to obtain an unbiased estimate of the effect of $X$ on $Y$.
+Figure \ref{fig:mech} is a different. Here, $Z$, \emph{mediates} the effect of $X$ on $Y$. No conditioning is required in this setting to obtain an unbiased estimate of the effect of $X$ on $Y$.
 The back-door criterion not only implies that we need not condition on $Z$ to obtain an unbiased estimate of the causal effect of $X$ on $Y$, but that we should not condition of $Z$ to get such an estimate. 
 
 Finally in Figure \ref{fig:collider}, we have $Z$ acting as what \citet[p.\,17]{Pearl:2009kh} refers to as a ``collider" variable.\footnote{
