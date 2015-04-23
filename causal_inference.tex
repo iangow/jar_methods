@@ -356,27 +356,42 @@ Natural experiments occur when observations are assigned by nature (or some othe
 Truly (as if) random assignment to treatment and control provides a sound basis for causal inference, enhancing the appeal of natural experiments for social science research.
 However, \citet[\,p.3, emphasis added]{Dunning:2012tt} argues that this appeal ``may provoke \emph{conceptual stretching}, in which an attractive label is applied to research designs that only implausibly meet the definitional features of the method.'' 
 
-Our survey of accounting research in 2014 identified five papers that exploited either a ``natural experiment'' or ``exogenous shock'' to identify causal effects \citep{Lo:2013jk,Aier:2014ii,Kirk:2014gx,Houston:2014hv,Hail:2014fq}.
-An examination of these papers reveals how difficult it is to find a clear, natural experiment in observational data.
-Most papers examine ``exogenous shocks" that do not sort firms into treatment and control groups.
-Other papers use assignment to treatment and control that is not random (e.g., Reg FD or adoption of IFRS).
+Our survey of accounting research in 2014 identified five papers that exploited either a ``natural experiment'' or a ``exogenous shock'' to identify causal effects.\footnote{These are \citet{Lo:2013jk,Aier:2014ii,Kirk:2014gx,Houston:2014hv} and \citet{Hail:2014fq}.}
+An examination of these papers reveals how difficult it is to find a clear natural experiment in observational data.
 
-The evidence from accounting research published in 2014 suggests that accounting researchers apply the term ``natural experiment" to circumstances where it does not apply.
-A natural experiment (i) sorts firms into treatment and control groups and (ii) such assignment is ``as if" random.
-% Given that most of the putative natural experiments or ``exogenous shocks" do not satisfy the first criterion, discussion of the second criterion is not meaningful.
+First, some studies using exogenous shocks plausibly suffer from issues of confounding, as treatment assignment is non-random.
+For example, \citet{Hail:2014fq} study the effect of the ``exogenous shocks" of mandatory IFRS adoption and enforcement of insider trading laws on firms' dividend payments.
+While these shocks sort firms into treatment and control groups, they clearly do not do so randomly, as they apply to firms in specific countries and a variety of time-varying country-level effects plausibly exist.\footnote{
+According to Table 1 of \citet{Hail:2014fq}, about 60\% of treatment firms are European firms that adopted IFRS in 2005. Figure 1, Panel A of \citet{Hail:2014fq} suggests that most of the impact of IFRS adoption occurs three years after adoption; i.e., for European firms in 2008, when there may have been other reasons for reducing dividends that applied to those firms more than controls.}
 
-But extending our survey beyond research published in 2014, we find some papers with credible natural experiments.
+Second, because ``exogenous shocks" often do not directly sort firms into treatment and control groups, they rely on assumptions analogous to those required for instrumental variables.
+That is, the exogenous shock should not only be random, but should only affect the outcome through its effect on the treatment.\footnote{
+In some cases, if the necessary assumptions apply, it would be more appropriate to use instrumental variable methods to estimate causal effects.
+In other cases, \citep[e.g.][]{Aier:2014ii}, the treatment of interest is unobserved, making such an approach unfeasible.}
+For example, \cite{Aier:2014ii} exploit a 1991 Delaware court ruling as a ``natural experiment'' for the purpose of understanding the causal effect of debtholders' demand for conservatism (the treatment variable) on financial reporting conservatism (the outcome of interest).\footnote{
+The court ruling ``expanded the scope of directors' fiduciary duties to include creditors when a Delaware incorporated firm is in the `vicinity of insolvency.'"}
+For the court ruling to be a valid instrument for debtholders' demand for conservatism, it must only affect the outcome through its effect on the treatment of interest.
+But if the 1991 Delaware court ruling  ruling in question caused directors to dispose of assets leading to recognition of losses and affecting measures of conservatism, as it plausibly did, then the identification strategy is invalid.\footnote{
+Similar issues plausibly affect \citet{Houston:2014hv}, which uses the ``exogenous shock" of the 2008 financial crisis and the ``natural experiment" of midterm elections to study ``whether the political connections of listed firms in the United States affect the cost and terms of loan contracts,'' and \citet{Kirk:2014gx}, who ``exploit the natural experiment setting created by the exogenous shock of Reg FD" to examine ``the effect of investments in internal investor relations (IR) departments on firm outcomes."} 
+% Random assignment is also dubious here.
+
+The evidence from research published in 2014 suggests that accounting researchers apply the term ``natural experiment" to circumstances where it is not clear that it applies.
+While ``exogenous shocks" may provide interesting settings for research, if random assignment does not apply, then researchers should exercise caution in giving causal explanations to associations observed in the data.
+Readers should be alert to the fact that terms like ``exogenous shock" and ``natural experiment" are often used when ``as if" random assignment is not plausible.
+
+Extending our survey beyond research published in 2014, we find some papers with credible natural experiments.
 One such paper is \citet{Michels:2015aa}, who exploits the difference in disclosure requirements for significant events that occur before financial statements are issued that differ according to whether the event occurs before or after the balance sheet date.
 He finds evidence that the market reacts more strongly to recognized events.
-but even with such a credible natural experiment, there are concerns that can arise.
+But even with such a credible natural experiment, there are concerns that can arise.
 As recognized by \citet{Michels:2015aa}, there are possibly different materiality criteria that affect the relation been underlying events and the disclosures he relies on, and \citet{Michels:2015aa} takes care to address this concern.
 
-Another credible natural experiment is examined in \citet{Li:2015he}, who study the experiment whereby the SEC ``mandated temporary suspension of short-sale price tests for a set of randomly selected pilot stocks" \citet[p.\,80]{Li:2015he}.
+Another credible natural experiment is examined in \citet[p.\,80]{Li:2015he}, who study the experiment whereby the SEC ``mandated temporary suspension of short-sale price tests for a set of randomly selected pilot stocks."
 \citet[p.\,79]{Li:2015he} conjecture ``that managers respond to a positive exogenous shock to short selling pressure \dots by reducing the precision of bad news forecasts."
-But if the exogenous shock affects the properties of the forecast (i.e., makes it endogenous), the ``natural experiment" aspect of the research design is undone by the decision to include such properties in the regression analysis.\footnote{\citet{Li:2015he} include the magnitude of the forecast surprise (\textit{MFSURP}) in their regressions (e.g., regressions in Table 2 where abnormal returns around the forecast is the dependent variable).}
+But if the exogenous shock affects the properties of the forecast (i.e., makes it endogenous), the ``natural experiment" aspect of the research design is undone by the decision to include such properties in the regression analysis.\footnote{\citet{Li:2015he} include the magnitude of the forecast surprise (\textit{MFSURP}) in their regressions (e.g., regressions in Table 2 where abnormal returns around the forecast is the dependent variable).
+See \citet[p.\,116]{Imbens:2015aa} for discussion of ``the dangers of using a post-treatment variable \dots as a covariate."}
 
 Our view is that true natural experiments are likely to be rare.
-Certainly researchers should exploit these natural experiments when they occur \citep[as in][]{Michels:2015aa}, but that care is needed in doing so and that researchers should not to stretch the concept to situations where it does not apply.
+Certainly researchers should exploit these natural experiments when they occur \citep[e.g.][]{Michels:2015aa,Li:2015he}, but care is needed in doing so.
 % Are there any good examples of natural experiments in accounting?  The SHO experiment is one, but the one JAR paper on it is very messed up. I could add discussion of this later.
 % Add something about what can be learning from "shocks" -- in my email to you:  I think that we need to include something about "shocks" (not necessarily exogenous) -- this is an interesting place to look for effects.  Not really causal, but you can get some insights into forcing a company to change something (we discussed staggered board last week).  Not telling us about the causal impact of staggered board, but perhaps the cost or benefit to the company when they make this decision.
 
