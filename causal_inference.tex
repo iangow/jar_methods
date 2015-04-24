@@ -481,7 +481,7 @@ While IV is a classic textbook approach for drawing credible causal inferences, 
  %\citet{deFranco:2014ct} ``find that the number of covenants is positively related to the interest rate, likely due to endogeneity between the interest rate and covenants.'' To address this using they use ``the number of covenants by calendar year indicators as the instrument'' for the number of covenants. Apart from the issues with using an average as an instrument discussed in \citet{Reiss:2007ej}, the authors justify their instrument by suggesting that ``the strictness of covenant packages significantly deteriorated during the years of the credit boom that preceded the financial crisis.'' But it seems likely that the credit boom would have a direct effect on interest rates on bond issues. 
 
 \subsection{Regression discontinuity designs}
-In discussing the recent ``flurry of research" using regression discontinuity (RD) designs, \citet[p.\,282]{Lee:2010hya} point out that they ``require seemingly mild assumptions compared to those needed for other nonexperimental approaches \dots and that causal inferences from RD designs are potentially more credible than those from typical `natural experiment' strategies."
+In discussing the recent ``flurry of research" using regression discontinuity (RD) designs, \citet[p.\,282]{Lee:2010hy} point out that they ``require seemingly mild assumptions compared to those needed for other nonexperimental approaches \dots and that causal inferences from RD designs are potentially more credible than those from typical `natural experiment' strategies."
 % I would add a reference to the "first application" -- Thistlewaite, D.; Campbell, D. (1960). "Regression-Discontinuity Analysis: An alternative to the ex post facto experiment". Journal of Educational Psychology 51 (6): 309–317
 
 %Imbens, G.; Lemieux, T. (2008). "Regression Discontinuity Designs: A Guide to Practice". Journal of Econometrics 142 (2): 615–635. 
@@ -489,16 +489,16 @@ Recently, RD designs have attracted the interest of accounting researchers, as a
 For example, whether an executive compensation plan is approved is a discontinuous function of shareholder support \citet{Armstrong:2013io} and whether a firm had to comply with provisions of Sarbanes-Oxley Act in 2004 \citep{Iliev:2010ic} is a discontinuous function of market float.
 
 While RD designs make relatively mild assumptions, in practice these assumptions may be violated.
-In particular, manipulation of the running variable (or the variable that determines whether an observation is assigned to a treatment) may occur and researchers should carefully examine their data for this possibility \citep[see, e.g.][]{Listokin:2008p5958,McCrary:2008ft}.
+In particular, manipulation of the running variable (or the variable that determines whether an observation is assigned to a treatment) may occur and researchers should carefully examine their data for this possibility \citep[see, e.g.,][]{Listokin:2008p5958,McCrary:2008ft}.
 
 Another issue with RD designs is that the causal effect estimated is a local estimate (i.e., it relates to observations close to the discontinuity.
 This effect may be very different from the effect at points away from the discontinuity.
 For example, in designating a public float of \$75 million, the SEC may have reasoned that at that point the benefits of Sarbanes-Oxley, which may have been increasing in firm size, were approximately equal to the approximately fixed costs of complying with the law.
 If true, we would expect to see an estimate of approximately zero effect, even if there benefits of the law for shareholders of firms well above the threshold are substantial.
-Similarly, a vote that receives approximately 50\% support may reflect the fact that costs and benefits are approximately balanced, while measures that receive much greater or much less support may have very different levels of benefits and costs.
+Similarly, that a vote that receives approximately 50\% support may suggest that costs and benefits are approximately balanced, while measures that receive much greater or much less support may have very different levels of benefits and costs, making estimates from RD designs relatively uninformative of average effects.
 
 Another critical assumption is the bandwidth used in estimation (i.e., in effect how much weight is given to observations according to their distance from the cutoff).
-We encourage researchers using RD designs to employ methods that exist to estimate optimal bandwidths and the results estimates of causal effects \citep[e.g.][]{Imbens:2011}.
+We encourage researchers using RD designs to employ methods that exist to estimate optimal bandwidths and the results estimates of causal effects \citep[e.g.,][]{Imbens:2011}.
 
 %It is also important to note that so-called ``quasi-RD" designs have only a superficial resemblance to RD designs.
 %For example, as he cannot observe ``the specific covenant thresholds in [his] primary dataset," \citet{Tan:2013ce} is constrained to estimate a ``quasi-RD" design like that estimated in \citet{Roberts:2009ka}.
@@ -563,27 +563,28 @@ Only once persuasive evidence of a plausible mechanism was provided (i.e., direc
 \subsubsection{Smoking and heart disease}
 A more recent illustration of plausible causal inference is discussed by \citet{Gillies2011-GILTRT-3}.
 \citet{Gillies2011-GILTRT-3} focuses on the paper by \citet{Doll:1976aa}, which studies the mortality rates of male doctors between 1951 and 1971.
-The data of \citet{Doll:1976aa} had showed ``a striking correlation between smoking and lung cancer" \citep[p.\,111]{Gillies2011-GILTRT-3}.
-\citet{Gillies2011-GILTRT-3} argues that ``this correlation was accepted at the time by most researchers (if not quite all!) as establishing a causal link between smoking and lung cancer. Indeed Doll and Peto themselves say explicitly (p.\,1535) that the excess mortality from cancer of the lung in cigarette smokers is caused by cigarette smoking."
+The data of \citet{Doll:1976aa} showed ``a striking correlation between smoking and lung cancer" \citep[p.\,111]{Gillies2011-GILTRT-3}.
+\citet{Gillies2011-GILTRT-3} argues that ``this correlation was accepted at the time by most researchers (if not quite all!) as establishing a causal link between smoking and lung cancer.
+Indeed Doll and Peto themselves say explicitly (p.\,1535) that the excess mortality from cancer of the lung in cigarette smokers is caused by cigarette smoking."
 In contrast, while \citet{Doll:1976aa} also had highly statistically significant evidence of an association between smoking and heart disease, they were cautious about drawing inferences of a direct causal explanation for the association.
-\citet[p.\,1528]{Doll:1976aa} say ``To say that these conditions were related to smoking does not necessarily imply that smoking caused \dots them. The relation may have been secondary in that smoking was associated with some other factor, such as alcohol consumption or a feature of the personality, that caused the disease.''
- 
+\citet[p.\,1528]{Doll:1976aa} point out that ``To say that these conditions were related to smoking does not necessarily imply that smoking caused \dots them. The relation may have been secondary in that smoking was associated with some other factor, such as alcohol consumption or a feature of the personality, that caused the disease.''
+
+\shortcites{Morrow:1995gz} 
 \citet{Gillies2011-GILTRT-3} then discusses extensive research into atherosclerosis between 1979 and 1989 and concludes that ``by the end of the 1980s, it was established that the oxidation of LDL was an important step in the process which led to atherosclerotic plaques."
-Later research established evidence of much higher levels of a new measure (levels of $F_2$-isoprostanes in blood samples) of the relevant oxidation in the body ``provides compelling evidence that smoking causes oxidative modification of biologic components in humans. 
-\shortcites{Morrow:1995gz}
-This conclusion is greatly strengthened by the finding that levels of $F_2$-isoprostanes in the smokers fell significantly after two weeks of abstinence from smoking" \citep[pp.\,1201--2]{Morrow:1995gz}.  
-\citet[p.\,120]{Gillies2011-GILTRT-3} points out that this evidence did not establish a confirmed mechanism linking smoking with heart disease, because the required oxidation needs to occur in the artery wall, not in the blood stream. 
-But later research established a link: ``Smoking produced oxidative stress. 
-This increased the adhesion of leukocytes to the \dots artery, which in turn accelerated the formation of atherosclerotic plaques" \citep[p.\,123]{Gillies2011-GILTRT-3}.
-Thus, a causal link or mechanism between smoking and atherosclerosis was established.
+Later research provided ``compelling evidence that smoking causes oxidative modification of biologic components in humans.\footnote{This evidence of much higher levels of a new measure (levels of $F_2$-isoprostanes in blood samples) of the relevant oxidation in the body due to smoking.
+This conclusion wass greatly strengthened by the finding that levels of $F_2$-isoprostanes in the smokers fell significantly after two weeks of abstinence from smoking" \citep[pp.\,1201--2]{Morrow:1995gz}.}
+\citet[p.\,120]{Gillies2011-GILTRT-3} points out that this evidence alone did not establish a confirmed mechanism linking smoking with heart disease, because the required oxidation needs to occur in the artery wall, not in the blood stream, and it fell to later research to establish this missing piece.\footnote{
+``Smoking produced oxidative stress. 
+This increased the adhesion of leukocytes to the \dots artery, which in turn accelerated the formation of atherosclerotic plaques" \citep[p.\,123]{Gillies2011-GILTRT-3}.}
+Thus, through a process involving multiple studies over two decades, a plausible set of causal mechanisms between smoking and atherosclerosis was established.
 %TODO: Get an example from the social sciences, e.g., political science.
 
 \subsubsection{Implications of cases on mechanism}
  \citet{Gillies2011-GILTRT-3} avers that the process by which a causal link between smoking and atherosclerosis was established illustrates the ``Russo-Williamson thesis."
  \citet[p.\,159]{Russo:2007iz} suggest that ``mechanisms allow us to generalize a causal relation: while an appropriate dependence in the sample data can warrant a causal claim `$C$ causes $E$ in the sample population,' a plausible mechanism or theoretical connection is required to warrant the more general claim `$C$ causes $E$.' Conversely, mechanisms also impose negative constraints: if there is no plausible mechanism from $C$ to $E$, then any correlation is likely to be spurious. Thus mechanisms can be used to differentiate between causal models that are underdetermined by probabilistic evidence alone."
 
-The Russo-Williamson thesis was arguably also at work in the case of Snow and cholera, where the establishment of a mechanism (\emph{Vibrio cholerae}) was essential before the causal explanation offered by Snow was widely accepted and also in the case of smoking and lung cancer, which was initially conjectured based on associational evidence, but was widely accepted by 1976.\footnote{
-The persuasive force of Snow's natural experiment, coming decades before the work of Neyman and Fisher, might be considered greater today.}
+The Russo-Williamson thesis was arguably also at work in the case of Snow and cholera, where the establishment of a mechanism (i.e., \emph{Vibrio cholerae}) was essential before the causal explanation offered by Snow was widely accepted and also in the case of smoking and lung cancer, which was initially conjectured based on associational evidence, but was widely accepted by 1976.\footnote{
+The persuasive force of Snow's natural experiment, coming decades before the work of \citet{Neyman:1923aa} and Fisher, might be considered greater today.}
 
 Our view is that accounting researchers can learn from fields such as epidemiology and political science. 
 These fields grapple with the reality of observational data.
