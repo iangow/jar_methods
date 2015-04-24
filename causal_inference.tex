@@ -473,7 +473,34 @@ Unfortunately, this assumption seems inconsistent with the findings of \citet{Go
 Thus this new evidence suggests that the instrument of \citet[p.\,912]{Armstrong:2013io} is not credibly valid for the causal effect they seek to estimate.
 
 % BBKL discussion will go between here ...
+\citet{Balakrishnan:2014js} seek to understand the effects of information asymmetry on disclosure practice of firms, and in turn, the effect of disclosure on information asymmetry.\footnote{
+\citet{Balakrishnan:2014js} does not appear in an accounting journal, but we examine it because it examines a topic of interest to accounting researchers (i.e., disclosure) and because the reasoning for the identification strategy is explicit and detailed.}
+While changes in analyst coverage are generally not random and may be correlated with information asymmetry due to omitted correlated variables, 
+\citet{Kelly:2012ih} treat closure of brokerage firms as an exogenous (i.e., ``as if" random) source of variation in analyst coverage, which they argue will affect liquidity only through the its effect on information asymmetry.
+ 
+The identifying assumption that $\textit{Brokerage closure}_t$ affects $\textit{Information asymmetry}_t$ (via its effect on $\textit{Analyst coverage}_t$) but otherwise has no effect on $Disclosure$ or $Liquidity_{t+1}$. \citep{Balakrishnan:2014js} or $Liquidity_t$ or other outcomes .\footnote{
+Note that \citet{Kelly:2012ih} do not estimate an instrumental variable regression, and instead treat ``coverage shocks" as an exogenous event. 
+However, as it is changes in coverage driven by brokerage closures that they claim to be exogenous, Figure \ref{fig:kl} seems to represent the logic of  \citet{Kelly:2012ih}.}
+They then examine the effect of such changes in analyst coverage on information asymmetry.
 
+\citet{Balakrishnan:2014js} seek to build on the identification strategy of  \citet{Kelly:2012ih} so  as to estimate the causal effect of disclosure on liquidity.
+The critical identifying assumptions are, as \citet{Balakrishnan:2014js}  note, that ``lagged coverage shocks a) lead to more disclosure, b) not affect liquidity directly, and c) not correlate with some omitted variable that in turn affects liquidity."
+These links can be expressed by augmenting the causal graph in Figure \ref{fig:kl} to add a node for \textit{Disclosure}, driven by $\textit{Information asymmetry}_t$, which is linked to a new node for $\textit{Liquidity}_{t+1}$. 
+The result of these additions is the causal diagram in  Figure \ref{fig:bbkl}.\footnote{
+ Again \citet{Balakrishnan:2014js} view ``coverage shocks" as exogenous and use these shock as instruments. However, it is the shift in analyst coverage driven by brokerage closures that is expected to be exogenous.
+The thrust of the analysis here is essentially the same if it is the ``coverage shocks" that are treated as exogenous.}
+Again, if Figure \ref{fig:bbkl} correctly represents the relevant causal relations, then \citet{Balakrishnan:2014js} have a valid instrument.
+
+However, there are reasons to believe that Figure \ref{fig:bbkl} does not represent the relevant causal relations.
+First, it seems likely that coverage shocks are be persistent. \citet{Balakrishnan:2014js} seem to  assume as much when they argue that ``firms [unable to respond  to the coverage shock through increased disclosure] suffer a \emph{permanent} reduction in liquidity" (p.\,2239), which presumably requires the shocks to analyst coverage to be persistent.
+We represent this persistence in Figure \ref{fig:bbkl_alt} by adding a node for $\textit{Analyst coverage}_{t+1}$ and an arrow into this node from $\textit{Analyst coverage}_t$.
+
+But we know from the main result in \citet{Kelly:2012ih} that analyst coverage affects contemporaneous information asymmetry, so we add a node for \textit{Information asymmetry}$_{t+1}$ and, similar to the relation in $t$, add an arrow from $\textit{Analyst coverage}_{t+1}$ into this node.
+Finally, it is well known that information asymmetry is a major driver of contemporaneous liquidity \citep{Glosten:1988gd}, which implies an arrow from \emph{Information asymmetry}$_{t+1}$ into $\textit{Liquidity}_{t+1}$.
+
+The end result of these additions is the causal diagram depicted in Figure \ref{fig:bbkl_alt}.
+But from this diagram, it is clear that $\textit{Analyst coverage}_t$ affects $\textit{Liquidity}_{t+1}$ through a channel other than disclosure, implying that the instrument of \citet{Balakrishnan:2014js} is not credibly valid for the causal effect they seek to estimate. 
+The point of the discussion above is not to impugn the precise findings of \citet{Balakrishnan:2014js}, but rather to illustrate the merit of more careful analysis of a paper's identification strategy and, we argue, the value of causal diagrams in doing so.
 % ... and here. Don't edit between these two lines.
 
 \subsubsection{IV in accounting research: An evaluation}
