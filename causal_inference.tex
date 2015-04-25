@@ -491,11 +491,11 @@ For example, whether an executive compensation plan is approved is a discontinuo
 While RD designs make relatively mild assumptions, in practice these assumptions may be violated.
 In particular, manipulation of the running variable (or the variable that determines whether an observation is assigned to a treatment) may occur and researchers should carefully examine their data for this possibility \citep[see, e.g.,][]{Listokin:2008p5958,McCrary:2008ft}.
 
-Another issue with RD designs is that the causal effect estimated is a local estimate (i.e., it relates to observations close to the discontinuity.
+Another issue with RD designs is that the causal effect estimated is a local estimate (i.e., it relates to observations close to the discontinuity).
 This effect may be very different from the effect at points away from the discontinuity.
 For example, in designating a public float of \$75 million, the SEC may have reasoned that at that point the benefits of Sarbanes-Oxley, which may have been increasing in firm size, were approximately equal to the approximately fixed costs of complying with the law.
 If true, we would expect to see an estimate of approximately zero effect, even if there benefits of the law for shareholders of firms well above the threshold are substantial.
-Similarly, that a vote that receives approximately 50\% support may suggest that costs and benefits are approximately balanced, while measures that receive much greater or much less support may have very different levels of benefits and costs, making estimates from RD designs relatively uninformative of average effects.
+Similarly, that a vote that receives approximately 50\% support may suggest that costs and benefits are approximately balanced, while measures that receive much greater or much less support may have very different levels of benefits and costs, making estimates from RD designs relatively uninformative of the average treatment effects.
 
 Another critical assumption is the bandwidth used in estimation (i.e., in effect how much weight is given to observations according to their distance from the cutoff).
 We encourage researchers using RD designs to employ methods that exist to estimate optimal bandwidths and the results estimates of causal effects \citep[e.g.,][]{Imbens:2011}.
@@ -532,7 +532,7 @@ The first path we discuss is an increased focus on causal mechanisms.
 
 \subsection{Causal mechanisms: Some examples}
 Accounting research is not alone in relying primarily on observational data.
-Other fields also seek to draw causal inferences and need to grapple with the problematic features of observational data. 
+Other fields also seek to draw causal inferences with the problematic features of observational data. 
 Despite these concerns, these fields such as epidemiology and medicine have successfully drawn causal inferences from observational data.
 In the following, we briefly discuss several case studies of plausible causal inference in these other fields and highlight features that enhanced the credibility of their inferences.
 
@@ -586,15 +586,15 @@ Thus, through a process involving multiple studies over two decades, a plausible
 The Russo-Williamson thesis was arguably also at work in the case of Snow and cholera, where the establishment of a mechanism (i.e., \emph{Vibrio cholerae}) was essential before the causal explanation offered by Snow was widely accepted and also in the case of smoking and lung cancer, which was initially conjectured based on associational evidence, but was widely accepted by 1976.\footnote{
 The persuasive force of Snow's natural experiment, coming decades before the work of \citet{Neyman:1923aa} and \citet{Fisher:1935aa}, might be considered greater today.}
 
-Our view is that accounting researchers can learn from fields such as epidemiology and political science. 
-These fields grapple with the reality of observational data.
+Our view is that accounting researchers can learn from fields such as epidemiology, medicine, and political science. 
+These fields grapple with observational data and eventually draw inferences that are causal.
 While randomized controlled trials are a gold standard of sorts in epidemiology, in many cases it is unfeasible or unethical to use such trials.
 And in political science, it is not possible to randomly assign countries to treatment conditions such as \emph{democracy} or \emph{socialism}.
-Yet these fields have often been able to draw plausible causal inferences by establishing clear mechanisms, or causal pathways, from putative causes to putative effects.
+Nevertheless, these fields have often been able to draw plausible causal inferences by establishing clear mechanisms, or causal pathways, from putative causes to putative effects.
 %TODO: Get better examples from fields other than epidemiology.
 
-We suspect that the value of the study of mechanisms is perhaps underestimated, perhaps due to a belief that the path to credible causal inferences involves clever identification strategies.
-However, even with such a strategy, we believe that causal mechanisms have an important role.
+%We believe that the value of studying mechanisms is underestimated, perhaps due to a belief that the path to credible causal inferences involves clever identification strategies. However, even with such a strategy, we believe that causal mechanisms have an important role.
+
 One paper that has a fairly compelling identification strategy is \citet{Brown:2015ik}, which examines ``the influence of mobile communication on local information flow and local investor activity using the enforcement of state-wide distracted driving restrictions."
 The authors find that ``these restrictions \dots inhibit local information flow and \dots the market activity of stocks headquartered in enforcement states."
 \citet[p.\,9]{Miller:2015ec} suggest that ``given the authors' setting and research design, it is difficult to imagine a story under which the types of reverse causality or correlated omitted variables explanations that we normally worry about in disclosure research are at play."
@@ -609,11 +609,11 @@ For example, evidence of trading activity by local investors while driving prior
 Note that the authors disclaim reliance on trading while driving: ``our conjectures do not depend on the presumption that local investors are driving when they execute stock trades \dots [as] we expect such behavior to be uncommon."
 However, even if not \emph{necessary}, given the small effect size documented in the paper (approximately 1\% decrease in volume), a small amount of such activity could be \emph{sufficient} to provide a convincing account in support of their results.}
 
-As another example, many published papers have suggested that managers adopt conditional conservatism as a reporting strategy to obtain benefits such as reduced debt costs \citep{Ahmed:2002aa,Zhang:2008bc}.
-But, as \citet[p\,317]{Beyer:2010cj} point out, an ex ante commitment to such a reporting strategy ``requires a mechanism that allows managers to credibly commit to withholding good news or to commit to an accounting information system that implements a higher degree of verification for gains than for losses," yet research has only recently begun to focus on the mechanisms through which such commitments are made \citep[e.g.,][]{Erkens:2014hj}.
+As another example, many published papers have suggested that managers adopt conditional conservatism as a reporting strategy to obtain benefits such as reduced debt costs. %\citep{Ahmed:2002aa,Zhang:2008bc}.
+However, as \citet[p\,317]{Beyer:2010cj} point out, an ex ante commitment to such a reporting strategy ``requires a mechanism that allows managers to credibly commit to withholding good news or to commit to an accounting information system that implements a higher degree of verification for gains than for losses," yet research has only recently begun to focus on the mechanisms through which such commitments are made \citep[e.g.,][]{Erkens:2014hj}.
 
-Better understanding of mechanisms also allows researchers to identify gaps in research based on archival data and verbal theorizing.
-\cite{Soltes:2014gr} provides an insightful discussion of the pitfalls from exclusive reliance on archival data. 
+It seems very clear that we need a much better understanding of the precise causal mechanisms for important accounting research questions. A clear discussion of these mechanisms will enable reviewers and readers to see what is being assumed and assess the reasonableness of the theoretical causal paths. As we discuss in Section 6, this type of knowledge enables the the identification of gaps in research based on strictly archival data and somewhat unstructured verbal theorizing.
+\footnote{\cite{Soltes:2014gr} provides an insightful discussion of the pitfalls from exclusive reliance on archival data.} 
 
 %If a plausible causal mechanism for their empirical research question (using theory and/or institutional observation), the next step in the research process is to assess the ability of this mechanism to explain real-world data. 
 % As we have argued above, the traditional quasi-experimental methods used by accounting researchers have a number of serious limitations for conducting this type of data analysis exercise. 
@@ -627,7 +627,7 @@ Better understanding of mechanisms also allows researchers to identify gaps in r
 Accounting is essentially an applied discipline and it would seem that most empirical research studies should be solidly grounded in the details of how institutions operate.
 Unfortunately, there are very few studies published in top accounting journals that focus on providing deep description of institutions relevant to accounting research settings.
 Part of this likely reflects the perception that research that pursues causal questions (i.e., tests of theories) is more highly prized and thus more likely to be published in top accounting journals.\footnote{
-The \emph{Journal of Accounting Research} used to publish some papers in a section entitled ``Capsules and Comments."
+At one point, the \emph{Journal of Accounting Research} published papers in a section entitled ``Capsules and Comments."
 The editor at the time (Nicholas Dopuch) would seem to place papers into this section if ``did not fit" as a main article, but examined new institutional data or ideas. 
 Such a journal section might have provided a credible signal of a willingness to publish descriptive studies of institutionally interesting settings.}
 
@@ -637,7 +637,7 @@ There are many ``classic" descriptive studies that have had a major impact on su
 \citet{Cyert:1956fd} argue that ``a realistic description and theory of the decision-making process are of central importance to business administration and organization theory. Moreover, it is extremely doubtful whether \dots economics does in fact provide a realistic account of decision-making in large organizations operating in a complex world."}
 
 One reason to value descriptive research is that it can uncover structures and mechanisms that exist, but which would be exceedingly difficult to arrive at from basic economic theory.
-For example, using proxy statements, \citet{Healy:1985jg} studies the bonus contracts of 94 large US companies and identifies a common structure of these bonus plans, including the existence of caps and floors \citep[p.\,89]{Healy:1985jg}. The paper also suggests hypotheses worth investigating regarding the effects of these plan features on accounting decisions.
+For example, using proxy statements and conversations with actual executives and consultants, \citet{Healy:1985jg} studies the bonus contracts of 94 large US companies and identifies a common structure of these bonus plans, including the existence of caps and floors \citep[p.\,89]{Healy:1985jg}. The paper also suggests hypotheses worth investigating regarding the effects of these plan features on accounting decisions.
 It seems highly unlikely that a model derived from fundamental economic theory would arrive at these plan features actually used by firms.
 These institutional features can be used to identify precise mechanisms and also as elements of structural models in which other features might be motivated more directly by economic theory.
 
@@ -654,7 +654,7 @@ These insights should shape research seeking to develop hypotheses and models of
 Other fields provide interesting examples likely to be of interest to accounting researchers.
 For example, \citet{Ahern:2014id} examines 183 illegal insider networks using primary source documents from the SEC, DOJ, and various public records. 
 It provides rich insights into investor networks and it suggests questions for future work.
-For example, network relationships can be divided into familial (23\%), business-related (35\%), friendships (35\%), or ``not clear" (21\%).
+For example, network relationships can be divided into familial (3\%), business-related (35\%), friendships (35\%), or ``not clear" (21\%).
 Insiders are more likely to be an accountant or lawyer, less likely to be a Democrat, and more likely to have a ``criminal record."
 These results provide new institutional insights have have the potential to identify causal mechanisms regarding information transfer and disclosure.
 In economics, \citet{Bloom:2007ed} provide a descriptive study of 732 medium-sized firms to assess whether management practices, such as lean manufacturing and use of incentives, are related to productivity. These descriptive results have lead to the development of theoretical models of innovating and productivity along with increasingly sophisticated empirical studies.

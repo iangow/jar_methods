@@ -40,19 +40,19 @@ However, it should be recognized that some researchers suggest that, by aligning
 We do not focus on that aspect of their research design in our discussion here.}
  
 A key assumption implicit in much of this literature is that restatements are a good proxy for \emph{mis}statements \citep[e.g.,][]{Efendi:2007ja,Armstrong:2010jd}. 
-This assumption is made because in practice we only observe misstatements that were detected, and then corrected, by parties after the financial statements were issued. 
-Examples of these external monitors include whistleblowers, regulators, media, and others (for simplicity we shall refer to these collectively as ``subsequent investigations") \citep{Dyck:2010kh}.
+This assumption is made because in practice we only observe misstatements that were detected and corrected by external monitors after the financial statements were issued. 
+Examples of these external monitors include whistleblowers, regulators, media, and others \citep{Dyck:2010kh}.  For simplicity,  we refer to the actions of these external monitors collectively as ``subsequent investigations."
 If subsequent investigations are perfect and detect all misstatements not detected by the firm's auditor, then there is a one-to-one correspondence of misstatements and restatements.\footnote{There will still be a difference between \emph{attempted} misstatements and actual misstatements due to the external auditor correcting some attempted misstatements.}
-Realistically, these subsequent investigations are not perfect, meaning that we need to recognize the difference between the two when estimating the effect of managerial incentives on misstatements.
+Realistically, these subsequent investigations are not perfect, meaning that we need to recognize the difference between the two when estimating the effect of managerial incentives on misstatements.  
 
 In the following analysis, we consider two alternative models of the causal mechanism linking managerial incentives to accounting restatements.
 Each model explicitly considers the incentives of the manager and the role of the external auditor. 
 We show that different assumptions made regarding the causal relationships between observable and unobservables lead to very different empirical implications.
-In doing so, we illustrate the value of a structural model in understanding these relationships.
+In doing so, we illustrate the value of a structural model in understanding these relationships, and why structural modeling is a useful approach for conducting accounting research with observational data.
 
-\subsubsection{A model with a non-strategic auditor}
-In our models, we assume that misstatements  are deliberate and made by a single agent, the `CEO.'
-Though this is clearly a strong assumption, it allows us to deliver clear predictions about the unobserved rate of misstatements.\footnote{
+\subsubsection{A simple model with a non-strategic auditor}
+In our models, we assume that misstatements  are deliberate and made by a single agent, who we refer to as the `CEO.'
+Although this is clearly a strong assumption, it allows us to deliver clear predictions about the unobserved rate of misstatements.\footnote{
 A strong (visible) assumption can be seen as a weakness of the model, but also can be seen as an advantage.
 For example, if the assumption is considered inappropriate, it is very clear how to revise the model.} 
 The CEO is assumed to be rational in the sense that he or she trades off the expected benefits and costs of misstatements when deciding whether to misstate.
@@ -60,7 +60,7 @@ Suppose that the CEO receives a benefit of $B^*$ from the \emph{successful} mani
 
 We assume the firm's auditors independently catch and correct attempted misstatements at a constant rate $p_A$ and that the (conditional) probability of subsequent investigations catching a misstatement is $p_I$.
 Given these assumptions, the probability of a misstatement getting past the firm's  auditor and subsequent investigations is $(1-p_A) \times (1 - p_I)$.
-The CEO's benefit from a successful misstatement is then
+The CEO's expected benefit from a successful misstatement is then
 $$ B^* = (1-p_I) \times (1-p_A) \times B$$
 where $B$ is a gross benefit to the manager from a misstatement. 
 
@@ -77,7 +77,7 @@ This (structural) inequality describes the unobserved misstatement process.
 In general, researchers will not observe $B$, $C_M$, $p_A$, or $p_I$.
 
 To complete the structural model, the researcher must relate these objects to the observed data.
-Because we observe a zero-one indicator variable for restatements $y$ and not misstatements, we need to link the two. 
+Because we observe a (zero-one) indicator variable for restatements $y$ and not the actual misstatement behavior, we need to link the two. 
 In this model, restatements are the result of three stochastic processes:
 \begin{enumerate}
 \item The manager misstates (or not).
@@ -118,6 +118,7 @@ Empiricists are willing to do this, however, because they believe that it is imp
 To illustrate this approach, here we assume that CEO's unobserved costs and benefits do vary systematically with observables.
 In addition, because these observables do not perfectly represent the observed and unobserved benefits, it is important to allow for unobservable differences in the costs and benefits of misstatements. 
 One specification that does this assumes
+
 \begin{equation}\begin{array}{lcl}\label{eqns1}
 B & = & b_0 + b_1 \, \mbox{EQUITY} + X_B\beta\\[.5em]
 C_M & = & m_0 + m_1 \, \mbox{SALARY} + X_C\gamma + \xi\\[.5em]
@@ -129,7 +130,8 @@ SALARY is the CEO's annual base salary, and the $X_C$ are observable factors imp
 For expositional purposes, we assume away $X_B$ and $X_C$ in our analysis.}
 The EQUITY variable is intended to capture the idea that the more a CEO is rewarded for performance, the greater his or her incentive to misstate results so as to increase (perceived) performance.
 Thus, we would expect the unknown coefficient $b_1$ to be positive if providing more equity incentives increases the tendency of the CEO to misstate earnings, but expect $b_1 < 0$ if it reduces that tendency.
-Similarly, we include the variable SALARY as a driver of the cost of making misstatements.
+Similarly, we include the variable SALARY as a driver of the cost of making misstatements. 
+% I want to say that -- The idea is that if the CEO is caught manipulating, the personal penalty or loss borne by the CEO is proportional to his or her compensation. However, this does not seem consistent with the model because the manager always bears this cost regardless of whether he manipulates or not.  Any other justification for this variable come to mind?  Maybe if the salary is high, this means that the CEO is really important and it is more costly for him to fool around with manipulating, as opposed to working on strategy development
 Thus, we would expect the unknown coefficient $m_1$ also to be positive.
 For now, we leave the other $X$ variables unnamed.
 
@@ -149,6 +151,8 @@ where $\theta_0=(1-p_A) \times p_I, \theta_1 = (1 - p_A)(1 - p_I) b_0 - m_0,
 Apart from the scalar multiple $\theta_0$, which can be absorbed into the probability statement (and thus is not identified), this probability model has the form of  a familiar binary choice (e.g., a probit or logit model).
 Thus, the value of the structure imposed so far is that it can motivate the application of a familiar statistical model \citep[as in]{Efendi:2007ja}, as well as explain how the estimated coefficients are potentially connected to quantities that impact the probability of a misstatement.
 
+%Do we want to say something about whether knowledge of the theta parameters can be used to infer the b's.  For examples, the ratio of theta 2 to theta 1 will be b1 divided by b0.  If the model is correct, we might be able to recover the underlying structural parameters.
+
 \subsubsection{Estimation of model of a non-strategic auditor}
 To illustrate the application of this structural model to data, we assembled a dataset containing 5,000 firm-year observations on whether or not financial results were restated in a given year.
 Definitions of the variables in our data set are provided in Table \ref{tab:desc}.\footnote{
@@ -161,7 +165,7 @@ Similarly, the corporate governance literature suggests that board oversight fro
 %TODO: Get refs.
 Finally, the variables INT and SEG are included to capture the complexity and costs of audits. 
 %TODO: Get reference for audit model.
-Specifically, international companies and companies with more business segments are thought to raise the costs of auditing. 
+Specifically, international companies and companies with more business segments are thought to raise the costs of auditing. Similar to prior accounting research, these additional variables are (somewhat arbitrarily) included to "control" for the conjecture that if the audit is more costly, less auditing will be done, and there will be more manipulations and restatements.
 
 Table \ref{tab:desc} reports descriptive statistics for the sample. 
 CEOs on average receive about one million dollars in base pay and their incentive-related pay averages 26\% of their total pay.
@@ -189,10 +193,10 @@ The question we now address is what to make of the fact that the coefficients on
 % Mentioned less often was that the idea that an important difference between restatements and misstatements is the role of subsequent investigations. 
 % There is nothing in the model or variable list that would help predict the intensiveness of outside scrutiny (or indeed of scrutiny by the firm's external auditors).
 
-\subsubsection{A model with a strategic auditor}
-A weakness of the basic model analyzed above is that it ignores the incentives of the  external auditor.
+\subsubsection{A simple model with a strategic auditor}
+A key weakness of the nonstrategic auditor model analyzed above is that it ignores the incentives of the  external auditor.
 According to PCAOB guidance in Auditing Standard No. 12, assessment of the risk of material misstatement should take into account ``incentive compensation arrangements."
-Then Auditing Standard No. 8 suggests that audit effort should increase if risk is higher.
+Similarly, Auditing Standard No. 8 suggests that audit effort should increase if risk is higher.
 To make the model richer in a manner consistent with these institutional details, we assume that auditors trade off the costs of audit effort against the reputational losses they might incur should they miss a managerial misstatement that is subsequently detected.\footnote{
 Here we have in mind the findings of \citet{Dyck:2010kh} who show that many egregious forms of misstatements are detected subsequently by employees, directors, regulators, and the media.} 
 
@@ -212,7 +216,7 @@ That is, we assume the players' strategies are such that they optimize their obj
 
 In this type of auditing game, the Nash equilibrium has the CEO and the auditor playing mixed (randomized) strategies.
 That is, the auditor will independently exert high effort with probability $\alpha^*$ and the manager independently misstates with probability $\beta^*$. 
-These probabilities are such that each has no incentive to change their randomized strategy. 
+These probabilities are such that each party to the game has no incentive to change their randomized strategy. 
 That is:
 %\vspace{-3mm}
 \begin{enumerate}
@@ -315,22 +319,24 @@ Thus, because $X$ includes  a dummy variable for whether the firm is an internat
 Table \ref{tab:gmm} reports the results of estimating the new (strategic auditor) structural model on the sample of 5,000 firms. 
 The results show that in this particular case, even without sample information on the unobserved probabilities $p_A$ and $p_I$, we can recover estimates of the model parameters up to a normalization.\footnote{
 A simple way to see this might be the case is to observe that there are seven $\theta$ coefficients and eight underlying structural parameters.} 
-% I thought that we had seven parameters (theta's).  Seems like we have ten unknown parameters in equation (13)
+% I thought that we had seven parameters (theta's).  Seems like we have ten unknown parameters in equation (13).  Do we ignore the intercepts for the three equations in (13)?
 For instance, the coefficient ratio $\theta_3/\theta_0$ estimates the ratio of cost parameters $m_1/m_0$.
 Since $m_1$ is the cost coefficient on SALARY and $m_0>0$ for costs to make sense, the sign of $\theta_3/\theta_0$ reveals the sign of $m_1$.
-From the theory, we expect the sign to be positive, and in the estimates it is. 
+From the theory, we expect the sign to be positive, and this is what we find in the estimation results. 
 
 Similarly, $\theta_6$ equals the (scaled) misstatement benefit coefficient on the EQUITY variable.
-Although the descriptive regression coefficients in Table 3 might suggest EQUITY has a negative effect on misstatements, here, because we model the difference between misstatements and restatements, we find it has the expected positive effect.
+Recall that the descriptive logit regression coefficients in Table 2  suggest EQUITY has a negative affect on misstatements.  In contrast, we now find the expected positive relation because we explicitly model the difference between misstatements and restatements in our structural estimation. However, it is important to note that $\theta_6$ is only marginally significant.
 
-The one sign that does not make sense given the other coefficient estimates is the negative sign on $\theta_6$, however this coefficient is insignificantly different from zero.
+%How do we think about the statistical significance of b1 (derived from theta6 -- ratio of b1 to b0?  Theta6 is at best marginally significant, what does that imply about the significance of b1?
+
+The one sign that does not make sense given the other coefficient estimates is the negative sign on $\theta_5$, however this coefficient is insignificantly different from zero.
 % This is indeed true of most of the coefficients, and is perhaps not surprising given the participants use of randomized strategies.
 Further, even with a sample size of 5,000, restatements are relatively rare, thus making it difficult for the model to predict them with much accuracy. 
 
 While the coefficient magnitudes do not allow us to estimate the underlying benefits and costs to managers from misstatements, we can illustrate the value of the model by performing a counterfactual calculation.
 There are many different counterfactuals that could be considered. 
-Here, for illustrative purposes we can ask what would happen to misstatements and restatements if we  do away with incentive pay and nothing else changes.
-The value of having an equilibrium model to analyze this change is that we can see how the auditing process would adjust to the removal of CEO incentives to misstate. 
+For illustrative purposes, we can ask what would happen to misstatements and restatements if we  do away with incentive pay and nothing else changes in the model.
+The value of having an equilibrium model to analyze this change is that we explicitly allow the auditing process to adjust to the removal of CEO incentives to misstate. 
 From the equilibrium strategies in equation (\ref{equilstrat}), we see that removing bonus pay does not change the equilibrium frequency of misstatements, but does change the frequency of high effort auditing.
 From (\ref{equilpr}), the model and the data we find
 $$ \dfrac{\mbox{Pr(Restate }\vert \mbox{ No Bonus)}}{\mbox{Pr(Restate }\vert \mbox{ Bonus)}}=\dfrac{\beta^* \times (1-p_A^{**}) \times p_{I}}
@@ -341,12 +347,12 @@ The model, however, shows that the increase  comes about because the auditors ex
 
 \subsubsection{Implications of structural modeling analyses}
 From the discussion above, it seems that there are (at least) two alternative explanations (or hypotheses) for the results we find.
-One hypothesis is that the process generating the data is best modeled with a non-strategic auditor and that the effect of EQUITY on incentives to misstate is either negative (or zero).
+One hypothesis is that the process generating the data is best modeled with a non-strategic auditor and that the effect of EQUITY on incentives to misstate is either negative (or perhaps zero).
 The support for this hypothesis comes from Table \ref{tab:logit}, which is an appropriate regression analysis for the model with a non-strategic auditor, where a negative (and weakly statistically significant) coefficient on EQUITY is found.
-But a second, and in our view plausible, hypothesis is that the process generating the data is best modeled with a strategic auditor and that the effect of EQUITY on incentives to misstate is positive (or zero).
+However a second, and in our view plausible, hypothesis is that the process generating the data is best modeled with a strategic auditor and that the effect of EQUITY on incentives to misstate is positive (or perhaps zero).
 The support for this hypothesis comes from Table \ref{tab:gmm}, which is predicated on the model with a strategic auditor, and where a positive coefficient on $b_1$ (the parameter linking EQUITY to benefits from misstatement) is found.
 
-The point of the discussion above is not to resolve the debate regarding the effect of incentives on misstatements. 
+The point of this discussion is not to resolve the debate regarding the effect of incentives on misstatements. 
 Rather, the goal is to illustrate the necessity of having an underlying structural model of the process by which the data we observe were generated.
 The importance of such models was illustrated in Sections \ref{sec:causal} and \ref{sec:quasi}, where we used causal diagrams as a kind of (non-parametric) causal model.
 Here we have shown more can be inferred from a formal model tied to behavioral assumptions.
@@ -360,18 +366,15 @@ Additionally, we were able to recover some of the primitive parameters impacting
 %To be clear, we do not believe that all accounting researchers need  estimate structural models. 
 % Indeed, no structural modeling exercise should go forward unless the researcher is highly convinced that the benefits of a structural model would outweigh the substantial costs entailed in developing and estimating a structural model. 
 
-While we have discussed some advantages of structural models, there are costs to developing and estimating structural models. 
-First, structural models can be both technically demanding and require a significant investment of time to develop. 
+There are, of course, costs to developing and estimating structural models. 
+First, structural models can be technically demanding to develop. 
 Additionally, when constructing a theoretical model that can be taken the data, the empirical researcher will typically be forced to make simplifications that a pure theorist might never make and that other empiricists criticize as unrealistic.
-In general, there is a divide between theoretical and empirical research in accounting.
+Unfortunately, there is a substantial divide between theoretical and empirical research in accounting.
 With few exceptions, theoretical accounting researchers do not explain how to map the specifics of their models to data. 
 In many cases, extant theory is not sufficient to motivate the hypotheses tested by empirical researchers.
-For example, \citet{Huang:2014cs} study the effect ``tone management'' on capital market outcomes. 
-Developing a formal theory of the relation between firm performance, managerial psychological states, and measures of tone would be a complex undertaking involving economics, psychology, and linguistics.
-Building on such a (hypothetical) foundation to solve the complex game involving managers and capital markets would be extremely ambitious.
-
+%For example, \citet{Huang:2014cs} study the effect ``tone management'' on capital market outcomes. Developing a formal theory of the relation between firm performance, managerial psychological states, and measures of tone would be a complex undertaking involving economics, psychology, and linguistics.Building on such a (hypothetical) foundation to solve the complex game involving managers and capital markets would be extremely ambitious.
 Consistent with the existence of this gap, few empirical research papers in accounting rely on formal theoretical models to motivate their hypotheses. 
-Often when empirical researchers \emph{do} rely on theoretical papers to motivate hypotheses, the predictions claimed to be derived from those papers have little obvious connection with the actual content of those papers.
+Often when empirical researchers \emph{do} rely on theoretical papers to motivate hypotheses, but the predictions claimed to be derived from those papers have little obvious connection with the actual content of those papers.
 % For example, \citet{Hollander:2010jg} suggests that ``one camp [of analytical research] argues that firms with good information quality will issue less expansive disclosures because information asymmetry is lower in such firms \citep[e.g.][]{Verrecchia:1983}," notwithstanding specific results in \citet{Verrecchia:1983} that support this claim.
 % Another camp shows that as information quality increases, which, in turn, increases the quality of the manager's information, managers are incentivized to disclose more because investors will deem such disclosures more credible (Verrecchia [1990b])
 Instead, almost all empirical research papers in accounting use more informal, verbal approaches to hypothesis development.
@@ -381,13 +384,12 @@ A causal diagram representing the model developed above is provided in Figure \r
 While the mixed-strategy of our model has $\beta$ not being a function of $B$ or $C_M$ and $\alpha$ not being a function of $C_A$ or $C_R$, we have retained this links as being plausible in a more general model.}
 As can be seen, we are assuming that $p_I$ is independent of EQUITY. 
 But is quite plausible that these investigations are conducted (in part) by a regulator who is as strategic as the auditor in our model, thus giving rise to a link between EQUITY and $p_I$.
-Also we assume that EQUITY is exogenous, whereas it is plausibly related to the complexity of the business, which may also affect the cost of auditing.
-These links could as some cost be added to the structural model. 
+We also assume that EQUITY is exogenous, whereas it is plausibly related to the complexity of the business, which may also affect the cost of auditing.
+These links could at some cost be added to the structural model. 
 Evaluations of their accuracy then could be made via in- or out-of-sample goodness-of-fit tests.
 
 Third, just because a researcher can write down a theoretical model and estimate it does not make the empirical model ``right."
-As was demonstrated above when examining the model with the non-strategic auditor, fitting a structural model with incorrect assumptions can result in incorrect inferences.
-
+Trying to draw causal inferences from faulty assumptions leading to  an incorrect structural model is not helpful for advancing accounting research.  
 %TODO: Tone down or eliminate?
 % \cite{Nikolaev:2014er} provide an analysis of misreporting and accounting quality.
 % The critical assumption in \citet[p.\,6]{Nikolaev:2014er} is the ``idea that both operating cash flow and earnings can be viewed as noisy measures of underlying economic performance."
@@ -395,20 +397,9 @@ As was demonstrated above when examining the model with the non-strategic audito
 %But the fact that cash flow from operations is intended to measure something quite different (e.g., investing cash flows affect subsequent earnings quite differently from operating cash flows) suggests that this may not be the best assumption with which to identify a structural model.
 
 Finally, there is no guarantee that after all the effort that went into developing the model, that the estimates will make sense or that the model will otherwise be validated.
-Despite these challenges, we believe that there is significant value in making the theory underlying empirical research transparent and rigorous.
+Despite these challenges, we believe that there is significant value in making the theory underlying empirical research transparent and rigorous.\footnote{The use of structural models in accounting research has been fairly limited to date.  Some recent examples are \citet{Gerakos:2013cl}, \cite{Nikolaev:2014er}, \citet{Zakolyukina:2015aa}, and \citet{Bertomeu:2015aa}.  These three papers model an institutionally rich problem, estimate the derived model, provide estimates for important structural parameters, and also give interesting counterfactuals based on their theoretical models. We view these papers as useful initial steps in applying structural approaches to accounting research questions.}
 
-\subsection{Structural models in accounting research}
-The use of structural models in accounting research has been fairly limited to date.
-There are certainly examples of regression models being derived (or perhaps influenced) by theoretical models.
-For example, \citet{Lambert:1987} use the model of \citet{Holmstrom:1979aa} (and a variety of simplifying assumptions) to help specify a regression function linking CEO compensation to firm performance.
-While somewhat structural in orientation, the approach suppresses the fundamental causal mechanism associated with compensation decisions and does little to actually estimate structural parameters of the model of \citet{Holmstrom:1979aa}.
+%\subsection{Structural models in accounting research} The use of structural models in accounting research has been fairly limited to date. There are certainly examples of regression models being derived (or perhaps influenced) by theoretical models. For example, \citet{Lambert:1987} use the model of \citet{Holmstrom:1979aa} (and a variety of simplifying assumptions) to help specify a regression function linking CEO compensation to firm performance. While somewhat structural in orientation, the approach suppresses the fundamental causal mechanism associated with compensation decisions and does little to actually estimate structural parameters of the model of \citet{Holmstrom:1979aa}.
 
-% I think Gerakos's paper has a manager who seeks to smooth earnings.
-\citet{Gerakos:2013cl} assume a simple stochastic process for earnings and assume that managers seek to smooth earnings.
-\citet[p.\,57]{Gerakos:2013cl} find evidence that ``unmanipulated earnings are more correlated with contemporaneous returns and have higher volatility than reported earnings."
-Similar to our simple model above, \citet{Zakolyukina:2015aa} is concerned with how equity incentives motivate managers to manipulate earnings.  
-\citet{Bertomeu:2015aa} examine management forecasts using a formal disclosure model to estimate whether managers strategically withhold information from shareholders.
-
-These three papers model an institutionally rich problem, estimate the derived model, provide estimates for important structural parameters, and also give interesting counterfactuals based on their theoretical models.  
-We view these papers as useful initial steps in applying structural approaches to accounting research questions.
+% I think Gerakos's paper has a manager who seeks to smooth earnings.\citet{Gerakos:2013cl} assume a simple stochastic process for earnings and assume that managers seek to smooth earnings \citet[p.\,57]{Gerakos:2013cl} find evidence that ``unmanipulated earnings are more correlated with contemporaneous returns and have higher volatility than reported earnings."Similar to our simple model above, \citet{Zakolyukina:2015aa} is concerned with how equity incentives motivate managers to manipulate earnings.  \citet{Bertomeu:2015aa} examine management forecasts using a formal disclosure model to estimate whether managers strategically withhold information from shareholders.These three papers model an institutionally rich problem, estimate the derived model, provide estimates for important structural parameters, and also give interesting counterfactuals based on their theoretical models. We view these papers as useful initial steps in applying structural approaches to accounting research questions.
 % \footnote{Maybe review some structural finance papers -- Luke Taylor on CEO labor markets, Whited on debt?, Terry jmp about "meet or beat" and macroeconomic research and development.} % Is this footnote for the editors or for us?
