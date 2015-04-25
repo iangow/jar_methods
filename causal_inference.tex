@@ -59,7 +59,7 @@
 
 \begin{abstract}
 	This paper examines the approaches accounting researchers use to draw causal inferences using observational (or non-experimental) data. 
-	The vast majority of accounting research papers draw causal inferences notwithstanding the well-known difficulties with doing so with observational data.
+	The vast majority of accounting research papers draw causal inferences notwithstanding the well-known difficulties in doing so with observational data.
 	While a minority of papers seek to use quasi-experimental methods to draw inferences, there are concerns about how these methods are typically applied.
 	We believe that accounting research would benefit from: 
 		a greater focus on the study of causal mechanisms (or causal pathways); 
@@ -91,19 +91,19 @@ The importance of causal inference in accounting research is clear from the rese
 Most long-standing questions in accounting research are causal: 
 Does conservatism affect the terms of loan contracts?
 Do higher quality earnings reports lead to lower information asymmetry? 
-Did IFRS cause an increase in liquidity in the jurisdictions that adopted it?
-Do managerial incentives lead to managerial manipulations and misstatements of financial reports?
+Did International Financial Reporting Standards cause an increase in liquidity in the jurisdictions that adopted it?
+Do managerial incentives lead to managerial misstatements in financial reports?
 That accounting researchers focus on causal inference is consistent with the view that ``the most interesting research in social science is about questions of cause and effect" \cite[p. 3]{Angrist:2008vk}.
 Simply documenting descriptive correlations provides little basis for understanding what would happen should circumstances change, 
 whereas using data to make inferences that support or refute broader theories could facilitate these kinds of predictions.
 
 Accounting researchers are aware of problems that can arise from the use of observational data.
 % refer to Heckman-style methods as "treatment effect models?  Maybe cite Francis paper in TAR here?
-For instance, many researchers who estimate so-called treatment effect models are aware that random assignment is usually required to ensure that differences between the treatment and control samples is due to the treatment. 
+For instance, many researchers who estimate so-called treatment effect models are aware that random assignment is usually required to ensure that differences between the treatment and control samples are due to the treatment. 
 Despite this awareness, many accounting ``treatments" are not randomly assigned, and the researcher then is in the position of arguing that they can account for all other reasons that might lead to a difference between the treatment and control samples.
 
-To provide some contemporary insight into what is actually done in empirical accounting research, we examined all empirical papers published in the leading accounting journals in 2014. 
-We found that  these papers overwhelmingly used observational data and descriptive statistical models to estimate the causal impact of "$X$ on $y$." 
+To provide insights into what is actually done in empirical accounting research, we examined all papers published in the leading accounting journals in 2014. 
+We found that  the empirical papers overwhelmingly used observational data and descriptive statistical models to estimate the causal impact of "$X$ on $y$." 
 This approach makes strong assumptions about the functional relationship between $X$ and $y$, and requires that sufficient controls are present to account for changes in conditions related to changes in $X$.
 Section \ref{sec:causal} examines these assumptions in detail.
 We also introduce causal graphs as a device that can clearly communicate the causal reasoning underlying an empirical model.
@@ -402,20 +402,21 @@ Furthermore, there are good reasons to believe that the draft lottery does not a
 %\footnote {Of course, this seemingly "ideal" instrument has been subject to considerable criticism. I think the idea is that even if you had a low draft number it was not clear that you actually went to the army.  In fact, upper class kids did not go (and the probably had much better skills) than the white hillbilly trash and minorities that ended up going to VN}
 %TODO: Get reference for criticism of Angrist instrument
 
-Although somewhat subjective, we believe that many researchers in accounting view causal inference as a purely statistical exercise.
-These is typically very little or no theoretical justification for the validity of variables that are selected as instruments.  It is generally difficult to believe that variables such as firm size, leverage, corporate governance, or director age are viable instrumental variables for typical studies.  Similarly, there are serious concerns about using lagged values of endogenous variables or industry averages of endogenous variables as instruments.\footnote{See \citet{Reiss:2007ej} for a discussion regarding the inability to claim that industry averages are valid instruments.}
+Many researchers in accounting appear to view causal inference as a purely statistical exercise.
+These is typically very little or no theoretical justification for the validity of variables that are selected as instruments.
+It is generally difficult to believe that variables such as firm size, leverage, corporate governance, or director age are viable instrumental variables for typical studies.  Similarly, there are serious concerns about using lagged values of endogenous variables or industry averages of endogenous variables as instruments.\footnote{See \citet{Reiss:2007ej} for a discussion regarding the inability to claim that industry averages are valid instruments.}
 
 
 % For example, to address endogeneity \citet{Cohen:2014jl} use ``two instrumental variables. The first is the natural log of industry size, measured as the number of companies within each two-digit SIC. The second measures industry competition using the Herfindahl-Hirschman index, which is well-established as a measure of competitive industries. Our untabulated results using this approach are qualitatively similar to our main analysis, thus indicating that endogeneity is not a concern when assessing the reliability of our findings.''\footnote{Three other studies used a similar approach. \citet{Vermeer:2014bs} ``use Maddala's (1988) two-stage procedure'' in order to ``control for endogeneity'' without providing any explanation at all and in fact seem to be assuming the each of three endogeneous variables can used as an instrument for the other two.\citet[p.48]{Fox:2014io} state in a footnote that they ``instrumented for the price index employing a two stage least squares estimator'' without further details, simply noting that their ``conclusions are robust with respect to these concerns.''\citet{Cannon:2014im} uses ``industry-level capacity unit cost and selling price changes'' as instruments for firm-level capacity unit cost changes with no more justification than the fact that these ``are outside management's control.'' But being outside management control does not make a variable an adequate instrument.}
 
 %In most remaining cases, the reasoning in support of the validity of an instrument is evidently flawed. 
 
-As an illustration, \citet{Kim:2014fm} examine the interesting research question of how outside directors affect firm performance. One of their key variables is director tenure which they acknowledge as being endogenous. They then use director age as an instrument for director tenure. However, their justification for this instrument seem instead to provide reasons to believe that it is not valid. 
-``Importantly, research finds little or no association between age and performance \dots and a small negative association between age and executive functions \dots. 
-Related to directors, Ferris et al. (2003) suggest that any positive effects from director experience increasing with age may be offset by older directors having less energy, posing a last-period risk, and viewing directorships as lucrative part-time jobs for their retirement years.'' 
-But these arguments seem to invalidate age as an instrument for tenure. 
-For age to be a valid instrument, there should be no unblocked causal path between age and performance except for the path via tenure.
-That possible positive effects \emph{may} be offset by negative effects is not a valid basis for claiming age to be a valid instrument.  \citet{Kim:2014fm} certainly provide some useful descriptive results regarding an important governance question.  Although we focus on this single paper, this critique can be broadly applied across most instrumental variable applications in accounting.  
+%As an illustration, \citet{:2014fm} examine the interesting research question of how outside directors affect firm performance. One of their key variables is director tenure which they acknowledge as being endogenous. They then use director age as an instrument for director tenure. However, their justification for this instrument seem instead to provide reasons to believe that it is not valid. 
+%``Importantly, research finds little or no association between age and performance \dots and a small negative association between age and executive functions \dots. 
+%Related to directors, Ferris et al. (2003) suggest that any positive effects from director experience increasing with age may be offset by older directors having less energy, posing a last-period risk, and viewing directorships as lucrative part-time jobs for their retirement years.'' 
+%But these arguments seem to invalidate age as an instrument for tenure. 
+%For age to be a valid instrument, there should be no unblocked causal path between age and performance except for the path via tenure.
+%That possible positive effects \emph{may} be offset by negative effects is not a valid basis for claiming age to be a valid instrument.  \citet{:2014fm} certainly provide some useful descriptive results regarding an important governance question.  Although we focus on this single paper, this critique can be broadly applied across most instrumental variable applications in accounting.  
 
 %\footnote{We omit discussion of  \citet{Erkens:2014hj,Houston:2014hv} and \citet{deFranco:2014ct} for reasons of space. But in each case, the instruments have obvious flaws and no convincing arguments for their validity are offered (details available on request).}
 
@@ -470,9 +471,10 @@ Thus this new evidence suggests that the instrument of \citet[p.\,912]{Armstrong
 
 \subsubsection{IV in accounting research: An evaluation}
 A review of IV in published research in accounting in 2014 suggests that researchers have paid little heed to the suggestions and warnings of  \citet{Larcker:2010fq} and \citet{Roberts:2013cz}.
-We find very few cases of an instrumental variable analysis in our survey of accounting research that can withstand rigorous scrutiny.
+We find very no case of an instrumental variable analysis in our survey of accounting research published in 2014 that can withstand rigorous scrutiny.
 This is perhaps not unsurprising, as plausible instruments have tended to rely on some explicit randomization, which is likely to be extremely rare in accounting research settings.
-While IV is a classic textbook approach for drawing credible causal inferences, its applicability in actual research settings seems very limited.  Although a plausible methodological approach, the inability to theoretically justify valid instruments seriously limits the applicability of instrumental variable methods in observational accounting research. 
+While IV is a classic textbook approach for drawing credible causal inferences, its applicability in actual research settings seems very limited.  
+Although a plausible methodological approach, the inability to theoretically justify valid instruments seriously limits the applicability of instrumental variable methods in observational accounting research. 
  % \citet{Houston:2014hv} use variables variables that are related to the location of the company's headquarters as instruments for political connection and argue that ``these instruments should not be conceptually related to loan spreads. The key insight here is that the geographic locations of headquarters for companies are predetermined and are unlikely to affect banks' financing decision on loan costs. In summary, our identification assumption is that the costs of bank loans are not directly related to the companies' geographic locations, after controlling for a series of firm and loan characteristics'' (p.228). In justifying the relevance of the instrument, the authors seem eager to justify a connection, suggesting that ``the presumption is that the company's geographic location affects the company's ability to attract politically connected directors.'' But it far from clear why a company's geographic location would not also affect the its ability to attract directors with connections to \emph{financial institutions}, which plausibly affects financing terms directly \citep{Guner:2008tp}.\footnote{\citet{Houston:2014hv} also use firm age as an instrument, arguing that ``firm age affects a firm's incentive and capability in building up political connections''; but it is not clear why firm age would not also affect a firm's ``incentive and capability in building up'' financial connections.} 
  
 % Researchers tend to very unclear about the determinants of their selected instruments.  In many cases, it seems that the instruments are also endogenous.  This makes it very difficult to to rule out the possibility that the instrument directly affects (or is correlated with) variables other than the endogenous variable of interest.
