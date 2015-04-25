@@ -107,9 +107,8 @@ We found that  the empirical papers overwhelmingly used observational data and d
 This approach makes strong assumptions about the functional relationship between $X$ and $y$, and requires that sufficient controls are present to account for changes in conditions related to changes in $X$.
 Section \ref{sec:causal} examines these assumptions in detail.
 We also introduce causal graphs as a device that can clearly communicate the causal reasoning underlying an empirical model.
-We believe that these graphs are very useful for clearly communicating the cause-and-effect logic underlying the typical regression analyses used with observational data.
+We believe that these graphs are very useful for communicating the cause-and-effect logic underlying the typical regression analyses that rely on observational data.
 %Nonetheless, the fact that treatment is not randomly assigned leads many researchers to be skeptical of any efforts to use regression analyses of observational data for causal inference.
-
 
 Recently, some social scientists have held out hope that better research designs and statistical methods can increase the credibility of causal inferences.
 For example, \citet{Angrist:2010jv} suggest that ``empirical microeconomics has experienced a credibility revolution, with a consequent increase in policy relevance and scientific impact.''  
@@ -119,8 +118,10 @@ Thus, quasi-experimental methods are used to some degree in accounting research,
 We use the term ``quasi-experimental" methods to refer to those methods that have a plausible claim to ``as if" random assignment to treatment conditions.
 The term ``as if" is used by \citet{Dunning:2012tt} to acknowledge the fact that assignment is not random is such settings, but is claimed to be \emph{as if} random assignment had occurred.}
 
-In Section \ref{sec:quasi}, we examine and evaluate the use of quasi-experimental methods in accounting research.
-We believe that these applications generally exhibit a variety of shortcomings that seriously limit the ability of authors to drawn causal inferences from their research results.  For example, variations in treatments are rarely random and it is exceedingly difficult to find exogenous instrument variables.
+In Section \ref{sec:quasi}, we examine and evaluate the use of quasi-experimental methods in accounting research. Quasi-experimental methods
+produce credible estimates of causal effects only under very strong maintained assumptions about the model and the data relied upon. 
+For example, variations in treatments are rarely random, the list of controls rarely exhaustive, and instruments do not always satisfy the
+necessary inclusion and exclusion restrictions.
 We demonstrate some of these concerns using causal diagrams.  In general, it appears that the assumptions underlying quasi-experimental methods are unlikely to apply to much empirical accounting research using observational data.
 
 % Dave: "One especially promising path is use of field experiments with randomized treatments to measure causal effects (a good example -- Roberts QJE paper)." % \citet{Roberts:2013cz} 
@@ -133,13 +134,13 @@ The second part of the paper (Sections \ref{sec:mech}, \ref{sec:struct}, and \re
 \vskip -10pt
 \begin{itemize}
 \item There should be an increased emphasis on the study of causal mechanisms, i.e., the ``pathways" through which claimed causal effects are propagated.
-We believe that evidence on the actions and beliefs of individuals and institutions can bolster causal claims based on associational evidence even absent compelling estimates of the causal effects.
+We believe that evidence on the actions and beliefs of individuals and institutions can bolster causal claims based on associations, even absent compelling estimates of the causal effects.
 We also suggest that more careful modeling of phenomena, using structural modeling or causal diagrams, can help to identify plausible mechanisms that warrant further study.
 \item There should be an increased use of structural modeling methods. Structural models provide a more complete characterization of the behavior and institutions that produce a phenomenon of interest.
 We readily acknowledge that, while structural modeling does not solve endogeneity concerns, it makes the assumed causal structure explicit and gives the researchers a rigorous way to assess what would happen if some features of the model change (i.e., to provide counterfactuals).
 We believe that causal diagrams can be a useful tool to convey the key elements of a structural model and can also act as an middle-level stand-in when structural modeling of a phenonmenon is in its early stages or is incomplete.\footnote{``Middle-level" here referring to the placement of causal diagrams between relatively informal verbal reasoning and the rigors of a structural model.}
 %TODO: Flesh this out somewhat. What are the benefits of doing structural modeling?
-\item There are many important questions in accounting that have not yet been addressed by formal models.  In these settings, it is important to conduct sophisticated descriptive research aimed at understanding the real institutional settings and developing hypotheses, particularly when it comes to causes and effects. In our view, many hypotheses that are tested with observational data are only loosely tied to the accounting institutions and business phenomena of interest. Hopefully, these descriptive studies will provide insights to theorists that can be used to build models that empiricists can actually ``take to data" using structural modeling approaches.
+\item There are many important questions in accounting that have not yet been addressed by formal models.  In these settings, it is important to conduct sophisticated descriptive research aimed at understanding the phenomena of interest so as to develop clearer cause and effect models. In our view, many hypotheses that are tested with observational data are only loosely tied to the accounting institutions and business phenomena of interest. Hopefully, these descriptive studies will provide insights that theorists can use to build models that empiricists can actually ``take to data".
 	%TODO: The 2017 JAR call for papers is arguably evidence of this concern being shared by others. Considering adding a footnote saying this.  DL -- this is a good idea
 	%A better approach would be to draw on detailed studies that better \emph{describe} 
 	%Such studies likely will have a greater chance of identifying causal pathways and entice theorists to build better models of the phenomena of interest.
@@ -149,9 +150,9 @@ We believe that causal diagrams can be a useful tool to convey the key elements 
 \vskip 10pt
 The remainder of the paper is structured as follows.
 Section \ref{sec:causal} provides an overview of the issues observational data pose for drawing causal inferences in accounting research; 
-it also suggests frameworks for identifying and analyzing these issues.
+it suggests frameworks for identifying and analyzing these issues.
 Section \ref{sec:quasi} evaluates the use of quasi-experimental methods in accounting research.
-Section \ref{sec:mech} sketches the idea of mechanism-based causal inference.
+Section \ref{sec:mech} discusses mechanism-based causal inference.
 Section \ref{sec:struct} illustrates how structural modeling approaches might be used by accounting researchers, with some emphasis of the strengths and weaknesses of this approach.
 In Section \ref{sec:desc} we argue for richer descriptive research that can shed light on causal issues.
 Concluding remarks are provided in Section \ref{sec:conclude}.
@@ -205,7 +206,7 @@ Accounting researchers have come to view some statistical methods as requiring f
 \citet[p.\,12]{Angrist:2010jv} include so-called difference-in-difference (DD) estimators on their list of such quasi-experimental methods, along with ``instrumental variables and regression discontinuity methods."\footnote{As \citet[p.\,228]{Angrist:2008vk} argue that ``DD is a version of fixed effects estimation," we discuss these methods together.}
 Enthusiasm for DD designs perhaps stems from a belief that these are ``quasi-experimental" methods in the same sense as the other two approaches cited by \citet[p.\,12]{Angrist:2010jv}.
 But the essential feature that instrumental variables and regression discontinuity methods rely on is the ``as if" random treatment assignment mechanism.
-If treatment assignment is driven by unobserved confounding variables, then DD and fixed-effect estimates will be biased and inconsistent. 
+If treatment assignment is driven by unobserved confounding variables, then DD and fixed-effect estimates of causal effects will be biased and inconsistent. 
 It is not clear that there are many settings in accounting that are likely to satisfy random treatment assignment.
 In order to draw a causal inference, this means that researchers  must explain why they believe that DD or fixed-effect estimators allow them to recover unbiased estimates of causal effects.
 
@@ -219,14 +220,14 @@ Another method that has become popular in accounting research is propensity scor
 Regression methods can be viewed as making model-based adjustments to address confounding variables.  
 Stuart and Rubin (2007) argue that 
 
-\begin{quote}
+\begin{quote}\begin{singlespace} 
 ``[M]atching methods are preferable to these model-based adjustments for two key reasons. 
 First, matching methods do not use the outcome values in the design of the study and thus preclude the selection of a particular design to yield a desired result.
 Second, when there are large differences in the covariate distributions between the groups, standard model-based adjustments rely heavily on extrapolation and model-based assumptions.
-Matching methods highlight these differences and also provide a way to limit reliance on the inherently untestable modeling assumptions and the consequential sensitivity to those assumptions."
+Matching methods highlight these differences and also provide a way to limit reliance on the inherently untestable modeling assumptions and the consequential sensitivity to those assumptions."\end{singlespace} 
 \end{quote}
 For these reasons, PSM methods can prove useful when faced with observational data.
-However, PSM does \emph{not} provide ``the closest archival approximation to a true random experiment" and does \emph{not} not represent "the most appropriate and rigorous research design for testing the effects of an ex ante treatment" \citep[p.\,1429]{Kirk:2014gx}.
+However, PSM does \emph{not} provide ``the closest archival approximation to a true random experiment" and does \emph{not} represent "the most appropriate and rigorous research design for testing the effects of an ex ante treatment" \citep[p.\,1429]{Kirk:2014gx}.
 \citet[pp.\,73-75]{Rosenbaum:2009ul} points out that matching is ``a fairly mechanical  task," and when assignment to treatment is driven by unobservable variables, PSM-based estimates may be biased as much as regression estimates.
 We agree with \citet{MinuttiMeza:2014fn} who argues that ``matching does not necessarily eliminate the endogeneity problem resulting from unobservable variables driving [treatment] and [outcomes]."
 
@@ -236,7 +237,7 @@ We agree with \citet{MinuttiMeza:2014fn} who argues that ``matching does not nec
 %TODO: Find a home for discussion of bounding. I don't think it belongs with PSM.
 
 \subsection{Causal inference: A brief overview}
-In recent decades, the definition and logic of causality has seen renewed interest from researchers in such diverse fields as epidemiology, sociology, statistics, and computer science. 
+In recent decades, the definition and logic of causality has been revisited by researchers in such diverse fields as epidemiology, sociology, statistics, and computer science. 
 Work by \citet{Rubin:1974im,Rubin:1977dv} and \citet{Holland:1986p7458} formalizing ideas from the potential-outcome framework of \citet{Neyman:1923aa} have led to the so-called the Rubin causal model. 
 Other fields have used path analysis, as initially studied by geneticist Sewell Wright \citep{Wright:1921aa}, as an organizing framework.
 In economics and econometrics, early proponents of structural models were quite clear about how causal statements must be tied to theoretical economic models.
@@ -248,10 +249,11 @@ As discussed by \citet{Heckman:2015ez}, \citet{Haavelmo:1943cl,Haavelmo:1944jq} 
 Generally speaking the structural parameters do not coincide with coefficients of regressions among observable variables, but the model does impose constraints on those regression coefficients."
 \citet{Goldberger:1972cq} focuses on linking such approaches to the path analysis of Wright.
 
-An important point worth emphasizing is that model-based causal reasoning is distinct from statistical reasoning. Suppose we observed data on $x$ and $y$ and know only that one causes the other. How do we distinguish between whether $x$ causes $y$ or $y$ causes $x$? 
+An important point worth emphasizing is that model-based causal reasoning is distinct from statistical reasoning. Suppose we observed data on $x$ and $y$ and 
+make the strong assumption that we know that causality is one-way. How do we distinguish between whether $x$ causes $y$ or $y$ causes $x$? 
 Statistics can help us determine whether $x$ and $y$ are correlated, but correlations do not establish causality.
 Only with assumptions about causal relations between $x$, $y$, and other variables (i.e., a theory) can we infer causality.
-While theories may be informed by evidence (e.g., prior research may suggest a given theory is more or less plausible), they also encode our understanding of causal mechanisms (e.g., barometers do not cause rain) and economic and behavioral assumptions.
+While theories may be informed by evidence (e.g., prior research may suggest a given theory is more or less plausible), they also encode our understanding of causal mechanisms (e.g., barometers do not cause rain).
 
 \subsection{Causal diagrams: A primer}
 Computer and decision scientists, as well as researchers in other disciplines, have recently sought to develop an analytical framework for thinking about causal models and their connection to probability statements \citep{Pearl:2009kh}.
@@ -260,9 +262,9 @@ These diagrams encode causal assumptions and visually communicate how a causal i
 Given a \emph{correctly specified} causal diagram, these criteria can be used to verify conditioning strategies, instrumental variable designs, and mechanism-based causal inferences.\footnote{While \citet[p.248]{Pearl:2009kh} defines an instrument in terms of causal diagrams, additional assumptions (e.g., linearity) are often needed to estimate causal effects using an instrument \citep{Angrist:1996p7456}.}
 
 We use Figure \ref{fig:basic} to illustrate the basic ideas of causal diagrams and how they can be used to facilitate causal inference.
-Figure \ref{fig:basic} depicts three variants of a simple causal graph with three variables that are all of assumed to be observable.
-In each case, we are interested in estimating the causal effect of $X$ on $Y$ in the presence of a third variable, $Z$ that is related to $X$ and $Y$ in some fashion.
-The only difference between the three graphs is in the direction of arrows linking either $X$ and $Z$ or $Y$ and $Z$.
+Figure \ref{fig:basic} depicts three variants of a simple causal graph. Each graph depicts potential relationships among the three (observable) variables.
+In each case, we are interested in understanding how the presence of a variable $Z$ impacts the estimation of the causal effect of $X$ on $Y$.
+The only difference between the three graphs is the direction of the arrows linking either $X$ and $Z$, or $Y$ and $Z$.
 The boxes (or ``nodes") represent random variables and the arrows (or ``edges") connecting boxes represent hypothesized causal relations, with each arrow pointing from a cause to a variable assumed to be affected by it.\footnote{
 That arrows have a direction accounts for the ``D" in DAG (Directed Acyclic Graph). 
 The acyclic (``A") component means that there must be no cycles in the graph. 
@@ -277,19 +279,21 @@ The criterion developed by \citet{Pearl:2009vo} implies that very different cond
 Intuitively, the back-door criterion requires that $Z$ blocks (and does not open) ``back-door" paths.
 A back-door path can be thought of as a way for $X$ to be associated with $Y$ due to associations with other variables rather than causal links from $X$ to $Y$.
 See Appendix \ref{append} for a more formal discussion.}
-While conditioning is much like the standard notion of ``controlling for" variables by including them as additional regressors in OLS regression, there are critical differences.
-First, reflecting the non-parametric nature of causal diagrams in their most general form, conditioning in principle means estimating effects for each distinct level of the set of variables in $Z$.
-Second, as we discuss below, the inclusion of a variable in $Z$ may actually result in biased estimates of causal effects.
-We next apply these criteria to each of the three figures in Figure \ref{fig:basic}.	
+While conditioning onvariables is much like the standard notion of ``controlling for" such variables in a regression, there are critical differences.
+First, conditioning means estimating effects for each distinct level of the set of variables in $Z$. This nonparametric concept of conditioning is not
+what one does when one includes another regressor in a linear regression model. Second, the inclusion of a variable in $Z$ may not be an appropriate
+conditioning strategy. Indeed, it can be that the inclusion of $Z$ results in biased estimates of causal effects.
 
-Figure \ref{fig:confound} is straightforward. 
-Here it is apparent that we need to condition on $Z$ and, if we do so, we can estimate the causal effect of $X$ on $Y$.
-This situation is a generalization of a linear model in which $Y = X \beta + Z \gamma + \epsilon_Y$ and $\epsilon_Y$ is independent of $X$ and $Z$, but $X$ and $Z$ are correlated.
-In this case, it is well known that omission of $Z$ would result in a biased estimate of $\beta$, the causal effect of $X$ on $Y$, but by including $Z$ in the regression, we get an unbiased estimate of $\beta$.\footnote{
-Inclusion of $Z$ blocks the back-door path from $Y$ to $X$ via $Z$.}
-In this situation, $Z$ is called a \emph{confounder}.
+We now discuss what each of the three graphs in Figure \ref{fig:basic} suggest about how one might model the causal effect of $X$ on $Y$.	
+Figure \ref{fig:confound} is straightforward. It shows that we need to condition on $Z$ in order to estimate the causal effect of $X$ on $Y$.
+Note the notion of "condition on" again is more general than just including $Z$ in a parametric (linear) model.\footnote{
+Inclusion of $Z$ blocks the back-door path from $Y$ to $X$ via $Z$.} The need to condition on $Z$ leads to $Z$ being called a \emph{confounder}.
 
-Figure \ref{fig:mech} is a bit different. Here we have $Z$ acting as a \emph{mediator} of the effect of $X$ on $Y$.
+%Nevertheless, under the
+%strong assumptions that: $Y = X \beta + Z \gamma + \epsilon_Y$, $\epsilon_Y$ is independent of $X$ and $Z$, and $X$ and $Z$ are correlated,
+%the diagram suggests that the omission of $Z$ would result in a biased estimate of $\beta$.
+
+Figure \ref{fig:mech} is a bit different. Here $Z$ is a \emph{mediator} of the effect of $X$ on $Y$.
 No conditioning is required in this setting to obtain an unbiased estimate of the effect of $X$ on $Y$.
 But, the back-door criterion not only implies that we need not condition on $Z$ to obtain an unbiased estimate of the causal effect of $X$ on $Y$, but that we should not condition of $Z$ to get such an estimate.
 
@@ -301,23 +305,25 @@ Many intuitive examples of collider bias involve selection or stratification.
 Admission to a college could be a function of combined test scores and interview performance exceeding a threshold, i.e., $T + I \geq C$. Even if $T$ and $I$ are unrelated unconditionally, a regression of $T$ on $I$ conditioned on admission to college is likely to show a negative relation between these two variables.}
 
 \subsubsection{Causal diagrams: Applications in accounting}
-A typical paper in accounting research will include many variables  to ``control for" potential confounding of causal effects.
-But why many of these variables should be considered confounders, in which case they should be controlled for, rather than mediators or colliders, in which case ``controlling for" these variables may lead to bias, is often unclear.
+A typical paper in accounting research will include many variables  to ``control for" the potential confounding of causal effects.
+While many of these variables should be considered confounders, less attention is given to explaining why they might not be mediators or colliders.
+Such a discussion is important because the use of mediators and colliders may lead to bias.
 
 One paper that does discuss this distinction is \citet{Larcker:2007aa}, who use a multiple regression (or logistic) model of the form:\footnote{We alter the mathematical notation of  \citet{Larcker:2007aa} to conform with notation we use here.}
 \begin{equation}
-Y = \alpha + \sum_{r \in R} \gamma _r Z_r + \sum_{s \in S} \beta_s X_s + \epsilon \label{eqn:lrt1}
+Y = \alpha + \sum_{r=1}^R \gamma _r Z_r + \sum_{s=1}^S \beta_s X_s + \epsilon \label{eqn:lrt1}
 \end{equation}
 
-\citet{Larcker:2007aa} suggest that 
-\begin{quote}
+\noindent \citet{Larcker:2007aa} suggest that 
+
+\begin{quote}\begin{singlespace} 
 ``One important feature in the structure of Equation \ref{eqn:lrt1} is that the governance factors [$X$] are assumed to have no impact on the controls (and thus no indirect impact on the dependent variable). 
 As a result, this structure may result in conservative estimates for the impact of governance on the dependent variable. Another approach is to only include governance factors as independent variables, or:
 \begin{equation}
-Y = \alpha + \sum_{s \in S} \beta_s X_s + \epsilon \label{eqn:lrt2}
+Y = \alpha + \sum_{s =1}^S \beta_s X_s + \epsilon \label{eqn:lrt2}
 \end{equation}
 The structure in Equation \ref{eqn:lrt2} would be appropriate if governance impacts the control variables and both the governance and control variables impact the dependent variable (i.e., the estimated regression coefficients for the governance variables will capture the total effect or the sum of the direct effect and the indirect effect through the controls).''
-\end{quote}
+\end{singlespace} \end{quote}
 
 But there are some subtle issues here.
 If some elements of $Z_r$ are mediators and others are confounders, then both equations will be subject to bias. 
@@ -333,8 +339,8 @@ Note that \citet{Larcker:2007aa} do not in fact use leverage as a control when p
 While the with-and-without-controls approach used by \citet{Larcker:2007aa} has intuitive appeal, a more robust approach would involve careful thinking about the plausible causal relations between the treatment variables, the outcomes of interest, and the candidate control variables.
 
 \section{Quasi-experimental methods in accounting research} \label{sec:quasi}
-While most studies in accounting use methods of conditioning on confounding variables in some kind of regression or matching framework, a number of studies use quasi-experimental methods that rely on ``as if" random assignment to identify causal effects \citep{Dunning:2012tt}.
-Of the 91 papers in accounting research in 2014 seeking to draw causal inference from observational data, we identify 14 that use quasi-experimental methods for inferences. Despite the low count, we believe that papers using these methods are considered stronger research contributions and there seems a clear trend toward the use of quasi-experimental approaches.
+While most studies in accounting use methods of conditioning on confounding variables in some form of regression or matching model, a number of studies use quasi-experimental methods that rely on ``as if" random assignment to identify causal effects \citep{Dunning:2012tt}.
+Of the 91 papers in our 2014 survey seeking to draw a causal inference from observational data, we classify 14 as relying on quasi-experimental methods. Despite the low count, we believe that papers using these methods are considered stronger research contributions, and there seems a clear trend toward the use of quasi-experimental methods.
 % Do we want " are pressures from editors and reviewers to incorporate quasi-experimental approaches into research designs."?
 In this section, we discuss and evaluate the use of these methods in accounting research.
 
@@ -347,20 +353,34 @@ Our survey of accounting research in 2014 identified five papers that exploited 
 An examination of these papers reveals how difficult it is to find a plausible natural experiment in observational data.
 
 The most important concern is that that most ``exogenous shocks" (e.g., SEC regulatory changes or court rulings) generally do not randomly assign firms into treatment and control groups.
-For example, an early version of Dodd-Frank contained a provision that would force companies to remove a staggered board structure.
+For example, an early version of Dodd-Frank contained a provision that would force companies to remove a staggered board structure.\footnote{See \citet{Larcker:2011hs}.}
 It is tempting to use this event to assess the valuation consequences of having a staggered board by looking at excess returns for firms with and without a staggered board around the announcement of this Dodd-Frank provision.
-Although potentially interesting, this ``natural experiment" does not randomly assign firms to treatment and control groups regarding a staggered board.  That is, firms made an endogenous choice about staggered boards and the regulation is potentially forcing firms to change their choice.
-This feature substantially limits the ability to use the excess return results to produce causal inferences about staggered boards.
-The results may reveal something about the costs and benefits confronting a firms making a board structure decision, but it does not tell us much about the causal valuation consequences of selecting a staggered board.  
+Although potentially interesting, this ``natural experiment" does not randomly assign firms to treatment and control groups regarding a staggered board.  That is, firms made an endogenous choice about staggered boards and the regulation is potentially forcing firms to change their choice. But firms might have a variety of margins through which they might respond to such a requirement, some of which may have valuation consequences of their own. Absent an account of these margins, an event study that includes a staggered board treatment variable does not isolate the (pure) effect of staggered boards on valuations. 
 
-Another important concern is that many claimed natural experiments do not directly affect assignment to treatment. 
-In these cases, the exogenous shock should not only be random, but should only affect the outcomes of interest through its effect on the treatment.
-This is similar to the necessary assumptions for a valid instrumental variable.
-It is important to develop and present causal diagrams that show the basis of the causal claims and why there are unlikely to be alternative back-door paths that confound inferences.
+Another important concern is that there be a strong reason to believe that the natural experiment impacted assignment to treatment and this impact is uncorrelated with unobserved factors that might impact the outcome of interest. 
+Too often, researchers focus exclusively on arguing the natural experiment is ``exogenous."
+But exogeneity is not the same as saying it represents the effect of interest.
+An example of a drug trial can help underscore these points. 
+Suppose we wish to understand whether a drug lowers blood pressure. 
+Imagine patients in the trial are drawn from two hospitals.
+One hospital is randomly selected as the hospital in which the drug will be administered. 
+The other hospital's patients serve as controls. 
+Suppose in addition that we know the patient populations in both hospitals are similar. 
+
+Most researchers would argue that we have all the ingredients for a successful treatment effect study. In particular assignment to treatment is not just
+exogenous, but random. Now imagine that patients actually have to take the drug for it to have an effect. In this case, if there are unobserved reasons
+why some assigned to treatment opt out, modify the dosage, or stop taking medications for which their might be interactions, then being assigned to
+treatment is not the same as treatment. To take an extreme example, suppose the drug has a slight negative effect on blood pressure, everyone in fact takes the drug, 
+but doctors in the hospital where patients are treated tell patients to stop taking their regular blood pressure medication. 
+In this case, if regular blood pressure medications lower blood pressure more than the new drug, we might conclude the new drug actually \emph{raises} blood pressure! 
+In sum, showing a treatment
+is ``exogenous" does not guarantee that a regression would uncover the causal effect of interest. 
+More work is required.
 
 Finally, it is important to carefully consider the choice of explanatory variables in studies that rely on natural experiments.
 In particular, researchers sometimes inadvertently use covariates that are affected by the treatment in their analysis.  
-As noted by \citet[p.\,116]{Imbens:2015aa}, including such post-treatment variables as covariate can undermine the validity of causal inferences.
+As noted by \citet[p.\,116]{Imbens:2015aa}, including such post-treatment variables as covariates can undermine the validity of causal inferences.
+As an example, consider what the introduction of doctor fixed effects might do in a treatment effect regression study of the blood pressure drug.
 
 %First, some studies using exogenous shocks plausibly suffer from issues of confounding, as treatment assignment is non-random. For example, \citet{Hail:2014fq} study the effect of the ``exogenous shocks" of mandatory IFRS adoption and enforcement of insider trading laws on firms' dividend payments. While these shocks sort firms into treatment and control groups, they clearly do not do so randomly, as they apply to firms in specific countries and a variety of time-varying country-level effects plausibly exist.\footnote{According to Table 1 of \citet{Hail:2014fq}, about 60\% of treatment firms are European firms that adopted IFRS in 2005. Figure 1, Panel A of \citet{Hail:2014fq} suggests that most of the impact of IFRS adoption occurs three years after adoption; i.e., for European firms in 2008, when there may have been other reasons for reducing dividends that applied to those firms more than controls.}
 
@@ -370,11 +390,10 @@ As noted by \citet[p.\,116]{Imbens:2015aa}, including such post-treatment variab
 %The evidence from research published in 2014 suggests that accounting researchers apply the term ``natural experiment" to circumstances where it is not clear that it applies. While ``exogenous shocks" may provide interesting settings for research, if random assignment does not apply, then researchers should exercise caution in giving causal explanations to associations observed in the data. Readers should be alert to the fact that terms like ``exogenous shock" and ``natural experiment" are often used when ``as if" random assignment is not plausible.
 
 Extending our survey beyond research published in 2014, we find papers with very credible natural experiments.
-One such paper is \citet{Michels:2015aa}, who exploits the difference in disclosure requirements for significant events that occur before financial statements are issued that differ according to whether the event occurs before or after the balance sheet date.
-He finds evidence that the market reacts more strongly to recognized events.
-Moreover, as recognized by \citet{Michels:2015aa}, there are possibly different materiality criteria that affect the relation been underlying events and the disclosures he relies on, and \citet{Michels:2015aa} takes care to address this concern.
+One such paper is \citet{Michels:2015aa}, who exploits the difference in disclosure requirements for significant events that occur before financial statements are issued. His events (e.g., fires and natural disasters) are plausibly exogenous and he finds evidence that the market reacts more strongly to those events that must be recognized. Nevertheless, even in this relatively straightforward world,  recognizes that there are possibly different materiality criteria that affect the relation been underlying events and disclosures. In his paper, he takes care to address this concern.
 
-Another credible natural experiment is examined in \citet[p.\,80]{Li:2015he}, who study the experiment whereby the SEC ``mandated temporary suspension of short-sale price tests for a set of randomly selected pilot stocks." \citet[p.\,79]{Li:2015he} conjecture ``that managers respond to a positive exogenous shock to short selling pressure \dots by reducing the precision of bad news forecasts." Although a very plausible natural experiment, it is important to assess whether exogenous shock also potentially affects the properties of the forecast (i.e., makes it endogenous).
+Another credible natural experiment is examined in \citet[p.\,80]{Li:2015he}, who study a regulatory experiment in which the SEC ``mandated temporary suspension of short-sale price tests for a set of randomly selected pilot stocks." \citet[p.\,79]{Li:2015he} conjecture ``that managers respond to a positive exogenous shock to short selling pressure \dots by reducing the precision of bad news forecasts." Although this regulatory change is about as good as it comes to having a
+natural experiment by a regulator, it is important to recognize that this change could conceivably affect the properties of bad news forecasts.
 
 %But if the exogenous shock affects the properties of the forecast (i.e., makes it endogenous), the ``natural experiment" aspect of the research design is undone by the decision to include such properties in the regression analysis.\footnote{\citet{Li:2015he} include the magnitude of the forecast surprise (\textit{MFSURP}) in their regressions (e.g., regressions in Table 2 where abnormal returns around the forecast is the dependent variable).
 %See \citet[p.\,116]{Imbens:2015aa} for discussion of ``the dangers of using a post-treatment variable \dots as a covariate."}
