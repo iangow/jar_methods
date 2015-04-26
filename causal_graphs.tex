@@ -5,39 +5,46 @@
     \addtocounter{figure}{-1}
     \begin{subfigure}{\textwidth}
         \caption{$Z$ is a confounder} \label{fig:confound}
+        \vspace{12pt}
         \centering
 		\begin{tikzpicture}
 		    \node[rectangle] (X) {Treatment variable (X)}; 
 		    \node [right = 1 of X] (Y) {Outcome variable (Y)};
 		    \node [below = 1 of X] (Z) {``Control" (Z)};
-		    \draw (X) edge[->] (Y);
-		    \draw (Z) edge[->] (X);
-		    \draw (Z) edge[->] (Y);
+		    \draw (X) edge (Y);
+		    \draw (Z) edge (X);
+		    \draw (Z) edge (Y);
 		\end{tikzpicture}
     \end{subfigure}
+	\vspace{24pt}
 
-    \begin{subfigure}[b]{\textwidth}
+
+    \begin{subfigure}{\textwidth}
         \caption{$Z$ is mediator} \label{fig:mech}
+        \vspace{12pt}
         \centering
 		\begin{tikzpicture}
 		    %create X and Y node
 		    \node[rectangle] (X) {Treatment variable (X)}; 
 		    \node [right = 1 of X] (Y) {Outcome variable (Y)};
 		    \node [below = 1 of X] (Z) {``Control" (Z)};
-		    \draw (X) edge[->] (Y);
+		    \draw (X) edge (Y);
 		    \draw (Z) edge[<-] (X);
-		    \draw (Z) edge[->] (Y);
+		    \draw (Z) edge (Y);
 		\end{tikzpicture}
     \end{subfigure}
-
-    \begin{subfigure}[b]{\textwidth}
-    	\caption{$Z$ is a collider} \label{fig:collider}
+    
+	\vspace{24pt}
+    \begin{subfigure}{\textwidth}
+    	\caption{$Z$ is a collider}
+    	\label{fig:collider}
+		\vspace{12pt}
 		\centering
 		\begin{tikzpicture}
 		    \node[rectangle] (X) {Treatment variable (X)}; 
 		    \node [right = 1 of X] (Y) {Outcome variable (Y)};
 		    \node [below = 1 of X] (Z) {``Control" (Z)};
-		    \draw (X) edge[->] (Y);
+		    \draw (X) edge (Y);
 		    \draw (Z) edge[<-] (X);
 		    \draw (Z) edge[<-] (Y);
 		\end{tikzpicture} 
@@ -51,11 +58,12 @@
     \addtocounter{figure}{-1}
 \begin{subfigure}{\textwidth}
     \caption{Causal diagram for \citet{Armstrong:2013io}} \label{fig:agl1}
+    \vspace{12pt}
     \centering
 	\begin{tikzpicture}
-		\node[rectangle] (C0) {Compensation$_{t-1}$}; 
-		\node[draw,dashed,fill=white] at ([shift={(3,-2.5)}] C0) (EC1) {Shareholder-observable determinants of compensation$_{t+1}$};
-		\node [right = 3 of C0] (C1) {Compensation$_{t+1}$};
+		\node[rectangle] (C0) {Comp$_{t-1}$}; 
+		\node[draw,dashed,fill=white] at ([shift={(3,-2.2)}] C0) (EC1) {Shareholder-observable determinants of compensation$_{t+1}$};
+		\node [right = 3 of C0] (C1) {Comp$_{t+1}$};
 		\node [below = 3 of C1] (SS0) {Shareholder support$_t$};
 		\node [below = 3 of C0] (ISS) {ISS recommendation$_t$};
 				
@@ -70,14 +78,18 @@
 \end{subfigure}
 
 \begin{subfigure}{\textwidth} 
+\vspace{24pt}
     \caption{Alternative causal diagram for \citet{Armstrong:2013io}} \label{fig:agl2}
     \centering
+    \vspace{12pt}
 	\begin{tikzpicture}
-		\node[rectangle] (C0) {Compensation$_{t-1}$}; 
-		\node[draw,dashed,fill=white] at ([shift={(3,-2.5)}] C0) (EC1) {Shareholder-observable determinants of compensation$_{t+1}$};
-		\node [right = 3 of C0] (C1) {Compensation$_{t+1}$};
+		\node[rectangle] (C0) {Comp$_{t-1}$}; 
+		\node[draw,dashed,fill=white] at ([shift={(3,-2.2)}] C0) (EC1) {Shareholder-observable determinants of compensation$_{t+1}$};
+		\node [right = 3 of C0] (C1) {Comp$_{t+1}$};
 		\node [below = 3 of C1] (SS0) {Shareholder support$_t$};
 		\node [below = 3 of C0] (ISS) {ISS recommendation$_t$};
+			\node[draw,dashed,fill=white,below = 2 of ISS] (ISSP) {ISS policy};
+			
 		\node[draw,dashed,fill=white,below = 2 of SS0] (CD) {Design of proposed compensation plan};
 				
 		\draw (C0) edge[->] (ISS);
@@ -88,6 +100,8 @@
 		\draw (EC1) edge[->] (C1);
 		\draw (EC1) edge[->] (SS0);
 		
+		\draw (ISSP) edge[->] (ISS);
+		\draw (ISSP) edge[->] (CD);
 		\draw (CD) edge[->] (ISS);
 		\draw (CD) edge[->] (SS0);
 		\draw (CD) edge[->,bend right=60] (C1);
@@ -101,7 +115,7 @@
 \begin{figure}
 
 \caption{Causal diagram for strategic auditor model} \label{fig:audit}
-
+\vspace{24pt}
 % Figure depicts causal graph for model with strategic auditor discussed in the text. 
 
 \begin{tikzpicture}
