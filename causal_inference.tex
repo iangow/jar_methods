@@ -29,7 +29,7 @@
 \begin{titlepage}
   \centering
   	\begin{large}
-  	\textbf{Causal Inference in Accounting Research\footnote{We thank seminar participants at London Business School, Karthik Balakrishnan, Philip Berger, Robert Kaplan, Alexander Ljungqvist, Eugene Soltes, Daniel Taylor, Ro Verrecchia, Charlie Wang, and Anastasia Zakolyukina for helpful discussions and feedback.}} \\	
+  	\textbf{Causal Inference in Accounting Research\footnote{We thank seminar participants at London Business School, Karthik Balakrishnan, Philip Berger, Robert Kaplan, Alexander Ljungqvist, Eugene Soltes, Daniel Taylor, Robert Verrecchia, Charles Wang, and Anastasia Zakolyukina for helpful discussions and feedback.}} \\	
   	\end{large}
   	\vspace{60pt}
 	\textbf{Ian D. Gow} \\
@@ -362,9 +362,10 @@ For example, an early version of Dodd-Frank contained a provision that would for
 It is tempting to use this event to assess the valuation consequences of having a staggered board by looking at excess returns for firms with and without a staggered board around the announcement of this Dodd-Frank provision.
 Although potentially interesting, this ``natural experiment" does not randomly assign firms to treatment and control groups regarding a staggered board.  That is, firms made an endogenous choice about staggered boards and the regulation is potentially forcing firms to change their choice. But firms might have a variety of margins through which they might respond to such a requirement, some of which may have valuation consequences of their own. Absent an account of these margins, an event study that includes a staggered board treatment variable does not isolate the (pure) effect of staggered boards on valuations. 
 
+% This example is just not good. It's talking about high-faluting issues conditional on random assignment of treatment that are much more subtle than the problems in actual accounting research.
 Another important concern is that there be a strong reason to believe that the natural experiment impacted assignment to treatment and this impact is uncorrelated with unobserved factors that might impact the outcome of interest. 
-Too often, researchers focus exclusively on arguing the natural experiment is ``exogenous."
-But exogeneity is not the same as saying it represents the effect of interest.
+% Too often, researchers focus exclusively on arguing the natural experiment is ``exogenous."
+In general, even claims of random assignment to treatment do not suffice to deliver unbiased estimates of causal effects.
 An example of a drug trial can help underscore these points. 
 Suppose we wish to understand whether a drug lowers blood pressure. 
 Imagine patients in the trial are drawn from two hospitals.
@@ -372,15 +373,16 @@ One hospital is randomly selected as the hospital in which the drug will be admi
 The other hospital's patients serve as controls. 
 Suppose in addition that we know the patient populations in both hospitals are similar. 
 
-Most researchers would argue that we have all the ingredients for a successful treatment effect study. In particular, assignment to treatment is not just
-exogenous, but random. Now imagine that patients actually have to take the drug for it to have an effect. In this case, if there are unobserved reasons
-why some assigned to treatment opt out, modify the dosage, or stop taking medications for which there might be interactions, then being assigned to
-treatment is not the same as treatment. To take an extreme example, suppose the drug has a slight negative effect on blood pressure, everyone in fact takes the drug, 
-but doctors in the hospital where patients are treated tell patients to stop taking their regular blood pressure medication. 
+Most researchers would argue that we have all the ingredients for a successful treatment effect study.
+% With two observations?! This is a terrible example. What's the point? 
+% That even random assignment doesn't deliver unbiased estimates of causal effects.
+In particular, assignment to treatment is random.
+Now imagine that patients actually have to take the drug for it to have an effect.
+In this case, if there are unobserved reasons why some assigned to treatment opt out, modify the dosage, or stop taking medications for which there might be interactions, then being assigned to treatment is not the same as treatment. 
+To take an extreme example, suppose the drug has a slight negative effect on blood pressure, everyone in fact takes the drug, but doctors in the hospital where patients are treated tell patients to stop taking their regular blood pressure medication. 
 In this case, if regular blood pressure medications lower blood pressure more than the new drug, we might conclude the new drug actually \emph{raises} blood pressure! 
-In sum, showing a treatment
-is ``exogenous" does not guarantee that a regression would uncover the causal effect of interest. 
-More work is required.
+In sum, even showing that a treatment is randomly assigned does not guarantee that a regression will uncover the causal effect of interest. 
+% More work is required.
 
 Finally, it is important to carefully consider the choice of explanatory variables in studies that rely on natural experiments.
 In particular, researchers sometimes inadvertently use covariates that are affected by the treatment in their analysis.  
@@ -434,7 +436,7 @@ Furthermore, there are good reasons to believe that the draft lottery does not a
 %\footnote {Of course, this seemingly ``ideal" instrument has been subject to considerable criticism. I think the idea is that even if you had a low draft number it was not clear that you actually went to the army.  In fact, upper class kids did not go (and the probably had much better skills) than the white hillbilly trash and minorities that ended up going to VN}
 %TODO: Get reference for criticism of Angrist instrument
 
-Unfortunately, there are few (if any) accounting variables that meet the strong test that they are exogenous, and not variables that directly impact the outcome of interest.
+Unfortunately, there are few (if any) accounting variables that meet the requirement that they randomly assign observations to treatments, and do not affect the outcome of interest outside of effects on the treatment variable.
 %NOTE: I think it's a bad idea to use examples that no-one uses. And the director-age thing is getting into a specific paper without explaining what we have in mind. I think saying "X is exogenous" is the kind of language that we need to get away from.
 %%% One has to make fundamental assumptions, derive a model, and then write out an estimation equation before one can give useful meaning to "X is exogenous"! There is grave linguistic confusion here!
 %Consider, for example, instruments such as firm size, leverage, corporate governance, or director age. 
@@ -547,7 +549,7 @@ In particular, manipulation of the running variable (or the variable that determ
 Another issue with RD designs is that the causal effect estimated is a local estimate (i.e., it relates to observations close to the discontinuity).
 This effect may be very different from the effect at points away from the discontinuity.
 For example, in designating a public float of \$75 million, the SEC may have reasoned that at that point the benefits of Sarbanes-Oxley were approximately equal to the fixed costs of complying with the law.
-If true, we would expect to see an estimate of approximately zero effect, even if there were substantial benefits of the law for shareholders of firms sized well above the threshold.
+If true, we would expect to see an estimate of approximately zero effect, even if there were substantial benefits of the law for shareholders of firms having a public float well above the threshold.
 % [Don't Follow -- Badly Worded]  Similarly, that a vote that receives approximately 50\% support may suggest that costs and benefits are approximately balanced, while %measures that receive much greater or much less support may have very different levels of benefits and costs, making estimates from RD designs relatively %
 %uninformative of the average treatment effects.
 
