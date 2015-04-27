@@ -2,7 +2,7 @@
 
 \subsection{Structural modeling: An overview}
 
-In Ssections \ref{sec:causal} and \ref{sec:quasi}, we suggested that researchers should consider using diagrammatic models to communicate the basis for their causal inferences.
+In Sections \ref{sec:causal} and \ref{sec:quasi}, we suggested that researchers should consider using diagrammatic models to communicate the basis for their causal inferences and in Section \ref{sec:mech} we suggested that researchers need to be much more precise in presenting their causal mechanism.
 This section explores a more formal approach to developing a causal model, namely the ``structural" approach.
 Structural models are empirical models that are derived from theoretical models of behavior.
 The term structural model originated with economists and statisticians working at the Cowles Foundation in the 1940s and 1950s.
@@ -16,7 +16,7 @@ Structural models have found widest application in situations where causality is
 Other applications of structural models are discussed in \citet{Reiss:2007ej} and \citet{Reiss:2011go}.
 
 A structural empirical model comprises a theoretical model of the phenomenon of interest and a stochastic model that links the theoretical model to the observed data.
-The theoretical model minimally describes who makes decisions, the objectives of decisions makers, and constraints on their behavior.
+The theoretical model minimally describes who makes decisions, the objectives of decision makers, and constraints on their behavior.
 In developing and analyzing the theoretical model, the researcher decides what conditions (variables) matter and what is endogenous and exogenous.
 While the theoretical model typically draws on economic principles, it could also be derived from behavioral theories in other fields, such as psychology and sociology.
 
@@ -179,7 +179,7 @@ Table \ref{tab:logit} reports the results of logit regressions in which the depe
 The table contains both a simple specification containing an intercept along with the two CEO pay variables, and a more intricate specification involving the other variables we have in our data.
 For each specification we report the estimated coefficients of the logit and the corresponding marginal effects evaluated at the sample averages of the exogenous variables.
 
-The results for the pay coefficients in both specifications run counter those the previous accounting literature might predict and counter to those predicted by the structural model for $b_1 > 0$.
+The results for the pay coefficients in both specifications run counter to those the previous accounting literature might predict and counter to those predicted by the structural model for $b_1 > 0$.
 Specifically, more base pay is associated with more restatements, while more equity-based compensation is associated with fewer restatements.
 
 Besides the intercepts and EQUITY coefficients, the only other coefficients that are statistically significant are those on INT and SEG.
@@ -207,7 +207,7 @@ Suppose that $p_A$ is in fact a choice variable for the firm's auditor.
 To make matters simple, suppose that the auditor detects manipulation with probability $p_{AH}$ if they exert high effort and  otherwise they detect manipulation with the lower probability $p_{AL}$. 
 Let the cost of high effort be a fixed cost $C_A > 0$. 
 Without loss of generality suppose the cost of low effort is zero. 
-When deciding whether to audit with high or low effort, the auditor perceives a cost to its reputation, $C_R$, to not detecting a misstatement that is subsequently caught by an external investigations. 
+When deciding whether to audit with high or low effort, the auditor perceives a cost to its reputation, $C_R$, due to not detecting a misstatement that is subsequently caught by an external investigation. 
 This structure implies that the total cost of high effort to the auditor is $C_A + (1-p_{AH}) \times p_I \times C_R$ or the cost of high effort plus the expected cost of missing a misstatement that is subsequently caught with probability $p_I$. 
 The total expected cost of
 low effort is similarly equal to $(1-p_{AL}) \times p_I \times C_R$. 
@@ -217,12 +217,13 @@ Following the literature, we assume that the two simultaneously and independentl
 That is, we assume the players' strategies are such that they optimize their objectives  taking the actions of the other players as fixed. This means that in a Nash equilibrium, the players are taking actions that they cannot unilaterally improve upon.
 
 In this type of auditing game, the Nash equilibrium has the CEO and the auditor playing mixed (randomized) strategies.
-That is, the auditor will independently exert high effort with probability $\alpha^*$ and the manager independently misstates with probability $\beta^*$. 
+That is, the auditor will independently exert high effort with probability $\alpha^*$ and the CEO independently misstates with probability $\beta^*$. 
 These probabilities are such that each party to the game has no incentive to change their randomized strategy. 
 That is:
 %\vspace{-3mm}
 \begin{enumerate}
-\item the manager is indifferent between misstating and not misstating, or:
+\item the CEO
+is indifferent between misstating and not misstating, or:
 \begin{equation}\label{manager}
 (1 - p_A^*)(1 - p_I) B - C_M = 0 
 \end{equation}
@@ -271,8 +272,8 @@ the probability statement in equation  (\ref{equilpr2})  differs from that in eq
 The probability statement in equation  (\ref{equilpr2}) reflects the randomness of the strategies, whereas in equation (\ref{restate1}) it reflects variables the researcher does not observe.} 
 Partial derivatives of equation (\ref{equilpr2}) show that the restatement probability is:
 \begin{itemize}
-\item Decreasing in the benefit $B$ that the manager enjoys from misstatement.
-\item Increasing in the personal cost of manipulation $C_M$ incurred by the manager.
+\item Decreasing in the benefit $B$ that the CEO enjoys from misstatement.
+\item Increasing in the personal cost of manipulation $C_M$ incurred by the CEO .
 \item Decreasing in the reputational cost $C_R$ incurred by the external auditor.
 \item Increasing in the cost of high effort $C_A$ incurred by the external auditor.
 \end{itemize}
@@ -322,7 +323,7 @@ Thus, because $X$ includes  a dummy variable for whether the firm is an internat
 
 Table \ref{tab:gmm} reports the results of estimating the new (strategic auditor) structural model on the sample of 5,000 firms. 
 The results show that in this particular case, even without sample information on the unobserved probabilities $p_A$ and $p_I$, we can recover estimates of the model parameters up to a normalization.\footnote{
-A simple way to see this might be the case is to observe that there are seven $\theta$ coefficients and eight underlying structural parameters.} 
+A simple way to see this might be to observe that there are seven $\theta$ coefficients and eight underlying structural parameters.} 
 % I thought that we had seven parameters (theta's).  Seems like we have ten unknown parameters in equation (13).  Do we ignore the intercepts for the three equations in (13)?
 For instance, the coefficient ratio $\theta_3/\theta_0$ estimates the ratio of cost parameters $m_1/m_0$.
 Since $m_1$ is the cost coefficient on SALARY and $m_0>0$ for costs to make sense, the sign of $\theta_3/\theta_0$ reveals the sign of $m_1$.
@@ -333,7 +334,7 @@ Recall that the descriptive logit regression coefficients in Table 2  suggest EQ
 
 %How do we think about the statistical significance of b1 (derived from theta6 -- ratio of b1 to b0?  Theta6 is at best marginally significant, what does that imply about the significance of b1?
 
-The one sign that does not make sense given the other coefficient estimates is the negative sign on $\theta_5$, however this coefficient is insignificantly different from zero.
+The one sign that does not make sense given the other coefficient estimates is the negative sign on $\theta_5$, but this coefficient is insignificantly different from zero.
 % This is indeed true of most of the coefficients, and is perhaps not surprising given the participants use of randomized strategies.
 Further, even with a sample size of 5,000, restatements are relatively rare, thus making it difficult for the model to predict them with much accuracy. 
 
@@ -362,7 +363,7 @@ The importance of such models was illustrated in Sections \ref{sec:causal} and \
 Here we have shown more can be inferred from a formal model tied to behavioral assumptions.
 
 Not only does a structural model enable us to derive sharper predictions regarding the relations between variables for various parameterizations, but it also provides a basis for actually estimating those relations. 
-In particular, the comparative statics of the model shed light on the difference between restatements and misstatements, and what assumptions (e.g., a strategic or a non-strategic auditor) and data were needed to draw inferences about misstatements from restatements. 
+In particular, the comparative statistics of the model shed light on the difference between restatements and misstatements, and what assumptions (e.g., a strategic or a non-strategic auditor) and data were needed to draw inferences about misstatements from restatements. 
 Additionally, we were able to recover some of the primitive parameters impacting incentives for managers to misstate results, as well as perform counterfactual analyses. Finally, although structural modeling does not allow us to completely resolve questions of causality, if the model is based on reasonable assumptions and has a close fit to the data, we arguably have better insight into the likely causal relations underlying the phenomenon being examined. 
 % While there is the potential for disappointment in the simplistic theory we used, we see room for improving models as an opportunity rather than a defining limitation.
 
@@ -378,14 +379,14 @@ With few exceptions, theoretical accounting researchers do not explain how to ma
 In many cases, extant theory is not sufficient to motivate the hypotheses tested by empirical researchers.
 %For example, \citet{Huang:2014cs} study the effect ``tone management'' on capital market outcomes. Developing a formal theory of the relation between firm performance, managerial psychological states, and measures of tone would be a complex undertaking involving economics, psychology, and linguistics.Building on such a (hypothetical) foundation to solve the complex game involving managers and capital markets would be extremely ambitious.
 Consistent with the existence of this gap, few empirical research papers in accounting rely on formal theoretical models to motivate their hypotheses. 
-Often when empirical researchers \emph{do} rely on theoretical papers to motivate hypotheses, but the predictions claimed to be derived from those papers have little obvious connection with the actual content of those papers.
+Often when empirical researchers \emph{do} rely on theoretical papers to motivate hypotheses, the predictions claimed to be derived from those papers have little obvious connection with the actual content of those papers.
 % For example, \citet{Hollander:2010jg} suggests that ``one camp [of analytical research] argues that firms with good information quality will issue less expansive disclosures because information asymmetry is lower in such firms \citep[e.g.][]{Verrecchia:1983}," notwithstanding specific results in \citet{Verrecchia:1983} that support this claim.
 % Another camp shows that as information quality increases, which, in turn, increases the quality of the manager's information, managers are incentivized to disclose more because investors will deem such disclosures more credible (Verrecchia [1990b])
 Instead, almost all empirical research papers in accounting use more informal, verbal approaches to hypothesis development.
 
 Second, structural models do not avoid the need to make causal assumptions.
 A causal diagram representing the model developed above is provided in Figure \ref{fig:audit}.\footnote{
-While the mixed-strategy of our model has $\beta$ not being a function of $B$ or $C_M$ and $\alpha$ not being a function of $C_A$ or $C_R$, we have retained this links as being plausible in a more general model.}
+While the mixed-strategy of our model has $\beta$ not being a function of $B$ or $C_M$ and $\alpha$ not being a function of $C_A$ or $C_R$, we have retained these links as being plausible in a more general model.}
 As can be seen, we are assuming that $p_I$ is independent of EQUITY. 
 But is quite plausible that these investigations are conducted (in part) by a regulator who is as strategic as the auditor in our model, thus giving rise to a link between EQUITY and $p_I$.
 We also assume that EQUITY is exogenous, whereas it is plausibly related to the complexity of the business, which may also affect the cost of auditing.
@@ -399,7 +400,7 @@ Clearly there is a risk of incorrect causal inferences being drawn from estimati
 % The critical assumption in \citet[p.\,6]{Nikolaev:2014er} is the ``idea that both operating cash flow and earnings can be viewed as noisy measures of underlying economic performance."
 %DL: Not sure that I understand the discussion here on Nikolaev
 %But the fact that cash flow from operations is intended to measure something quite different (e.g., investing cash flows affect subsequent earnings quite differently from operating cash flows) suggests that this may not be the best assumption with which to identify a structural model.
-Of course, there is no guarantee that after all the effort that went into developing the model, that the estimates will make sense or that the model will otherwise be validated.
+Of course, there is no guarantee that after all the effort that went into developing the model, the estimates will make sense or that the model will otherwise be validated.
 Despite these challenges, we believe that there is significant value in making the theory underlying empirical research transparent and rigorous.\footnote{The use of structural models in accounting research has been fairly limited to date.  
 Recent examples include \citet{Gerakos:2013cl}, \citet{Zakolyukina:2015aa}, and \citet{Bertomeu:2015aa}.  
 %NOTE: I don't think this applies to Nikolaev, so I took that paper out.

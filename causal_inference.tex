@@ -29,7 +29,7 @@
 \begin{titlepage}
   \centering
   	\begin{large}
-  	\textbf{Causal Inference in Accounting Research\footnote{We thank seminar participants at London Business School, Karthik Balakrishnan, Philip Berger, Bob Kaplan, Alexander Ljungqvist, Eugene Soltes, Dan Taylor, Ro Verrecchia, Charlie Wang, and Anastasia Zakolyukina for helpful discussions and feedback.}} \\	
+  	\textbf{Causal Inference in Accounting Research\footnote{We thank seminar participants at London Business School, Karthik Balakrishnan, Philip Berger, Robert Kaplan, Alexander Ljungqvist, Eugene Soltes, Daniel Taylor, Ro Verrecchia, Charlie Wang, and Anastasia Zakolyukina for helpful discussions and feedback.}} \\	
   	\end{large}
   	\vspace{60pt}
 	\textbf{Ian D. Gow} \\
@@ -50,8 +50,7 @@
 	\vspace{30pt}
 	\today
 	
-	\vspace{30pt}
-	\centerline{\bf Rough Draft}
+
 	
 
 \end{titlepage}
@@ -373,9 +372,9 @@ One hospital is randomly selected as the hospital in which the drug will be admi
 The other hospital's patients serve as controls. 
 Suppose in addition that we know the patient populations in both hospitals are similar. 
 
-Most researchers would argue that we have all the ingredients for a successful treatment effect study. In particular assignment to treatment is not just
+Most researchers would argue that we have all the ingredients for a successful treatment effect study. In particular, assignment to treatment is not just
 exogenous, but random. Now imagine that patients actually have to take the drug for it to have an effect. In this case, if there are unobserved reasons
-why some assigned to treatment opt out, modify the dosage, or stop taking medications for which their might be interactions, then being assigned to
+why some assigned to treatment opt out, modify the dosage, or stop taking medications for which there might be interactions, then being assigned to
 treatment is not the same as treatment. To take an extreme example, suppose the drug has a slight negative effect on blood pressure, everyone in fact takes the drug, 
 but doctors in the hospital where patients are treated tell patients to stop taking their regular blood pressure medication. 
 In this case, if regular blood pressure medications lower blood pressure more than the new drug, we might conclude the new drug actually \emph{raises} blood pressure! 
@@ -399,7 +398,7 @@ As noted by \citet[p.\,116]{Imbens:2015aa}, including such post-treatment variab
 
 Extending our survey beyond research published in 2014, we find papers with very credible natural experiments.
 One such paper is \citet{Michels:2015aa}, who exploits the difference in disclosure requirements for significant events that occur before financial statements are issued. 
-Because the timing of his events (e.g., fires and natural disasters) relative to balance sheet date is plausibly random, the assignment to the disclosure and recognition is also plausibly random. 
+Because the timing of his events (e.g., fires and natural disasters) relative to balance sheet date is plausibly random, the assignment to the disclosure and recognition conditions is also plausibly random. 
 Nevertheless, even in this relatively straightforward setting, \citet{Michels:2015aa} recognizes the possibility of different materiality criteria for disclosed and recognized events, which could affect the relation been underlying events and disclosures, and takes care to address this concern.
 
 Another credible natural experiment is examined in \citet[p.\,80]{Li:2015he}, who study a regulatory experiment in which the SEC ``mandated temporary suspension of short-sale price tests for a set of randomly selected pilot stocks." 
@@ -435,7 +434,7 @@ Furthermore, there are good reasons to believe that the draft lottery does not a
 %\footnote {Of course, this seemingly ``ideal" instrument has been subject to considerable criticism. I think the idea is that even if you had a low draft number it was not clear that you actually went to the army.  In fact, upper class kids did not go (and the probably had much better skills) than the white hillbilly trash and minorities that ended up going to VN}
 %TODO: Get reference for criticism of Angrist instrument
 
-Unfortunately, there are few (if any) accounting variables that meet the strong test that there are exogenous and not variables that directly impact the outcome of interest.
+Unfortunately, there are few (if any) accounting variables that meet the strong test that they are exogenous, and not variables that directly impact the outcome of interest.
 %NOTE: I think it's a bad idea to use examples that no-one uses. And the director-age thing is getting into a specific paper without explaining what we have in mind. I think saying "X is exogenous" is the kind of language that we need to get away from.
 %%% One has to make fundamental assumptions, derive a model, and then write out an estimation equation before one can give useful meaning to "X is exogenous"! There is grave linguistic confusion here!
 %Consider, for example, instruments such as firm size, leverage, corporate governance, or director age. 
@@ -473,7 +472,7 @@ Indeed, many studies choose to test the validity of their instrumental variables
 % \citet{Guedhami:2013cj} cite \citet{Larcker:2010fq} as a reference for this approach, even though \citet{Larcker:2010fq} carefully explain why simple tests like this cannot be used to justify instruments.}
 %
 %\citet{Correia:2014fp} is relatively thorough. \citet{Correia:2014fp} 
-But such tests of instruments may are of dubious value. 
+But such tests of instruments may be of dubious value. 
 Consider, for example, the following simulation exercise.
 Consider a world where $X$ does not cause $y$, but we nevertheless estimate the regression $y = X \beta + \epsilon$. To make matters
 interesting, suppose $\rho(X, \epsilon) > 0$ (i.e., $X$ is correlated with the error). Clearly, if we estimated the equation by OLS, we would
@@ -506,7 +505,7 @@ To illustrate the application of causal diagrams to the evaluation of instrument
 %
 \citet{Armstrong:2013io} study the effect of shareholder voting (\textit{Shareholder support}$_{t}$) on future executive compensation ($\textit{Comp}_{t+1}$) .
 Because of the plausible existence of unobserved confounding variables that affect both future compensation and shareholder support, a simple regression of $\textit{Comp}_{t+1}$ on \textit{Shareholder support}$_{t}$ and controls would not allow \citet{Armstrong:2013io} to obtain an unbiased estimate of the causal relation.
-Among other analyses, \citet{Armstrong:2013io} use an instrument variable to estimate the causal relation of interest.
+Among other analyses, \citet{Armstrong:2013io} use an instrumental variable to estimate the causal relation of interest.
 \citet{Armstrong:2013io} claim that their instrument is valid. Their reasoning is represented graphically in Figure \ref{fig:agl}.
 By conditioning on $\textit{Comp}_{t-1}$ and using ISS recommendations as an instrument, \citet{Armstrong:2013io} argue that they can identify a consistent estimate of the causal effect of shareholder voting on $\textit{Comp}_{t+1}$, even though there is an unobserved confounder, namely determinants of future compensation observed by shareholders, but not the researcher.\footnote{
 In Figure \ref{fig:agl}, we depict the unobservability of this variable (to the researcher) by putting it in a dashed box.
@@ -525,7 +524,7 @@ This analysis suggests that their estimate is highly sensitive to violation of t
 
 \subsubsection{IV in accounting research: An evaluation}
 A review of instrumental variable applications in our 2014 survey suggests that accounting researchers have paid little heed to the suggestions and warnings of  \citet{Larcker:2010fq,Lennox:2012it} and \citet{Roberts:2013cz}.
-This is perhaps not unsurprising, as most studies do not have a theoretical model that can explain why a variable can naturally be excluded from
+This is perhaps not surprising, as most studies do not have a theoretical model that can explain why a variable can naturally be excluded from
 the equation of interest but still matter. 
 Thus, while instruments work in theory, in practice there is a substantial burden of proof on researchers to justify appropriateness of making the stringent assumptions that IV estimators require.
  % \citet{Houston:2014hv} use variables variables that are related to the location of the company's headquarters as instruments for political connection and argue that ``these instruments should not be conceptually related to loan spreads. The key insight here is that the geographic locations of headquarters for companies are predetermined and are unlikely to affect banks' financing decision on loan costs. In summary, our identification assumption is that the costs of bank loans are not directly related to the companies' geographic locations, after controlling for a series of firm and loan characteristics'' (p.228). In justifying the relevance of the instrument, the authors seem eager to justify a connection, suggesting that ``the presumption is that the company's geographic location affects the company's ability to attract politically connected directors.'' But it far from clear why a company's geographic location would not also affect the its ability to attract directors with connections to \emph{financial institutions}, which plausibly affects financing terms directly \citep{Guner:2008tp}.\footnote{\citet{Houston:2014hv} also use firm age as an instrument, arguing that ``firm age affects a firm's incentive and capability in building up political connections''; but it is not clear why firm age would not also affect a firm's ``incentive and capability in building up'' financial connections.} 
@@ -547,8 +546,8 @@ In particular, manipulation of the running variable (or the variable that determ
 
 Another issue with RD designs is that the causal effect estimated is a local estimate (i.e., it relates to observations close to the discontinuity).
 This effect may be very different from the effect at points away from the discontinuity.
-For example, in designating a public float of \$75 million, the SEC may have reasoned that at that point the benefits of Sarbanes-Oxley, which may have been increasing in firm size, were approximately equal to the fixed costs of complying with the law.
-If true, we would expect to see an estimate of approximately zero effect, even if there were substantial benefits of the law for shareholders of firms well above the threshold.
+For example, in designating a public float of \$75 million, the SEC may have reasoned that at that point the benefits of Sarbanes-Oxley were approximately equal to the fixed costs of complying with the law.
+If true, we would expect to see an estimate of approximately zero effect, even if there were substantial benefits of the law for shareholders of firms sized well above the threshold.
 % [Don't Follow -- Badly Worded]  Similarly, that a vote that receives approximately 50\% support may suggest that costs and benefits are approximately balanced, while %measures that receive much greater or much less support may have very different levels of benefits and costs, making estimates from RD designs relatively %
 %uninformative of the average treatment effects.
 
@@ -582,7 +581,7 @@ In complex fields like the social sciences and epidemiology, there are only few 
 
 In the first half of the paper, we have argued that, while causal inference is the goal of most accounting research, it is difficult to find datasets and statistical methods that can produce reliable estimates of causal effects.
 Does this mean accounting researchers must give up making causal statements? 
-We believe the answer in no. 
+We believe the answer is no. 
 There are viable paths forward. 
 These paths do not rely on researchers finding clever and appropriate identification strategies to answer questions of interest.
 The objective of the second part of this paper is to discuss these paths forward.
@@ -637,8 +636,8 @@ In contrast, while \citet{Doll:1976aa} also had highly statistically significant
 
 \shortcites{Morrow:1995gz} 
 \citet{Gillies2011-GILTRT-3} then discusses extensive research into atherosclerosis between 1979 and 1989 and concludes that ``by the end of the 1980s, it was established that the oxidation of LDL was an important step in the process which led to atherosclerotic plaques."
-Later research provided ``compelling evidence that smoking causes oxidative modification of biologic components in humans.\footnote{This evidence of much higher levels of a new measure (levels of $F_2$-isoprostanes in blood samples) of the relevant oxidation in the body due to smoking.
-This conclusion wass greatly strengthened by the finding that levels of $F_2$-isoprostanes in the smokers fell significantly after two weeks of abstinence from smoking" \citep[pp.\,1201--2]{Morrow:1995gz}.}
+Later research provided ``compelling evidence that smoking causes oxidative modification of biologic components in humans.\footnote{This evidence is much higher levels of a new measure (levels of $F_2$-isoprostanes in blood samples) of the relevant oxidation in the body due to smoking.
+This conclusion was greatly strengthened by the finding that levels of $F_2$-isoprostanes in the smokers fell significantly after two weeks of abstinence from smoking" \citep[pp.\,1201--2]{Morrow:1995gz}.}
 \citet[p.\,120]{Gillies2011-GILTRT-3} points out that this evidence alone did not establish a confirmed mechanism linking smoking with heart disease, because the required oxidation needs to occur in the artery wall, not in the blood stream, and it fell to later research to establish this missing piece.\footnote{
 ``Smoking produced oxidative stress. 
 This increased the adhesion of leukocytes to the \dots artery, which in turn accelerated the formation of atherosclerotic plaques" \citep[p.\,123]{Gillies2011-GILTRT-3}.}
@@ -678,8 +677,7 @@ However, even if not \emph{necessary}, given the small effect size documented in
 As another example, many published papers have suggested that managers adopt conditional conservatism as a reporting strategy to obtain benefits such as reduced debt costs. %\citep{Ahmed:2002aa,Zhang:2008bc}.
 However, as \citet[p\,317]{Beyer:2010cj} point out, an ex ante commitment to such a reporting strategy ``requires a mechanism that allows managers to credibly commit to withholding good news or to commit to an accounting information system that implements a higher degree of verification for gains than for losses," yet research has only recently begun to focus on the mechanisms through which such commitments are made \citep[e.g.,][]{Erkens:2014hj}.
 
-It seems very clear that we need a much better understanding of the precise causal mechanisms for important accounting research questions. A clear discussion of these mechanisms will enable reviewers and readers to see what is being assumed and assess the reasonableness of the theoretical causal paths. As we discuss in Section 6, this type of knowledge enables the the identification of gaps in research based on strictly archival data and somewhat unstructured verbal theorizing.
-\footnote{\cite{Soltes:2014gr} provides an insightful discussion of the pitfalls from exclusive reliance on archival data.} 
+It seems very clear that we need a much better understanding of the precise causal mechanisms for important accounting research questions. A clear discussion of these mechanisms will enable reviewers and readers to see what is being assumed and assess the reasonableness of the theoretical causal paths.\footnote{ As we discuss in Section 6, this type of knowledge enables the the identification of gaps in research based on strictly archival data and somewhat unstructured verbal theorizing. \cite{Soltes:2014gr} provides an insightful discussion of the pitfalls associated with an exclusive reliance on archival data.} 
 
 %If a plausible causal mechanism for their empirical research question (using theory and/or institutional observation), the next step in the research process is to assess the ability of this mechanism to explain real-world data. 
 % As we have argued above, the traditional quasi-experimental methods used by accounting researchers have a number of serious limitations for conducting this type of data analysis exercise. 
@@ -694,7 +692,7 @@ Accounting is an applied discipline and it would seem that most empirical resear
 Unfortunately, there are very few studies published in top accounting journals that focus on providing deep description of institutions relevant to accounting research settings.
 Part of this likely reflects the perception that research that pursues causal questions (i.e., tests of theories) is more highly prized and thus more likely to be published in top accounting journals.\footnote{
 At one point, the \emph{Journal of Accounting Research} published papers in a section entitled ``Capsules and Comments."
-The editor at the time (Nicholas Dopuch) would seem to place papers into this section if ``did not fit" as a main article, but examined new institutional data or ideas. 
+The editor at the time (Nicholas Dopuch) would seem to place a paper into this section if it ``did not fit" as a main article, but examined new institutional data or ideas. 
 Such a journal section might have provided a credible signal of a willingness to publish descriptive studies of institutionally interesting settings.}
 We believe that accounting research could benefit substantially from more in-depth descriptive research.
 As we discuss below, this type of research is essential for those who seek to develop structural models or improve our understanding of causal mechanisms.\footnote{
@@ -706,14 +704,14 @@ For example, using proxy statements and conversations with actual executives and
 It seems highly unlikely that a model derived from fundamental economic theory would arrive at these plan features actually used by firms.
 These institutional features can be used to identify precise mechanisms and also as elements of structural models in which other features might be motivated more directly by economic theory.
 
-Recent published research suggests that increased recognition of the value of descriptive research.
+Recent published research suggests an increased recognition of the value of descriptive research.
 \citet{Soltes:2013ba} examines the interactions between sell-side analysts and company management in one firm that granted him proprietary access to ``offer insights into which analysts privately meet with management, when analysts privately interact with management, and why these interactions occur."  
 By comparing private interaction to observed interaction between analysts and managers on conference calls and highlighting that private interaction with management is an important communication channel for analysts, \citet{Soltes:2013ba} provides a plausible mechanism through which information transfers hypothesized in more traditional empirical papers actually occur.
 
 That private communication with management is an important source of information is confirmed by  \citet{Brown:2015kd}.
 \citet{Brown:2015kd} survey and interview financial analysts to understand how they think about a variety of issues. 
 Their findings suggest that analysts' views on earnings quality differ from those researchers focus on. 
-For instance, analysts do not use the ``red flags" used by academics to identify manipulation; and analysts generally are not attempting to uncover manipulation and use forecasts, not as ends in themselves, but figure out the stock price target.
+For instance, analysts do not use the ``red flags" used by academics to identify manipulation; and analysts generally are not attempting to uncover manipulation and use forecasts, not as ends in themselves, but to figure out the stock price target.
 These insights should shape research seeking to develop hypotheses and models of accounting information and analyst behavior.
 
 Other fields provide interesting examples likely to be of interest to accounting researchers.
@@ -721,7 +719,7 @@ For example, \citet{Ahern:2014id} examines 183 illegal insider networks using pr
 It provides rich insights into investor networks and it suggests questions for future work.
 For example, network relationships can be divided into familial (3\%), business-related (35\%), friendships (35\%), or ``not clear" (21\%).
 Insiders are more likely to be an accountant or lawyer, less likely to be a Democrat, and more likely to have a ``criminal record."
-These results provide new institutional insights have have the potential to identify causal mechanisms regarding information transfer and disclosure.
+These results provide new institutional insights that have the potential to identify causal mechanisms regarding information transfer and disclosure.
 In economics, \citet{Bloom:2007ed} provide a descriptive study of 732 medium-sized firms to assess whether management practices, such as lean manufacturing and use of incentives, are related to productivity. These descriptive results have lead to the development of theoretical models of innovating and productivity along with increasingly sophisticated empirical studies.
 
 % Although it is a matter of taste, a number of the papers in our review seem to ask research questions and use causal mechanisms that are far removed from real world issues.
