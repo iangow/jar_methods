@@ -29,7 +29,7 @@
 \begin{titlepage}
   \centering
   	\begin{large}
-  	\textbf{Causal Inference in Accounting Research\footnote{We thank seminar participants at London Business School, Karthik Balakrishnan, Philip Berger, Robert Kaplan, Alexander Ljungqvist, Eugene Soltes, Daniel Taylor, Robert Verrecchia, Charles Wang, and Anastasia Zakolyukina for helpful discussions and feedback.}} \\	
+  	\textbf{Causal Inference in Accounting Research\footnote{We are grateful to our discussants and participants at the 2015 JAR Conference for helpful feedback. We also thank seminar participants at London Business School, Karthik Balakrishnan, Philip Berger, Robert Kaplan, Alexander Ljungqvist, Eugene Soltes, Daniel Taylor, Robert Verrecchia, Charles Wang, and Anastasia Zakolyukina for comments.}} \\	
   	\end{large}
   	\vspace{60pt}
 	\textbf{Ian D. Gow} \\
@@ -58,9 +58,10 @@
 
 \begin{abstract}
 	This paper examines the approaches accounting researchers use to draw causal inferences using observational (or non-experimental) data. 
-	The vast majority of accounting research papers draw causal inferences notwithstanding the well-known difficulties in doing so with observational data.
-	While a minority of papers seek to use quasi-experimental methods to draw inferences, there are concerns about how these methods are typically applied.
-	We believe that accounting research would benefit from: 
+	The vast majority of accounting research papers draw causal inferences notwithstanding the well-known difficulties in doing so.
+	While recent papers seek to use quasi-experimental methods to improve causal 
+	inferences, these methods also make strong assumptions that are not always fully
+	appreciated. We believe that accounting research would benefit from: 
 		a greater focus on the study of causal mechanisms (or causal pathways); 
 		increased emphasis on structural modeling of the phenomena of interest; 
 		and, more in-depth descriptive research. 
@@ -239,115 +240,6 @@ We agree with \citet{MinuttiMeza:2014fn} who argues that ``matching does not nec
 %TODO: Discuss papers matching on post-treatment variables.
 %TODO: Find a home for discussion of bounding. I don't think it belongs with PSM.
 
-\subsection{Causal inference: A brief overview}
-In recent decades, the definition and logic of causality has been revisited by researchers in such diverse fields as epidemiology, sociology, statistics, and computer science. 
-Work by \citet{Rubin:1974im,Rubin:1977dv} and \citet{Holland:1986p7458} formalized ideas from the potential-outcome framework of \citet{Neyman:1923aa}, leading to the so-called Rubin causal model. 
-Other fields have used path analysis, as initially studied by geneticist Sewell Wright \citep{Wright:1921aa}, as an organizing framework.
-In economics and econometrics, early proponents of structural models were quite clear about how causal statements must be tied to theoretical economic models.
-As discussed by \citet{Heckman:2015ez}, \citet{Haavelmo:1943cl,Haavelmo:1944jq} promoted structural models ``based on a system of structural equations that define causal relationships among a set of variables."
-%standard econometric texts generally avoid explicit discussion of causation.
-%For example, Greene (2003) does not discuss causality except for Granger causality, which is widely recognized as a purely statistical notion quite distinct from notions of one variable causing another.
-% However, some economists have explic
-\citet[p.\,979]{Goldberger:1972cq} promoted a similar notion: 
-``By structural equation models, I refer to stochastic models in which each equation represents a causal link, rather than a mere empirical association \dots
-Generally speaking the structural parameters do not coincide with coefficients of regressions among observable variables, but the model does impose constraints on those regression coefficients."
-\citet{Goldberger:1972cq} focuses on linking such approaches to the path analysis of Wright.
-
-An important point worth emphasizing is that model-based causal reasoning is distinct from statistical reasoning. 
-Suppose we observe data on $x$ and $y$ and make the strong assumption that we know that causality is one-way. 
-How do we distinguish between whether $x$ causes $y$ or $y$ causes $x$? 
-Statistics can help us determine whether $x$ and $y$ are correlated, but correlations do not establish causality.
-Only with assumptions about causal relations between $x$, $y$, and other variables (i.e., a theory) can we infer causality.
-While theories may be informed by evidence (e.g., prior research may suggest a given theory is more or less plausible), they also encode our understanding of causal mechanisms (e.g., barometers do not cause rain).
-
-\subsection{Causal diagrams: A primer}
-Computer and decision scientists, as well as researchers in other disciplines, have recently sought to develop an analytical framework for thinking about causal models and their connection to probability statements \citep{Pearl:2009kh}.
-Pearl's framework, which he calls the structural causal model, uses causal diagrams to describe causal relationships. 
-These diagrams encode causal assumptions and visually communicate how a causal inference is being drawn from a given research design.
-Given a \emph{correctly specified} causal diagram, these criteria can be used to verify conditioning strategies, instrumental variable designs, and mechanism-based causal inferences.\footnote{While \citet[p.248]{Pearl:2009kh} defines an instrument in terms of causal diagrams, additional assumptions (e.g., linearity) are often needed to estimate causal effects using an instrument \citep{Angrist:1996p7456}.}
-
-We use Figure \ref{fig:basic} to illustrate the basic ideas of causal diagrams and how they can be used to facilitate causal inference.
-Figure \ref{fig:basic} depicts three variants of a simple causal graph. Each graph depicts potential relationships among the three (observable) variables.
-In each case, we are interested in understanding how the presence of a variable $Z$ impacts the estimation of the causal effect of $X$ on $Y$.
-The only difference between the three graphs is the direction of the arrows linking either $X$ and $Z$, or $Y$ and $Z$.
-The boxes (or ``nodes") represent random variables and the arrows (or ``edges") connecting boxes represent hypothesized causal relations, with each arrow pointing from a cause to a variable assumed to be affected by it.\footnote{
-That arrows have a direction accounts for the ``D" in DAG (Directed Acyclic Graph). 
-The acyclic (``A") component means that there must be no cycles in the graph. 
-Cycles cause obvious problems in causal reasoning.
- An example would be $X \rightarrow Y \rightarrow Z \rightarrow X$. 
-In this graph there is no ultimate cause. 
-Graphs make a distinction between observed and unobserved random variables.
-In some cases, an unobserved joint determinant of two random variables will not be represented explicitly, but replaced by a dashed, ``undirected" edge between those two random variables.}
-
-The criterion developed by \citet{Pearl:2009vo} implies that very different conditioning strategies are needed for each of the causal diagrams (see Appendix \ref{append} for a more formal treatment). 
-\citet{Pearl:2009vo} shows that, if we are interested in assessing the causal effect of $X$ on $Y$, we may be able to do so by conditioning on a set of variables, $Z$, that satisfies what \citet{Pearl:2009vo} labels the ``back-door criterion" \citep[p.79]{Pearl:2009vo}.\footnote{
-Intuitively, the back-door criterion requires that $Z$ blocks (and does not open) ``back-door" paths.
-A back-door path can be thought of as a way for $X$ to be associated with $Y$ due to associations with other variables rather than causal links from $X$ to $Y$.
-See Appendix \ref{append} for a more formal discussion.}
-While conditioning on variables is much like the standard notion of ``controlling for" such variables in a regression, there are critical differences.
-First, conditioning means estimating effects for each distinct level of the set of variables in $Z$. 
-This nonparametric concept of conditioning on $Z$ is more demanding than simply including $Z$ as another regressor in a linear regression model.\footnote{Including variables in a linear regression framework ``controls for" only under strict assumptions, such as linearity in the relations between $X$, $Y$, and $Z$.}
-Second, the inclusion of a variable in $Z$ may not be an appropriate conditioning strategy. Indeed, it can be that the inclusion of $Z$ results in biased estimates of causal effects.
-
-We now discuss what each of the three graphs in Figure \ref{fig:basic} suggest about how one might model the causal effect of $X$ on $Y$.	
-Figure \ref{fig:confound} is straightforward. It shows that we need to condition on $Z$ in order to estimate the causal effect of $X$ on $Y$.
-Note the notion of ``condition on" again is more general than just including $Z$ in a parametric (linear) model.\footnote{
-Inclusion of $Z$ blocks the back-door path from $Y$ to $X$ via $Z$.} The need to condition on $Z$ leads to $Z$ being called a \emph{confounder}.
-
-%Nevertheless, under the
-%strong assumptions that: $Y = X \beta + Z \gamma + \epsilon_Y$, $\epsilon_Y$ is independent of $X$ and $Z$, and $X$ and $Z$ are correlated,
-%the diagram suggests that the omission of $Z$ would result in a biased estimate of $\beta$.
-
-Figure \ref{fig:mech} is a bit different. Here $Z$ is a \emph{mediator} of the effect of $X$ on $Y$.
-No conditioning is required in this setting to obtain an unbiased estimate of the effect of $X$ on $Y$.
-But, the back-door criterion not only implies that we need not condition on $Z$ to obtain an unbiased estimate of the causal effect of $X$ on $Y$, but that we should not condition on $Z$ to get such an estimate.
-
-Finally in Figure \ref{fig:collider}, we have $Z$ acting as what is referred to as a ``collider" variable \citep{Glymour:2008aa,Pearl:2009kh}.\footnote{
-The two arrows from $X$ and $Y$ ``collide" in $Z$.} 
-The back-door criterion not only implies that we need not condition on $Z$, but that we \emph{should} not condition on $Z$ to get an unbiased estimate of the causal effect of $X$ on $Y$.
-While in epidemiology, the issue of ``collider bias \dots can be just as severe as confounding" \citep[p.\,186]{Glymour:2008aa}, collider bias appears to receive less attention in accounting research than confounding.\footnote{
-Many intuitive examples of collider bias involve selection or stratification.
-Admission to a college could be a function of combined test scores and interview performance exceeding a threshold, i.e., $T + I \geq C$. Even if $T$ and $I$ are unrelated unconditionally, a regression of $T$ on $I$ conditioned on admission to college is likely to show a negative relation between these two variables.}
-
-\subsubsection{Causal diagrams: Applications in accounting}
-A typical paper in accounting research will include many variables  to ``control for" the potential confounding of causal effects.
-While many of these variables should be considered confounders, less attention is given to explaining why it is reasonable to assume that they are not mediators or colliders.
-Such a discussion is important because the use of mediators and colliders may lead to bias.
-
-One paper that does discuss this distinction is \citet{Larcker:2007aa}, who use a multiple regression (or logistic) model of the form:\footnote{We alter the mathematical notation of  \citet{Larcker:2007aa} to conform with notation we use here.}
-\begin{equation}
-Y = \alpha + \sum_{r=1}^R \gamma _r Z_r + \sum_{s=1}^S \beta_s X_s + \epsilon \label{eqn:lrt1}
-\end{equation}
-
-\noindent \citet{Larcker:2007aa} suggest that 
-
-\begin{quote}\begin{singlespace} 
-``One important feature in the structure of Equation \ref{eqn:lrt1} is that the governance factors [$X$] are assumed to have no impact on the controls (and thus no indirect impact on the dependent variable). 
-As a result, this structure may result in conservative estimates for the impact of governance on the dependent variable. Another approach is to only include governance factors as independent variables, or:
-\begin{equation}
-Y = \alpha + \sum_{s =1}^S \beta_s X_s + \epsilon \label{eqn:lrt2}
-\end{equation}
-The structure in Equation \ref{eqn:lrt2} would be appropriate if governance impacts the control variables and both the governance and control variables impact the dependent variable (i.e., the estimated regression coefficients for the governance variables will capture the total effect or the sum of the direct effect and the indirect effect through the controls).''
-\end{singlespace} \end{quote}
-
-But there are some subtle issues here.
-If some elements of $Z_r$ are mediators and others are confounders, then both equations will be subject to bias. 
-Equation \ref{eqn:lrt2} will be biased due to omission of confounders, while Equation \ref{eqn:lrt1}  will be biased due to inclusion of mediating variables.
-Additionally, the claim that the estimates are ``conservative" is only correct if the indirect effect via mediators is of the same sign as the direct (i.e., unmediated) effect. 
-If this is not the case, then the relation between the magnitude (and even the sign) of the direct effect and the indirect effect is unclear.
-
-Additionally, this discussion does not allow for the possibility of colliders.
-For example, governance plausibly affects leverage choices, while performance is also likely to affect leverage.
-If so, ``controlling for" leverage might induce associations between governance and performance even absent a true relation between these variables.\footnote{
-Note that \citet{Larcker:2007aa} do not in fact use leverage as a control when performance is a dependent variable.}
-%For example, \citet{Cadman:2014cr} study, \emph{inter alia}, the effect of being a venture capital (VC)-backed firm on CEO incentive horizons after IPO. In their analysis they include as controls variables such as \emph{Toptier Underwriter} and \emph{R\&D/Assets}.\footnote{See Table 5 of \citet{Cadman:2014cr}.} But, given the timing of events, being VC-backed affecting the choice of underwriter is the most plausible causal relation between these two variables. Also, given that \citet{Cadman:2014cr} include pre-IPO observations, it is plausible that the CEO's incentive horizons would affect variables such as \emph{Toptier Underwriter} and \emph{R\&D/Assets}. If these assertions are correct,  \emph{Toptier Underwriter} and \emph{R\&D/Assets} are colliders. While these variables may have little impact on the results of \citet{Cadman:2014cr}, we argue that more discussion about why researchers include controls is warranted.
-While the with-and-without-controls approach used by \citet{Larcker:2007aa} has intuitive appeal, a more robust approach would involve careful thinking about the plausible causal relations between the treatment variables, the outcomes of interest, and the candidate control variables.
-
-\section{Quasi-experimental methods in accounting research} \label{sec:quasi}
-While most studies in accounting use methods of conditioning on confounding variables in some form of regression or matching model, a number of studies use quasi-experimental methods that rely on ``as if" random assignment to identify causal effects \citep{Dunning:2012tt}.
-Of the 91 papers in our 2014 survey seeking to draw a causal inference from observational data, we classify 14 as relying on quasi-experimental methods. Despite the low count, we believe that papers using these methods are considered stronger research contributions, and there seems a clear trend toward the use of quasi-experimental methods.
-% Do we want " are pressures from editors and reviewers to incorporate quasi-experimental approaches into research designs."?
-In this section, we discuss and evaluate the use of these methods in accounting research.
 
 \subsection{Natural experiments}
 Natural experiments occur when observations are assigned by nature (or some other force outside the control of the researcher) to treatment and control groups in a way that is random or ``as if'' random \citep{Dunning:2012tt}. 

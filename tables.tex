@@ -3,34 +3,35 @@
 \caption{Descriptive Statistics} \label{tab:desc}
 
 \justify{
-{\bf RESTATE} is a zero-one indicator for whether the firm made a restatement in a particular year.
-{\bf SALARY} is the CEO's annual base salary.  
+{\bf RESTATE} is a zero-one indicator for whether a sample firm made a restatement in a particular year.
+{\bf SALARY} is the CEO's annual base salary (in millions of \$).  
 {\bf EQUITY} is the fraction of a CEO's total pay that is equity-based compensation.  
 {\bf BIG4} is a zero-one indicator for whether the firm uses a Big 4 auditor.
-{\bf FINDIRECT} is the fraction of the board of directors with a finance background. 
-{\bf INT} is percentage of non-US revenue for the firm.  
-{\bf SEG} is number of the firm's business segments.\\}
+{\bf FINDIRECT} is the fraction of the board of directors with a professional finance or accounting background. 
+{\bf INT} is a zero-one indicator for whether the firm does the majority of its business (revenue)outside the US.  
+{\bf SEG} is the firm's number of 2-digit SIC business segments.\\}
 
+\vglue 10pt
 \begin{center}
 \begin{tabular}{|l|c|}
 \hline
              & {\bf Sample }   \\
 {\bf Variable}  &   {\bf Mean }   \\ 
-          &  (Std Dev)   \\ \hline
-\T {\bf RESTATE} &   0.102  \\
-                           &   0.303  \\[.6em]
-    {\bf SALARY} &     0.95  \\
-                           &     0.15  \\[.6em]
-    {\bf EQUITY} &    0.26  \\
-                           &     0.29  \\[.6em]
-    {\bf BIG4} &   0.76  \\
-                           &     0.43  \\[.6em]
-    {\bf FINDIRECT} &    0.08  \\
-                           &     0.08  \\[.6em]
-    {\bf SEG} &    4.41  \\
-                           &    3.02  \\[.6em]
-    {\bf INT} &     0.30  \\
-                           &     0.46  \\[.6em]
+          &  (Std Err)   \\ \hline
+\T {\bf RESTATE} &   0.099  \\
+                           &   (0.30)  \\[.6em]
+    {\bf SALARY} &   1.06  \\
+                           &   (0.27)  \\[.6em]
+    {\bf EQUITY} &   0.45  \\
+                           &   (0.26)  \\[.6em]
+    {\bf BIG4} &   0.75  \\
+                           &   (0.43)  \\[.6em]
+    {\bf FINDIRECT} &   0.09  \\
+                           &   (0.08)  \\[.6em]
+    {\bf SEG} &   1.49  \\
+                           &   (0.50)  \\[.6em]
+    {\bf INT} &   0.31  \\
+                           &   (0.46)  \\[.6em]
 \hline
 \end{tabular}
 \end{center}
@@ -39,62 +40,83 @@
 \begin{table}[t]
 \caption{Logit Regression Results} \label{tab:logit}
 
-\justify{This table presents results from logistic regressions of {\bf RESTATE}, a zero-one indicator for whether the firm made a restatement in a particular year, on a proxy for managerial incentives ({\bf EQUITY}) and controls. 
-The controls are
-{\bf SALARY}, the CEO's annual base salary., 
-{\bf EQUITY} is the fraction of a CEO's total pay that is equity-based compensation;
-{\bf BIG4} is a zero-one indicator for whether the firm uses a Big 4 auditor; 
-{\bf FINDIRECT} is the fraction of the board of directors with a finance background;
-{\bf INT} is percentage of non-US revenue for the firm. 
-{\bf SEG} is number of the firm's business segments.\\}
+\justify{This table presents results from logistic regressions of {\bf RESTATE}, a zero-one indicator for whether the firm made a restatement in a particular year, on a proxy for managerial incentives and controls. 
+The controls are:
+{\bf SALARY} is the CEO's annual base salary (in millions of \$).  
+{\bf EQUITY} is the fraction of a CEO's total pay that is equity-based compensation.  
+{\bf BIG4} is a zero-one indicator for whether the firm uses a Big 4 auditor.
+{\bf FINDIRECT} is the fraction of the board of directors with a professional finance or accounting background. 
+{\bf INT} is a zero-one indicator for whether the firm does the majority of its business (revenue)outside the US.  
+{\bf SEG} is the firm's number of 2-digit SIC business segments.\\}
 
 \begin{center}
 \begin{tabular}{|l|cc|cc|}
 \hline
              & \multicolumn{2}{c|}{\bf Specification 1}  &  \multicolumn{2}{c|}{\bf Specification 2}   \\
  {\bf Coefficient on}  &  {\bf Coefficient} & {\bf Marginal Effect} & {\bf Coefficient} & {\bf Marginal Effect}  \\ 
-          &  (Std Dev)  & (Std Dev) &  (Std Dev)  & (Std Dev) \\ \hline
-\T {\bf Intercept} &   -2.210*   &   & -2.786*   &    \\
-                   &   0.308   &   & 0.349   &   \\[.6em]
- {\bf SALARY}    &   0.118    &  0.010  & 0.010    &  0.001   \\
-                   &   0.317   &  0.027 & 0.327   &  0.027 \\[.6em]
- {\bf EQUITY}  &   -0.644*   &  -0.055* & -0.673*   &  -0.056*  \\
-                   &   0.185   &  0.016 & 0.201   &  0.017 \\[.6em]
- {\bf BIG4 }  &       &    & 0.104    &  0.009   \\
-                   &      &   & 0.130   &  0.011 \\[.6em]
- {\bf FINDIRECT}  &       &    & -0.058    &  -0.005   \\
-                   &      &   & 0.740   &  0.062 \\[.6em]
- {\bf INT }  &       &    & 0.630*   &  0.052*  \\
-                   &      &   & 0.120   &  0.010 \\[.6em]
- {\bf SEG}  &       &    & 0.086*   &  0.007*  \\
-                   &      &   & 0.021   &  0.002 \\[.6em]
+          &  (Std Err)  & (Std Err) &  (Std Err)  & (Std Err) \\ \hline
+\T {\bf Intercept} &   -2.278   &   & -3.498   &    \\
+                   &   (0.141)   &   & (0.198)   &   \\[.6em]
+ {\bf SALARY}    &   0.280    &  0.025  & 0.326    &  0.028   \\
+                   &   (0.120)   &  (0.011) & (0.121)   &  (0.010) \\[.6em]
+ {\bf EQUITY}  &   -0.504   &  -0.045 & -0.503   &  -0.043  \\
+                   &   (0.130)   &  (0.011) & (0.131)   &  (0.011) \\[.6em]
+ {\bf BIG4 }  &       &    &  0.135    & 0.011    \\
+                   &      &   & (0.080)   & (0.006)  \\[.6em]
+ {\bf FINDIRECT}  &       &    & -0.239    & -0.020     \\
+                   &      &   & (0.408)   & (0.034)  \\[.6em]
+ {\bf INT }  &       &    & 0.548  & 0.051    \\
+                   &      &   & (0.069)   & (0.007)  \\[.6em]
+ {\bf SEG}  &       &    & 0.578   &  0.049  \\
+                   &      &   & (0.069)   & (0.006)   \\[.6em]
 \hline
 \end{tabular}
 \end{center}
 \end{table}
 
-%TODO: Add standard errors and table header to Table 3.
-%TODO: Include marginal effects.
 \begin{table}[t]
 \caption{Logit GMM Estimates for the Strategic Auditor Model} \label{tab:gmm}
 
-\justify{This table presents results for GMM estimates of the strategic auditor model of Section \ref{sec:struct}.\\}
+\justify{This table presents GMM estimates for the strategic auditor model of Section \ref{sec:struct}. The first (exactly-identified) specification (1)
+uses the instruments: Constant, {\bf SALARY}, {\bf EQUITY}, {\bf INT},
+{\bf SEG}, {\bf SALARY*SEG}, and {\bf SALARY*INT}. Specification (2)
+is over-identified. It uses the same instruments as (1) 
+plus: {\bf EQUITY*SEG}, {\bf EQUITY*INT}, {\bf SALARY}$^2$,
+and  {\bf EQUITY}$^2$. Specification (3) uses the instruments in (1) 
+and imposes the constraints $\theta_0/\theta_3 = \theta_1/\theta_4
+= \theta_2/\theta_5$, $\theta_0/\theta_1=\theta_3/\theta_4$
+and $\theta_1/\theta_3=\theta_1/\theta_2$.
+The "True" values are those corresponding to
+the parameters used to generate the data.\\[2em]}
 
 \begin{center}
-\begin{tabular}{|c|cc|}
+\begin{tabular}{|c| c | c | c | c |}
 \hline
-\T  &  {\bf Estimated}  & {\bf Bootstrap Std} \\ 
-\B  & {\bf Coefficient} & {\bf Error} \\ \hline
-\T $\theta_0= \dfrac{(1-v_0)a_0m_0}{(p_0-v_0)r_0b_0}$ & 0.0342 & 0.058\\[1.5em]
- $\theta_1=\dfrac{(1-v_0)a_1m_0}{(p_0-v_0)r_0b_0}$  &  0.0022 & 0.068 \\[1.5em]
-$\theta_2=\dfrac{(1-v_0)a_2m_0}{(p_0-v_0)r_0b_0}$  &  0.0145   & 0.009\\[1.5em]
-$\theta_3=\dfrac{(1-v_0)a_0m_1}{(p_0-v_0)r_0b_0}$  &  0.0108  & 0.051 \\[1.5em]
-$\theta_4=\dfrac{(1-v_0)a_1m_1}{(p_0-v_0)r_0b_0}$ &  0.1015  & 0.058 \\[1.5em]
-$\theta_5=\dfrac{(1-v_0)a_2m_1}{(p_0-v_0)r_0b_0}$ &  -0.0064  & 0.008 \\[1.5em]
-\B$\theta_6=\dfrac{b_1}{b_0}$ &  0.4557  & 0.291\\[1.6em]
+\T  &  {\bf Estimated}    & {\bf Estimated} & {\bf Estimated}  & \\ 
+  & {\bf Coefficient} &  {\bf Coefficient} &  {\bf Coefficient} & {\bf True} \\ 
+\B  & {\bf (Std Err)}  & {\bf (Std Err)}  & {\bf (Std Err)} & {\bf Coefficient} \\ \hline
+\T $\theta_0= \dfrac{(1-v_0)a_0m_0}{(1-p_I)(p_0-v_0)r_0b_0}$ & -0.016 & -0.009 & 0.008 & 0.007\\[-.5em]
+& (0.045) & (0.044) & (0.002)  & \\[1.5em]
+$\theta_1=\dfrac{(1-v_0)a_1m_0}{(1-p_I)(p_0-v_0)r_0b_0}$  &  0.049 & 0.055 & 0.053 &  0.050\\[-.5em]
+& (0.034) & (0.035) & (0.007)  & \\[1.5em]
+$\theta_2=\dfrac{(1-v_0)a_2m_0}{(1-p_I)(p_0-v_0)r_0b_0}$  &  0.060   & 0.055 & 0.051 & 0.050\\[-.5em]
+& (0.030) & (0.030) & (0.006) & \\[1.5em]
+$\theta_3=\dfrac{(1-v_0)a_0m_1}{(1-p_I)(p_0-v_0)r_0b_0}$  &  0.025  & 0.018 & 0.002 & 0.002\\[-.5em]
+& (0.042) & (0.042) & (0.001)  & \\[1.5em]
+$\theta_4=\dfrac{(1-v_0)a_1m_1}{(1-p_I)(p_0-v_0)r_0b_0}$ &  0.014  & 0.010 & 0.012 & 0.011\\[-.5em]
+& (0.032) & (0.032) & (0.003) & \\[1.5em]
+$\theta_5=\dfrac{(1-v_0)a_2m_1}{(1-p_I)(p_0-v_0)r_0b_0}$ &  0.003  & 0.008 & .012 & 0.011\\[-.5em]
+& (0.028) & (0.028) & (0.001) &  \\[1.5em]
+\B$\theta_6=\dfrac{b_1}{b_0}$ &  0.570  & 0.566 & 0.576 & 0.500 \\[-.5em]
+& (0.184) & (0.184) & (0.261) & \\[1.5em]
 \hline
 \end{tabular}
 \end{center}
 \vglue 10pt
-Standard errors are the estimated standard deviation of 500 replications.
+Robust standard errors are reported for specifications (1) and (2).
+The standard errors for specification (3) are based on 500 Monte Carlo
+replications. The parameter values used to generate the data are: $a_0 = 0.5 , a_1 = 3.5 , a_2 = 3.5, 
+m_0 = 7, m_1 = 1.5, b_0 = 20, b_1 = 10, p_0 =0.75,
+v_0 = 0.05, p_I = 0.45$ and $r_0 = 60.$
 \end{table}
+ 
