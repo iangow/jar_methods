@@ -27,7 +27,7 @@ or institutional components that permit a causal inference. We would classify th
 as descriptive or statistical modeling.}
 
 Structural models offer a number of benefits for empirical researchers.
-First, structural modeling is a process that forces a researcher to make explicit assumptions about what determines behavior and outcomes. 
+First, structural modeling is a process that forces a researcher to make explicit assumptions about what determines behavior and outcomes (i.e., the casual mechanism). 
 Second, structural models make it clear what data are needed to identify unobserved parameters and random variables, such as coefficients of risk aversion.
 Third, structural models provide a foundation for estimation and inference. 
 Finally, structural models facilitate counterfactual analyses, such as what might happen under conditions not observed in the data. 
@@ -46,9 +46,9 @@ However, some researchers suggest that, by aligning the long-term interests of s
 \citet{Efendi:2007ja} also employ a case-control design, which involves matching firms with restatements with firms without.
 We do not focus on that aspect of their research design in our discussion here.}
  
-A key assumption implicit in much of this literature is that restatements are a good proxy for \emph{mis}statements \citep[e.g.,][]{Efendi:2007ja,Armstrong:2010jd}. 
+A key assumption implicit in much of this literature is that restatements are a good proxy for actual \emph{mis}statements \citep[e.g.,][]{Efendi:2007ja,Armstrong:2010jd}. 
 This assumption is made because in practice accounting researchers only observe misstatements that are detected and corrected by external monitors after the financial statements were issued. 
-Examples of these external monitors include whistleblowers, regulators, media, and others \citep{Dyck:2010kh}.  For simplicity,  we refer to the actions of these external monitors collectively as ``subsequent investigations."
+Examples of these external monitors include whistleblowers, regulators, media, and others \citep[e.g.,][]{Dyck:2010kh}.  For simplicity,  we refer to the actions of these external monitors collectively as ``subsequent investigations."
 If subsequent investigations are perfect and detect all misstatements, then there is a one-to-one correspondence between misstatements and restatements.\footnote{There will still be a difference between \emph{attempted} misstatements and actual misstatements due to the external auditor correcting some attempted misstatements.}
 Realistically, these subsequent investigations are not perfect, meaning that we need to recognize the difference between misstatements and restatements when estimating the effect of managerial incentives on misstatements.  
 
@@ -178,7 +178,7 @@ Finally, the variables INT and SEG are included to capture the complexity and co
 Specifically, INT is a zero-one indicator for whether the firm does a majority of its business outside the U.S.. We believe that international companies have higher auditing costs. Similarly SEG is a count of the firm's two-digit Standard Industrial Classification business segments. We believe that more segments likely will increase the costs of auditing. 
 
 Table \ref{tab:desc} reports descriptive statistics for our sample. 
-CEOs on average receive about one million dollars in base pay and their incentive-related pay averages 45\% of their total pay.
+CEOs on average receive about one million dollars in base pay and their equity-related pay averages 45\% of their total pay.
 About three-quarters of the sample has a Big 4 accounting firm as its auditor. 
 The fraction of directors with financial expertise is less than ten percent. 
 The average firm has about 1.5 business segments and is primarily based in the United States.
@@ -219,7 +219,7 @@ Similarly, Auditing Standard No. 8 suggests that audit effort should increase if
 To make the model richer in a manner consistent with these institutional details, we assume that auditors trade off the costs of audit effort against the reputational losses they might incur should they miss a managerial misstatement that is subsequently detected.\footnote{
 Here we have in mind the findings of \citet{Dyck:2010kh} who show that many egregious forms of misstatements are detected subsequently by employees, directors, regulators, and the media.} 
 
-In the previous model, the firm's auditor impacted the manager's misstatement benefits through $p_A$. 
+In the previous model, the firm's auditor impacted the manager's misstatement benefits through $p_A$ (which is assumed to be constant). 
 Suppose that $p_A$ is in fact a choice variable for the firm's auditor. 
 To make matters simple, suppose that the auditor detects manipulation with probability $p_{AH}$ if they exert high effort and  otherwise they detect manipulation with the lower probability $p_{AL}$. 
 Let the cost of high effort be a fixed cost $C_A > 0$. 
@@ -367,27 +367,12 @@ $\theta$ coefficients are equal (e.g., $\theta_3/\theta_0
 similar, with the constrained estimates seemingly yielding
 much more statistical precision.
 
-While the coefficient magnitudes only allow us to infer relative
-coefficient magnitudes and signs, we nevertheless can use the model to perform counterfactual calculations. A counterfactual calculation
-asks what is the consequence of changing some parameters or variables
-while holding others fixed.
-There are many different counterfactuals that could be considered. 
-For illustrative purposes, we evaluate whatwould happen to misstatements and restatements if we do away with equity-based compensation and nothing else changes in the model.
-The value of having an equilibrium model to analyze this change is that we explicitly allow the auditing process to adjust to the removal of CEO incentives to misstate. 
-From the equilibrium strategies in equation (\ref{equilstrat}), we see that removing equity-based pay ($b1=0$ or EQUITY=0) does not change the equilibrium frequency of misstatements (i.e., $\beta^*$), but does change the frequency of high effort auditing ($\alpha^*$).
-Inserting the estimated parameters into Equation (\ref{equilpr3}), we find
-$$ \dfrac{\mbox{Pr(Restate }\vert \mbox{ No Equity)}}{\mbox{Pr(Restate }\vert \mbox{ Equity)}}=\dfrac{\beta^* \times (1-p_A^{**}) \times p_{I}}
-{\beta^* \times (1-p_A^{*}) \times p_{I}} = \dfrac{(1-p_A^{**})}{(1-p_A^*)} = 1.24.$$
-This result tells us that the restatement rate would increase by 24\% (or from 9.99\% to 12.36\%) if equity-based incentives were removed or
-did not impact the benefits of misstatements. 
-The fact that the restatement rate goes up may at first seem somewhat odd given that the benefits to the CEOs have fallen. 
-The model, however, shows that the increase  comes about because the auditors exert \emph{less} effort in detecting misstatements, thereby catching fewer, leaving more for subsequent investigations to detect.
 
 \subsubsection{Implications of structural modeling analyses}
 From the discussion above, it seems that there are (at least) two alternative explanations (or hypotheses) for the results we find.
 One hypothesis is that the process generating the data is best modeled with a non-strategic auditor and that the effect of EQUITY on incentives to misstate is either negative (or perhaps zero).
 The support for this hypothesis comes from Table \ref{tab:logit}, which is an appropriate regression analysis for the model with a non-strategic auditor, where a negative (and weakly statistically significant) coefficient on EQUITY is found.
-However a second, and in our view plausible, hypothesis is that the process generating the data is best modeled with a strategic auditor and that the effect of EQUITY on incentives to misstate is positive (or perhaps zero).
+However a second, and in our view a considerably more plausible, hypothesis is that the process generating the data is best modeled with a strategic auditor and that the effect of EQUITY on incentives to misstate is positive (or perhaps zero).
 The support for this hypothesis comes from Table \ref{tab:gmm}, which is predicated on the model with a strategic auditor, and where a positive coefficient on $b_1$ (the parameter linking EQUITY to benefits from misstatement) is found.
 
 The point of this discussion is not to resolve the debate regarding the effect of incentives on misstatements. 
@@ -399,6 +384,24 @@ Not only does a structural model enable us to derive sharper predictions regardi
 In particular, the comparative statistics of the model shed light on the difference between restatements and misstatements, and what assumptions (e.g., a strategic or a non-strategic auditor) and data were needed to draw inferences about misstatements from restatements. 
 Additionally, we were able to recover some of the primitive parameters impacting incentives for managers to misstate results, as well as perform counterfactual analyses. Finally, although structural modeling does not allow us to completely resolve questions of causality, if the model is based on reasonable assumptions and has a close fit to the data, we arguably have better insight into the likely causal relations underlying the phenomenon being examined. 
 % While there is the potential for disappointment in the simplistic theory we used, we see room for improving models as an opportunity rather than a defining limitation.
+
+\subsubsection{Counterfactuals}
+
+While the coefficient magnitudes only allow us to infer relative
+coefficient magnitudes and signs, we nevertheless can use the model to perform counterfactual calculations. A counterfactual calculation
+asks what is the consequence of changing some parameters or variables
+while holding others fixed.
+There are many different counterfactuals that could be considered. 
+For illustrative purposes, we evaluate what would happen to misstatements and restatements if we do away with equity-based compensation and nothing else changes in the model.
+The value of having an equilibrium model to analyze this change is that we explicitly allow the auditing process to adjust to the removal of CEO incentives to misstate. 
+From the equilibrium strategies in equation (\ref{equilstrat}), we see that removing equity-based pay ($b_1=0$ or EQUITY=0) does not change the equilibrium frequency of misstatements (i.e., $\beta^*$), but does change the frequency of high effort auditing ($\alpha^*$).
+Inserting the estimated parameters into Equation (\ref{equilpr3}), we find
+$$ \dfrac{\mbox{Pr(Restate }\vert \mbox{ No Equity)}}{\mbox{Pr(Restate }\vert \mbox{ Equity)}}=\dfrac{\beta^* \times (1-p_A^{**}) \times p_{I}}
+{\beta^* \times (1-p_A^{*}) \times p_{I}} = \dfrac{(1-p_A^{**})}{(1-p_A^*)} = 1.24.$$
+This result tells us that the restatement rate would increase by 24\% (or from 9.99\% to 12.36\%) if equity-based incentives were removed or
+did not impact the benefits of misstatements. 
+The fact that the restatement rate goes up may at first seem somewhat odd given that the benefits to the CEOs have fallen. 
+The model, however, shows that the increase  comes about because the auditors exert \emph{less} effort in detecting misstatements, thereby catching fewer, leaving more for subsequent investigations to detect.
 
 \subsection{Limitations of structural models}
 
@@ -440,7 +443,9 @@ Evaluation of their accuracy then could be made via in- or out-of-sample goodnes
 
 Third, just because a researcher can write down a theoretical model and estimate it does not make the empirical model ``right."
 Clearly there is a risk of incorrect causal inferences being drawn from estimation of a structural model based on faulty assumptions.
-In our analyses, we in fact generated the data ourselves. That is, the data are not from actual firms, but instead were generate by computer using the strategic auditor model. We chose to do this
+In our analyses, we in fact generated the data ourselves. \footnote{The parameter values used to generate the data are: $a_0 = 0.5 , a_1 = 3.5 , a_2 = 3.5,
+m_0 = 7, m_1 = 1.5, b_0 = 20, b_1 = 10, p_0 =0.75,
+v_0 = 0.05, p_I = 0.45$ and $r_0 = 60.$}That is, the data are not from actual firms, but instead were generate by computer using the strategic auditor model. We chose to do this
 so that we could more convincingly show that structural models
 are capable of recovering behavioral information provided the
 model is correct. This can be seen in Table 3 by comparing the
