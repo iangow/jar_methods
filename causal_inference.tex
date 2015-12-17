@@ -158,8 +158,8 @@ Section \ref{sec:causal} provides an overview of the issues observational data p
 it suggests frameworks for identifying and analyzing these issues.
 Section \ref{sec:quasi} evaluates the use of quasi-experimental methods in accounting research.
 Section \ref{sec:mech} discusses mechanism-based causal inference.
+% In Section \ref{sec:desc} we argue for richer descriptive research that can shed light on causal issues.
 Section \ref{sec:struct} illustrates how structural modeling approaches might be used by accounting researchers, with some emphasis of the strengths and weaknesses of this approach.
-In Section \ref{sec:desc} we argue for richer descriptive research that can shed light on causal issues.
 Concluding remarks are provided in Section \ref{sec:conclude}.
 
 \section{Causal inference: An overview} \label{sec:causal}
@@ -571,183 +571,159 @@ The assumptions required for these methods to deliver credible estimates of caus
 This suggests that researchers might temper their conclusions in light of the stringency of these assumptions.
 Additionally, researchers should discuss how their conclusions are likely to generalize beyond the (special) environment in which they were found.
 
-\section{Mechanisms and causal inference} \label{sec:mech}
+\section{Causal mechanisms, causal inference, and descriptive studies} \label{sec:mech}
 
-\begin{quotation}
-\begin{singlespace} 
-	\addtolength{\leftmargin}{.25in}
-	\addtolength{\rightmargin}{.25in}
-In complex fields like the social sciences and epidemiology, there are only few (if any) real life situations where we can make enough compelling assumptions that would lead to identification of causal effects.
-\attrib{Judea Pearl, cited in \citealt[p.\,287]{Freedman:2004ix}}
-\end{singlespace}
-\end{quotation}
+In the first part of the paper, we have argued that, while causal inference is the goal of most accounting research, it is extremely difficult to find settings and statistical methods that can produce reliable estimates of causal effects. Does this mean accounting researchers must give up making causal statements? We believe the answer is no. There are viable paths forward. The objective of the second part of this paper is to discuss these paths forward. The first path we discuss is an increased focus on causal mechanisms. 
+Accounting research is not alone in its reliance on observational data with the goal of drawing causal inferences. 
+It is therefore natural to look to other fields using observational data to identify causal mechanisms and ultimately to draw causal inferences. Epidemiology and medicine are two fields that are often singled out in this regard. In what follows, we briefly provide examples and highlight the features of the examples that enhanced the credibility of the inferences drawn. A key implication of this discussion is that accounting researchers need clearly and rigorously identify the causal mechanism that is producing the observed results in their research studies.
 
-In the first half of the paper, we have argued that, while causal inference is the goal of most accounting research, it is difficult to find datasets and statistical methods that can produce reliable estimates of causal effects.
-Does this mean accounting researchers must give up making causal statements? 
-We believe the answer is no. 
-There are viable paths forward. 
-These paths do not rely on researchers finding clever and appropriate identification strategies to answer questions of interest.
-The objective of the second part of this paper is to discuss these paths forward.
-The first path we discuss is an increased focus on causal mechanisms.
-%TODO: Define the term "mechanism"
 
-\subsection{Causal mechanisms: Some examples}
-Accounting research is not alone in its reliance on observational data. It is therefore possible to look to other fields to find cases
-in which they have used observational data to draw causal inferences.
-Epidemiology and medicine are two fields that are often singled out in this regard.
-In what follows, we briefly provide examples and highlight the features of the examples that enhanced the credibility of the inferences drawn.
-%TODO: Add a bit more of a road map here.
-
-\subsubsection{John Snow and cholera}
-A widely cited case of causal inference involves John Snow's work on cholera.
+\subsection{John Snow and cholera}
+A widely cited case of causal inference involves John Snow's work on cholera. 
 As there are many excellent accounts of Snow's work, we will focus on the barest details.
-As discussed in  \citet[p.\,339]{Freedman:2009ur}
+ As discussed in \citet[p.\,339]{Freedman:2009ur} ``John Snow was a physician in Victorian London. In 1854, he demonstrated that cholera was an infectious disease, which could be prevented by cleaning up the water supply. The demonstration took advantage of a natural experiment. A large area of London was served by two water companies. The Southwark and Vauxhall company distributed contaminated water, and households served by it had a death rate `between eight and nine times as great as in the houses supplied by the Lambeth company,' which supplied relatively pure water."
+But there was much more to Snow's work than the use of a convenient natural experiment. 
+First, Snow's reasoning (much of which was surely done before ``the arduous task of data collection" began) was about the mechanism through which cholera spread. Existing theory suggested ``odors generated by decaying organic material." 
+ Snow reasoned qualitatively that such a mechanism was implausible.
+ Instead, drawing on his medical knowledge and the facts at hand, Snow conjectured that ``a living organism enters the body, as a contaminant of water or food, multiplies in the body, and creates the symptoms of the disease. 
+Many copies of the organism are expelled with the dejecta, contaminate water or food, then infect other victims" \citep[p.\,342]{Freedman:2009ur}.
+ With a hypothesis at hand, Snow then needed to collect data to prove it. 
+ His data collection involved a house-to-house survey in the area surrounding the Broad Street pump operated by Southwark and Vauxhall.
+ As part of his data collection, Snow needed to account for anomalous cases (such as the brewery workers who drank beer, not water).
+ It is important to note that this qualitative reasoning and diligent data collection were critical elements establishing (to a modern reader) the ``as if" random nature of the treatment assignment mechanism provided by the Broad Street pump. 
+Snow's deliberate methods contrast with a shortcut approach, which would have been to argue that in his data he had a natural experiment. 
+ 
+Another important feature of this example is that widespread acceptance of Snow's hypothesis did not occur until compelling evidence of the precise causal mechanism was provided. 
+ ``However, widespread acceptance was achieved only when Robert Koch isolated the causal agent (\emph{Vibrio cholerae}, a comma-shaped bacillus) during the Indian epidemic of 1883" \citep[p. 342]{Freedman:2009ur}.
+ Only once persuasive evidence of a plausible mechanism was provided (i.e., direct observation of microorganisms now known to cause the disease) did Snow's ideas become widely accepted. 
+ 
+We expect the same might be true in the accounting discipline if researchers carefully articulate the assumed causal mechanism for their observations.
+It is, of course, necessary for researchers to show that the proposed mechanism is actually consistent with behavior in the institutional setting being examined.
+As we discuss below, detailed descriptive studies of institutional phenomenon provide an important part of the information to evaluate the proposed mechanism. 
 
-\vglue 5pt
-\begin{quote}\begin{singlespace} 
-``John Snow was a physician in Victorian London.
- In 1854, he demonstrated that cholera was an infectious disease, which could be prevented by cleaning up the water supply. 
-The demonstration took advantage of a natural experiment.
- A large area of London was served by two water companies. 
- The Southwark and Vauxhall company distributed contaminated water, and households served by it had a death rate`between eight and nine times as great as in the houses supplied by the Lambeth company,' which supplied relatively pure water."\end{singlespace} 
-\end{quote}
-
-
-But there was much more to Snow's work than the use of a convenient natural experiment.
-First, Snow's reasoning (much of which was surely done before ``the arduous task of data collection" began) was about the  mechanism through which cholera spread. Existing theory suggested ``odors generated by decaying organic material."
-Snow reasoned qualitatively that such a mechanism was implausible.
-%NOTE: 13.7 Permissible changes to punctuation, capitalization, and spelling
-% Although in a direct quotation the wording should be reproduced exactly, the following changes are generally permissible to make a passage fit into the syntax and typography of the surrounding text. See also 13.8.
-% The initial letter may be changed to a capital or a lowercase letter (see 13.13–16).
-Instead, drawing on his medical knowledge and the facts at hand, Snow conjectured that ``a living organism enters the body, as a contaminant of water or food, multiplies in the body, and creates the symptoms of the disease. Many copies of the organism are expelled with the dejecta, contaminate water or food, then infect other victims" \citep[p.\,342]{Freedman:2009ur}.
-With a hypothesis at hand, Snow then needed to collect data to prove it.
-His data collection involved a house-to-house survey in the area surrounding the Broad Street pump operated by  Southwark and Vauxhall.
-As part of his data collection, Snow needed to account for anomalous cases (such as the brewery workers who drank beer, not water).
-It is important to note that this qualitative reasoning and diligent data collection were critical elements establishing (to a modern reader) the ``as if" random nature of the treatment assignment mechanism provided by the Broad Street pump. Snow's deliberate methods contrast with a shortcut approach, which would have been to argue that in his data he had a natural experiment.
-
-Another important feature of this example is that widespread acceptance of Snow's hypothesis did not occur until compelling evidence of the mechanism was provided.
-``However, widespread acceptance was achieved only when Robert Koch isolated the causal agent (\emph{Vibrio cholerae}, a comma-shaped bacillus) during the Indian epidemic of 1883"  \citep[p.\,342]{Freedman:2009ur}.
-Only once persuasive evidence of a plausible mechanism was provided (i.e., direct observation of microorganisms now known to cause the disease) did Snow's ideas become widely accepted. We expect the same might be true in accounting research.
-
-\subsubsection{Smoking and heart disease}
+\subsection{Smoking and heart disease}
 A more recent illustration of plausible causal inference is discussed by \citet{Gillies2011-GILTRT-3}.
-\citet{Gillies2011-GILTRT-3} focuses on the paper by \citet{Doll:1976aa}, which studies the mortality rates of male doctors between 1951 and 1971.
-The data of \citet{Doll:1976aa} showed ``a striking correlation between smoking and lung cancer" \citep[p.\,111]{Gillies2011-GILTRT-3}.
-\citet{Gillies2011-GILTRT-3} argues that ``this correlation was accepted at the time by most researchers (if not quite all!) as establishing a causal link between smoking and lung cancer.
+\citet{Gillies2011-GILTRT-3} focuses on the paper by \citet{Doll:1976aa}, which studies the mortality rates of male doctors between 1951 and 1971. 
+The data of \citet{Doll:1976aa} showed ``a striking correlation between smoking and lung cancer" \citep[p. 111]{Gillies2011-GILTRT-3}.
+ \citet{Gillies2011-GILTRT-3} argues that ``this correlation was accepted at the time by most researchers (if not quite all!) as establishing a causal link between smoking and lung cancer."
 Indeed Doll and Peto themselves say explicitly (p.\,1535) that the excess mortality from cancer of the lung in cigarette smokers is caused by cigarette smoking."
-In contrast, while \citet{Doll:1976aa} also had highly statistically significant evidence of an association between smoking and heart disease, they were cautious about drawing inferences of a direct causal explanation for the association.
-\citet[p.\,1528]{Doll:1976aa} point out that ``to say that these conditions were related to smoking does not necessarily imply that smoking caused \dots them. The relation may have been secondary in that smoking was associated with some other factor, such as alcohol consumption or a feature of the personality, that caused the disease.''
-
-\shortcites{Morrow:1995gz} 
+In contrast, while \citet{Doll:1976aa} had highly statistically significant evidence of an association between smoking and heart disease, they were cautious about drawing inferences of a direct causal explanation for the association. 
+\citet[p.,1528]{Doll:1976aa} point out that ``to say that these conditions were related to smoking does not necessarily imply that smoking caused \dots them. The relation may have been secondary in that smoking was associated with some other factor, such as alcohol consumption or a feature of the personality, that caused the disease."
+ 
+\shortcites{Morrow:1995gz}
 \citet{Gillies2011-GILTRT-3} then discusses extensive research into atherosclerosis between 1979 and 1989 and concludes that ``by the end of the 1980s, it was established that the oxidation of LDL was an important step in the process which led to atherosclerotic plaques."
 Later research provided ``compelling evidence that smoking causes oxidative modification of biologic components in humans.\footnote{This evidence is much higher levels of a new measure (levels of $F_2$-isoprostanes in blood samples) of the relevant oxidation in the body due to smoking.
 This conclusion was greatly strengthened by the finding that levels of $F_2$-isoprostanes in the smokers fell significantly after two weeks of abstinence from smoking" \citep[pp.\,1201--2]{Morrow:1995gz}.}
 \citet[p.\,120]{Gillies2011-GILTRT-3} points out that this evidence alone did not establish a confirmed mechanism linking smoking with heart disease, because the required oxidation needs to occur in the artery wall, not in the blood stream, and it fell to later research to establish this missing piece.\footnote{
 ``Smoking produced oxidative stress. 
 This increased the adhesion of leukocytes to the \dots artery, which in turn accelerated the formation of atherosclerotic plaques" \citep[p.\,123]{Gillies2011-GILTRT-3}.}
-Thus, through a process involving multiple studies over two decades, a plausible set of causal mechanisms between smoking and atherosclerosis was established.
-%TODO: Get an example from the social sciences, e.g., political science.
+Thus, through a process involving multiple studies over two decades, a plausible set of causal mechanisms between smoking and atherosclerosis was established. 
 
-\subsubsection{Implications of cases on mechanism}
- \citet{Gillies2011-GILTRT-3} avers that the process by which a causal link between smoking and atherosclerosis was established illustrates the ``Russo-Williamson thesis."
- \citet[p.\,159]{Russo:2007iz} suggest that ``mechanisms allow us to generalize a causal relation: while an appropriate dependence in the sample data can warrant a causal claim `$C$ causes $E$ in the sample population,' a plausible mechanism or theoretical connection is required to warrant the more general claim `$C$ causes $E$.' Conversely, mechanisms also impose negative constraints: if there is no plausible mechanism from $C$ to $E$, then any correlation is likely to be spurious. Thus mechanisms can be used to differentiate between causal models that are underdetermined by probabilistic evidence alone."
+\citet{Gillies2011-GILTRT-3} avers that the process by which a causal link between smoking and atherosclerosis was established illustrates the ``Russo-Williamson thesis."
+ \citet[p.\,159]{Russo:2007iz} suggest that ``mechanisms allow us to generalize a causal relation: while an appropriate dependence in the sample data can warrant a causal claim `$C$ causes $E$ in the sample population,' a plausible mechanism or theoretical connection is required to warrant the more general claim `$C$ causes $E$.' 
+Conversely, mechanisms also impose negative constraints: if there is no plausible mechanism from $C$ to $E$, then any correlation is likely to be spurious.
+Thus mechanisms can be used to differentiate between causal models that are underdetermined by probabilistic evidence alone."
 
-The Russo-Williamson thesis was arguably also at work in the case of Snow and cholera, where the establishment of a mechanism (i.e., \emph{Vibrio cholerae}) was essential before the causal explanation offered by Snow was widely accepted. It also appears in the case of smoking and lung cancer, which was initially conjectured based on correlations, prior to a direct biological explanation being offered.\footnote{
+The Russo-Williamson thesis was arguably also at work in the case of Snow and cholera, where the establishment of a mechanism (i.e., \emph{Vibrio cholerae}) was essential before the causal explanation offered by Snow was widely accepted.
+It also appears in the case of smoking and lung cancer, which was initially conjectured based on correlations, prior to a direct biological explanation being offered.\footnote{
 The persuasive force of Snow's natural experiment, coming decades before the work of \citet{Neyman:1923aa} and \citet{Fisher:1935aa}, might be considered greater today.}
 
+\subsection{Causal mechanisms in accounting research}
 Our view is that accounting researchers can learn from fields such as epidemiology, medicine, and political science. 
-These fields grapple with observational data and eventually draw inferences that are causal.
+These fields grapple with observational data and eventually draw inferences that are causal. 
 While randomized controlled trials are a gold standard of sorts in epidemiology, in many cases it is unfeasible or unethical to use such trials.
-And in political science, it is not possible to randomly assign countries to treatment conditions such as \emph{democracy} or \emph{socialism}.
-Nevertheless, these fields have often been able to draw plausible causal inferences by establishing clear mechanisms, or causal pathways, from putative causes to putative effects.
-%TODO: Get better examples from fields other than epidemiology.
-
-%We believe that the value of studying mechanisms is underestimated, perhaps due to a belief that the path to credible causal inferences involves clever identification strategies. However, even with such a strategy, we believe that causal mechanisms have an important role.
+For example, in political science, it is not possible to randomly assign countries to treatment conditions such as democracy or socialism.
+Nevertheless, these fields have often been able to draw plausible causal inferences by establishing clear mechanisms, or causal pathways, from putative causes to putative effects. 
 
 One paper that has a fairly compelling identification strategy is \citet{Brown:2015ik}, which examines ``the influence of mobile communication on local information flow and local investor activity using the enforcement of state-wide distracted driving restrictions."
 The authors find that ``these restrictions \dots inhibit local information flow and \dots the market activity of stocks headquartered in enforcement states."
 \citet[p.\,229]{Miller:2015ec} suggest that ``given the authors' setting and research design, it is difficult to imagine a story under which the types of reverse causality or correlated omitted variables explanations that we normally worry about in disclosure research are at play."
-%\footnote{
-% One issue with the study is the fact the authors do not adjust their standard errors for the well-known cross-sectional dependence in the dependent variable they focus on, trading volume, in addition to the time-series dependence they do adjust for.}
-However, notwithstanding the apparent robustness of the research design, it seems that the results would be even more compelling if there were more detailed evidence regarding a causal mechanism through which the estimated effect occurs and the authors appear to go to lengths to provide such an account.\footnote{
+However, notwithstanding the apparent robustness of the research design, the results would be much more compelling if there were more detailed evidence regarding the precise causal mechanism through which the estimated effect occurs and the authors appear to go to lengths to provide such an account.\footnote{
 \citet[pp.\,277-278]{Brown:2015ik} ``argue that constraints on mobile communication while driving could impede or delay the collection and diffusion of local stock information across local individuals. 
 Anecdotal evidence suggests that some individuals use car commutes as opportune times to gather and disseminate stock information via mobile devices. 
 For instance, some commuters use mobile devices to collect and pass on stock information either electronically or by word-of-mouth to other individuals within their social network.
 Drivers also use mobile devices to wirelessly check stock positions and prices in real-time, stream the latest financial news, or listen to earnings calls."}
-For example, evidence of trading activity by local investors while driving prior to, but not after, the implementation of distracted driving restrictions would seem to be quite persuasive even incremental to the compelling identification strategy provided.\footnote{
+For example, evidence of trading activity by local investors while driving prior to, but not after, the implementation of distracted driving restrictions would add considerable support to conclusions in \citet{Brown:2015ik}.\footnote{
 Note that the authors disclaim reliance on trading while driving: ``our conjectures do not depend on the presumption that local investors are driving when they execute stock trades \dots [as] we expect such behavior to be uncommon."
 However, even if not \emph{necessary}, given the small effect size documented in the paper (approximately 1\% decrease in volume), a small amount of such activity could be \emph{sufficient} to provide a convincing account in support of their results.}
 
-As another example, many published papers have suggested that managers adopt conditional conservatism as a reporting strategy to obtain benefits such as reduced debt costs. %\citep{Ahmed:2002aa,Zhang:2008bc}.
-However, as \citet[p.\,317]{Beyer:2010cj} point out, an ex ante commitment to such a reporting strategy ``requires a mechanism that allows managers to credibly commit to withholding good news or to commit to an accounting information system that implements a higher degree of verification for gains than for losses," yet research has only recently begun to focus on the mechanisms through which such commitments are made \citep[e.g.,][]{Erkens:2014hj}.
 
-It seems very clear that we need a much better understanding of the precise causal mechanisms for important accounting research questions. A clear discussion of these mechanisms will enable reviewers and readers to see what is being assumed and assess the reasonableness of the theoretical causal paths.\footnote{ As we discuss in Section 6, this type of knowledge enables the the identification of gaps in research based on strictly archival data and somewhat unstructured verbal theorizing. \cite{Soltes:2014gr} provides an insightful discussion of the pitfalls associated with an exclusive reliance on archival data.} 
+As another example, many published papers have suggested that managers adopt conditional conservatism as a reporting strategy to obtain benefits such as reduced debt costs.
+However, as  \citet[p.\,317]{Beyer:2010cj}  point out, an ex-ante commitment to such a reporting strategy ``requires a mechanism that allows managers to credibly commit to withholding good news or to commit to an accounting information system that implements a higher degree of verification for gains than for losses," yet research has only recently begun to focus on the mechanisms through which such commitments are made \citep[e.g.,][]{Erkens:2014hj}. 
 
-%If a plausible causal mechanism for their empirical research question (using theory and/or institutional observation), the next step in the research process is to assess the ability of this mechanism to explain real-world data. 
-% As we have argued above, the traditional quasi-experimental methods used by accounting researchers have a number of serious limitations for conducting this type of data analysis exercise. 
-% As an alternative, structural modeling methods that are becoming popular in economics (especially industrial organization work) and marketing represent an approach that might be used to provide an improved understanding of causal mechanisms for many accounting research questions.
+It is very clear that we need a much better understanding of the precise causal mechanisms for important accounting research questions.
+A clear discussion of these mechanisms will enable reviewers and readers to see what is being assumed and assess the reasonableness of the theoretical causal mechanisms.
 
-% Structural material here
-\input{structural}
-
-\section{Descriptive studies} \label{sec:desc}
+\subsection{Descriptive studies} \label{sec:desc}
 
 Accounting is an applied discipline and it would seem that most empirical research studies should be solidly grounded in the details of how institutions operate.
+These descriptions can form a basis for identifying and justifying causal mechanisms for explaining empirical results.
 Unfortunately, there are very few studies published in top accounting journals that focus on providing deep description of institutions relevant to accounting research settings.
-Part of this likely reflects the perception that research that pursues causal questions (i.e., tests of theories) is more highly prized and thus more likely to be published in top accounting journals.\footnote{
+Part of this likely reflects the perception that research that pursues causal questions (i.e., tests of theories) is more highly prized, and thus more likely to be published in top accounting journals.\footnote{
 At one point, the \emph{Journal of Accounting Research} published papers in a section entitled ``Capsules and Comments."
 The editor at the time (Nicholas Dopuch) would seem to place a paper into this section if it ``did not fit" as a main article, but examined new institutional data or ideas. 
 Such a journal section might have provided a credible signal of a willingness to publish descriptive studies of institutionally interesting settings.}
-We believe that accounting research could benefit substantially from more in-depth descriptive research.
-As we discuss below, this type of research is essential for those who seek to develop structural models or improve our understanding of causal mechanisms.\footnote{
+We believe that accounting research can benefit substantially from more in-depth descriptive research.
+As we discuss below, this type of research is essential to improve our understanding of causal mechanisms and develop structural models.\footnote{
 There are many ``classic" descriptive studies that have had a major impact on subsequent theoretical and empirical research in organizational behavior and strategy \citep[e.g.,][]{Cyert:1956fd,Bower:1986vd,Mintzberg1973nature}.
 \citet{Cyert:1956fd} argue that ``a realistic description and theory of the decision-making process are of central importance to business administration and organization theory. Moreover, it is extremely doubtful whether \dots economics does in fact provide a realistic account of decision-making in large organizations operating in a complex world."}
 
-One reason to value descriptive research is that it can uncover realistic structures and mechanisms that would be exceedingly difficult to arrive at from basic economic theory.
-For example, using proxy statements and conversations with actual executives and consultants, \citet{Healy:1985jg} studies the bonus contracts of 94 large US companies and identifies a common structure of these bonus plans, including the existence of caps and floors \citep[p.\,89]{Healy:1985jg}. The paper also suggests hypotheses worth investigating regarding the effects of these plan features on accounting decisions.
-It seems highly unlikely that a model derived from fundamental economic theory would arrive at these plan features actually used by firms.
-These institutional features can be used to identify precise mechanisms and also as elements of structural models in which other features might be motivated more directly by economic theory.
+One reason to value descriptive research is that it can uncover realistic structures and mechanisms that would be exceedingly difficult to arrive at from basic economic theory or the simple intuition of the researcher. In the compensation area, the early research by Lewellyn (1968, 1971) and the more recent work by Frydman and Saks (2010) are also strictly descriptive studies that caused researchers to explore why certain patterns of remuneration arrangements are used, revised, or eliminated over time.  These types of data motivate researchers to frame research studies that have the potential to uncover the causal mechanisms that produce these institutional observations.
 
-Recent published research suggests an increased recognition of the value of descriptive research.
-\citet{Soltes:2013ba} examines the interactions between sell-side analysts and company management in one firm that granted him proprietary access to ``offer insights into which analysts privately meet with management, when analysts privately interact with management, and why these interactions occur."  
-By comparing private interaction to observed interaction between analysts and managers on conference calls and highlighting that private interaction with management is an important communication channel for analysts, \citet{Soltes:2013ba} provides a plausible mechanism through which information transfers hypothesized in more traditional empirical papers actually occur.
+A good example in the accounting literature is the classic study by \citet{Healy:1985jg}.  
+Using proxy statement disclosures and conversations with actual executives and consultants, \citet{Healy:1985jg} studies the bonus contracts of 94 large US companies and identifies a common structure of these bonus plans, including the existence of caps and floors. 
+The paper also suggests hypotheses worth investigating regarding the effects of these plan features on accounting decisions.
+It seems highly unlikely that a model derived from fundamental economic theory would arrive at these plan features that are actually used by firms. 
 
-That private communication with management is an important source of information is confirmed by  \citet{Brown:2015kd}.
-\citet{Brown:2015kd} survey and interview financial analysts to understand how they think about a variety of issues. 
-Their findings suggest that analysts' views on earnings quality differ from those researchers focus on. 
-For instance, analysts do not use the ``red flags" used by academics to identify manipulation; and analysts generally are not attempting to uncover manipulation and use forecasts, not as ends in themselves, but to figure out the stock price target.
-These insights should shape research seeking to develop hypotheses and models of accounting information and analyst behavior.
+In the same way, the descriptive examination of debt covenants by Smith and Warner (1979), Kalay (1982), and many others motivated a similar research agenda.
+Institutional knowledge about the features of covenants provided the basis of tests regarding managerial wealth transfer and accounting manipulation decisions by managers.
+Moreover, descriptive statistics regarding covenants also provided Dichev and Skinner (2002) with the data to show that leverage is not a valid proxy for ``closeness to covenant."
+This is an important finding because the empirical literature to this point simply assumed that leverage was a reliable and valid measure for potential covenant violations.  
+An in-depth examination of actual debt covenants and an understanding of how covenant violations are dealt with by financial institutions would have substantially improved much of the research on how debt covenants influence firm behavior (i.e., so-called ``positive theory" research).
 
-Other fields provide interesting examples likely to be of interest to accounting researchers.
-For example, \citet{Ahern:2014id} examines 183 illegal insider networks using primary source documents from the SEC, DOJ, and various public records. 
-It provides rich insights into investor networks and it suggests questions for future work.
-For example, network relationships can be divided into familial (3\%), business-related (35\%), friendships (35\%), or ``not clear" (21\%).
-Insiders are more likely to be an accountant or lawyer, less likely to be a Democrat, and more likely to have a ``criminal record."
-These results provide new institutional insights that have the potential to identify causal mechanisms regarding information transfer and disclosure.
-In economics, \citet{Bloom:2007ed} provide a descriptive study of 732 medium-sized firms to assess whether management practices, such as lean manufacturing and use of incentives, are related to productivity. These descriptive results have lead to the development of theoretical models of innovating and productivity along with increasingly sophisticated empirical studies.
+In the corporate governance area, the descriptive data on board of director interlocks in Brandeis (1913), U.S Federal Trade Commission (1951), and U.S. Senate Study (1978) provided novel descriptive insights into the structure of boards of directors.
+These and other similar studies had an important impact on starting the large literature on the functioning of boards of directors. 
+Similarly, the initial collection of equity ownership by executives, directors, and large shareholders by the Securities and Exchange Commission (1936) enabled researchers to understand the extent to which ownership is separated from control and examine the implications of the classic Berle and Means (1932) assertions regarding economic activity.
+Finally, the descriptive data on anti-takeover provisions collected by the Investor Responsibility Research Center (IRRC) has provided the basis for a considerable amount of research on the market for corporate control. 
+Gompers, Ishii, and Metrick (2003), Bebchuk, Cohen, and Ferrell (2009), and many others use these data to form and test a multitude of research questions related to corporate governance.  
+Perhaps more importantly, Daines and Klausner (2001) provided an institutionally grounded examination of how these specific anti-takeover provisions actually work.  
+The Daines and Klausner (2001) analysis provides a good example of how descriptive data combined with institutional and legal knowledge can provide new insights into the workings of corporate governance.
 
-% Although it is a matter of taste, a number of the papers in our review seem to ask research questions and use causal mechanisms that are far removed from real world issues.
+The descriptive disclosure data compiled by the Association for Investment Management and Research (AIMR) has had a similar impact on financial accounting research. 
+These ratings reflect assessments of analysts specializing in specific industries about the informativeness of disclosures made by firms in their respective industries.
+Analysts evaluate the timeliness, detail and clarity of the corporate disclosure, and various disclosure scores are computed. 
+These data provided a variety of useful descriptive statistics regarding differences in disclosure across firms, industries, and time.
+We suspect that these statistics were instrumental in motivating Lang and Lundholm (1993, 1996), Healy, Palepu, and Sweeney (1995), and many others to provide new insights into whether firm disclosure is associated with performance, consensus among investors, stock liquidity, and other important outcome variables.
+In related work, Groysberg, Healy, and Maber (2011) provide an informative analysis of how analysts are compensated using descriptive proprietary data and statistical analyses to uncover the fundamental features of the reward system.
 
-%Select a topic or setting of real interest to accounting researchers - analysts, loan officers, executives making strategic decisions, compensation committee members, etc. 
-% How do managers and boards make decisions on ``disclosure quality" (an aside - do they even know what disclosure quality means and do they care?  Does this construct have any real relevance in the real world?)  
+Recent published research suggests an increased recognition of the value of descriptive research. 
+\citet{Soltes:2013ba} examines the interactions between sell-side analysts and company management in one firm that granted him proprietary access to``offer insights into which analysts privately meet with management, when analysts privately interact with management, and why these interactions occur."
+By comparing private interaction to observed interaction between analysts and managers on conference calls and highlighting that private interaction with management is an important communication channel for analysts, \citet{Soltes:2013ba} provides a plausible mechanism through which information transfers hypothesized in more traditional empirical papers actually occur. 
 
-% You need to go out and actually interview these people using structured and semi-structured interviews.  Not just one per company, but several at varying levels.
-% Need to understand the setting, economics aspects, behavioral aspects.
-% Map out the mechanism by which decisions of interest are actually made.
-% Maybe there are multiple mechanisms depending on the situation.
-% What are the contextual variables?
+That private communication with management is an important source of information is confirmed by Brown, Call, Clement, and Sharp (2015). 
+Brown et al. (2015) survey and interview financial analysts to understand how they think about a variety of issues. Their findings suggest that analysts’ views on earnings quality differ from those researchers focus on. 
+For instance, analysts do not use the ``red flags" used by academics to identify manipulation; and analysts generally are not attempting to uncover manipulation and use forecasts, not as ends in themselves, but to figure out the stock price target. 
+These insights should shape research seeking to develop hypotheses and models of accounting information and analyst behavior. 
 
-%Use these qualitative insights to justify research question selection.  Would conditional conservatism show up in conversations with real world managers?  If you had an unstructured conversation, what accounting topics would be ``top of mind" for managers, board members, bankers, etc.?
-%
-%No doubt we would find many cases where present accounting research substantially departs from known institutional details - do executive really behave like Black-Scholes would imply?
-%How are compensation plans really designed and why?  Why don’t companies take advantage of ``academically obvious" tax changes?
-%
-%Ultimately uUse these mechanisms to develop structural models with a plausible causal mechanism.
-%
-%Punchline: if you want to explain something observed, maybe it is a good idea to understand the phenomenon of interest first.
+Despite the dearth of descriptive research in top accounting journals, we believe that our discipline can benefit substantially from this style of research. 
+An interesting question is what makes a descriptive study an important contribution that should be published in a top journal.
+An obvious required attribute is that the descriptive study examines an interesting institutional question where researchers care about understanding the phenomenon producing the observations.
+Stated differently, would anyone change their research agenda or their (causal) interpretations of prior work if provided with these descriptive results?
 
-%TODO: somewhere we want to note that there are some real field experiments -- John Roberts with the impact of consulting firms in India and a variety of related studies in Economics.  
-%TODO: There was also the SEC decision to randomly assign short selling restrictions.
+The descriptive research needs to be neutral and unbiased in terms of data collection and interpretations.
+If expert opinions are used, can we be assured that the options are not biased because of their business dealings?
+Data collected using surveys or interviews by consulting firms may provide great descriptive data, but researchers need to be convinced that the data are not confounded by selection bias and other similar concerns.
+
+The research should also provide deep insight into the causal mechanisms underlying observed institutional data.
+There may well be alternative mechanisms suggested by the research, and these alternatives may be a function of nuances and contextual variables for the setting.
+This is an especially important outcome from descriptive studies because there are likely to be different causal mechanisms depending on the precise attributes of the setting.  
+
+Obviously, the evaluation of descriptive research is somewhat subjective, but the evaluation of more traditional accounting research is similarly subjective. 
+As a group, we do not have much experience assessing the likely contribution of descriptive research and we are unfamiliar with some of the research methods that are used in descriptive research. 
+However, given the possibility that descriptive research can help us identify actual causal mechanisms for accounting phenomenon, it would seem that our profession should be willing to use some journal space for high quality descriptive work.
+
+% Structural material here
+\input{structural}
 
 \section{Concluding remarks} \label{sec:conclude}
 In this paper, we examined the approaches used by accounting researchers to draw causal inferences from analyses of observational (or non-experimental) data. 
