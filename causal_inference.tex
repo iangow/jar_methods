@@ -206,41 +206,7 @@ For example, if assignment to treatment is random, then it is possible for a dif
 But in this case, it is the detailed understanding of the research setting, not the method \emph{per se}, that makes these estimates credible.}
 %TODO: So why do we see so many papers using OLS for causal inference? My conjecture: If the results is the "right" one, no-one cares about endogeneity. So WTF are we doing when we do research? (Even by the standards of this paper, this point is a little "heavy" I think.)
 
-\subsubsection{Difference-in-difference and fixed effect estimators}
-Accounting researchers have come to view some statistical methods as requiring fewer assumptions and thus being less subject to problems when it comes to drawing causal inferences. 
-\citet[p.\,12]{Angrist:2010jv} include so-called difference-in-difference (DD) estimators on their list of such quasi-experimental methods, along with ``instrumental variables and regression discontinuity methods."\footnote{As \citet[p.\,228]{Angrist:2008vk} argue that ``DD is a version of fixed effects estimation," we discuss these methods together.}
-Enthusiasm for DD designs perhaps stems from a belief that these are ``quasi-experimental" methods in the same sense as the other two approaches cited by \citet[p.\,12]{Angrist:2010jv}.
-But the essential feature that instrumental variables and regression discontinuity methods rely on is the ``as if" random treatment assignment mechanism.
-If treatment assignment is driven by unobserved confounding variables, then DD and fixed-effect estimates of causal effects will be biased and inconsistent. 
-As few settings in accounting satisfy random treatment assignment, there is a heavy burden on researchers using DD or fixed-effect estimators to explain why they believe these methods allow them to recover unbiased estimates of causal effects.
-
-%Even when assignment to treatment is random, care needs to be taken in interpreting estimates as causal effects.
-%For example, \citet[p.\,1305]{Cadman:2014cr} conjecture that ``VCs have strong incentives to design compensation schemes that provide CEOs with short-horizon incentives in the fiscal years after the IPO." 
-%The main analysis in support of this hypothesis is a regression DD analysis \citep[pp.\,233--241]{Angrist:2008vk} using the pre-IPO year as the pre-treatment period, and the two years after IPO as the post-treatment period. 
-%However, one treatment of interest (i.e., being VC-backed) is likely implemented well before the ``pre-treatment" period, making it difficult to consider the pre-treatment values of the outcome variable as not being caused by the treatment.
-
-\subsubsection{Propensity score matching}
-Another method that has become popular in accounting research is propensity score matching (PSM).
-Regression methods can be viewed as making model-based adjustments to address confounding variables.  
-Stuart and Rubin (2007) argue that 
-
-\begin{quote}\begin{singlespace} 
-``[M]atching methods are preferable to these model-based adjustments for two key reasons. 
-First, matching methods do not use the outcome values in the design of the study and thus preclude the selection of a particular design to yield a desired result.
-Second, when there are large differences in the covariate distributions between the groups, standard model-based adjustments rely heavily on extrapolation and model-based assumptions.
-Matching methods highlight these differences and also provide a way to limit reliance on the inherently untestable modeling assumptions and the consequential sensitivity to those assumptions."\end{singlespace} 
-\end{quote}
-For these reasons, PSM methods can prove useful when faced with observational data.
-However, PSM does \emph{not} provide ``the closest archival approximation to a true random experiment" and does \emph{not} represent ``the most appropriate and rigorous research design for testing the effects of an ex ante treatment" \citep[p.\,1429]{Kirk:2014gx}.
-\citet[pp.\,73-75]{Rosenbaum:2009ul} points out that matching is ``a fairly mechanical  task," and when assignment to treatment is driven by unobservable variables, PSM-based estimates may be biased as much as regression estimates.
-We agree with \citet{MinuttiMeza:2014fn} who argues that ``matching does not necessarily eliminate the endogeneity problem resulting from unobservable variables driving [treatment] and [outcomes]."
-
-%TODO: Add a general evaluation of the use of PSM for causal inferences in accounting 
-%TODO: Expand survey to discuss use of PSM in accounting.
-%TODO: Discuss papers matching on post-treatment variables.
-%TODO: Find a home for discussion of bounding. I don't think it belongs with PSM.
-
-\subsection{Causal inference: A brief overview}
+\subsection{Causal inference: A brief overview of recent developments}
 In recent decades, the definition and logic of causality has been revisited by researchers in such diverse fields as epidemiology, sociology, statistics, and computer science. 
 Work by \citet{Rubin:1974im,Rubin:1977dv} and \citet{Holland:1986p7458} formalized ideas from the potential-outcome framework of \citet{Neyman:1923aa}, leading to the so-called Rubin causal model. 
 Other fields have used path analysis, as initially studied by geneticist Sewell Wright \citep{Wright:1921aa}, as an organizing framework.
@@ -261,7 +227,7 @@ Statistics can help us determine whether $x$ and $y$ are correlated, but correla
 Only with assumptions about causal relations between $x$, $y$, and other variables (i.e., a theory) can we infer causality.
 While theories may be informed by evidence (e.g., prior research may suggest a given theory is more or less plausible), they also encode our understanding of causal mechanisms (e.g., barometers do not cause rain).
 
-\subsection{Causal diagrams: A primer}
+% \subsection{Causal diagrams: A primer}
 Computer and decision scientists, as well as researchers in other disciplines, have recently sought to develop an analytical framework for thinking about causal models and their connection to probability statements \citep{Pearl:2009kh}.
 Pearl's framework, which he calls the structural causal model, uses causal diagrams to describe causal relationships. 
 These diagrams encode causal assumptions and visually communicate how a causal inference is being drawn from a given research design.
@@ -271,29 +237,32 @@ We use Figure \ref{fig:basic} to illustrate the basic ideas of causal diagrams a
 Figure \ref{fig:basic} depicts three variants of a simple causal graph. Each graph depicts potential relationships among the three (observable) variables.
 In each case, we are interested in understanding how the presence of a variable $Z$ impacts the estimation of the causal effect of $X$ on $Y$.
 The only difference between the three graphs is the direction of the arrows linking either $X$ and $Z$, or $Y$ and $Z$.
-The boxes (or ``nodes") represent random variables and the arrows (or ``edges") connecting boxes represent hypothesized causal relations, with each arrow pointing from a cause to a variable assumed to be affected by it.\footnote{
-That arrows have a direction accounts for the ``D" in DAG (Directed Acyclic Graph). 
-The acyclic (``A") component means that there must be no cycles in the graph. 
-Cycles cause obvious problems in causal reasoning.
- An example would be $X \rightarrow Y \rightarrow Z \rightarrow X$. 
-In this graph there is no ultimate cause. 
-Graphs make a distinction between observed and unobserved random variables.
-In some cases, an unobserved joint determinant of two random variables will not be represented explicitly, but replaced by a dashed, ``undirected" edge between those two random variables.}
+The boxes (or ``nodes") represent random variables and the arrows (or ``edges") connecting boxes represent hypothesized causal relations, with each arrow pointing from a cause to a variable assumed to be affected by it.
+% \footnote{
+%That arrows have a direction accounts for the ``D" in DAG (Directed Acyclic Graph). 
+%The acyclic (``A") component means that there must be no cycles in the graph. 
+%Cycles cause obvious problems in causal reasoning.
+% An example would be $X \rightarrow Y \rightarrow Z \rightarrow X$. 
+%In this graph there is no ultimate cause. 
+%Graphs make a distinction between observed and unobserved random variables.
+%In some cases, an unobserved joint determinant of two random variables will not be represented explicitly, but replaced by a dashed, ``undirected" edge between those two random variables.}
 
 The criterion developed by \citet{Pearl:2009vo} implies that very different conditioning strategies are needed for each of the causal diagrams (see Appendix \ref{append} for a more formal treatment). 
-\citet{Pearl:2009vo} shows that, if we are interested in assessing the causal effect of $X$ on $Y$, we may be able to do so by conditioning on a set of variables, $Z$, that satisfies what \citet{Pearl:2009vo} labels the ``back-door criterion" \citep[p.79]{Pearl:2009vo}.\footnote{
-Intuitively, the back-door criterion requires that $Z$ blocks (and does not open) ``back-door" paths.
-A back-door path can be thought of as a way for $X$ to be associated with $Y$ due to associations with other variables rather than causal links from $X$ to $Y$.
-See Appendix \ref{append} for a more formal discussion.}
+\citet{Pearl:2009vo} shows that, if we are interested in assessing the causal effect of $X$ on $Y$, we may be able to do so by conditioning on a set of variables, $Z$, that satisfies certain criteria.
+%what \citet{Pearl:2009vo} labels the ``back-door criterion" \citep[p.79]{Pearl:2009vo}.\footnote{
+%Intuitively, the back-door criterion requires that $Z$ blocks (and does not open) ``back-door" paths.
+%A back-door path can be thought of as a way for $X$ to be associated with $Y$ due to associations with other variables rather than causal links from $X$ to $Y$.}
+\footnote{See Appendix \ref{append} for a more formal discussion.}
 While conditioning on variables is much like the standard notion of ``controlling for" such variables in a regression, there are critical differences.
 First, conditioning means estimating effects for each distinct level of the set of variables in $Z$. 
 This nonparametric concept of conditioning on $Z$ is more demanding than simply including $Z$ as another regressor in a linear regression model.\footnote{Including variables in a linear regression framework ``controls for" only under strict assumptions, such as linearity in the relations between $X$, $Y$, and $Z$.}
-Second, the inclusion of a variable in $Z$ may not be an appropriate conditioning strategy. Indeed, it can be that the inclusion of $Z$ results in biased estimates of causal effects.
+Second, the inclusion of a variable in $Z$ may not be an appropriate conditioning strategy. 
+Indeed, it can be that the inclusion of $Z$ results in biased estimates of causal effects.
 
 We now discuss what each of the three graphs in Figure \ref{fig:basic} suggest about how one might model the causal effect of $X$ on $Y$.	
 Figure \ref{fig:confound} is straightforward. It shows that we need to condition on $Z$ in order to estimate the causal effect of $X$ on $Y$.
 Note the notion of ``condition on" again is more general than just including $Z$ in a parametric (linear) model.\footnote{
-Inclusion of $Z$ blocks the back-door path from $Y$ to $X$ via $Z$.} The need to condition on $Z$ leads to $Z$ being called a \emph{confounder}.
+Inclusion of $Z$ blocks the back-door path from $Y$ to $X$ via $Z$.} The need to condition on $Z$ arises because $Z$ is what is known as a \emph{confounder}.
 
 %Nevertheless, under the
 %strong assumptions that: $Y = X \beta + Z \gamma + \epsilon_Y$, $\epsilon_Y$ is independent of $X$ and $Z$, and $X$ and $Z$ are correlated,
@@ -346,9 +315,13 @@ While the with-and-without-controls approach used by \citet{Larcker:2007aa} has 
 
 \section{Quasi-experimental methods in accounting research} \label{sec:quasi}
 While most studies in accounting use methods of conditioning on confounding variables in some form of regression or matching model, a number of studies use quasi-experimental methods that rely on ``as if" random assignment to identify causal effects \citep{Dunning:2012tt}.
-Of the 91 papers in our 2014 survey seeking to draw a causal inference from observational data, we classify 14 as relying on quasi-experimental methods. Despite the low count, we believe that papers using these methods are considered stronger research contributions, and there seems a clear trend toward the use of quasi-experimental methods.
+Of the 91 papers in our 2014 survey seeking to draw a causal inference from observational data, we classify 14 as relying on quasi-experimental methods.
+Despite the low count, we believe that papers using these methods are considered stronger research contributions, and there seems a clear trend toward the use of quasi-experimental methods.
+Additionally, a number of papers uses methods, such as difference-in-difference estimators and fixed effects that are widely believed to approximate quasi-experimental methods.
+
 % Do we want " are pressures from editors and reviewers to incorporate quasi-experimental approaches into research designs."?
-In this section, we discuss and evaluate the use of these methods in accounting research.
+In this section, we discuss and evaluate the use of these methods in accounting research. 
+We then examine the use of methods, such as difference-in-difference estimators and fixed effects.
 
 \subsection{Natural experiments}
 Natural experiments occur when observations are assigned by nature (or some other force outside the control of the researcher) to treatment and control groups in a way that is random or ``as if'' random \citep{Dunning:2012tt}. 
@@ -563,6 +536,42 @@ We encourage researchers using RD designs to employ methods that exist to estima
 
 %TODO: Seems like we want to include in this section:  plot the data and if you can't see it in the data, it probably is not actually there (Imbens), do not use the high level polynomial approach, and other similar issues.  Probably something on whether the magnitude of the results is actually believable -- Yonca's, the prize winning JF paper, and others results seem implausibly large for governance topics.
 % This would be referring to specific papers.
+
+\subsection{Other methods}
+
+\subsubsection{Difference-in-difference and fixed effect estimators}
+Accounting researchers have come to view some statistical methods as requiring fewer assumptions and thus being less subject to problems when it comes to drawing causal inferences. 
+\citet[p.\,12]{Angrist:2010jv} include so-called difference-in-difference (DD) estimators on their list of such quasi-experimental methods, along with ``instrumental variables and regression discontinuity methods."\footnote{As \citet[p.\,228]{Angrist:2008vk} argue that ``DD is a version of fixed effects estimation," we discuss these methods together.}
+Enthusiasm for DD designs perhaps stems from a belief that these are ``quasi-experimental" methods in the same sense as the other two approaches cited by \citet[p.\,12]{Angrist:2010jv}.
+But the essential feature that instrumental variables and regression discontinuity methods rely on is the ``as if" random treatment assignment mechanism.
+If treatment assignment is driven by unobserved confounding variables, then DD and fixed-effect estimates of causal effects will be biased and inconsistent. 
+As few settings in accounting satisfy random treatment assignment, there is a heavy burden on researchers using DD or fixed-effect estimators to explain why they believe these methods allow them to recover unbiased estimates of causal effects.
+
+%Even when assignment to treatment is random, care needs to be taken in interpreting estimates as causal effects.
+%For example, \citet[p.\,1305]{Cadman:2014cr} conjecture that ``VCs have strong incentives to design compensation schemes that provide CEOs with short-horizon incentives in the fiscal years after the IPO." 
+%The main analysis in support of this hypothesis is a regression DD analysis \citep[pp.\,233--241]{Angrist:2008vk} using the pre-IPO year as the pre-treatment period, and the two years after IPO as the post-treatment period. 
+%However, one treatment of interest (i.e., being VC-backed) is likely implemented well before the ``pre-treatment" period, making it difficult to consider the pre-treatment values of the outcome variable as not being caused by the treatment.
+
+\subsubsection{Propensity score matching}
+Another method that has become popular in accounting research is propensity score matching (PSM).
+Regression methods can be viewed as making model-based adjustments to address confounding variables.  
+Stuart and Rubin (2007) argue that 
+
+\begin{quote}\begin{singlespace} 
+``[M]atching methods are preferable to these model-based adjustments for two key reasons. 
+First, matching methods do not use the outcome values in the design of the study and thus preclude the selection of a particular design to yield a desired result.
+Second, when there are large differences in the covariate distributions between the groups, standard model-based adjustments rely heavily on extrapolation and model-based assumptions.
+Matching methods highlight these differences and also provide a way to limit reliance on the inherently untestable modeling assumptions and the consequential sensitivity to those assumptions."\end{singlespace} 
+\end{quote}
+For these reasons, PSM methods can prove useful when faced with observational data.
+However, PSM does \emph{not} provide ``the closest archival approximation to a true random experiment" and does \emph{not} represent ``the most appropriate and rigorous research design for testing the effects of an ex ante treatment" \citep[p.\,1429]{Kirk:2014gx}.
+\citet[pp.\,73-75]{Rosenbaum:2009ul} points out that matching is ``a fairly mechanical  task," and when assignment to treatment is driven by unobservable variables, PSM-based estimates may be biased as much as regression estimates.
+We agree with \citet{MinuttiMeza:2014fn} who argues that ``matching does not necessarily eliminate the endogeneity problem resulting from unobservable variables driving [treatment] and [outcomes]."
+
+%TODO: Add a general evaluation of the use of PSM for causal inferences in accounting 
+%TODO: Expand survey to discuss use of PSM in accounting.
+%TODO: Discuss papers matching on post-treatment variables.
+%TODO: Find a home for discussion of bounding. I don't think it belongs with PSM.
 
 \subsection{Quasi-experimental methods: An evaluation}
 We agree that the revolution in econometric methods for causal inference represents an opportunity for accounting researchers.
