@@ -318,11 +318,8 @@ While the with-and-without-controls approach used by \citet{Larcker:2007aa} has 
 While most studies in accounting use methods of conditioning on confounding variables in some form of regression or matching model, a number of studies use quasi-experimental methods that rely on ``as if" random assignment to identify causal effects \citep{Dunning:2012tt}.
 Of the 91 papers in our 2014 survey seeking to draw a causal inference from observational data, we classify 14 as relying on quasi-experimental methods.
 Despite the low count, we believe that papers using these methods are considered stronger research contributions, and there seems a clear trend toward the use of quasi-experimental methods.
-Additionally, a number of papers uses methods, such as difference-in-difference estimators and fixed effects that are widely believed to approximate quasi-experimental methods.
-
-% Do we want " are pressures from editors and reviewers to incorporate quasi-experimental approaches into research designs."?
-In this section, we discuss and evaluate the use of these methods in accounting research. 
-We then examine the use of methods more popular in accounting research, such as difference-in-difference estimators and fixed effects.
+Additionally, a number of papers use methods, such as difference-in-difference estimators and fixed effects that are widely believed to approximate quasi-experimental methods.
+In this section, we discuss and evaluate the use of quasi-experimental  and similar methods in accounting research. 
 
 \subsection{Natural experiments}
 Natural experiments occur when observations are assigned by nature (or some other force outside the control of the researcher) to treatment and control groups in a way that is random or ``as if'' random \citep{Dunning:2012tt}. 
@@ -361,7 +358,7 @@ In sum, even showing that a treatment is randomly assigned does not guarantee th
 
 Finally, it is important to carefully consider the choice of explanatory variables in studies that rely on natural experiments.
 In particular, researchers sometimes inadvertently use covariates that are affected by the treatment in their analysis.  
-As noted by \citet[p.\,116]{Imbens:2015aa}, including such post-treatment variables as covariates can undermine the validity of causal inferences.
+As noted by \citet[p.\,116]{Imbens:2015aa}, including such post-treatment variables as covariates can undermine the validity of causal inferences.\footnote{See the discussion of mediators above.}
 %%% NOTE: IDG edit below.
 % As an example, consider what the introduction of doctor fixed effects might do in a treatment effect regression study of the blood pressure drug.
 % We have a better example below. I think few would be able to see the point regarding fixed effects. (I take the point to be that fixed effects are inherently, at least in part, post-treatment variables). 
@@ -376,7 +373,7 @@ As noted by \citet[p.\,116]{Imbens:2015aa}, including such post-treatment variab
 Extending our survey beyond research published in 2014, we find papers with very credible natural experiments.
 One such paper is \citet{Michels:2015aa}, who exploits the difference in disclosure requirements for significant events that occur before financial statements are issued. 
 Because the timing of his events (e.g., fires and natural disasters) relative to balance sheet date is plausibly random, the assignment to the disclosure and recognition conditions is also plausibly random. 
-Nevertheless, even in this relatively straightforward setting, \citet{Michels:2015aa} recognizes the possibility of different materiality criteria for disclosed and recognized events, which could affect the relation been underlying events and disclosures, and takes care to address this concern.
+Nevertheless, even in this relatively straightforward setting, \citet{Michels:2015aa} recognizes the possibility of different materiality criteria for disclosed and recognized events, which could affect the relation been underlying events and observed disclosures, and takes care to address this concern.
 
 Another credible natural experiment is examined in \citet[p.\,80]{Li:2015he}, who study a regulatory experiment in which the SEC ``mandated temporary suspension of short-sale price tests for a set of randomly selected pilot stocks." 
 \citet[p.\,79]{Li:2015he} conjecture ``that managers respond to a positive exogenous shock to short selling pressure \dots by reducing the precision of bad news forecasts." 
@@ -386,7 +383,7 @@ But if the treatment affects the properties of these forecasts, and \citet[p.\,7
 %But if the exogenous shock affects the properties of the forecast (i.e., makes it endogenous), the ``natural experiment" aspect of the research design is undone by the decision to include such properties in the regression analysis.\footnote{\citet{Li:2015he} include the magnitude of the forecast surprise (\textit{MFSURP}) in their regressions (e.g., regressions in Table 2 where abnormal returns around the forecast is the dependent variable).
 %See \citet[p.\,116]{Imbens:2015aa} for discussion of ``the dangers of using a post-treatment variable \dots as a covariate."}
 
-If true natural experiments can be found, they are an excellent design for drawing causal inferences from observational data. 
+When true natural experiments can be found, they are an excellent setting for drawing causal inferences from observational data. 
 Unfortunately, credible natural experiments are very rare.
 Certainly researchers should exploit these natural experiments when they occur \citep[e.g.,][]{Michels:2015aa,Li:2015he}, but care is needed in doing so.
 
@@ -405,9 +402,16 @@ With respect to accounting research, \citet{Larcker:2010fq} lament that ``some r
 One study that illustrates this is \citet{Angrist:1990dk}.
 In that setting, the draft lottery is well understood as random and the process of mapping from the lottery to draft eligibility is well understood.
 Furthermore, there are good reasons to believe that the draft lottery does not affect anything else directly except for draft eligibility.\footnote{Though some have questioned the exclusion restriction even in this case, arguing that the outcome of the draft lottery may have caused some, for example, to move to Canada \citep[see][]{Imbens:2015aa}.}
+
+Note that simply arguing that the only effect of an instrument on the outcome variable of interest is via the treatment of interest does not suffice to establish the exclusion restriction.
+Even if the claim that $Z$ only affects $Y$ via its affect on $X$ is true, the researcher also needs to argue that variation in the instrument ($Z$) is as-if random.
+For example, suppose that the only effect of $Z$ on $Y$ occurs via $X$, but that $Z$ is a function of a variable $W$ that is also associated with $Y$. 
+In this case, instrumental-variable estimates of the effect of $X$ on $Y$ will be biased.
+Thus, a researcher should also account for the sources of variation in the chosen instrument and why these are not expected to be associated with  variation in the outcome variable.\footnote{
+In the case of \citet{Angrist:1990dk}, this was plausibly satisfied by the use of a lottery for assignment of $Z$ to subjects.}
+
 %%%NOTE: I don't think the following was the criticism:
 % These points notwithstanding, even this study has been critiqued because the lottery instruments are weak.
-
 %\footnote {Of course, this seemingly ``ideal" instrument has been subject to considerable criticism. I think the idea is that even if you had a low draft number it was not clear that you actually went to the army.  In fact, upper class kids did not go (and the probably had much better skills) than the white hillbilly trash and minorities that ended up going to VN}
 %TODO: Get reference for criticism of Angrist instrument
 
@@ -488,7 +492,7 @@ By conditioning on $\textit{Comp}_{t-1}$ and using ISS recommendations as an ins
 In Figure \ref{fig:agl}, we depict the unobservability of this variable (to the researcher) by putting it in a dashed box.
 Note that we have omitted the controls included by \citet{Armstrong:2013io} for simplicity, though a good causal analysis would consider these carefully.}
 
-While the authors note this possibility: ``validity of this instrument depends on ISS recommendations not having an influence on future compensation decisions conditional on shareholder support (i.e., firms listen to their shareholders, with ISS having only an indirect impact on corporate policies through its influence on shareholders' voting decisions)", they are unable to test the assumption \citep[p.\,912]{Armstrong:2013io}.
+While the authors note this possibility: ``validity of this instrument depends on ISS recommendations not having an influence on future compensation decisions conditional on shareholder support (i.e., firms listen to their shareholders, with ISS having only an indirect impact on corporate policies through its influence on shareholders' voting decisions)," they are unable to test the assumption \citep[p.\,912]{Armstrong:2013io}.
 Unfortunately, this assumption seems inconsistent with the findings of \citet{Gow:2013aa}, who provide evidence that firms calibrate compensation plans (i.e., factors that directly affect $\textit{Comp}_{t+1}$) to comply with ISS's policies so as to get a favorable recommendation from ISS. 
 As depicted in Figure \ref{fig:agl2}, this implies a path from $\textit{ISS recommendation}_t$ to $\textit{Comp}_{t+1}$ that does not pass through $\textit{Shareholder support}_{t}$, suggesting that the instrument of \citet[p.\,912]{Armstrong:2013io} is not valid.\footnote{\citet{Armstrong:2013io} recognize the possibility that the instrument they use is not valid and conduct sensitivity analysis to examine the robustness of their result to violation of the exclusion restriction assumptions. 
 This analysis suggests that their estimate is highly sensitive to violation of this assumption.}
