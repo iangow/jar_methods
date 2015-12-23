@@ -50,12 +50,8 @@
 
 	\vspace{30pt}
 	\today
-	
-
-	
 
 \end{titlepage}
-
 
 \begin{abstract}
 	This paper examines the approaches accounting researchers use to draw causal inferences using observational (or non-experimental) data. 
@@ -108,8 +104,8 @@ To provide insights into what is actually done in empirical accounting research,
 % But I think it is fair to say that it is difficult to draw causal inferences (e.g., equity incentives lead to more misstatements) without the kinds of assumptions you need to estimate causal effects.
 While accounting researchers are aware of problems that can arise from the use of observational data to draw causal inferences, we found that most papers using such data seek to draw such inferences. 
 Making causal inferences requires strong assumptions about the causal relations between variables studied.
-For example, estimating the causal effect of $X$ on $y$ requires that the researcher has controlled for variables that could confound estimates of such effects.
-In Section \ref{sec:causal}, we discuss causal diagrams as a framework for thinking about the subtle issues involved.
+For example, estimating the causal effect of $X$ on $Y$ requires that the researcher has controlled for variables that could confound estimates of such effects.
+In Section \ref{sec:causal}, we provide an overview of causal inference using causal diagrams as a framework for thinking about the subtle issues involved.
 We believe that these diagrams are also very useful for communicating the cause-and-effect logic underlying the typical regression analyses that rely on observational data.
 Nonetheless, the difficulty of identifying, measuring, and controlling for all possible confounding variables leads many to be skeptical of the use of regression analyses of observational data for causal inference.
 
@@ -117,7 +113,7 @@ Recently, some social scientists have held out hope that better research designs
 For example, \citet{Angrist:2010jv} suggest that ``empirical microeconomics has experienced a credibility revolution, with a consequent increase in policy relevance and scientific impact.''  
 \citet[p. 26]{Angrist:2010jv} argue that such ``improvement has come mostly from better research designs, either by virtue of outright experimentation or through the well-founded and careful implementation of quasi-experimental methods."
 Our survey of research published in 2014 finds five studies claiming to study natural experiments (or ``exogenous shocks") and ten studies using instrumental variables.
-Thus, quasi-experimental methods are used to some degree in accounting research, and we believe their use will increase in future research efforts.\footnote{
+Thus, quasi-experimental methods are used by a small minority of papers  in accounting research, and we believe their use will increase in future research.\footnote{
 We use the term ``quasi-experimental" methods to refer to those methods that have a plausible claim to ``as if" random assignment to treatment conditions.
 The term ``as if" is used by \citet{Dunning:2012tt} to acknowledge the fact that assignment is not random in such settings, but is claimed to be \emph{as if} random assignment had occurred.}
 
@@ -131,10 +127,8 @@ In general, it appears that the assumptions required to apply quasi-experimental
 % Ian: "I think we could discuss these as interesting and a path forward, but scope them out as our focus is on observational data."
 Ultimately, we believe that accounting research needs to recognize the stringent \emph{causal} assumptions that need to be maintained to apply statistical methods to derive estimates of causal effects for observational data.
 Statistical methods alone cannot solve the inference issues that arise in observational data. 
-The second part of the paper (Sections \ref{sec:mech}, \ref{sec:struct}, and \ref{sec:desc}) identifies approaches that can provide a plausible framework for guiding future accounting research:
-% 
+The second part of the paper (Sections \ref{sec:mech} and \ref{sec:struct}) identifies approaches that can provide a plausible framework for guiding future accounting research: 
 
-\vskip -10pt
 \begin{itemize}
 \item There should be an increased emphasis on the study of causal mechanisms, i.e., the ``pathways" through which claimed causal effects are propagated.
 We believe that evidence on the actions and beliefs of individuals and institutions can bolster causal claims based on associations, even absent compelling estimates of the causal effects.
@@ -144,7 +138,10 @@ Structural models provide a more complete characterization of the behavior and i
 We readily acknowledge that, while structural modeling does not solve endogeneity concerns, it makes the assumed causal structure explicit and gives the researchers a rigorous way to assess what would happen if some features of the model change (i.e., to provide counterfactuals).
 We believe that causal diagrams can be a useful tool to convey the key elements of a structural model and can also act as a middle-level stand-in when structural modeling of a phenomenon is in its early stages or is incomplete.\footnote{``Middle-level" here refers to the placement of causal diagrams between relatively informal verbal reasoning and the rigors of a structural model.}
 %TODO: Flesh this out somewhat. What are the benefits of doing structural modeling?
-\item There are many important questions in accounting that have not yet been addressed by formal models.  In these settings, it is important to conduct sophisticated descriptive research aimed at understanding the phenomena of interest so as to develop clearer cause and effect models. In our view, many hypotheses that are tested with observational data are only loosely tied to the accounting institutions and business phenomena of interest. Hopefully, these descriptive studies will provide insights that theorists can use to build models that empiricists can actually ``take to data."
+\item There are many important questions in accounting that have not yet been addressed by formal models.
+	In these settings, it is important to conduct sophisticated descriptive research aimed at understanding the phenomena of interest so as to develop clearer cause and effect models.
+	In our view, many hypotheses that are tested with observational data are only loosely tied to the accounting institutions and business phenomena of interest. 
+	Hopefully, these descriptive studies will provide insights that theorists can use to build models that empiricists can actually ``take to data."
 % http://www.chicagomanualofstyle.org/16/ch06/ch06_sec009.html
 	%TODO: The 2017 JAR call for papers is arguably evidence of this concern being shared by others. Considering adding a footnote saying this.  DL -- this is a good idea
 	%A better approach would be to draw on detailed studies that better \emph{describe} 
@@ -157,7 +154,7 @@ The remainder of the paper is structured as follows.
 Section \ref{sec:causal} provides an overview of the issues observational data pose for drawing causal inferences in accounting research; 
 it suggests frameworks for identifying and analyzing these issues.
 Section \ref{sec:quasi} evaluates the use of quasi-experimental methods in accounting research.
-Section \ref{sec:mech} discusses mechanism-based causal inference.
+Section \ref{sec:mech} discusses mechanism-based causal inference and the value of descriptive research.
 % In Section \ref{sec:desc} we argue for richer descriptive research that can shed light on causal issues.
 Section \ref{sec:struct} illustrates how structural modeling approaches might be used by accounting researchers, with some emphasis of the strengths and weaknesses of this approach.
 Concluding remarks are provided in Section \ref{sec:conclude}.
@@ -184,7 +181,8 @@ For example, \citet{deFranco:2014ct} asks ``how the tone of sell-side debt analy
 
 We recognize that some authors might disagree with our characterizations.
 For example, a researcher might argue that a paper that claimed that ``theory predicts $X$ is associated $Y$ and, consistent with that theory, we show $X$ is associated with $Y$" is merely a descriptive paper that does not make causal inferences.
-However, by stating that ``consistent with \dots theory, $X$ is associated with $Y$," the clear purpose is to argue that the evidence tilts the scale, however slightly, in the direction of believing the theory is a valid description of the real world: in other words, inference.\footnote{
+However, theories are invariably causal in that they posit how exogenous variation in certain variables leads to changes in other variables.
+Further, by stating that ``consistent with \dots theory, $X$ is associated with $Y$," the clear purpose is to argue that the evidence tilts the scale, however slightly, in the direction of believing the theory is a valid description of the real world: in other words, causal inference.\footnote{
 Papers that seek to estimate a causal effect of $X$ on $Y$ are a subset of papers we classify as causal.
 A paper that argues that $Z$ is a common cause of $X$ and $Y$ and claims to find evidence of this is still making causal inferences (i.e., that $Z$ causes $X$ and $Z$ causes $Y$).
 However, we do not find this kind of reasoning to be common in our survey.}
