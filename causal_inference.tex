@@ -67,7 +67,7 @@
   \centering
   	\begin{large}
   	\textbf{Causal Inference in Accounting Research\footnote{We are grateful to our discussants, Christian Hansen and Miguel Minutti-Meza, and participants at the 2015 JAR Conference for helpful feedback. 
-  	We also thank seminar participants at London Business School, Karthik Balakrishnan, Philip Berger, Robert Kaplan, Alexander Ljungqvist, Eugene Soltes, Daniel Taylor, Robert Verrecchia, Charles Wang, and Anastasia Zakolyukina for comments.}} \\	
+  	We also thank seminar participants at London Business School, Karthik Balakrishnan, Philip Berger, Robert Kaplan, Christian Leuz, Alexander Ljungqvist, Eugene Soltes, Daniel Taylor, Robert Verrecchia, Charles Wang, and Anastasia Zakolyukina for comments.}} \\	
   	\end{large}
   	\vspace{60pt}
 	\textbf{Ian D. Gow} \\
@@ -282,7 +282,7 @@ The boxes (or ``nodes") represent random variables and the arrows (or ``edges") 
 %In some cases, an unobserved joint determinant of two random variables will not be represented explicitly, but replaced by a dashed, ``undirected" edge between those two random variables.}
 
 \citet{Pearl:2009vo} shows that, if we are interested in assessing the causal effect of $X$ on $Y$, we may be able to do so by conditioning on a set of variables, $Z$, that satisfies certain criteria.
-These criteria imply that very different conditioning strategies are needed for each of the causal diagrams (see Appendix \ref{append} for a more formal treatment).\footnote{See Appendix \ref{append} for a more formal discussion.}
+These criteria imply that very different conditioning strategies are needed for each of the causal diagrams (see Appendix \ref{append} for a more formal treatment).
 
 %what \citet{Pearl:2009vo} labels the ``back-door criterion" \citep[p.79]{Pearl:2009vo}.\footnote{
 %Intuitively, the back-door criterion requires that $Z$ blocks (and does not open) ``back-door" paths.
@@ -315,7 +315,8 @@ The two arrows from $X$ and $Y$ ``collide" in $Z$.}
 Again, not only do we not need to condition on $Z$, but that we \emph{should} not condition on $Z$ to get an unbiased estimate of the causal effect of $X$ on $Y$.
 While in epidemiology, the issue of ``collider bias \dots can be just as severe as confounding" \citep[p.\,186]{Glymour:2008aa}, collider bias appears to receive less attention in accounting research than confounding.
 Many intuitive examples of collider bias involve selection or stratification.
-Admission to a college could be a function of combined test scores (T) and interview performance (I) exceeding a threshold, i.e., $T + I \geq C$. Even if $T$ and $I$ are unrelated unconditionally, a regression of $T$ on $I$ conditioned on admission to college is likely to show a negative relation between these two variables.
+Admission to a college could be a function of combined test scores ($T$) and interview performance ($I$) exceeding a threshold, i.e., $T + I \geq C$. 
+Even if $T$ and $I$ are unrelated unconditionally, a regression of $T$ on $I$ conditioned on admission to college is likely to show a negative relation between these two variables.
 
 \subsection{Causal diagrams: Applications in accounting}
 A typical paper in accounting research will include many variables  to ``control for" the potential confounding of causal effects.
@@ -491,8 +492,8 @@ Indeed, many studies choose to test the validity of their instrumental variables
 %
 %\citet{Correia:2014fp} is relatively thorough. \citet{Correia:2014fp} 
 But such tests of instruments are of dubious value. 
-Consider, for example, the following simulation exercise where $X$ does not cause $y$, but we nevertheless estimate the regression $y = X \beta + \epsilon$. To make matters
-interesting, suppose $\rho(X, \epsilon) > 0$ (i.e., $X$ is correlated with the error). Clearly, if we estimated the equation by OLS, we would
+Consider, for example, the following simulation of a setting where $X$ does not cause $y$, but we nevertheless estimate the regression $y = X \beta + \epsilon$. 
+To make matters interesting, suppose $\rho(X, \epsilon) > 0$ (i.e., $X$ is correlated with the error). Clearly, if we estimated the equation by OLS, we would
 conclude that there is a (positive) relationship between $X$ and $y$. Suppose that after being told that $X$ is ``endogenous", we found
 three instruments: $z_1$, $z_2$ and $z_3$. Unbeknown to us, the three instruments were determined as follows:
 $z_1 = X +\eta_1$, $z_2 = \eta_2$, and $z_3 = \eta_3$, with $\eta_1, \eta_2,  \eta_3 \sim N(0, \sigma_{\eta}^2)$ and independent. 
@@ -625,23 +626,22 @@ Additionally, researchers should discuss how their conclusions are likely to gen
 
 In the first part of the paper, we have argued that, while causal inference is the goal of most accounting research, it is extremely difficult to find settings and statistical methods that can produce reliable estimates of causal effects. Does this mean accounting researchers must give up making causal statements? We believe the answer is no. There are viable paths forward. The objective of the second part of this paper is to discuss these paths forward. The first path we discuss is an increased focus on causal mechanisms. 
 Accounting research is not alone in its reliance on observational data with the goal of drawing causal inferences. 
-It is therefore natural to look to other fields using observational data to identify causal mechanisms and ultimately to draw causal inferences. Epidemiology and medicine are two fields that are often singled out in this regard. In what follows, we briefly provide examples and highlight the features of the examples that enhanced the credibility of the inferences drawn. A key implication of this discussion is that accounting researchers need clearly and rigorously identify the causal mechanism that is producing the observed results in their research studies.
-
+It is therefore natural to look to other fields using observational data to identify causal mechanisms and ultimately to draw causal inferences. Epidemiology and medicine are two fields that are often singled out in this regard. In what follows, we briefly provide examples and highlight the features of the examples that enhanced the credibility of the inferences drawn. A key implication of this discussion is that accounting researchers need to identify clearly and rigorously the causal mechanism that is producing the observed results in their research studies.
 
 \subsection{John Snow and cholera}
 A widely cited case of causal inference involves John Snow's work on cholera. 
 As there are many excellent accounts of Snow's work, we will focus on the barest details.
- As discussed in \citet[p.\,339]{Freedman:2009ur} ``John Snow was a physician in Victorian London. In 1854, he demonstrated that cholera was an infectious disease, which could be prevented by cleaning up the water supply. The demonstration took advantage of a natural experiment. A large area of London was served by two water companies. The Southwark and Vauxhall company distributed contaminated water, and households served by it had a death rate `between eight and nine times as great as in the houses supplied by the Lambeth company,' which supplied relatively pure water."
+As discussed in \citet[p.\,339]{Freedman:2009ur} ``John Snow was a physician in Victorian London. In 1854, he demonstrated that cholera was an infectious disease, which could be prevented by cleaning up the water supply. The demonstration took advantage of a natural experiment. A large area of London was served by two water companies. The Southwark and Vauxhall company distributed contaminated water, and households served by it had a death rate `between eight and nine times as great as in the houses supplied by the Lambeth company,' which supplied relatively pure water."
 But there was much more to Snow's work than the use of a convenient natural experiment. 
 First, Snow's reasoning (much of which was surely done before ``the arduous task of data collection" began) was about the mechanism through which cholera spread. Existing theory suggested ``odors generated by decaying organic material." 
- Snow reasoned qualitatively that such a mechanism was implausible.
- Instead, drawing on his medical knowledge and the facts at hand, Snow conjectured that ``a living organism enters the body, as a contaminant of water or food, multiplies in the body, and creates the symptoms of the disease. 
+Snow reasoned qualitatively that such a mechanism was implausible.
+Instead, drawing on his medical knowledge and the facts at hand, Snow conjectured that ``a living organism enters the body, as a contaminant of water or food, multiplies in the body, and creates the symptoms of the disease. 
 Many copies of the organism are expelled with the dejecta, contaminate water or food, then infect other victims" \citep[p.\,342]{Freedman:2009ur}.
  
- With a hypothesis at hand, Snow then needed to collect data to prove it. 
- His data collection involved a house-to-house survey in the area surrounding the Broad Street pump operated by Southwark and Vauxhall.
- As part of his data collection, Snow needed to account for anomalous cases (such as the brewery workers who drank beer, not water).
- It is important to note that this qualitative reasoning and diligent data collection were critical elements establishing (to a modern reader) the ``as if" random nature of the treatment assignment mechanism provided by the Broad Street pump. 
+With a hypothesis at hand, Snow then needed to collect data to prove it. 
+His data collection involved a house-to-house survey in the area surrounding the Broad Street pump operated by Southwark and Vauxhall.
+As part of his data collection, Snow needed to account for anomalous cases (such as the brewery workers who drank beer, not water).
+It is important to note that this qualitative reasoning and diligent data collection were critical elements establishing (to a modern reader) the ``as if" random nature of the treatment assignment mechanism provided by the Broad Street pump. 
 Snow's deliberate methods contrast with a shortcut approach, which would have been to argue that in his data he had a natural experiment. 
  
 Another important feature of this example is that widespread acceptance of Snow's hypothesis did not occur until compelling evidence of the precise causal mechanism was provided. 
@@ -751,7 +751,7 @@ We suspect that these statistics were instrumental in motivating \citet{Lang:199
 In related work, \cite{Groysberg:2011dk} provide an informative analysis of how analysts are compensated using descriptive proprietary data and statistical analyses to uncover the fundamental features of the reward system.
 
 Recent published research suggests an increased recognition of the value of descriptive research. 
-\citet{Soltes:2013ba} examines the interactions between sell-side analysts and company management in one firm that granted proprietary access to``offer insights into which analysts privately meet with management, when analysts privately interact with management, and why these interactions occur."
+\citet{Soltes:2013ba} examines the interactions between sell-side analysts and company management in one firm that granted proprietary access to its data to ``offer insights into which analysts privately meet with management, when analysts privately interact with management, and why these interactions occur."
 By comparing private interaction to observed interaction between analysts and managers on conference calls and highlighting that private interaction with management is an important communication channel for analysts, \citet{Soltes:2013ba} provides a plausible mechanism through which information transfers hypothesized in more traditional empirical papers actually occur. 
 
 That private communication with management is an important source of information is confirmed by \citet{Brown:2015kd}. 
@@ -766,7 +766,7 @@ An obvious required attribute is that the descriptive study examines an interest
 Stated differently, would anyone change their research agenda or their (causal) interpretations of prior work if provided with these descriptive results?
 
 The descriptive research needs to be neutral and unbiased in terms of data collection and interpretations.
-If expert opinions are used, can we be assured that the options are not biased because of their business dealings?
+If expert opinions are used, can we be assured that the opinions are not biased because of their business dealings?
 Data collected using surveys or interviews by consulting firms may provide great descriptive data, but researchers need to be convinced that the data are not confounded by selection bias and other similar concerns.
 
 The research should also provide deep insight into the causal mechanisms underlying observed institutional data.
@@ -947,11 +947,12 @@ Thus, the value of the structure imposed so far is that it can motivate the appl
 
 \subsubsection{Estimation the non-strategic auditor model}
 
-To illustrate how to estimate this structural model, we constructed a data set containing 10,000 firm-year observations on whether or not financial results were restated.
-Definitions of the variables in our data set are provided in Table \ref{tab:desc}.
-We will discuss the source of the data in more detail later.\footnote{For those interested, the data are available at \url{http://web.stanford.edu/~preiss/Data_page.html}}
+To illustrate how to estimate this structural model, we simulated a data set containing 10,000 firm-year observations on whether or not financial results were restated.\footnote{The parameter values used to generate the data are: $a_0 = 0.5 , a_1 = 3.5 , a_2 = 3.5,
+m_0 = 7, m_1 = 1.5, b_0 = 20, b_1 = 10, p_0 =0.75,
+v_0 = 0.05, p_I = 0.45$ and $r_0 = 60$.
+For those interested, the data are available at \url{http://web.stanford.edu/~preiss/Data_page.html}}
 
-The data include variables that have previously been used to model restatements. 
+For verisimilitude, we included variables that have previously been used to model restatements. 
 RESTATE is a zero-one indicator variable for whether a firm restated (RESTATE = 1) their financial results in a given year.  
 %TODO: Provide a reference for BIG4 in this kind of regression.
 The variable BIG4 also is a zero-one indicator for whether the firm's auditor is one of the four largest U.S. accounting firms. 
@@ -963,7 +964,7 @@ Finally, the variables INT and SEG are included to capture the complexity and co
 %TODO: Get reference for audit model.
 Specifically, INT is a zero-one indicator for whether the firm does a majority of its business outside the U.S.
 We assume that international companies have higher auditing costs. 
-Similarly SEG is a count of the firm's two-digit Standard Industrial Classification business segments. 
+Similarly SEG is a count of the firm's business segments. 
 We assume that more segments likely will increase the costs of auditing. 
 
 Table \ref{tab:desc} reports descriptive statistics for our sample. 
@@ -1089,11 +1090,13 @@ C_R & = & r_0, \quad p_{AH}   =  p_0, \; \mbox{ and } \; p_{AL}  =  v_0 \\[.5em]
 \end{equation}
 where $ a_0, a_1, a_2, r_0, b_0, p_0$ and $v_0$ are constant parameters. 
 Inserting these expressions into the expected restatement rate (\ref{equilpr2}) gives
-\begin{align*} \label{equilpr3}
+\begin{align}
+\begin{split} 
 \mbox{Pr(Restate)} & =   \dfrac{C_AC_M(1-p_{AL})}{(p_{AH}-p_{AL})(1-p_I)C_RB} \\
 &= \dfrac{(1-v_0)(a_0 + a_1 \, \mbox{INT} + a_2 \, \mbox{SEG})(m_0 + m_1 \, \mbox{SALARY})}
-{(p_0-v_0)r_0(b_0 + b_1 \, \mbox{EQUITY})}
-\end{align*}
+{(p_0-v_0)r_0(b_0 + b_1 \, \mbox{EQUITY})} \label{equilpr3}
+\end{split}
+\end{align}
 \begin{equation}\label{equilpr4}
  =  \dfrac{\theta_0 + \theta_1\mbox{\small INT} + \theta_2\mbox{\small SEG} + \theta_3\mbox{\small SALARY}
 + \theta_4\mbox{\small INT} \times \mbox{\small SALARY}+ \theta_5\mbox{\small SEG} \times \mbox{\small SALARY}}
@@ -1213,12 +1216,7 @@ Evaluation of their accuracy then could be made via in- or out-of-sample goodnes
 
 Third, just because a researcher can write down a theoretical model and estimate it does not make the empirical model ``right."
 Clearly there is a risk of incorrect causal inferences being drawn from estimation of a structural model based on faulty assumptions.
-In our analyses, we in fact generated the data ourselves.\footnote{The parameter values used to generate the data are: $a_0 = 0.5 , a_1 = 3.5 , a_2 = 3.5,
-m_0 = 7, m_1 = 1.5, b_0 = 20, b_1 = 10, p_0 =0.75,
-v_0 = 0.05, p_I = 0.45$ and $r_0 = 60.$}
-That is, the data are not from actual firms, but instead were generated by computer using the strategic auditor model. 
-We chose to do this so that we could more convincingly show that structural models are capable of recovering behavioral information provided the model is correct.
-This can be seen in Table \ref{tab:gmm} by comparing the ``true" coefficients in the last column (i.e., those used to generate the data) with those in the other columns.
+But, that structural models are capable of recovering behavioral information provided the model is correct can be seen in Table \ref{tab:gmm} by comparing the ``true" coefficients in the last column (i.e., those used to generate the data) with those in the other columns.
 Because we also used the same data to estimate the logit regression in Table \ref{tab:logit}, we are able to establish that if we used the wrong (non-strategic) auditor structural model, we would have been led astray in our inferences about the effect of EQUITY.
 
 In practice we do not have this kind of insight into the correct process that generated the data.
