@@ -60,7 +60,7 @@
 	appreciated.
 We believe that accounting research would benefit from: 
 		 more in-depth descriptive research, including a greater focus on the study of causal mechanisms (or causal pathways); 
-		increased emphasis on structural modeling of the phenomena of interest; 
+		increased emphasis on structural modeling of the phenomena of interest. 
 We argue these changes offer a practical path forward for rigorous accounting research. 
 \end{abstract}
 
@@ -278,9 +278,9 @@ The two arrows from $X$ and $Y$ ``collide" in $Z$.}
 Again, not only do we not need to condition on $Z$, but that we \emph{should} not condition on $Z$ to get an unbiased estimate of the causal effect of $X$ on $Y$.
 While in epidemiology, the issue of ``collider bias \dots can be just as severe as confounding" \citep[p.\,186]{Glymour:2008aa}, collider bias appears to receive less attention in accounting research than confounding.
 Many intuitive examples of collider bias involve selection or stratification.
-Admission to a college could be a function of combined test scores and interview performance exceeding a threshold, i.e., $T + I \geq C$. Even if $T$ and $I$ are unrelated unconditionally, a regression of $T$ on $I$ conditioned on admission to college is likely to show a negative relation between these two variables.
+Admission to a college could be a function of combined test scores (T) and interview performance (I) exceeding a threshold, i.e., $T + I \geq C$. Even if $T$ and $I$ are unrelated unconditionally, a regression of $T$ on $I$ conditioned on admission to college is likely to show a negative relation between these two variables.
 
-\subsubsection{Causal diagrams: Applications in accounting}
+\subsection{Causal diagrams: Applications in accounting}
 A typical paper in accounting research will include many variables  to ``control for" the potential confounding of causal effects.
 While many of these variables should be considered confounders, less attention is given to explaining why it is reasonable to assume that they are not mediators or colliders.
 Such a discussion is important because the inclusion of ``controls" that are mediators or colliders will generally lead to bias.
@@ -453,9 +453,8 @@ Indeed, many studies choose to test the validity of their instrumental variables
 % \citet{Guedhami:2013cj} cite \citet{Larcker:2010fq} as a reference for this approach, even though \citet{Larcker:2010fq} carefully explain why simple tests like this cannot be used to justify instruments.}
 %
 %\citet{Correia:2014fp} is relatively thorough. \citet{Correia:2014fp} 
-But such tests of instruments may be of dubious value. 
-Consider, for example, the following simulation exercise.
-Consider a world where $X$ does not cause $y$, but we nevertheless estimate the regression $y = X \beta + \epsilon$. To make matters
+But such tests of instruments are of dubious value. 
+Consider, for example, the following simulation exercise where $X$ does not cause $y$, but we nevertheless estimate the regression $y = X \beta + \epsilon$. To make matters
 interesting, suppose $\rho(X, \epsilon) > 0$ (i.e., $X$ is correlated with the error). Clearly, if we estimated the equation by OLS, we would
 conclude that there is a (positive) relationship between $X$ and $y$. Suppose that after being told that $X$ is ``endogenous", we found
 three instruments: $z_1$, $z_2$ and $z_3$. Unbeknown to us, the three instruments were determined as follows:
@@ -488,7 +487,7 @@ To illustrate the application of causal diagrams to the evaluation of instrument
 Because of the plausible existence of unobserved confounding variables that affect both future compensation and shareholder support, a simple regression of $\textit{Comp}_{t+1}$ on \textit{Shareholder support}$_{t}$ and controls would not allow \citet{Armstrong:2013io} to obtain an unbiased estimate of the causal relation.
 Among other analyses, \citet{Armstrong:2013io} use an instrumental variable to estimate the causal relation of interest.
 \citet{Armstrong:2013io} claim that their instrument is valid. Their reasoning is represented graphically in Figure \ref{fig:agl}.
-By conditioning on $\textit{Comp}_{t-1}$ and using ISS recommendations as an instrument, \citet{Armstrong:2013io} argue that they can identify a consistent estimate of the causal effect of shareholder voting on $\textit{Comp}_{t+1}$, even though there is an unobserved confounder, namely determinants of future compensation observed by shareholders, but not the researcher.\footnote{
+By conditioning on $\textit{Comp}_{t-1}$ and using Institutional Shareholder Services (ISS) recommendations as an instrument, \citet{Armstrong:2013io} argue that they can identify a consistent estimate of the causal effect of shareholder voting on $\textit{Comp}_{t+1}$, even though there is an unobserved confounder, namely determinants of future compensation observed by shareholders, but not the researcher.\footnote{
 In Figure \ref{fig:agl}, we depict the unobservability of this variable (to the researcher) by putting it in a dashed box.
 Note that we have omitted the controls included by \citet{Armstrong:2013io} for simplicity, though a good causal analysis would consider these carefully.}
 
@@ -601,6 +600,7 @@ First, Snow's reasoning (much of which was surely done before ``the arduous task
  Snow reasoned qualitatively that such a mechanism was implausible.
  Instead, drawing on his medical knowledge and the facts at hand, Snow conjectured that ``a living organism enters the body, as a contaminant of water or food, multiplies in the body, and creates the symptoms of the disease. 
 Many copies of the organism are expelled with the dejecta, contaminate water or food, then infect other victims" \citep[p.\,342]{Freedman:2009ur}.
+ 
  With a hypothesis at hand, Snow then needed to collect data to prove it. 
  His data collection involved a house-to-house survey in the area surrounding the Broad Street pump operated by Southwark and Vauxhall.
  As part of his data collection, Snow needed to account for anomalous cases (such as the brewery workers who drank beer, not water).
@@ -622,7 +622,7 @@ The data of \citet{Doll:1976aa} showed ``a striking correlation between smoking 
  \citet{Gillies2011-GILTRT-3} argues that ``this correlation was accepted at the time by most researchers (if not quite all!) as establishing a causal link between smoking and lung cancer."
 Indeed Doll and Peto themselves say explicitly (p.\,1535) that the excess mortality from cancer of the lung in cigarette smokers is caused by cigarette smoking."
 In contrast, while \citet{Doll:1976aa} had highly statistically significant evidence of an association between smoking and heart disease, they were cautious about drawing inferences of a direct causal explanation for the association. 
-\citet[p.,1528]{Doll:1976aa} point out that ``to say that these conditions were related to smoking does not necessarily imply that smoking caused \dots them. The relation may have been secondary in that smoking was associated with some other factor, such as alcohol consumption or a feature of the personality, that caused the disease."
+\citet[p. 1528]{Doll:1976aa} point out that ``to say that these conditions were related to smoking does not necessarily imply that smoking caused \dots them. The relation may have been secondary in that smoking was associated with some other factor, such as alcohol consumption or a feature of the personality, that caused the disease."
  
 \shortcites{Morrow:1995gz}
 \citet{Gillies2011-GILTRT-3} then discusses extensive research into atherosclerosis between 1979 and 1989 and concludes that ``by the end of the 1980s, it was established that the oxidation of LDL was an important step in the process which led to atherosclerotic plaques."
@@ -683,10 +683,10 @@ There are many ``classic" descriptive studies that have had a major impact on su
 \citet{Cyert:1956fd} argue that ``a realistic description and theory of the decision-making process are of central importance to business administration and organization theory. Moreover, it is extremely doubtful whether \dots economics does in fact provide a realistic account of decision-making in large organizations operating in a complex world."}
 
 One reason to value descriptive research is that it can uncover realistic structures and mechanisms that would be exceedingly difficult to arrive at from basic economic theory or the simple intuition of the researcher.
-In the compensation area, the early research by \citet{Lewellyn:1968aa} and the more recent work by \citet{Frydman:2010bc} are also strictly descriptive studies that caused researchers to explore why certain patterns of remuneration arrangements are used, revised, or eliminated over time.
+In the compensation area, the early research by \citet{Lewellyn:1968aa} and the more recent work by \citet{Frydman:2010bc} are also essentially descriptive studies that caused researchers to explore why certain patterns of remuneration arrangements are used, revised, or eliminated over time.
 These types of data motivate researchers to frame research studies that have the potential to uncover the causal mechanisms that produce these institutional observations.
 
-A good example in the accounting literature is the classic study by \citet{Healy:1985jg}.  
+A good example in the accounting literature is the study by \citet{Healy:1985jg}.  
 Using proxy statement disclosures and conversations with actual executives and consultants, \citet{Healy:1985jg} studies the bonus contracts of 94 large US companies and identifies a common structure of these bonus plans, including the existence of caps and floors. 
 The paper also suggests hypotheses worth investigating regarding the effects of these plan features on accounting decisions.
 It seems highly unlikely that a model derived from fundamental economic theory would arrive at these plan features that are actually used by firms. 
@@ -699,11 +699,12 @@ An in-depth examination of actual debt covenants and an understanding of how cov
 
 In the corporate governance area, the descriptive data on board of director interlocks in \citet{brandeis1913breaking}, \citet{us1951report}, and \cite{united1978interlocking} provided novel descriptive insights into the structure of boards of directors.
 These and other similar studies had an important impact on starting the large literature on the functioning of boards of directors. 
-Similarly, the initial collection of equity ownership by executives, directors, and large shareholders by the \cite{securities1936official} enabled researchers to understand the extent to which ownership is separated from control and examine the implications of the classic \cite{berle1932modern} assertions regarding economic activity.
-Finally, the descriptive data on anti-takeover provisions collected by the Investor Responsibility Research Center (IRRC) has provided the basis for a considerable amount of research on the market for corporate control. 
+Similarly, the initial collection of equity ownership by executives, directors, and large shareholders by the \cite{securities1936official} enabled researchers to understand the extent to which ownership is separated from control and examine the implications of the classic \cite{berle1932modern} hypotheses regarding economic activity.
+
+Similarly, the descriptive data on anti-takeover provisions collected by the Investor Responsibility Research Center (IRRC) has provided the basis for a considerable amount of research on the market for corporate control. 
 \cite{Gompers:2003tl}, \cite{Bebchuk:2009ii}, and many others use these data to form and test a multitude of research questions related to corporate governance.  
-Perhaps more importantly, \cite{Daines:2001hi} provided an institutionally grounded examination of how these specific anti-takeover provisions actually work.  
-The \cite{Daines:2001hi} analysis provides a good example of how descriptive data combined with institutional and legal knowledge can provide new insights into the workings of corporate governance.
+Perhaps more importantly, \cite{Daines:2001hi} provided an institutionally grounded examination of how these specific anti-takeover provisions actually work from a legal perspective (which contrasts with conjectures made by researchers in other disciplines).  
+The \cite{Daines:2001hi} analysis provides a good example of how descriptive data combined with institutional and legal knowledge can provide appropriate insights into the workings of corporate governance.
 
 The descriptive disclosure data compiled by the Association for Investment Management and Research (AIMR) has had a similar impact on financial accounting research. 
 These ratings reflect assessments of analysts specializing in specific industries about the informativeness of disclosures made by firms in their respective industries.
@@ -713,7 +714,7 @@ We suspect that these statistics were instrumental in motivating \citet{Lang:199
 In related work, \cite{Groysberg:2011dk} provide an informative analysis of how analysts are compensated using descriptive proprietary data and statistical analyses to uncover the fundamental features of the reward system.
 
 Recent published research suggests an increased recognition of the value of descriptive research. 
-\citet{Soltes:2013ba} examines the interactions between sell-side analysts and company management in one firm that granted him proprietary access to``offer insights into which analysts privately meet with management, when analysts privately interact with management, and why these interactions occur."
+\citet{Soltes:2013ba} examines the interactions between sell-side analysts and company management in one firm that granted proprietary access to``offer insights into which analysts privately meet with management, when analysts privately interact with management, and why these interactions occur."
 By comparing private interaction to observed interaction between analysts and managers on conference calls and highlighting that private interaction with management is an important communication channel for analysts, \citet{Soltes:2013ba} provides a plausible mechanism through which information transfers hypothesized in more traditional empirical papers actually occur. 
 
 That private communication with management is an important source of information is confirmed by \citet{Brown:2015kd}. 
