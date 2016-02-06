@@ -117,7 +117,8 @@ The key issue, therefore, is not whether such studies should be done, but how th
 \begin{doublespace} 
 Most empirical research in accounting relies on observational (or non-experimental) data.
 % (i.e., data produced by processes outside the control of the researcher). Even experimental data is ``outside the control of the researcher," so this is an imprecise statement.
-This paper evaluates the different approaches accounting researchers use to draw causal inferences from observational data. 
+This paper evaluates the different approaches accounting researchers use to draw causal inferences from observational data.\footnote{Thus our focus is on what \citet{Bloomfield:2015aa} call ``archival studies." 
+\cite{Floyd:2015aa} discuss opportunities for researchers to use experiments in accounting research.} 
 Our discussion draws on developments in fields such as statistics, econometrics and epidemiology. 
 The goal of this paper is to identify areas for improvement and suggest how empirical accounting research can improve inferences from the analysis of observational data.
 
@@ -127,7 +128,7 @@ Does conservatism affect the terms of loan contracts?
 Do higher quality earnings reports lead to lower information asymmetry? 
 Did International Financial Reporting Standards cause an increase in liquidity in the jurisdictions that adopted them?
 Do managerial incentives lead to managerial misstatements in financial reports?
-That accounting researchers focus on causal inference is consistent with the view that ``the most interesting research in social science is about questions of cause and effect" \cite[p. 3]{Angrist:2008vk}.
+That accounting researchers focus on causal inference is consistent with the view that ``the most interesting research in social science is about questions of cause and effect" \cite[p.\,3]{Angrist:2008vk}.
 Simply documenting descriptive correlations provides little basis for understanding what would happen should circumstances change, 
 whereas using data to make inferences that support or refute broader theories could facilitate these kinds of predictions.
 
@@ -148,7 +149,7 @@ Nonetheless, the difficulty of identifying, measuring, and controlling for all p
 
 Recently, some social scientists have held out hope that better research designs and statistical methods can increase the credibility of causal inferences.
 For example, \citet{Angrist:2010jv} suggest that ``empirical microeconomics has experienced a credibility revolution, with a consequent increase in policy relevance and scientific impact.''  
-\citet[p. 26]{Angrist:2010jv} argue that such ``improvement has come mostly from better research designs, either by virtue of outright experimentation or through the well-founded and careful implementation of quasi-experimental methods."
+\citet[p.\,26]{Angrist:2010jv} argue that such ``improvement has come mostly from better research designs, either by virtue of outright experimentation or through the well-founded and careful implementation of quasi-experimental methods."
 Our survey of research published in 2014 finds five studies claiming to study natural experiments (or ``exogenous shocks") and ten studies using instrumental variables.
 Thus, quasi-experimental methods are used by a small minority of papers  in accounting research, and we believe their use will increase in future research.\footnote{
 We use the term ``quasi-experimental" methods to refer to those methods that have a plausible claim to ``as if" random assignment to treatment conditions.
@@ -411,7 +412,7 @@ As noted by \citet[p.\,116]{Imbens:2015aa}, including such post-treatment variab
 Extending our survey beyond research published in 2014, we find papers with very credible natural experiments.
 One such paper is \citet{Michels:2015aa}, who exploits the difference in disclosure requirements for significant events that occur before financial statements are issued. 
 Because the timing of his events (e.g., fires and natural disasters) relative to balance sheet date is plausibly random, the assignment to the disclosure and recognition conditions is also plausibly random. 
-Nevertheless, even in this relatively straightforward setting, \citet{Michels:2015aa} recognizes the possibility of different materiality criteria for disclosed and recognized events, which could affect the relation been underlying events and observed disclosures, and takes care to address this concern.
+Nevertheless, even in this relatively straightforward setting, \citet{Michels:2015aa} recognizes the possibility of different materiality criteria for disclosed and recognized events, which could affect the relation been underlying events and observed disclosures, and takes care to address this concern.\footnote{The setting of \citet{Michels:2015aa} plausibly involves a natural experiment, the endogenous nature of the disclosure and reporting responses by firms to these events, which is what is observable to the researcher, makes drawing causal inferences about the effect of recognition versus disclosure problematic.}
 
 Another credible natural experiment is examined in \citet[p.\,80]{Li:2015he}, who study a regulatory experiment in which the SEC ``mandated temporary suspension of short-sale price tests for a set of randomly selected pilot stocks." 
 \citet[p.\,79]{Li:2015he} conjecture ``that managers respond to a positive exogenous shock to short selling pressure \dots by reducing the precision of bad news forecasts." 
@@ -589,6 +590,26 @@ But the essential feature that instrumental variables and regression discontinui
 If treatment assignment is driven by unobserved confounding variables, then DD and fixed-effect estimates of causal effects will be biased and inconsistent. 
 As few settings in accounting satisfy random treatment assignment, there is a heavy burden on researchers using DD or fixed-effect estimators to explain why they believe these methods allow them to recover unbiased estimates of causal effects.
 
+Proponents of DD methods argue that they rely on the relatively innocuous assumption of ``parallel trends."
+But it is far from clear that this assumption is actually a mild one. 
+First, it is a highly parametric assumption: parallel trends might hold in levels of a variable, they would not likely to hold if variables were log-transformed.
+Second, many variables of interest to accounting researchers are mean-reverting, which is inconsistent with parallel trends when treatment and control observations differ in pre-treatment outcomes.
+Third, as DD studies typically rely on some kind of quasi-natural experiment, the existence of pre-treatment differences raises questions about the claimed ``as if" random assignment to treatment and control.
+For example, the much-cited study of \cite{Kelly:2012ih} uses supposedly random shocks to brokerage coverage and a DD design.
+But the existence of 0.039 in spreads between treatment and matched control firms suggests that the assignment was far from random.\footnote{See Table 2 on p\,1388. This pre-treatment difference is material given the estimated treatment effect of 0.020. Perhaps recognizing this issue, the subsequent paper by \citet{Balakrishnan:2014js} matches on pre-treatment values.}
+
+The causal interpretation of fixed-effect estimators is often unclear.
+Consider a setting where there are three unobservable types: type $A$ receives a salary bump of \$20,000 from getting a degree and thus gets a degree by the time she is 21; type $B$ receives a salary bump of \$4,000 from getting a degree and thus waits till she is 26 before getting a degree; type $C$ never gets a degree (perhaps because the benefits are too small). 
+Suppose a researcher has a panel of salary observations for $n$ individuals for each year between ages 21 and 30.
+What causal effect of a degree will be estimated using a fixed-effects estimator?
+It is easy to see that types $A$ and $C$ will not contribute to the estimate, as these types either always or never have a degree.
+It is also straightforward to show that the estimated effect for the remaining type will be approximately \$1,400, which is not interpretable as an estimate of anything of interest.
+It's not the effect of treatment on the treated, which would be some combination of \$4,000 and \$20,000.
+It's not the effect of treatment on type $B$, which is \$4,000.
+
+Yet this is a setting where a modicum of examination of the data would yield at least an estimate of the $4,000$ (simply regressing salary on an indicator for having a degree for those observations who wait till they are 26 before having a degree would yield this estimate).
+While it's not clear that this ``treatment effect for those who wait to get a degree" would be of primary interest, it is also clear that the fixed-effect estimator does not produce anything of clear interest even in this simplistic setting.
+
 %Even when assignment to treatment is random, care needs to be taken in interpreting estimates as causal effects.
 %For example, \citet[p.\,1305]{Cadman:2014cr} conjecture that ``VCs have strong incentives to design compensation schemes that provide CEOs with short-horizon incentives in the fiscal years after the IPO." 
 %The main analysis in support of this hypothesis is a regression DD analysis \citep[pp.\,233--241]{Angrist:2008vk} using the pre-IPO year as the pre-treatment period, and the two years after IPO as the post-treatment period. 
@@ -617,16 +638,29 @@ We agree with \citet{MinuttiMeza:2014fn} who argues that ``matching does not nec
 
 \subsection{Quasi-experimental methods: An evaluation}
 We agree that the revolution in econometric methods for causal inference represents an opportunity for accounting researchers.
-However, we suggest caution. 
-The assumptions required for these methods to deliver credible estimates of causal effects are unlikely to be met in many applications that rely on observational data. 
-This suggests that researchers might temper their conclusions in light of the stringency of these assumptions.
-Additionally, researchers should discuss how their conclusions are likely to generalize beyond the (special) environment in which they were found.
+However, the assumptions required for these methods to deliver credible estimates of causal effects are unlikely to be met in many applications that rely on observational data. 
+In this regard, we echo the observation in \citet{Leuz:2015aa} that ``finding valid instruments to implement selection models and instrumental-variable regressions is very difficult" (p.\,29). 
+
+Given the dominance of causal questions and observational data in accounting research, the very limited scope for quasi-experimental methods in accounting research may seem disappointing.
+But we caution against wishful thinking regarding these methods as a basis for more than very small proportion of accounting research going forward. 
+In the next section, we offer some alternative paths that accounting researchers might consider going forward.
+
+% This suggests that researchers might temper their conclusions in light of the stringency of these assumptions.
+% Additionally, researchers should discuss how their conclusions are likely to generalize beyond the (special) environment in which they were found.
 
 \section{Causal mechanisms, causal inference, and descriptive studies} \label{sec:mech}
 
-In the first part of the paper, we have argued that, while causal inference is the goal of most accounting research, it is extremely difficult to find settings and statistical methods that can produce reliable estimates of causal effects. Does this mean accounting researchers must give up making causal statements? We believe the answer is no. There are viable paths forward. The objective of the second part of this paper is to discuss these paths forward. The first path we discuss is an increased focus on causal mechanisms. 
+In the first part of the paper, we have argued that, while causal inference is the goal of most accounting research, it is extremely difficult to find settings and statistical methods that can produce credible estimates of causal effects. 
+Does this mean accounting researchers must give up making causal statements? 
+We believe the answer is no. There are viable paths forward. 
+The objective of the second part of this paper is to discuss these paths. 
+
+The first path we discuss is an increased focus on causal mechanisms. 
 Accounting research is not alone in its reliance on observational data with the goal of drawing causal inferences. 
-It is therefore natural to look to other fields using observational data to identify causal mechanisms and ultimately to draw causal inferences. Epidemiology and medicine are two fields that are often singled out in this regard. In what follows, we briefly provide examples and highlight the features of the examples that enhanced the credibility of the inferences drawn. A key implication of this discussion is that accounting researchers need to identify clearly and rigorously the causal mechanism that is producing the observed results in their research studies.
+It is therefore natural to look to other fields using observational data to identify causal mechanisms and ultimately to draw causal inferences.
+Epidemiology and medicine are two fields that are often singled out in this regard.
+In what follows, we briefly provide examples and highlight the features of the examples that enhanced the credibility of the inferences drawn.
+A key implication of this discussion is that accounting researchers need to identify clearly and rigorously the causal mechanism that is producing the observed results in their research studies.
 
 \subsection{John Snow and cholera}
 A widely cited case of causal inference involves John Snow's work on cholera. 
@@ -680,7 +714,7 @@ It also appears in the case of smoking and lung cancer, which was initially conj
 The persuasive force of Snow's natural experiment, coming decades before the work of \citet{Neyman:1923aa} and \citet{Fisher:1935aa}, might be considered greater today.}
 
 \subsection{Causal mechanisms in accounting research}
-Our view is that accounting researchers can learn from fields such as epidemiology, medicine, and political science. 
+Our view is that accounting researchers can learn from fields such as epidemiology, medicine, and political science.\footnote{In this regard, we echo the suggestion by \citet{Leuz:2015aa} that ``might be useful for regulators, policy makers and academics to study the experience in medicine.}
 These fields grapple with observational data and eventually draw inferences that are causal. 
 While randomized controlled trials are a gold standard of sorts in epidemiology, in many cases it is unfeasible or unethical to use such trials.
 For example, in political science, it is not possible to randomly assign countries to treatment conditions such as democracy or socialism.
@@ -697,7 +731,6 @@ Drivers also use mobile devices to wirelessly check stock positions and prices i
 For example, evidence of trading activity by local investors while driving prior to, but not after, the implementation of distracted driving restrictions would add considerable support to conclusions in \citet{Brown:2015ik}.\footnote{
 Note that the authors disclaim reliance on trading while driving: ``our conjectures do not depend on the presumption that local investors are driving when they execute stock trades \dots [as] we expect such behavior to be uncommon."
 However, even if not \emph{necessary}, given the small effect size documented in the paper (approximately 1\% decrease in volume), a small amount of such activity could be \emph{sufficient} to provide a convincing account in support of their results.}
-
 
 As another example, many published papers have suggested that managers adopt conditional conservatism as a reporting strategy to obtain benefits such as reduced debt costs.
 However, as  \citet[p.\,317]{Beyer:2010cj}  point out, an ex-ante commitment to such a reporting strategy ``requires a mechanism that allows managers to credibly commit to withholding good news or to commit to an accounting information system that implements a higher degree of verification for gains than for losses," yet research has only recently begun to focus on the mechanisms through which such commitments are made \citep[e.g.,][]{Erkens:2014hj}. 
@@ -1227,9 +1260,9 @@ Hence, the researcher will need to weigh models based upon how well the model's 
 %DL: Not sure that I understand the discussion here on Nikolaev
 %But the fact that cash flow from operations is intended to measure something quite different (e.g., investing cash flows affect subsequent earnings quite differently from operating cash flows) suggests that this may not be the best assumption with which to identify a structural model.
 Despite these challenges, we believe that there is significant value in making the theory underlying empirical research transparent and rigorous.\footnote{The use of structural models in accounting research has been fairly limited to date.  
-Recent examples include \citet{Gerakos:2013cl}, \citet{Zakolyukina:2015aa}, and \citet{Bertomeu:2015aa}.  
+Recent examples include \citet{Gerakos:2013cl}, \citet{Gerakos:2015aa}, \citet{Zakolyukina:2015aa}, and \citet{Bertomeu:2015aa}.  
 %NOTE: I don't think this applies to Nikolaev, so I took that paper out.
-These three papers model an institutionally rich problem, estimate the derived model, provide estimates for important structural parameters, and also give interesting counterfactuals based on their theoretical models. 
+These four papers model an institutionally rich problem, estimate the derived model, provide estimates for important structural parameters, and also give interesting counterfactuals based on their theoretical models. 
 We view these papers as useful initial steps in applying structural approaches to accounting research questions.}
 
 %\subsection{Structural models in accounting research} The use of structural models in accounting research has been fairly limited to date. There are certainly examples of regression models being derived (or perhaps influenced) by theoretical models. For example, \citet{Lambert:1987} use the model of \citet{Holmstrom:1979aa} (and a variety of simplifying assumptions) to help specify a regression function linking CEO compensation to firm performance. While somewhat structural in orientation, the approach suppresses the fundamental causal mechanism associated with compensation decisions and does little to actually estimate structural parameters of the model of \citet{Holmstrom:1979aa}.
