@@ -775,7 +775,7 @@ This is an especially important outcome from descriptive studies because there a
 
 Obviously, the evaluation of descriptive research is somewhat subjective, but the evaluation of more traditional accounting research is similarly subjective. 
 As a group, we do not have much experience assessing the likely contribution of descriptive research, and we are unfamiliar with many of the research methods that are used in descriptive research. 
-However, given the possibility that descriptive research can help us identify actual causal mechanisms for accounting phenomenon, it would seem that our profession should be willing to use some journal space for high quality descriptive work.
+However, given the possibility that descriptive research can help us identify actual causal mechanisms for accounting phenomenon, it would seem that accounting research would benefit from more high quality descriptive work in top journals.
 
 \section{Structural modeling} \label{sec:struct}
 
@@ -952,7 +952,7 @@ m_0 = 7, m_1 = 1.5, b_0 = 20, b_1 = 10, p_0 =0.75,
 v_0 = 0.05, p_I = 0.45$ and $r_0 = 60$.
 For those interested, the data are available at \url{http://web.stanford.edu/~preiss/Data_page.html}}
 
-For verisimilitude, we included variables that have previously been used to model restatements. 
+For verisimilitude, we simulated variables that have been used to model restatements. 
 RESTATE is a zero-one indicator variable for whether a firm restated (RESTATE = 1) their financial results in a given year.  
 %TODO: Provide a reference for BIG4 in this kind of regression.
 The variable BIG4 also is a zero-one indicator for whether the firm's auditor is one of the four largest U.S. accounting firms. 
@@ -967,13 +967,13 @@ We assume that international companies have higher auditing costs.
 Similarly SEG is a count of the firm's business segments. 
 We assume that more segments likely will increase the costs of auditing. 
 
-Table \ref{tab:desc} reports descriptive statistics for our sample. 
-CEOs on average receive about one million dollars in base pay and their equity-related pay averages 45\% of their total pay.
-About three-quarters of the sample has a Big 4 accounting firm as its auditor. 
-The fraction of directors with financial expertise is less than ten percent. 
-The average firm has about 1.5 business segments and is primarily based in the United States.
-
-Table \ref{tab:logit} reports the results of logit regressions in which the dependent variable is the restatement indicator variable.
+Table \ref{tab:desc} reports descriptive statistics for our sample
+%%% Not sure we need to describe a fake sample.
+%CEOs on average receive about one million dollars in base pay and their equity-related pay averages 45\% of their total pay.
+%About three-quarters of the sample has a Big 4 accounting firm as its auditor. 
+%The fraction of directors with financial expertise is less than ten percent. 
+%The average firm has about 1.5 business segments and is primarily based in the United States.
+and Table \ref{tab:logit} reports the results of logit regressions in which the dependent variable is the restatement indicator variable.
 These specifications parallel prior descriptive statistical models that correlate restatements with other variables that might impact misstatements.
 The table contains both a simple specification containing an intercept along with the two CEO  compensation variables, and a more intricate specification involving the other variables in the dataset.
 For each specification, we report the estimated coefficients of the logit and the corresponding marginal effects evaluated at the sample means of the exogenous variables.
@@ -989,7 +989,7 @@ The question we now address is what to make of the fact that the coefficients on
 One possible interpretation of this finding is that the our beliefs about the effects of  incentives on misstatements were wrong.
 Another possibility is that the measures we employ and the functional forms assumed are incorrect, which leads to spurious results.
 Yet another possibility is that our theory of misstatements is incorrect.
-It is this last possibility that we consider here.
+It is this last possibility that we consider now.
 
 \subsubsection{Model 2: A strategic auditor model}
 A key weakness of the previous model is that it ignores the incentives of the  external auditor.
@@ -1212,7 +1212,7 @@ As can be seen, we are assuming that $p_I$ is independent of EQUITY.
 But is quite plausible that these investigations are conducted (in part) by a regulator who is as strategic as the auditor in our model, thus giving rise to a link between EQUITY and $p_I$.
 We also assume that EQUITY is exogenous, whereas it is plausibly related to the complexity of the business, which may also affect the cost of auditing.
 These links could be added to the structural model, albeit at some cost.
-Evaluation of their accuracy then could be made via in- or out-of-sample goodness-of-fit tests.
+Evaluation of their accuracy then could be made using traditional in-sample and out-of-sample goodness-of-fit tests.
 
 Third, just because a researcher can write down a theoretical model and estimate it does not make the empirical model ``right."
 Clearly there is a risk of incorrect causal inferences being drawn from estimation of a structural model based on faulty assumptions.
@@ -1239,12 +1239,12 @@ We view these papers as useful initial steps in applying structural approaches t
 
 
 \section{Concluding remarks} \label{sec:conclude}
-In this paper, we examined the approaches used by accounting researchers to draw causal inferences from analyses of observational (or non-experimental) data. 
+In this paper, we examined the various approaches used by accounting researchers to draw causal inferences from analyses of observational (or non-experimental) data. 
 The vast majority of empirical papers using such data seek to draw causal inferences, notwithstanding the well-known difficulties with doing so.
-While some papers seek to use quasi-experimental methods to develop unbiased estimates of causal effects, we find that the assumptions required to deliver such estimates are not often credible. 
+While some papers seek to use quasi-experimental methods to develop unbiased estimates of causal effects, the assumptions required to deliver such estimates are not often credible. 
 We believe that clearer communication of research questions and design choices would help researchers avoid some of the conceptual traps that affect 
 accounting research.
-One tool that may help in this regard are causal diagrams.
+One tool that may help in this regard are causal diagrams because they require the research to be very transparent about the causal mechanism that is being assumed for the research question.
 
 We also argued that  accounting research could benefit from a more complete understanding of causal pathways. 
 In particular, we believe that structural models based on rigorous theory will see greater use in the coming years.
