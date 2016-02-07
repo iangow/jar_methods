@@ -16,7 +16,7 @@ educ <- within(educ,
                degree <- ifelse(type=="A", TRUE, 
                       ifelse(type=="B" & age > 25, TRUE, FALSE))) 
 
-# Make a data set with salaries and salary demeaned by ID
+# Make a data set with s0alaries and salary demeaned by ID
 df <-
     people %>% 
     inner_join(educ) %>%
@@ -24,8 +24,11 @@ df <-
                ifelse(type=="A" & degree, 20000,
                       ifelse(type=="B" & degree, 4000, 0))) %>%
     group_by(id) %>% 
-    mutate(mean_sal = mean(salary), salary_alt = salary - mean_sal) %>%
+    mutate(mean_sal = mean(salary), mean_deg = mean(degree),
+           demean_salary = salary - mean_sal,
+           demean_degree = degree - mean_deg) %>%
     arrange(id, age)
 
-summary(lm(salary_alt ~ degree, data=df))
-summary(lm(salary_alt ~ degree, data=df, subset=type=="B"))
+# summary(lm(salary ~ degree + factor(id), data=df))
+summary(lm(demean_salary ~ demean_degree, data=df))
+summary(lm(demean_salary ~ degree, data=df, subset=type=="B"))
