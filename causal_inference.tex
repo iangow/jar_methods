@@ -167,9 +167,6 @@ characterization, they have the advantage of making what is assumed explicit. Th
 
 \subsection{Causal inference in accounting research}
 
-
-
-
 To get a sense for the importance of causal questions in accounting research,
 we examined all papers published in 2014 in the \textit{Journal of Accounting Research}, \textit{The Accounting Review}, and the \textit{Journal of Accounting and Economics}.
 We counted 139 papers, of which 125 are original research papers. Another 14 papers survey or discuss other papers.
@@ -254,10 +251,6 @@ Figure \ref{fig:mech} is a bit different. Here $Z$ is a \emph{mediator} of the e
 No conditioning is required in this setting to estimate the total effect of $X$ on $Y$. If we condition on $X$ and $Z$, then we 
 obtain a different estimate, one that includes the indirect effect of $X$ on $Z$.
 
-
-
-
-
 Finally in Figure \ref{fig:collider}, we have $Z$ acting as what is referred to as a ``collider" variable \citep{Glymour:2008aa,Pearl:2009kh}.\footnote{
 The two arrows from $X$ and $Y$ ``collide" in $Z$.} 
 Again, not only do we not need to condition on $Z$, but that we \emph{should} not condition on $Z$ to get an estimate of the total effect of $X$ on $Y$.
@@ -340,7 +333,6 @@ To take an extreme example, suppose the drug has a slight negative effect on blo
 In this case, if regular blood pressure medications lower blood pressure more than the new drug, we might conclude the new drug actually \emph{raises} blood pressure! 
 In sum, even showing that a treatment is randomly assigned does not guarantee that a regression will uncover the causal effect of interest. 
 
-
 Finally, it is important to carefully consider the choice of explanatory variables in studies that rely on natural experiments.
 In particular, researchers sometimes inadvertently use covariates that are affected by the treatment in their analysis.  
 As noted by \citet[p.\,116]{Imbens:2015aa}, including such post-treatment variables as covariates can undermine the validity of causal inferences.\footnote{See the discussion of mediators above.}
@@ -392,8 +384,9 @@ Indeed, many studies choose to test the validity of their instrumental variables
 But such tests of instruments are of dubious value. 
 Consider, for example, the following simulation of a setting where $X$ does not cause $y$, but we nevertheless estimate the regression $y = X \beta + \epsilon$. That is, we estimate a regression model
 where $\beta = 0$. To make matters interesting, suppose $\rho(X, \epsilon) > 0$ (i.e., $X$ is correlated with the error). Clearly, if we estimated the equation by OLS, we would
-conclude that there is a (positive) relationship between $X$ and $y$. Suppose that after being told that $X$ is ``endogenous", we found
-three instruments: $z_1$, $z_2$ and $z_3$. Unbeknown to us, the three instruments were determined as follows:
+conclude that there is a (positive) relationship between $X$ and $y$. 
+Suppose that after being told that $X$ is ``endogenous", we found three instruments: $z_1$, $z_2$ and $z_3$. 
+Unbeknown to us, the three instruments were determined as follows:
 $z_1 = X +\eta_1$, $z_2 = \eta_2$, and $z_3 = \eta_3$, with $\eta_1, \eta_2,  \eta_3 \sim N(0, \sigma_{\eta}^2)$ and independent. 
 That is, $z_1$ is $X$ plus noise (e.g., industry averages or lagged values of $X$ would seem to approximate $z_1$), while $z_2$ and $z_3$ are random noise (many variables could be candidates here).
 
