@@ -3,13 +3,15 @@ library(dplyr)
 
 # Construct sample of people
 n <- 10000L
-type <- sample(c("A", "B", "C"), size = n, replace = TRUE)
+types <- c("A", "B", "C")
+
+type <- sample(types, size = n, replace = TRUE)
 base_salary <- runif(n=n, min=20000, max=50000)
 id <- 1:n
 people <- data_frame(type, base_salary, id)
 
 # Construct educ table (maps type and age to degree indicator)
-educ <- expand.grid(age = 21:30L, type=c("A", "B", "C"),
+educ <- expand.grid(age = 21:30L, type=types,
                     stringsAsFactors = FALSE)
 educ <- as_data_frame(educ)
 educ <- within(educ,
@@ -31,4 +33,5 @@ df <-
 
 # summary(lm(salary ~ degree + factor(id), data=df))
 summary(lm(demean_salary ~ demean_degree, data=df))
-summary(lm(demean_salary ~ degree, data=df, subset=type=="B"))
+summary(lm(salary ~ degree, data=df))
+summary(lm(salary ~ degree, data=df, subset=type!="A"))
