@@ -570,6 +570,11 @@ If true, we would expect to see an estimate of approximately zero effect, even i
 Another critical assumption is the bandwidth used in estimation (i.e., in effect how much weight is given to observations according to their distance from the cutoff).
 We encourage researchers using RD designs to employ methods that exist to estimate optimal bandwidths and the resulting estimates of causal effects \citep[e.g.,][]{Imbens:2011}.
 
+Finally, it is important for researchers to plot the data around the threshold, and this is especially easy to implement with RD designs. 
+If there is actually a substantive impact associated with the treatment, this should obvious from a plot of the actual data and the associated fitted function.
+One strength of RD designs is that the estimated relation is often effectively univariate and easily plotted.
+Like \citet{Lee:2010hy}, we recommend that researchers plot both the underlying data and the fitted regression functions around the discontinuity, as this will help readers to evaluate the strength of the results.
+
 %It is also important to note that so-called ``quasi-RD" designs have only a superficial resemblance to RD designs.
 %For example, as he cannot observe ``the specific covenant thresholds in [his] primary dataset," \citet{Tan:2013ce} is constrained to estimate a ``quasi-RD" design like that estimated in \citet{Roberts:2009ka}.
 % But this ``regression discontinuity design" is essentially ordinary-least squares with an indicator for covenant violation and thus does not represent a method for estimating unbiased causal effects with observational data.
@@ -593,28 +598,16 @@ First, it is a highly parametric assumption: parallel trends might hold for leve
 Second, many variables of interest to accounting researchers are mean-reverting, which is inconsistent with parallel trends when treatment and control observations differ in pre-treatment outcomes.
 Third, as DD studies typically rely on some kind of quasi-natural experiment, the existence of pre-treatment differences raises questions about the claimed ``as if" random assignment to treatment and control.
 For example, the much-cited study of \cite{Kelly:2012ih} uses supposedly random shocks to brokerage coverage and a DD design.
-But the existence of 0.039 in spreads between treatment and matched control firms suggests that the assignment was far from random.\footnote{See Table 2 on p\,1388. This pre-treatment difference is material given the estimated treatment effect of 0.020. Perhaps recognizing this issue, the subsequent paper by \citet{Balakrishnan:2014js} matches on pre-treatment values.}
+But the existence of 0.039 in spreads between treatment and matched control firms suggests that the assignment was far from random.\footnote{See Table 2 on p.\,1388. This pre-treatment difference is material given the estimated treatment effect of 0.020. Perhaps recognizing this issue, the subsequent paper by \citet{Balakrishnan:2014js} matches on pre-treatment values.}
 
 The causal interpretation of regressions that use fixed effects to control for unobservable differences in observations also can be problematic, particularly when there are heterogeneities in treatment effects.
-For example, consider a setting where there are three unobservable types of workers: Type $A$ receives a salary bump of \$20,000 from getting a degree and gets a degree at age 23; Type $B$ takes much longer to get her degree, and on net this ends up reducing her income by \$12,800 once she begins paying off her loans at age 26;
-Type $C$ never gets a degree. 
+If the true effect is positive for some units (say, firms) and negative for others, then depending on the composition of the sample, the sign of the effect can be positive, negative, or indistinguishable from zero.
+Additionally, if units self-select into a binary treatment for the entire sample period, then a fixed-effect estimator will not use these observations in estimating the effect, even though these might plausibly be the observations with the greatest treatment effect.
 
-Suppose a researcher has a ten-year panel of salaries for $n$ individuals between ages 21 and 30 that are equally split among these three types. 
-To estimate the effect of a degree, 
-the researcher decides to regress annual salary on a degree indicator.
-Because the researcher has heard fixed-effects remove unobserved
-factors (such as ``type"), they decide to include $n$ individual-specific
-fixed effects. 
-The resulting estimate of the degree is approximately
-zero. 
-The researcher concludes therefore that a degree has no value (i.e.,
-education does not increase net earnings). 
-
-What has happened of course is that the researcher has estimated an average treatment effect. The average is impacted both by the
-individual differences in the degree effect and the timing of
-earnings changes.\footnote{Note, for example, that if the effect of
-schooling on earnings for Type A were also delayed until age 26, the estimated degree effect would now be positive.} Heterogeneity in effects is not the only problem that fixed effects strategies cannot necessarily handle. 
+Heterogeneity in effects is not the only problem that fixed-effect strategies cannot necessarily handle. 
 In particular, when there are complex relations between unobservables and treatments, as is likely to be the case in many accounting research settings, it is unclear what a fixed effects strategy would produce.
+If time-invariant heterogeneity is correlated with potential outcomes, then fixed-effect estimators can have greater bias than estimators that omit fixed effects.
+% This statement is surely true for some set of circumstances, so perhaps sufficiently anodyne that we can include it without risk of being wrong.
 
 In our view, accounting researchers need to be much more careful using and interpreting fixed-effect estimators. 
 In particular, researchers need to clearly demonstrate how their fixed-effect estimates are related to the causal effect of interest, particularly when that effect could differ across observations.
@@ -1360,7 +1353,6 @@ Again, the back-door criterion not only implies that we need not condition on $Z
 
 We now discuss how \emph{correct} causal diagrams can be used to identify valid (or invalid) instruments.
  
-
 \begin{definition}[Instrument]
 Let $G$ denote a causal graph in which $X$ has an effect on $Y$. 
 Let $G_{\overline{X}}$ denote the causal graph created by deleting all arrows emanating from $X$.
