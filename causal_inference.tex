@@ -1418,7 +1418,7 @@ A path $p$ is said to be \emph{$d$-separated} (or \emph{blocked}) by a set of no
 
 \begin{definition}[Back-door criterion]
 A set of variables $Z$ satisfies the \emph{back-door criterion} relative to a an ordered pair of variables $(X, Y)$ in a 
-	DAG $G$ if:
+	directed acyclic graph (DAG) $G$ if:
 	\begin{itemize}
 		\item no node in $Z$ is a descendant of $X$; and
 		\item $Z$ blocks every path between $X$ and $Y$ that contains an arrow into $X$.\footnote{The ``arrow into $X$" is the portion of the definition that is explains the ``back-door" terminology.}
