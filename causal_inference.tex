@@ -1287,10 +1287,304 @@ Although our suggestions do not completely resolve controversies surrounding cau
 
 \clearpage
 
-\input{causal_graphs}
+\begin{figure}
+	
+    \centering
+    \caption{Three basic causal diagrams} \label{fig:basic}
+    \addtocounter{figure}{-1}
+    \begin{subfigure}{\textwidth}
+        \caption{$Z$ is a confounder} \label{fig:confound}
+        \vspace{12pt}
+        \centering
+		\begin{tikzpicture}
+		    \node[rectangle] (X) {Treatment variable (X)}; 
+		    \node [right = 1 of X] (Y) {Outcome variable (Y)};
+		    \node [below = 1 of X] (Z) {``Control" (Z)};
+		    \draw (X) edge (Y);
+		    \draw (Z) edge (X);
+		    \draw (Z) edge (Y);
+		\end{tikzpicture}
+    \end{subfigure}
+	\vspace{24pt}
+
+
+    \begin{subfigure}{\textwidth}
+        \caption{$Z$ is mediator} \label{fig:mech}
+        \vspace{12pt}
+        \centering
+		\begin{tikzpicture}
+		    %create X and Y node
+		    \node[rectangle] (X) {Treatment variable (X)}; 
+		    \node [right = 1 of X] (Y) {Outcome variable (Y)};
+		    \node [below = 1 of X] (Z) {``Control" (Z)};
+		    \draw (X) edge (Y);
+		    \draw (Z) edge[<-] (X);
+		    \draw (Z) edge (Y);
+		\end{tikzpicture}
+    \end{subfigure}
+    
+	\vspace{24pt}
+    \begin{subfigure}{\textwidth}
+    	\caption{$Z$ is a collider}
+    	\label{fig:collider}
+		\vspace{12pt}
+		\centering
+		\begin{tikzpicture}
+		    \node[rectangle] (X) {Treatment variable (X)}; 
+		    \node [right = 1 of X] (Y) {Outcome variable (Y)};
+		    \node [below = 1 of X] (Z) {``Control" (Z)};
+		    \draw (X) edge (Y);
+		    \draw (Z) edge[<-] (X);
+		    \draw (Z) edge[<-] (Y);
+		\end{tikzpicture} 
+
+    \end{subfigure}
+
+\end{figure}
 
 \clearpage
-\include{tables}
+\begin{figure} \caption{Identifying effects of shareholder support on compensation} \label{fig:agl}
+    \addtocounter{figure}{-1}
+\begin{subfigure}{\textwidth}
+    \caption{Causal diagram for \citet{Armstrong:2013io}} \label{fig:agl1}
+    \vspace{12pt}
+    \centering
+	\begin{tikzpicture}
+		\node[rectangle] (C0) {Comp$_{t-1}$}; 
+		\node[draw,dashed,fill=white] at ([shift={(3,-2.2)}] C0) (EC1) {Shareholder-observable determinants of compensation$_{t+1}$};
+		\node [right = 3 of C0] (C1) {Comp$_{t+1}$};
+		\node [below = 3 of C1] (SS0) {Shareholder support$_t$};
+		\node [below = 3 of C0] (ISS) {ISS recommendation$_t$};
+				
+		\draw (C0) edge[->] (ISS);
+		\draw (C0) edge[->] (EC1);
+		\draw (SS0) edge[->] (C1);
+		\draw (C0) edge[->] (C1);
+		\draw (ISS) edge[->] (SS0);
+		\draw (EC1) edge[->] (C1);
+		\draw (EC1) edge[->] (SS0);
+	\end{tikzpicture}
+\end{subfigure}
+
+\begin{subfigure}{\textwidth} 
+\vspace{24pt}
+    \caption{Alternative causal diagram for \citet{Armstrong:2013io}} \label{fig:agl2}
+    \centering
+    \vspace{12pt}
+	\begin{tikzpicture}
+		\node[rectangle] (C0) {Comp$_{t-1}$}; 
+		\node[draw,dashed,fill=white] at ([shift={(3,-2.2)}] C0) (EC1) {Shareholder-observable determinants of compensation$_{t+1}$};
+		\node [right = 3 of C0] (C1) {Comp$_{t+1}$};
+		\node [below = 3 of C1] (SS0) {Shareholder support$_t$};
+		\node [below = 3 of C0] (ISS) {ISS recommendation$_t$};
+			\node[draw,dashed,fill=white,below = 2 of ISS] (ISSP) {ISS policy};
+			
+		\node[draw,dashed,fill=white,below = 2 of SS0] (CD) {Design of proposed compensation plan};
+				
+		\draw (C0) edge[->] (ISS);
+		\draw (C0) edge[->] (EC1);
+		\draw (SS0) edge[->] (C1);
+		\draw (C0) edge[->] (C1);
+		\draw (ISS) edge[->] (SS0);
+		\draw (EC1) edge[->] (C1);
+		\draw (EC1) edge[->] (SS0);
+		
+		\draw (ISSP) edge[->] (ISS);
+		\draw (ISSP) edge[->] (CD);
+		\draw (CD) edge[->] (ISS);
+		\draw (CD) edge[->] (SS0);
+		\draw (CD) edge[->,bend right=60] (C1);
+		
+	\end{tikzpicture}
+\end{subfigure}
+\end{figure}
+
+\begin{landscape}
+
+\begin{figure}
+
+\caption{Causal diagram for strategic auditor model} \label{fig:audit}
+\vspace{24pt}
+% Figure depicts causal graph for model with strategic auditor discussed in the text. 
+
+\begin{tikzpicture}
+    
+    % Exogenous stuff
+    \node[rectangle] (BONUS) {EQUITY};  
+    \node [right = 1 of BONUS] (SALARY) {SALARY};  
+    \node [left = 1 of BONUS] (SEG) {SEG};    
+    \node [left = 1 of SEG] (INT) {INT};    
+	
+    \node[below = 1 of BONUS,draw,dashed,fill=white] (B) {Managerial incentives ($B$)}; 
+    
+    % Equilibrium
+    \node [right = 1 of B, below = 2 of B,draw,dashed,fill=white] (alpha) {Audit effort};
+    \node [right = 1 of alpha,draw,dashed,fill=white] (beta) {Attempted misstatement};
+    \node [below = 1 of SALARY,draw,dashed,fill=white] (C_M) {Cost of\\manipulation ($C_M$)};
+    \node [below = 1 of beta,draw,dashed,fill=white] (M) {Misstatement};
+    \node [left = 1 of B,,draw,dashed,fill=white] (C_A) {Cost of audit effort ($C_A$)};
+    \node [below = 4 of C_A,draw,dashed,fill=white] (p_I) {$\mathrm{Pr}$(Detection by subsequent investigation)\\ ($p_I$)};
+    \node [below = 1.5 of INT,draw,dashed,fill=white] (C_R) {Auditor\\reputational concerns ($C_R$)};  
+    
+    % Unobservable outcome
+
+    % Observable outcome
+    \node [below = 2 of alpha] (R) {Restatement};
+    
+    \draw (INT) edge[->] (C_A);
+	\draw (SEG) edge[->] (C_A);
+    \draw (BONUS) edge[->] (B);
+    
+    \draw (BONUS) edge[->] (B);
+    \draw (SALARY) edge[->] (C_M);
+    \draw (B) edge[->] (beta);
+    
+    \draw (C_R) edge[->] (beta);
+    \draw (C_A) edge[->] (beta);
+    \draw (C_M) edge[->] (beta);
+    \draw (C_M) edge[->] (beta);
+    \draw (p_I) edge[->] (beta);
+    
+    \draw (B) edge[->] (alpha);
+	\draw (C_R) edge[->] (alpha);
+    \draw (C_A) edge[->] (alpha);
+    \draw (C_M) edge[->] (alpha);
+    \draw (p_I) edge[->] (alpha);
+    
+    \draw (alpha) edge[->] (M);
+    \draw (beta) edge[->] (M);
+    \draw (M) edge[->] (R);
+    \draw (p_I) edge[->] (R);
+    
+    % \draw (IA) edge[bend right=60, dashed, <->] (AC);
+\end{tikzpicture}
+\end{figure}
+\end{landscape}
+
+
+\clearpage
+\begin{table}[t]
+
+\caption{Descriptive Statistics} \label{tab:desc}
+
+\justify{
+{\bf RESTATE} is a zero-one indicator for whether a sample firm made a restatement in a particular year.
+{\bf SALARY} is the CEO's annual base salary (in millions of \$).  
+{\bf EQUITY} is the fraction of a CEO's total pay that is equity-based compensation.  
+{\bf BIG4} is a zero-one indicator for whether the firm uses a Big 4 auditor.
+{\bf FINDIRECT} is the fraction of the board of directors with a professional finance or accounting background. 
+{\bf INT} is a zero-one indicator for whether the firm derives most of its revenue outside the US.  
+{\bf SEG} is the firm's number of 2-digit SIC business segments.\\}
+
+\vglue 10pt
+\begin{center}
+\begin{tabular}{|l|c|}
+\hline
+             & {\bf Sample }   \\
+{\bf Variable}  &   {\bf Mean }   \\ 
+          &  (Std Err)   \\ \hline
+\T {\bf RESTATE} &   0.099  \\
+                           &   (0.30)  \\[.6em]
+    {\bf SALARY} &   1.06  \\
+                           &   (0.27)  \\[.6em]
+    {\bf EQUITY} &   0.45  \\
+                           &   (0.26)  \\[.6em]
+    {\bf BIG4} &   0.75  \\
+                           &   (0.43)  \\[.6em]
+    {\bf FINDIRECT} &   0.09  \\
+                           &   (0.08)  \\[.6em]
+    {\bf SEG} &   1.49  \\
+                           &   (0.50)  \\[.6em]
+    {\bf INT} &   0.31  \\
+                           &   (0.46)  \\[.6em]
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}[t]
+\caption{Logit Regression Results} \label{tab:logit}
+
+\justify{This table presents results from logistic regressions of {\bf RESTATE}, a zero-one indicator for whether the firm made a restatement in a particular year, on a proxy for managerial incentives and controls.
+The controls are:
+{\bf SALARY} is the CEO's annual base salary (in millions of \$).
+{\bf EQUITY} is the fraction of a CEO's total pay that is equity-based compensation.  
+{\bf BIG4} is a zero-one indicator for whether the firm uses a Big 4 auditor.
+{\bf FINDIRECT} is the fraction of the board of directors with a professional finance or accounting background.
+{\bf INT} is a zero-one indicator for whether the firm derives most of its revenue outside the US. 
+{\bf SEG} is the firm's number of 2-digit SIC business segments.\\}
+
+\begin{center}
+\begin{tabular}{|l|cc|cc|}
+\hline
+             & \multicolumn{2}{c|}{\bf Specification 1}  &  \multicolumn{2}{c|}{\bf Specification 2}   \\
+ {\bf Coefficient on}  &  {\bf Coefficient} & {\bf Marginal Effect} & {\bf Coefficient} & {\bf Marginal Effect}  \\ 
+          &  (Std Err)  & (Std Err) &  (Std Err)  & (Std Err) \\ \hline
+\T {\bf Intercept} &   -2.278   &   & -3.498   &    \\
+                   &   (0.141)   &   & (0.198)   &   \\[.6em]
+ {\bf SALARY}    &   0.280    &  0.025  & 0.326    &  0.028   \\
+                   &   (0.120)   &  (0.011) & (0.121)   &  (0.010) \\[.6em]
+ {\bf EQUITY}  &   -0.504   &  -0.045 & -0.503   &  -0.043  \\
+                   &   (0.130)   &  (0.011) & (0.131)   &  (0.011) \\[.6em]
+ {\bf BIG4 }  &       &    &  0.135    & 0.011    \\
+                   &      &   & (0.080)   & (0.006)  \\[.6em]
+ {\bf FINDIRECT}  &       &    & -0.239    & -0.020     \\
+                   &      &   & (0.408)   & (0.034)  \\[.6em]
+ {\bf INT }  &       &    & 0.548  & 0.051    \\
+                   &      &   & (0.069)   & (0.007)  \\[.6em]
+ {\bf SEG}  &       &    & 0.578   &  0.049  \\
+                   &      &   & (0.069)   & (0.006)   \\[.6em]
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}[t]
+\caption{Logit GMM Estimates for the Strategic Auditor Model} \label{tab:gmm}
+
+\justify{This table presents GMM estimates for the strategic auditor model of Section \ref{sec:struct}. The first (exactly-identified) specification (1)
+uses the instruments: Constant, {\bf SALARY}, {\bf EQUITY}, {\bf INT},
+{\bf SEG}, {\bf SALARY*SEG}, and {\bf SALARY*INT}. Specification (2)
+is over-identified. It uses the same instruments as (1) 
+plus: {\bf EQUITY*SEG}, {\bf EQUITY*INT}, {\bf SALARY}$^2$,
+and  {\bf EQUITY}$^2$. Specification (3) uses the instruments in (1) 
+and imposes the constraints $\theta_0/\theta_3 = \theta_1/\theta_4
+= \theta_2/\theta_5$, $\theta_0/\theta_1=\theta_3/\theta_4$
+and $\theta_1/\theta_3=\theta_1/\theta_2$.
+The "True" values are those corresponding to
+the parameters used to generate the data.\\[2em]}
+
+\begin{center}
+\begin{tabular}{|c| c | c | c | c |}
+\hline
+\T  &  {\bf Estimated}    & {\bf Estimated} & {\bf Estimated}  & \\ 
+  & {\bf Coefficient} &  {\bf Coefficient} &  {\bf Coefficient} & {\bf True} \\ 
+\B  & {\bf (Std Err)}  & {\bf (Std Err)}  & {\bf (Std Err)} & {\bf Coefficient} \\ \hline
+\T $\theta_0= \dfrac{(1-v_0)a_0m_0}{(1-p_I)(p_0-v_0)r_0b_0}$ & -0.016 & -0.009 & 0.008 & 0.007\\[-.5em]
+& (0.045) & (0.044) & (0.002)  & \\[1.5em]
+$\theta_1=\dfrac{(1-v_0)a_1m_0}{(1-p_I)(p_0-v_0)r_0b_0}$  &  0.049 & 0.055 & 0.053 &  0.050\\[-.5em]
+& (0.034) & (0.035) & (0.007)  & \\[1.5em]
+$\theta_2=\dfrac{(1-v_0)a_2m_0}{(1-p_I)(p_0-v_0)r_0b_0}$  &  0.060   & 0.055 & 0.051 & 0.050\\[-.5em]
+& (0.030) & (0.030) & (0.006) & \\[1.5em]
+$\theta_3=\dfrac{(1-v_0)a_0m_1}{(1-p_I)(p_0-v_0)r_0b_0}$  &  0.025  & 0.018 & 0.002 & 0.002\\[-.5em]
+& (0.042) & (0.042) & (0.001)  & \\[1.5em]
+$\theta_4=\dfrac{(1-v_0)a_1m_1}{(1-p_I)(p_0-v_0)r_0b_0}$ &  0.014  & 0.010 & 0.012 & 0.011\\[-.5em]
+& (0.032) & (0.032) & (0.003) & \\[1.5em]
+$\theta_5=\dfrac{(1-v_0)a_2m_1}{(1-p_I)(p_0-v_0)r_0b_0}$ &  0.003  & 0.008 & .012 & 0.011\\[-.5em]
+& (0.028) & (0.028) & (0.001) &  \\[1.5em]
+\B$\theta_6=\dfrac{b_1}{b_0}$ &  0.570  & 0.566 & 0.576 & 0.500 \\[-.5em]
+& (0.184) & (0.184) & (0.261) & \\[1.5em]
+\hline
+\end{tabular}
+\end{center}
+\vglue 10pt
+Robust standard errors are reported for specifications (1) and (2).
+The standard errors for specification (3) are based on 500 Monte Carlo
+replications. The parameter values used to generate the data are:
+$a_0 = 0.5$, $a_1 = 3.5$, $a_2 = 3.5$, $m_0 = 7$, $m_1 = 1.5$, 
+	$b_0 = 20$, $b_1 = 10$, $p_0 =0.75$, $v_0 = 0.05$, $p_I = 0.45$ 
+	and $r_0 = 60$.
+\end{table}
 
 \appendix
 \section{Causal diagrams: Formalities} \label{append}
