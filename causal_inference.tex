@@ -577,7 +577,7 @@ We encourage researchers using RD designs to employ methods that exist to estima
 
 \subsection{Other methods}
 
-\subsubsection{Difference-in-difference and 4,000 effect estimators}
+\subsubsection{Difference-in-difference and fixed effects estimators}
 Accounting researchers have come to view some statistical methods as requiring fewer assumptions and thus being less subject to problems when it comes to drawing causal inferences. 
 \citet[p.\,12]{Angrist:2010jv} include so-called difference-in-difference (DD) estimators on their list of such quasi-experimental methods, along with ``instrumental variables and regression discontinuity methods."\footnote{As \citet[p.\,228]{Angrist:2008vk} argue that ``DD is a version of fixed effects estimation," we discuss these methods together.}
 Enthusiasm for DD designs perhaps stems from a belief that these are ``quasi-experimental" methods in the same sense as the other two approaches cited by \citet[p.\,12]{Angrist:2010jv}.
@@ -593,19 +593,29 @@ Third, as DD studies typically rely on some kind of quasi-natural experiment, th
 For example, the much-cited study of \cite{Kelly:2012ih} uses supposedly random shocks to brokerage coverage and a DD design.
 But the existence of 0.039 in spreads between treatment and matched control firms suggests that the assignment was far from random.\footnote{See Table 2 on p\,1388. This pre-treatment difference is material given the estimated treatment effect of 0.020. Perhaps recognizing this issue, the subsequent paper by \citet{Balakrishnan:2014js} matches on pre-treatment values.}
 
-The causal interpretation of fixed-effect estimators is also often unclear.
-Consider a setting where there are three unobservable types: type $A$ receives a salary bump of \$20,000 from getting a degree and thus gets a degree by the time she is 21; type $B$ receives a salary bump of \$4,000 from getting a degree and thus waits till she is 26 before getting a degree; type $C$ never gets a degree (perhaps because the benefits are too small). 
-Suppose a researcher has a panel of salary observations for $n$ individuals for each year between ages 21 and 30.
-What causal effect of a degree will be estimated using a fixed-effects estimator?
-It is easy to see that types $A$ and $C$ will not contribute to the estimate, as these types either always or never have a degree and the estimated effect would be the effect on type $B$. But what does this estimate represent?
-It is not the effect of treatment on the treated, which would be some weighted combination of \$4,000 and \$20,000. 
-It is not an average treatment effect, as that would need to include the effect on the ``never treated" (type $C$).
+The causal interpretation of regressions that use fixed effects to control for unobservable differences in observations also can be problematic, particularly when there are heterogeneities in treatment effects.
+For example, consider a setting where there are three unobservable types of workers: Type $A$ receives a salary bump of \$20,000 from getting a degree and gets a degree at age 23; Type $B$ takes much longer to get her degree, and on net this ends up reducing her income by \$12,800 once she begins paying off her loans at age 26;
+Type $C$ never gets a degree. 
 
-While it is not clear that this ``treatment effect for those who wait to get a degree" would be of primary interest.
-And interpreting estimates when there are more complex relations between potential outcomes and treatments, as is likely to be the case in realistic research settings, seems even more difficult.
+Suppose a researcher has a ten-year panel of salaries for $n$ individuals between ages 21 and 30 that are equally split among these three types. 
+To estimate the effect of a degree, 
+the researcher decides to regress annual salary on a degree indicator.
+Because the researcher has heard fixed-effects remove unobserved
+factors (such as ``type"), they decide to include $n$ individual-specific
+fixed effects. 
+The resulting estimate of the degree is approximately
+zero. 
+The researcher concludes therefore that a degree has no value (i.e.,
+education does not increase net earnings). 
+
+What has happened of course is that the researcher has estimated an average treatment effect. The average is impacted both by the
+individual differences in the degree effect and the timing of
+earnings changes.\footnote{Note, for example, that if the effect of
+schooling on earnings for Type A were also delayed until age 26, the estimated degree effect would now be positive.} Heterogeneity in effects is not the only problem that fixed effects strategies cannot necessarily handle. 
+In particular, when there are complex relations between unobservables and treatments, as is likely to be the case in many accounting research settings, it is unclear what a fixed effects strategy would produce.
 
 In our view, accounting researchers need to be much more careful using and interpreting fixed-effect estimators. 
-In particular, researchers need to clearly demonstrate how their fixed-effect estimates are related to the hypothesis test of interest.
+In particular, researchers need to clearly demonstrate how their fixed-effect estimates are related to the causal effect of interest, particularly when that effect could differ across observations.
 
 %Even when assignment to treatment is random, care needs to be taken in interpreting estimates as causal effects.
 %For example, \citet[p.\,1305]{Cadman:2014cr} conjecture that ``VCs have strong incentives to design compensation schemes that provide CEOs with short-horizon incentives in the fiscal years after the IPO." 
@@ -754,40 +764,37 @@ These types of data motivate researchers to frame research studies that have the
 A good example in the accounting literature is the study by \citet{Healy:1985jg}.  
 Using proxy statement disclosures and conversations with actual executives and consultants, \citet{Healy:1985jg} studies the bonus contracts of 94 large US companies and identifies a common structure of these bonus plans, including the existence of caps and floors. 
 The paper also suggests hypotheses worth investigating regarding the effects of these plan features on accounting decisions.
-It seems highly unlikely that a model derived from fundamental economic theory would arrive at these plan features that are actually used by firms. 
+It seems highly unlikely that a model derived from fundamental economic theory would arrive at these plan features found in his data. 
 
-In the same way, the descriptive examination of debt covenants by \citet{SmithJr:1979hv}, \cite{Kalay:1982gv}, and many others motivated a similar research agenda.
-Institutional knowledge about the features of covenants provided the basis of tests regarding managerial wealth transfer and accounting manipulation decisions by managers.
+Another example is work by \citet{SmithJr:1979hv}, \cite{Kalay:1982gv}, and many others who look at debt covenant provisions.Institutional knowledge about debt covenants has
+generated hypotheses about managerial wealth and accounting manipulation.
 Moreover, descriptive statistics regarding covenants also provided \cite{Dichev:2002} with the data to show that leverage is not a valid proxy for ``closeness to covenant."
-This is an important finding because the empirical literature to this point simply assumed that leverage was a reliable and valid measure for potential covenant violations.  
+This is an important finding because the empirical literature to this point simply assumed that leverage was a reliable and valid proxy for potential covenant violations.  
 An in-depth examination of actual debt covenants and an understanding of how covenant violations are dealt with by financial institutions would have substantially improved much of the research on how debt covenants influence firm behavior (i.e., so-called ``positive theory" research).
 
 In the corporate governance area, the descriptive data on board of director interlocks in \citet{brandeis1913breaking}, \citet{us1951report}, and \cite{united1978interlocking} provided novel descriptive insights into the structure of boards of directors.
-These and other similar studies had an important impact on starting the large literature on the functioning of boards of directors. 
-Similarly, the initial collection of equity ownership by executives, directors, and large shareholders by the \cite{securities1936official} enabled researchers to understand the extent to which ownership is separated from control and examine the implications of the classic \cite{berle1932modern} hypotheses regarding economic activity.
+These and other similar studies had an important impact on starting the large literature on how boards of directors function. 
+Similarly, the initial collection of equity ownership by executives, directors, and large shareholders by the \cite{securities1936official} enabled researchers to understand the extent to which ownership is separated from control, and examine the implications of the classic \cite{berle1932modern} hypotheses regarding economic activity.
 
-Similarly, the descriptive data on anti-takeover provisions collected by the Investor Responsibility Research Center (IRRC) has provided the basis for a considerable amount of research on the market for corporate control. 
+Descriptive data on anti-takeover provisions collected by the Investor Responsibility Research Center (IRRC) has provided the basis for a considerable amount of research on the market for corporate control. 
 \cite{Gompers:2003tl}, \cite{Bebchuk:2009ii}, and many others use these data to form and test a multitude of research questions related to corporate governance.  
 Perhaps more importantly, \cite{Daines:2001hi} provided an institutionally grounded examination of how these specific anti-takeover provisions actually work from a legal perspective (which contrasts with conjectures made by researchers in other disciplines).  
 The \cite{Daines:2001hi} analysis provides a good example of how descriptive data combined with institutional and legal knowledge can provide appropriate insights into the workings of corporate governance.
 
 The descriptive disclosure data compiled by the Association for Investment Management and Research (AIMR) has had a similar impact on financial accounting research. 
-These ratings reflect assessments of analysts specializing in specific industries about the informativeness of disclosures made by firms in their respective industries.
-Analysts evaluate the timeliness, detail and clarity of the corporate disclosure, and various disclosure scores are computed. 
-These data provided a variety of useful descriptive statistics regarding differences in disclosure across firms, industries, and time.
-We suspect that these statistics were instrumental in motivating \citet{Lang:1993iv,Lang:1996dk}, \cite{Healy:1999ig}, and many others to provide new insights into whether firm disclosure is associated with performance, consensus among investors, stock liquidity, and other important outcome variables.
+These ratings reflect the assessments of analysts specializing in specific industries as to the informativeness of disclosures made by firms. The ratings data have provided a variety of useful 
+information about differences in firms' disclosure practices across firms, industries, and time.
+We suspect that these statistics were instrumental in motivating \citet{Lang:1993iv,Lang:1996dk}, \cite{Healy:1999ig}, and many others. They provided new insights into whether firm disclosure is associated with performance, consensus among investors, stock liquidity, and other important outcome variables.
 In related work, \cite{Groysberg:2011dk} provide an informative analysis of how analysts are compensated using descriptive proprietary data and statistical analyses to uncover the fundamental features of the reward system.
 
 Recent published research suggests an increased recognition of the value of descriptive research. 
 \citet{Soltes:2013ba} examines the interactions between sell-side analysts and company management in one firm that granted proprietary access to its data to ``offer insights into which analysts privately meet with management, when analysts privately interact with management, and why these interactions occur."
-By comparing private interaction to observed interaction between analysts and managers on conference calls and highlighting that private interaction with management is an important communication channel for analysts, \citet{Soltes:2013ba} provides a plausible mechanism through which information transfers hypothesized in more traditional empirical papers actually occur. 
+By comparing private interaction to observed interaction between analysts and managers on conference calls, and highlighting that private interaction with management is an important communication channel for analysts, \citet{Soltes:2013ba} suggested a plausible mechanism through which information transfers actually occur. 
 
 That private communication with management is an important source of information is confirmed by \citet{Brown:2015kd}. 
 \citet{Brown:2015kd} survey and interview financial analysts to understand how they think about a variety of issues. 
-Their findings suggest that analysts' views on earnings quality differ from those researchers focus on. 
-For instance, analysts do not use the ``red flags" used by academics to identify manipulation; and analysts generally are not attempting to uncover manipulation and use forecasts, not as ends in themselves, but to figure out the stock price target. 
-These insights should shape research seeking to develop hypotheses and models of accounting information and analyst behavior. 
-
+Their findings suggest that analysts' views on earnings quality differ from those most researchers explore. 
+For instance, analysts do not use the ``red flags" used by academics to identify manipulation. Analysts also generally are not attempting to uncover manipulation and use forecasts to figure out a stock price target. These insights should shape research seeking to develop hypotheses and models of accounting information and analyst behavior. 
 Despite the dearth of descriptive research in top accounting journals, we believe that our discipline can benefit substantially from this style of research. 
 An interesting question is what makes a descriptive study an important contribution that should be published in a top journal.
 An obvious required attribute is that the descriptive study examines an interesting institutional question where researchers care about understanding the phenomenon producing the observations.
@@ -795,15 +802,19 @@ Stated differently, would anyone change their research agenda or their (causal) 
 
 The descriptive research needs to be neutral and unbiased in terms of data collection and interpretations.
 If expert opinions are used, can we be assured that the opinions are not biased because of their business dealings?
-Data collected using surveys or interviews by consulting firms may provide great descriptive data, but researchers need to be convinced that the data are not confounded by selection bias and other similar concerns.
+Data collected using surveys or interviews by consulting firms may provide great descriptive data, but researchers need to be convinced that the data are not confounded by selection bias or other sampling concerns.
 
 The research should also provide deep insight into the causal mechanisms underlying observed institutional data.
-There may well be alternative mechanisms suggested by the research, and these alternatives may be a function of nuances and contextual variables for the setting.
-This is an especially important outcome from descriptive studies because there are likely to be different causal mechanisms depending on the precise attributes of the setting.  
+There may well be alternative mechanisms suggested by the research, and these alternatives may be a function of nuances and contextual variables for the setting. Provided the researcher is clear that
+their aim is description and not the last word on causality, 
+the presence of several alternative explanations should not 
+detract from the insight of the descriptive work.
 
 Obviously, the evaluation of descriptive research is somewhat subjective, but the evaluation of more traditional accounting research is similarly subjective. 
-As a group, we do not have much experience assessing the likely contribution of descriptive research, and we are unfamiliar with many of the research methods that are used in descriptive research. 
-However, given the possibility that descriptive research can help us identify actual causal mechanisms for accounting phenomenon, it would seem that accounting research would benefit from more high quality descriptive work in top journals.
+As a discipline, we do not have much recent experience 
+assessing descriptive research, and we are unfamiliar recent
+advances in descriptive methods, such as nonparametric regression. 
+However, given the possibility that descriptive research can help us begin to think about causal mechanisms, it should be encouraged and accepted in the top accounting journals.
 
 \section{Structural modeling} \label{sec:struct}
 
@@ -968,7 +979,7 @@ With these assumptions, the probability of a restatement becomes
 The new $\theta$ parameters are functions of the underlying incentive parameters as
 follows: $\theta_0=(1-p_A) \times p_I, \theta_1 = (1 - p_A)(1 - p_I) b_0 - m_0, 
 \theta_2 = (1 - p_A)(1 - p_I) b_1,$ and $\theta_3 = - m_1$. 
-Apart from the scalar multiple $\theta_0$, which can be absorbed into the probability statement (and thus is not identified), this probability model has the form of  a familiar binary choice (e.g., a probit or logit model).
+Apart from the scalar multiple $\theta_0$, which can be absorbed into the probability statement (and thus is not identified), this probability model has the form of  a familiar binary choice  model (e.g., a probit or logit).
 Thus, the value of the structure imposed so far is that it can motivate the application of a familiar statistical model \citep[as in][]{Efendi:2007ja}, as well as explain how the estimated coefficients are potentially connected to quantities that impact the probability of a misstatement.
 
 %Do we want to say something about whether knowledge of the theta parameters can be used to infer the b's.  For examples, the ratio of theta 2 to theta 1 will be b1 divided by b0.  If the model is correct, we might be able to recover the underlying structural parameters.
@@ -1169,8 +1180,7 @@ Column (2) presents estimates for a over-identified model in which
 there are more moments than parameters to estimate.
 Column (3) presents constrained GMM estimates, where the constraints are motivated by the fact that pairs of ratios of the $\theta$ coefficients are equal (e.g., $\theta_3/\theta_0
 = \theta_4/\theta_1$). 
-The three sets of estimates are similar, with the constrained estimates seemingly yielding
-much more statistical precision.
+The three sets of estimates are similar, with the constrained estimates yielding more precision.
 
 \subsubsection{Implications of structural modeling analyses}
 From the discussion above, it seems that there are (at least) two alternative explanations (or hypotheses) for the results we find.
@@ -1219,7 +1229,7 @@ Further, no structural modeling exercise should go forward unless the researcher
 We have mentioned some of the benefits of structural models, particularly when it comes to having a clear basis for making causal statements.
 What are the costs to developing and estimating structural models? 
 First, structural models can be technically demanding to develop. 
-Additionally, when constructing a theoretical model that can be taken the data, the empirical researcher is typically forced to make simplifications that a pure theorist might never make and that other empiricists criticize as unrealistic.
+Additionally, when constructing a theoretical model that can be taken the data, the empirical researcher is typically forced to make simplifications that a pure theorist might never make and that other empiricists would criticize as unrealistic.
 Further, as we saw in the restatement model, the structural modeler often is in the uncomfortable position of ex post adding features, such as covariates, to the model that make it more in line with the realities of the application.
 
 While these costs are important to recognize, it is also important to realize that without structural models, there likely will continue to be a substantial divide between theoretical and empirical research in accounting.
@@ -1237,8 +1247,8 @@ One way to do this is to provide a causal diagram.
 To illustrate, Figure \ref{fig:audit} provides a causal diagram representing the strategic auditor restatement model.\footnote{
 While the mixed-strategy of our model has $\beta$ not being a function of $B$ or $C_M$ and $\alpha$ not being a function of $C_A$ or $C_R$, we have retained these links as being plausible in a more general model.}
 As can be seen, we are assuming that $p_I$ is independent of EQUITY. 
-But is quite plausible that these investigations are conducted (in part) by a regulator who is as strategic as the auditor in our model, thus giving rise to a link between EQUITY and $p_I$.
-We also assume that EQUITY is exogenous, whereas it is plausibly related to the complexity of the business, which may also affect the cost of auditing.
+But it is quite plausible that these investigations are conducted (in part) by a regulator who is as strategic as the auditor, thus giving rise to a link between EQUITY and $p_I$.
+We also assumed that EQUITY is exogenous, whereas it is plausibly related to the complexity of the business, which may also affect the cost of auditing.
 These links could be added to the structural model, albeit at some cost.
 Evaluation of their accuracy then could be made using traditional in-sample and out-of-sample goodness-of-fit tests.
 
