@@ -1,23 +1,22 @@
-sql <- "
-    WITH spreads AS (
-        SELECT permno, date, 100*(ask-bid)/((bid+ask)/2) AS spread
-        FROM crsp.dsf
-        WHERE bid IS NOT NULL AND ask IS NOT NULL and date >= '1990-01-01')
-    
-    SELECT permno, 
-        extract(year FROM date)::integer AS year,
-        extract(quarter FROM date)::integer AS quarter,
-        avg(spread) AS spread
-    FROM spreads
-    GROUP BY 1, 2, 3"
+library(dplyr, warn.conflicts = FALSE)
+library(DBI)
 
-library(dplyr)
-pg <- src_postgres()
+pg <- dbConnect(RPostgreSQL::PostgreSQL())
 
-rs <- RPostgreSQL::dbGetQuery(pg$con, "SET work_mem='3GB'")
+rs <- dbExecute(pg, "SET work_mem='10GB'")
+rs <- dbExecute(pg, "SET search_path TO crsp")
 
-spreads <- tbl(pg, sql(sql)) %>%
-    collect() # compute() 
+dsf <- tbl(pg, "dsf")
+
+spreads <- 
+    dsf %>%
+    filter(!is.na(bid), !is.na(ask), date >= '1990-01-01') %>%
+    mutate(spread =  100*(ask-bid)/((bid+ask)/2),
+           year = as.integer(date_part('year', date)),
+           quarter = as.integer(date_part('quarter', date))) %>%
+    group_by(permno, year, quarter) %>%
+    summarize(spread = mean(spread, na.rm = TRUE)) %>%
+    collect()
 
 spreads %>% 
     group_by(year, quarter) %>%
@@ -28,4 +27,3 @@ spreads %>%
 spreads$treat <- FALSE
 spreads$treat[sample.int(nrow(spreads), 100)] <- TRUE
 table(spreads$treat)
-
