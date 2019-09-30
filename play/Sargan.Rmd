@@ -145,6 +145,8 @@ Hooray!
 
 ## Appendix: Some code used above
 
+The source code for this document can be found at [https://github.com/iangow/jar_methods/blob/master/play/Sargan.Rmd](https://github.com/iangow/jar_methods/blob/master/play/Sargan.Rmd).
+
 ### Code to call libraries and set parameters
 
 ```{r, ref.label='setup', eval = FALSE}
