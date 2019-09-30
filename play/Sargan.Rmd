@@ -1,0 +1,169 @@
+---
+title: "Bullet-proof instruments"
+output: pdf_document
+---
+
+```{r setup, include=FALSE, cache=FALSE, echo=TRUE}
+library(AER)
+library(parallel)
+library(dplyr, warn.conflicts = FALSE)
+library(MASS)
+library(stargazer)
+```
+
+
+```{r set_parameters, cache=TRUE, echo=FALSE}
+# Parameters for generating simulated data
+n <- 1000
+beta <- 0
+corr <- 0.2
+Sigma <- matrix(c(1, corr, corr, 1), nrow = 2)
+
+# Used to generate instruments
+sd_eta <- 0.3
+
+# Used for evaluation of IV
+p.cutoff <- 0.05
+F.threshold <- 30
+
+# Number of simulations (used later)
+k <- 1000
+```
+
+Suppose that we have $y = X \beta + \epsilon$, 
+with $\rho(X, \epsilon) = `r corr`$ and $\beta = `r beta`$.
+
+- What's the true causal relation between $X$ and $y$?
+- Do we have an endogeneity issue?
+
+But, wait. There's a solution! Simply *create* three instruments: 
+$z_1 = x + \eta_1$, $z_2 = \eta_2$, and $z_3 = \eta_3$,
+where $\sigma_{\eta_1} = \sigma_{\eta_2} = \sigma_{\eta_3} \sim N(0, `r sd_eta^2`)$ and independent.
+Here's some R code to do this (we set `sd_eta = `r sd_eta`` elsewhere in the code):
+
+```{r generate_ivs, cache=TRUE, dependson="set_parameters"}
+generate_ivs <- function(df) {
+    
+    df %>% 
+        mutate(z_1 = X + rnorm(n, sd=sd_eta),
+               z_2 = rnorm(n, sd=sd_eta),
+               z_3 = rnorm(n, sd=sd_eta))
+}
+```
+
+Now, do these instruments pass the "only through" requirement?
+Clearly there is no relation between any of the instruments and *any* other variable *except* for $z_1$, which is only associated with other variables through it's relation with $X$. 
+So, "yes"!
+(This reasoning shows the problem with the approach used on, say, p.514 of Roberts and Whited [2013], which asks "Does the instrument affect the outcome only via its effect on the endogenous regressor?" 
+A critical prerequisite to that question is: "Is the instrument [as-if] random?" If the answer is "no" then even a variable satisifying the "only-through" criterion "is probably not valid".)
+
+What happens when we estimate IV using these instruments? 
+In practice, we'd have our $y$ and $X$ variables, and we'd get results like those in Table 1. 
+
+```{r generate_data, cache=TRUE, dependson=c("generate_ivs", "set_parameters"), echo=FALSE}
+generate_data <- function() {
+    
+    df <- 
+        as_tibble(mvrnorm(n, mu=c(0,0), Sigma=Sigma),
+                  .name_repair = ~ c("X", "e")) %>%
+        mutate(y = X * beta + e)
+    return(df)
+}
+
+generate_data_ivs <- function() {
+    df <- generate_data()
+    generate_ivs(df)
+}
+```
+
+```{r table_one_set, cache=TRUE, dependson=c("generate_data"), results="asis", echo=FALSE}
+set.seed(2019)
+df <- generate_data()
+ols <- lm(y ~ X, data = df)
+df_ivs <- generate_ivs(df)
+iv <- ivreg(y ~ X | z_1 + z_2 + z_3, data = df_ivs)
+stargazer(ols, iv, header = FALSE, title = "Regression results", 
+          table.placement = "h")
+
+iv.sum <- summary(iv, diagnostics=TRUE)
+    
+Sargan.stat <- iv.sum$diagnostics["Sargan", "statistic"]
+Sargan.p <- iv.sum$diagnostics["Sargan", "p-value"]
+F.stat <- iv.sum$diagnostics["Weak instruments", "statistic"]
+F.p <- iv.sum$diagnostics["Weak instruments", "p-value"]
+```
+
+We have a Sargan test statistic of `r prettyNum(Sargan.stat, format = "g", digits=3)` ($p$-value of `r prettyNum(Sargan.p, format = "f", digits=2)`).
+So we "pass" the test of overidentified instruments.
+Based on a test statistic of `r F.threshold`, which easily exceeds the thresholds suggested by Stock et al. (2002), the null hypothesis of weak instruments is rejected as we have an $F$-stat of `r prettyNum(as.integer(F.stat))`. 
+So our instruments are "good".
+And we have "results".
+Yay!
+
+```{r run_sim, dependson=c("generate_data", "generate_ivs"), cache=TRUE, echo=FALSE, include=FALSE}
+run_simulation <- function(run) {
+    
+    iv.sum <-
+        generate_data() %>%
+        generate_ivs() %>% 
+        ivreg(y ~ X | z_1 + z_2 + z_3, data = .) %>%
+        summary(diagnostics=TRUE)
+    
+    return(
+        tibble(
+            run = run,
+            coeff = iv.sum$coefficients["X", 1],
+            p.value = iv.sum$coefficients["X", 4],
+            Sargan.stat = iv.sum$diagnostics["Sargan", "statistic"],
+            Sargan.p = iv.sum$diagnostics["Sargan", "p-value"],
+            F.stat = iv.sum$diagnostics["Weak instruments", "statistic"],
+            F.p = iv.sum$diagnostics["Weak instruments", "p-value"]))
+}
+```
+
+But here we can simulate this process to see if this pattern is repeated.
+Assuming that $X$ and $\epsilon$ are bivariate-normally distributed with variance $1$, I ran `r prettyNum(k)` simulations and got the following:
+
+```{r sim_and_output, icache=TRUE, dependson=c("run_sim"),include=FALSE, echo=FALSE}
+sim_results <- bind_rows(mclapply(1:k, run_simulation, mc.cores = 8))
+
+coeff <- prettyNum(mean(sim_results$coeff), digits=3)
+sig.percent <- prettyNum(mean(sim_results$p.value < p.cutoff)*100)
+F.stat <- prettyNum(mean(sim_results$F.stat > F.threshold)*100)
+reject.endogeneity <-  prettyNum(mean(sim_results$Sargan.p >= p.cutoff)*100)
+```
+
+- The mean estimated coefficient on $X$ is `r coeff`, which is statistically significant at the
+`r paste0(p.cutoff*100, "\\%")` level `r paste0(sig.percent, "\\%")` of the time. 
+Note that this coefficient is close to $\rho(X, \epsilon) = `r corr`$ , which is to be expected given how our data were generated.
+- Based on a test statistic of `r F.threshold`, which easily exceeds the thresholds suggested by Stock et al. (2002), the null hypothesis of weak instruments is rejected `r paste0(F.stat, "\\%")` of the time. 
+- The test of overidentifying restrictions fails to reject a null hypothesis of valid instruments
+(at the `r paste0(p.cutoff*100, "\\%")` level)
+`r paste0(reject.endogeneity, "\\%")` of the time.
+
+Hooray!
+
+## Appendix: Some code used above
+
+### Code to call libraries and set parameters
+
+```{r, ref.label='setup', eval = FALSE}
+```
+
+```{r, ref.label='set_parameters', eval = FALSE}
+```
+
+### Code to generate data
+
+```{r, ref.label='generate_data', eval = FALSE}
+```
+
+### Code to run the simulation
+
+```{r, ref.label='run_sim', eval = FALSE}
+```
+
+### Code to generate Table 1
+
+```{r, ref.label='table_one_set', eval = FALSE}
+```
