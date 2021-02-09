@@ -1,7 +1,7 @@
 library(dplyr, warn.conflicts = FALSE)
 library(DBI)
 
-pg <- dbConnect(RPostgreSQL::PostgreSQL())
+pg <- dbConnect(RPostgres::Postgres())
 
 rs <- dbExecute(pg, "SET work_mem='10GB'")
 rs <- dbExecute(pg, "SET search_path TO crsp")
